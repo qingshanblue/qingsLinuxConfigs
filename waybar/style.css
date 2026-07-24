@@ -1,0 +1,56 @@
+* {
+text-shadow: none;
+font-family: "Maple Mono NF CN", "Symbols Nerd Font", sans-serif;
+font-size: 18px;
+}
+window#waybar {
+    background-color: transparent;
+}
+
+/* 统一药丸样式 */
+.modules-left, .modules-center, .modules-right {
+    background-color: rgba(18, 18, 18, 0.85);
+    border-radius: 999px; /* 完美的半圆 */
+    margin: 6px 8px;      /* 离屏幕边缘一点距离 */
+    padding: 0 12px;
+}
+tooltip {
+    background-color: rgba(18, 18, 18, 1.0);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+/* 模块间距 */
+#workspaces, #window, #tray, #network, #pulseaudio, #backlight, #battery, #clock {
+margin: 0 8px;
+padding: 4px 0;
+background-color: transparent;
+}
+
+/* 工作区专属样式 */
+#workspaces button {
+padding: 0 8px;
+color: #ffffff;
+border-radius: 999px;
+}
+#workspaces button:hover {
+background-color: rgba(255, 255, 255, 0.2);
+}
+#workspaces button.active {
+background-color: #ffffff;
+color: #000000; /* 激活的工作区黑底白字反色 */
+}
+#workspaces button.urgent {
+color: #eb4d4b;
+}
+
+/* 右侧模块颜色 */
+#clock { color: #eefff1; }
+#tray { color: transparent; }
+#pulseaudio { color: #a4e4fe; }
+#backlight { color: #FE968B; }
+#battery { color: #FFEAAA; }
+#battery.charging { color: #8fb2c9; }
+#battery.full {color: #98c379; }
+#window { color: #e6f2d6; }
+#network { color: #b0f5e5; }

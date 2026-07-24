@@ -1,0 +1,27 @@
+# .gitignore
+# White List
+* 
+!*/
+
+# Manager
+!.gitignore
+!qingsConfig.sh
+
+# Default Application
+!mimeapps.list
+
+# Configs
+# hyprland
+!hypr/**
+# kitty
+!kitty/**
+# mako
+!mako/**
+# waybar
+!waybar/**
+# zsh
+!zsh/**
+zsh/.histfile
+zsh/.zcompdump
+# starship
+!starship.toml
