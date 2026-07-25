@@ -1,4 +1,7 @@
 [Added Associations]
+application/zip=ark.desktop;
+text/plain=code.desktop;
 
 [Default Applications]
+application/zip=ark.desktop;
 text/plain=code.desktop;
