@@ -8,7 +8,8 @@
     // 配置显示的模块
     "modules-left": [
         "hyprland/workspaces",
-        "hyprland/window"
+        "hyprland/window",
+        "wlr/taskbar"
     ],
     "modules-center": [
         "clock"
@@ -20,6 +21,14 @@
         "battery"
     ],
     // 模块具体配置
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 24,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": ["wofi", "tofi"]
+    },
     "hyprland/workspaces": {
         "format": "{icon}",
         "on-click": "activate",

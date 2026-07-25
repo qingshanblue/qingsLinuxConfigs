@@ -1,52 +1,58 @@
 * {
-text-shadow: none;
-font-family: "Maple Mono NF CN", "Symbols Nerd Font", sans-serif;
-font-size: 18px;
+    border: none;
+    border-radius: 0;
+    text-shadow: none;
+    font-family: "Maple Mono NF CN", "Symbols Nerd Font", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
 }
 window#waybar {
     background-color: transparent;
 }
-
-/* 统一药丸样式 */
 .modules-left, .modules-center, .modules-right {
-    background-color: rgba(18, 18, 18, 0.85);
-    border-radius: 999px; /* 完美的半圆 */
-    margin: 6px 8px;      /* 离屏幕边缘一点距离 */
-    padding: 0 12px;
+    background-color: rgba(18, 18, 18, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    margin: 8px 12px;
+    padding: 2px 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 tooltip {
     background-color: rgba(18, 18, 18, 1.0);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
 }
-
-/* 模块间距 */
-#workspaces, #window, #tray, #network, #pulseaudio, #backlight, #battery, #clock {
-margin: 0 8px;
-padding: 4px 0;
-background-color: transparent;
+tooltip label {
+    color: #ffffff;
 }
 
-/* 工作区专属样式 */
+#workspaces, #window, #tray, #network, #pulseaudio, #backlight, #battery, #clock {
+    margin: 0 6px;
+    padding: 4px 0;
+    background-color: transparent;
+}
 #workspaces button {
-padding: 0 8px;
-color: #ffffff;
-border-radius: 999px;
+    padding: 0 10px;
+    color: #ffffff;
+    border-radius: 999px;
+    transition: all 0.3s ease;
 }
 #workspaces button:hover {
-background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 #workspaces button.active {
-background-color: #ffffff;
-color: #000000; /* 激活的工作区黑底白字反色 */
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 }
 #workspaces button.urgent {
-color: #eb4d4b;
+    color: #eb4d4b;
+    background-color: rgba(235, 77, 75, 0.2);
 }
 
-/* 右侧模块颜色 */
+/* 5. 各模块颜色微调 */
 #clock { color: #eefff1; }
-#tray { color: transparent; }
+#tray { color: #e0e0e0; }
 #pulseaudio { color: #a4e4fe; }
 #backlight { color: #FE968B; }
 #battery { color: #FFEAAA; }

@@ -12,7 +12,7 @@ hl.monitor({
 })
 hl.monitor({
     output   = "HDMI-A-1",
-    mode     = "highrr",
+    mode     = "preferred",
     position = "auto",
     scale    = "auto",
     mirror   = "eDP-1"
@@ -36,8 +36,8 @@ local menu        = "hyprlauncher"
 hl.on("hyprland.start", function()
     hl.exec_cmd("waybar & hyprpaper & wl-copy")
     hl.exec_cmd("singboxUi")
+    hl.exec_cmd("aria2c --enable-rpc --rpc-secret '#8fb2c9' -D")    -- aria2 rpc service
 end)
-
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------
