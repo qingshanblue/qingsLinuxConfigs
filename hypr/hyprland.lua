@@ -1,8 +1,7 @@
---qings hyprland.lua
+-- qings hyprland.lua
 ------------------
 ---- MONITORS ----
 ------------------
-
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
     output   = "eDP-1",
@@ -21,7 +20,6 @@ hl.monitor({
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
-
 -- Set programs that you use
 local terminal    = "kitty"
 local fileManager = "dolphin"
@@ -30,41 +28,38 @@ local menu        = "anyrun"
 -------------------
 ---- AUTOSTART ----
 -------------------
-
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
-
 hl.on("hyprland.start", function()
     hl.exec_cmd("waybar & hyprpaper & wl-copy")
     hl.exec_cmd("singboxUi")
     hl.exec_cmd("aria2c --enable-rpc --rpc-secret '#8fb2c9' -D")    -- aria2 rpc service
 end)
+
+
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------
-
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
-
-hl.env("XCURSOR_SIZE", "24")
-hl.env("HYPRCURSOR_SIZE", "24")
-
--- qings
-hl.env("LANG", "zh_CN.UTF-8")
-hl.env("XMODIFIERS", "@im=fcitx")
+hl.env("LANG", "zh_CN.UTF-8")   -- 设置GUI为中文
+hl.env("XMODIFIERS", "@im=fcitx")   -- 设置输入法
 hl.env("GTK_IM_MODULE", "fcitx")
 hl.env("QT_IM_MODULE", "fcitx")
+-- hl.env("GTK_THEME", "Adwaita:dark")  -- 设置深色主题
+-- hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
 
--- hl.config({
---   xwayland = {
---     force_zero_scaling = true
---   }
--- })
--- hl.env("GDK_SCALE", "1.5")
+hl.config({ -- 修复xWayland应用缩放模糊
+  xwayland = {
+    force_zero_scaling = true
+  }
+})
+hl.env("GDK_SCALE", "2")
 -- hl.env("QT_SCALE_FACTOR", "1.5")
+hl.env("XCURSOR_SIZE", "24")
+hl.env("HYPRCURSOR_SIZE", "24")
 
 -----------------------
 ----- PERMISSIONS -----
 -----------------------
-
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Permissions/
 -- Please note permission changes here require a Hyprland restart and are not applied on-the-fly
 -- for security reasons3
@@ -83,7 +78,6 @@ hl.env("QT_IM_MODULE", "fcitx")
 -----------------------
 ---- LOOK AND FEEL ----
 -----------------------
-
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
     general = {
@@ -319,7 +313,6 @@ hl.bind(mainMod .. "+SHIFT" .. "+D", hl.dsp.exec_cmd("hyprshot -m output -c"))
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
-
 -- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/
 -- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 
