@@ -22,7 +22,7 @@ hl.monitor({
 ---------------------
 -- Set programs that you use
 local terminal    = "kitty"
-local fileManager = "dolphin"
+local fileManager = "kitty yazi"
 local menu        = "anyrun"
 
 -------------------
@@ -32,7 +32,8 @@ local menu        = "anyrun"
 hl.on("hyprland.start", function()
     hl.exec_cmd("waybar & hyprpaper & wl-copy")
     hl.exec_cmd("singboxUi")
-    hl.exec_cmd("aria2c --enable-rpc --rpc-secret '#8fb2c9' -D")    -- aria2 rpc service
+    hl.exec_cmd("sunshine")
+    hl.exec_cmd("aria2c --enable-rpc --rpc-secret '#8fb2c9' -D") -- aria2 rpc service
 end)
 
 
@@ -40,20 +41,20 @@ end)
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
-hl.env("LANG", "zh_CN.UTF-8")   -- 设置GUI为中文
-hl.env("XMODIFIERS", "@im=fcitx")   -- 设置输入法
+hl.env("LANG", "zh_CN.UTF-8")     -- 设置GUI为中文
+hl.env("XMODIFIERS", "@im=fcitx") -- 设置输入法
 hl.env("GTK_IM_MODULE", "fcitx")
 hl.env("QT_IM_MODULE", "fcitx")
--- hl.env("GTK_THEME", "Adwaita:dark")  -- 设置深色主题
--- hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
+hl.env("GTK_THEME", "Adwaita:dark") -- 设置深色主题
+hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
 
 hl.config({ -- 修复xWayland应用缩放模糊
-  xwayland = {
-    force_zero_scaling = true
-  }
+    xwayland = {
+        force_zero_scaling = true
+    }
 })
 hl.env("GDK_SCALE", "2")
--- hl.env("QT_SCALE_FACTOR", "1.5")
+hl.env("QT_SCALE_FACTOR", "1.6")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 
@@ -220,10 +221,11 @@ hl.config({
 
         follow_mouse = 1,
 
-        sensitivity  = 0, -- -1.0 - 1.0, 0 means no modification.
+        sensitivity  = -0.2, -- -1.0 - 1.0, 0 means no modification.
 
         touchpad     = {
             natural_scroll = false,
+            scroll_factor = 0.6
         },
     },
 })
@@ -249,8 +251,8 @@ hl.device({
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
-local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
+hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M",
     hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
@@ -305,10 +307,14 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tru
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
 -- qings
-hl.bind(mainMod .. "+SHIFT" .. "+A", hl.dsp.exec_cmd("hyprshot -m region -c"))
-hl.bind(mainMod .. "+SHIFT" .. "+W", hl.dsp.exec_cmd("hyprshot -m window -c"))
-hl.bind(mainMod .. "+SHIFT" .. "+D", hl.dsp.exec_cmd("hyprshot -m output -c"))
-
+-- Hyprshot
+hl.bind(mainMod .. "+SHIFT" .. "+A", hl.dsp.exec_cmd("hyprshot -m region -c"))          -- 区域截图
+hl.bind(mainMod .. "+SHIFT" .. "+W", hl.dsp.exec_cmd("hyprshot -m window -c"))          -- 窗口截图
+hl.bind(mainMod .. "+SHIFT" .. "+D", hl.dsp.exec_cmd("hyprshot -m output -c"))          -- 显示器截图
+-- OBS
+hl.bind(mainMod .. "+F10", hl.dsp.pass({ window = "class:^(com.obsproject.Studio)$" })) -- 暂停/恢复录制
+hl.bind(mainMod .. "+F11", hl.dsp.pass({ window = "class:^(com.obsproject.Studio)$" })) -- 开始录制
+hl.bind(mainMod .. "+F12", hl.dsp.pass({ window = "class:^(com.obsproject.Studio)$" })) -- 停止录制
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
@@ -350,11 +356,78 @@ hl.window_rule({
 -- })
 -- overlayLayerRule:set_enabled(false)
 
--- Hyprland-run windowrule
-hl.window_rule({
+hl.window_rule({ -- Hyprland-run windowrule
     name  = "move-hyprland-run",
     match = { class = "hyprland-run" },
 
     move  = "20 monitor_h-120",
     float = true,
+})
+hl.window_rule({ -- Kitty
+    name = "kitty-wait-load",
+    match = {
+        class = "kitty"
+    },
+    no_close_for = 200
+})
+hl.window_rule({ -- Mission Center
+    name   = "mission_center-float",
+    match  = {
+        class = "io.missioncenter.MissionCenter"
+    },
+    float  = true,
+    center = true,
+    size = "monitor_w*0.75 monitor_h*0.75"
+})
+hl.window_rule({ -- Swayimg
+    name   = "swayimg-float",
+    match  = {
+        class = "swayimg",
+    },
+    float  = true,
+    center = true,
+})
+hl.window_rule({ -- Celluloid
+    name   = "Celluloid-float",
+    match  = {
+        class = "io.github.celluloid_player.Celluloid",
+    },
+    float  = true,
+    center = true,
+})
+hl.window_rule({ -- Steam
+    name = "steam-subwindows-float",
+    match = {
+        class = "steam",
+        title = "negative:^steam$"
+    },
+    float = true,
+    center = true
+})
+hl.window_rule({ -- Telegram
+    name   = "telegram-subwindows-float",
+    match  = {
+        class = "org.telegram.desktop",
+        title = "negative:^Telegram$"
+    },
+    float  = true,
+    center = true,
+})
+hl.window_rule({ -- Wechat
+    name   = "wechat-subwindows-float",
+    match  = {
+        class = "wechat",
+        title = "negative:^微信$"
+    },
+    float  = true,
+    center = true,
+})
+hl.window_rule({ -- QQ
+    name   = "qq-subwindows-float",
+    match  = {
+        class = "QQ",
+        title = "negative:^QQ$"
+    },
+    float  = true,
+    center = true,
 })

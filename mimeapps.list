@@ -1,7 +1,9 @@
 [Added Associations]
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice.desktop;
 application/zip=ark-2.desktop;ark.desktop;
 text/plain=code.desktop;
 
 [Default Applications]
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice.desktop;
 application/zip=ark-2.desktop;
 text/plain=code.desktop;

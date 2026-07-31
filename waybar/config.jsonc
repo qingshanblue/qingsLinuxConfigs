@@ -3,7 +3,7 @@
     // 整体配置
     "layer": "top",
     "position": "top",
-    "height": 50,
+    "height": 55,
     "spacing": 0,
     // 配置显示的模块
     "modules-left": [
