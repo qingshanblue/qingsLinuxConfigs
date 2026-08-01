@@ -1,3 +1,6 @@
+/* qings waybar css */
+
+/* === 全局重置与基础设定 === */
 * {
     border: none;
     border-radius: 0;
@@ -6,10 +9,15 @@
     font-size: 18px;
     font-weight: 500;
 }
+
 window#waybar {
     background-color: transparent;
 }
-.modules-left, .modules-center, .modules-right {
+
+/* === 药丸容器布局 === */
+.modules-left, 
+.modules-center, 
+.modules-right {
     background-color: rgba(18, 18, 18, 0.75);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 999px;
@@ -17,46 +25,77 @@ window#waybar {
     padding: 2px 14px;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
+
+/* === 提示框样式 === */
 tooltip {
     background-color: rgba(18, 18, 18, 1.0);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
 }
+
 tooltip label {
     color: #ffffff;
 }
 
-#workspaces, #window, #tray, #network, #pulseaudio, #backlight, #battery, #clock {
+/* === 通用模块间距 === */
+#workspaces, 
+#window, 
+#tray, 
+#network, 
+#pulseaudio, 
+#backlight, 
+#battery, 
+#clock, 
+#custom-notification {
     margin: 0 6px;
     padding: 4px 0;
     background-color: transparent;
 }
+
+/* === 工作区专属样式 === */
 #workspaces button {
     padding: 0 10px;
     color: #ffffff;
     border-radius: 999px;
     transition: all 0.3s ease;
 }
+
 #workspaces button:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
+
 #workspaces button.active {
     background-color: #ffffff;
     color: #000000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 }
+
 #workspaces button.urgent {
     color: #eb4d4b;
     background-color: rgba(235, 77, 75, 0.2);
 }
 
-/* 5. 各模块颜色微调 */
-#clock { color: #eefff1; }
-#tray { color: #e0e0e0; }
-#pulseaudio { color: #a4e4fe; }
-#backlight { color: #FE968B; }
-#battery { color: #FFEAAA; }
-#battery.charging { color: #8fb2c9; }
-#battery.full {color: #98c379; }
-#window { color: #e6f2d6; }
-#network { color: #b0f5e5; }
+/* === 各模块颜色微调 === */
+#clock               { color: #eefff1; }
+#tray                { color: #e0e0e0; }
+#pulseaudio          { color: #a4e4fe; }
+#backlight           { color: #FE968B; }
+#battery             { color: #FFEAAA; }
+#battery.charging    { color: #8fb2c9; }
+#battery.full        { color: #98c379; }
+#window              { color: #e6f2d6; }
+#network             { color: #b0f5e5; }
+
+/* === 通知模块样式 === */
+#custom-notification {
+    color: #b0f5e5; /* 淡青色，和 network 模块一致 */
+}
+
+#custom-notification.notification {
+    color: #eb4d4b; /* 有未读通知时变红 */
+    animation: spin 0.5s linear infinite; /* 轻微动画提示 */
+}
+
+#custom-notification.dnd-none {
+    color: #8fb2c9; /* 勿扰模式灰蓝色 */
+}

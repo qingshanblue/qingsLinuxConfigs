@@ -1,11 +1,14 @@
+// qings waybar config
 // -*- mode: jsonc -*-
+
 {
-    // 整体配置
+    // === 全局基础配置 ===
     "layer": "top",
     "position": "top",
     "height": 55,
     "spacing": 0,
-    // 配置显示的模块
+
+    // === 模块布局 ===
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/window",
@@ -18,17 +21,11 @@
         "tray",
         "pulseaudio",
         "backlight",
-        "battery"
+        "battery",
+        "custom/notification"
     ],
-    // 模块具体配置
-    "wlr/taskbar": {
-        "format": "{icon}",
-        "icon-size": 24,
-        "tooltip-format": "{title}",
-        "on-click": "activate",
-        "on-click-middle": "close",
-        "ignore-list": ["wofi", "tofi"]
-    },
+
+    // === 左侧模块配置 ===
     "hyprland/workspaces": {
         "format": "{icon}",
         "on-click": "activate",
@@ -47,16 +44,34 @@
             "empty": ""
         }
     },
+    "hyprland/window": {
+        // 保持默认即可，此处留空以使用全局样式
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 24,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": [
+            "wofi",
+            "tofi"
+        ]
+    },
+
+    // === 中间模块配置 ===
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
     },
+
+    // === 右侧模块配置 ===
     "tray": {
         "icon-size": 20,
         "spacing": 10,
         "icons": {
-           "blueman": "bluetooth",
-           "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+            "blueman": "bluetooth",
+            "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
         }
     },
     "pulseaudio": {
@@ -73,13 +88,27 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": [
+                "",
+                "",
+                ""
+            ]
         },
         "on-click": "pavucontrol"
     },
     "backlight": {
         "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
     },
     "battery": {
         "states": {
@@ -92,6 +121,33 @@
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+
+    // === 自定义模块配置 ===
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "󰂚",
+            "none": "󰂞",
+            "dnd-notification": "󰂛",
+            "dnd-none": "󰂛",
+            "inhibited-notification": "󰂚",
+            "inhibited-none": "󰂞",
+            "dnd-inhibited-notification": "󰂛",
+            "dnd-inhibited-none": "󰂛"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client --subscribe-waybar",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw"
     }
 }

@@ -10,11 +10,11 @@ hl.monitor({
     scale    = "auto",
 })
 hl.monitor({
-    output   = "HDMI-A-1",
-    mode     = "preferred",
-    position = "auto",
-    scale    = "auto",
-    mirror   = "eDP-1"
+    output = "HDMI-A-1",
+    mirror = "eDP-1",
+    -- mode     = "preferred",
+    -- position = "auto",
+    -- scale    = "auto",
 })
 
 ---------------------
@@ -24,13 +24,21 @@ hl.monitor({
 local terminal    = "kitty"
 local fileManager = "kitty yazi"
 local menu        = "anyrun"
+local browser     = "com.google.Chrome"
+local imageViewr  = "swayimg"
+local videoViewr  = "Celluloid"
+local notifier    = "swaync"
+local coder       = "code-oss"
 
 -------------------
 ---- AUTOSTART ----
 -------------------
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
 hl.on("hyprland.start", function()
-    hl.exec_cmd("waybar & hyprpaper & wl-copy")
+    hl.exec_cmd("waybar")
+    hl.exec_cmd("hyprpaper")
+    hl.exec_cmd("wl-copy")
+    -- hl.exec_cmd(notifier)s
     hl.exec_cmd("singboxUi")
     hl.exec_cmd("sunshine")
     hl.exec_cmd("aria2c --enable-rpc --rpc-secret '#8fb2c9' -D") -- aria2 rpc service
@@ -251,16 +259,17 @@ hl.device({
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M",
     hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
+hl.bind(mainMod .. "+B", hl.dsp.exec_cmd(browser))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
@@ -315,6 +324,10 @@ hl.bind(mainMod .. "+SHIFT" .. "+D", hl.dsp.exec_cmd("hyprshot -m output -c"))  
 hl.bind(mainMod .. "+F10", hl.dsp.pass({ window = "class:^(com.obsproject.Studio)$" })) -- 暂停/恢复录制
 hl.bind(mainMod .. "+F11", hl.dsp.pass({ window = "class:^(com.obsproject.Studio)$" })) -- 开始录制
 hl.bind(mainMod .. "+F12", hl.dsp.pass({ window = "class:^(com.obsproject.Studio)$" })) -- 停止录制
+-- Mission center
+hl.bind(mainMod .. "+ESCAPE", hl.dsp.exec_cmd("missioncenter"))
+-- Code-OSS
+hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(coder))
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
@@ -363,10 +376,46 @@ hl.window_rule({ -- Hyprland-run windowrule
     move  = "20 monitor_h-120",
     float = true,
 })
-hl.window_rule({ -- Kitty
-    name = "kitty-wait-load",
+hl.window_rule({ -- Network Manager
+    name   = "network_manager-float",
+    match  = {
+        class = "nm-connection-editor"
+    },
+    float  = true,
+    center = true,
+    size   = "monitor_w*0.3 monitor_h*0.6"
+})
+hl.window_rule({ -- Blueman Manager
+    name   = "blueman_manager-float",
+    match  = {
+        class = "blueman-manager"
+    },
+    float  = true,
+    center = true,
+    size   = "monitor_w*0.3 monitor_h*0.6"
+})
+hl.window_rule({ -- Fcitx5 Configurator
+    name   = "fcitx5_configurator-float",
+    match  = {
+        class = "org.fcitx.fcitx5-config-qt"
+    },
+    float  = true,
+    center = true,
+    size   = "monitor_w*0.3 monitor_h*0.6"
+})
+hl.window_rule({ -- Pavucontrol
+    name   = "pavucontrol-float",
+    match  = {
+        class = "org.pulseaudio.pavucontrol"
+    },
+    float  = true,
+    center = true,
+    size   = "monitor_w*0.3 monitor_h*0.6"
+})
+hl.window_rule({ -- Terminal
+    name = "terminal-wait-load",
     match = {
-        class = "kitty"
+        class = "^.*(?i)" .. terminal .. ".*$"
     },
     no_close_for = 200
 })
@@ -377,20 +426,20 @@ hl.window_rule({ -- Mission Center
     },
     float  = true,
     center = true,
-    size = "monitor_w*0.75 monitor_h*0.75"
+    size   = "monitor_w*0.75 monitor_h*0.75"
 })
-hl.window_rule({ -- Swayimg
-    name   = "swayimg-float",
+hl.window_rule({ -- ImageViewr
+    name   = "imageViewr-float",
     match  = {
-        class = "swayimg",
+        class = "^.*(?i)" .. imageViewr .. ".*$",
     },
     float  = true,
     center = true,
 })
-hl.window_rule({ -- Celluloid
-    name   = "Celluloid-float",
+hl.window_rule({ -- VideoViewr
+    name   = "videoViewr-float",
     match  = {
-        class = "io.github.celluloid_player.Celluloid",
+        class = "^.*(?i)" .. videoViewr .. ".*$",
     },
     float  = true,
     center = true,
@@ -399,7 +448,7 @@ hl.window_rule({ -- Steam
     name = "steam-subwindows-float",
     match = {
         class = "steam",
-        title = "negative:^steam$"
+        title = "negative:^Steam$"
     },
     float = true,
     center = true
