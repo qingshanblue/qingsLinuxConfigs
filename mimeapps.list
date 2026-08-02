@@ -7,3 +7,4 @@ text/plain=code.desktop;
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice.desktop;
 application/zip=ark-2.desktop;
 text/plain=code.desktop;
+x-scheme-handler/discord-1216669957799018608=discord-1216669957799018608.desktop

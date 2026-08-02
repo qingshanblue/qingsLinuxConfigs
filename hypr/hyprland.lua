@@ -38,7 +38,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("waybar")
     hl.exec_cmd("hyprpaper")
     hl.exec_cmd("wl-copy")
-    -- hl.exec_cmd(notifier)s
+    -- hl.exec_cmd(notifier)
     hl.exec_cmd("singboxUi")
     hl.exec_cmd("sunshine")
     hl.exec_cmd("aria2c --enable-rpc --rpc-secret '#8fb2c9' -D") -- aria2 rpc service
@@ -229,11 +229,11 @@ hl.config({
 
         follow_mouse = 1,
 
-        sensitivity  = -0.2, -- -1.0 - 1.0, 0 means no modification.
+        sensitivity  = -0.15, -- -1.0 - 1.0, 0 means no modification.
 
         touchpad     = {
-            natural_scroll = false,
-            scroll_factor = 0.6
+            natural_scroll = true,
+            scroll_factor = 0.5
         },
     },
 })
@@ -269,7 +269,7 @@ hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
-hl.bind(mainMod .. "+B", hl.dsp.exec_cmd(browser))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
