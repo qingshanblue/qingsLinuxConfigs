@@ -42,7 +42,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("singboxUi")
     hl.exec_cmd("sunshine")
     hl.exec_cmd("aria2c --enable-rpc -x 16 --split=16 -d ~/Downloads -D") -- aria2 rpc service
-    
 end)
 
 
@@ -50,10 +49,6 @@ end)
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
-hl.env("LANG", "zh_CN.UTF-8")     -- 设置GUI为中文
-hl.env("XMODIFIERS", "@im=fcitx") -- 设置输入法
-hl.env("GTK_IM_MODULE", "fcitx")
-hl.env("QT_IM_MODULE", "fcitx")
 hl.env("GTK_THEME", "Adwaita:dark") -- 设置深色主题
 hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
 

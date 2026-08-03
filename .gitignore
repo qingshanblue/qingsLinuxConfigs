@@ -11,12 +11,12 @@
 !mimeapps.list
 
 # Configs
+# systemd
+!environment.d/**
 # hyprland
 !hypr/**
 # kitty
 !kitty/**
-# mako
-!mako/**
 # waybar
 !waybar/**
 # zsh
