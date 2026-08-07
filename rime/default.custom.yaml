@@ -1,0 +1,7 @@
+patch:
+  # 引入雾凇拼音的默认预设（包含词库、标点等）
+  __include: rime_ice_suggestion:/
+  
+  schema_list:
+    - schema: double_pinyin_flypy  # 小鹤双拼
+    

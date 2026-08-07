@@ -22,13 +22,14 @@ hl.monitor({
 ---------------------
 -- Set programs that you use
 local terminal    = "kitty"
-local fileManager = "kitty yazi"
+local fileManager = "nemo"
 local menu        = "anyrun"
 local browser     = "com.google.Chrome"
 local imageViewr  = "swayimg"
 local videoViewr  = "Celluloid"
 local notifier    = "swaync"
 local coder       = "code-oss"
+local archiver    = "xarchiver"
 
 -------------------
 ---- AUTOSTART ----
@@ -436,6 +437,22 @@ hl.window_rule({ -- VideoViewr
     name   = "videoViewr-float",
     match  = {
         class = "^.*(?i)" .. videoViewr .. ".*$",
+    },
+    float  = true,
+    center = true,
+})
+hl.window_rule({ -- FileManager
+    name   = "fileManager-float",
+    match  = {
+        class = "^.*(?i)" .. fileManager .. ".*$",
+    },
+    float  = true,
+    center = true,
+})
+hl.window_rule({ -- Archiver
+    name   = "archiver-float",
+    match  = {
+        class = "^.*(?i)" .. archiver .. ".*$",
     },
     float  = true,
     center = true,

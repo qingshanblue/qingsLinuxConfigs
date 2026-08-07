@@ -10,7 +10,7 @@
 # Default Application
 !mimeapps.list
 
-# Configs
+# ConfigsR
 # systemd
 !environment.d/**
 # hyprland
@@ -25,3 +25,5 @@ zsh/.histfile
 zsh/.zcompdump
 # starship
 !starship.toml
+# Fcitx5 Rime
+!rime/**

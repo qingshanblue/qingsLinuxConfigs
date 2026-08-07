@@ -1,10 +1,17 @@
 [Added Associations]
-application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice.desktop;
+application/json=code-3.desktop;code-2.desktop;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-2.desktop;libreoffice.desktop;
 application/zip=ark-2.desktop;ark.desktop;
 text/plain=code.desktop;
 
 [Default Applications]
-application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice.desktop;
+application/json=code-3.desktop;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-2.desktop;
 application/zip=ark-2.desktop;
 text/plain=code.desktop;
 x-scheme-handler/discord-1216669957799018608=discord-1216669957799018608.desktop
+text/html=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
