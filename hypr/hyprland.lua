@@ -28,7 +28,7 @@ local browser     = "com.google.Chrome"
 local imageViewr  = "swayimg"
 local videoViewr  = "Celluloid"
 local notifier    = "swaync"
-local coder       = "code-oss"
+local coder       = "code"
 local archiver    = "xarchiver"
 
 -------------------
@@ -50,9 +50,11 @@ end)
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
+hl.env("XMODIFIERS", "@im=fcitx")   -- 修复输入法
+hl.env("GTK_IM_MODULE", "fcitx")
+hl.env("QT_IM_MODULE", "fcitx")
 hl.env("GTK_THEME", "Adwaita:dark") -- 设置深色主题
 hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
-
 hl.config({ -- 修复xWayland应用缩放模糊
     xwayland = {
         force_zero_scaling = true
