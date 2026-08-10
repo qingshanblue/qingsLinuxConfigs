@@ -27,3 +27,5 @@ zsh/.zcompdump
 !starship.toml
 # Fcitx5 Rime
 !rime/**
+# walker
+!walker/**

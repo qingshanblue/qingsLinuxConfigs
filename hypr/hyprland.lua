@@ -23,35 +23,46 @@ hl.monitor({
 -- Set programs that you use
 local terminal    = "kitty"
 local fileManager = "nemo"
-local menu        = "anyrun"
-local browser     = "com.google.Chrome"
+local menu        = "walker"
+local browser     = "google-chrome-stable"
 local imageViewr  = "swayimg"
 local videoViewr  = "Celluloid"
 local notifier    = "swaync"
 local coder       = "code"
 local archiver    = "xarchiver"
+local clipboard   = "wl-clipboard"
+local statusBar   = "waybar"
+local wallpaper   = "hyprpaper"
 
 -------------------
 ---- AUTOSTART ----
 -------------------
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
 hl.on("hyprland.start", function()
-    hl.exec_cmd("waybar")
-    hl.exec_cmd("hyprpaper")
-    hl.exec_cmd("wl-copy")
+    -- hl.exec_cmd(statusBar)
+    hl.exec_cmd(wallpaper)
+    hl.exec_cmd(clipboard)
+    -- 1. 监听文本并存入 cliphist
+    hl.exec_cmd("wl-paste --type text --watch cliphist store")
+    -- 2. 监听图片并存入 cliphist（预览图片必须开启此项）
+    hl.exec_cmd("wl-paste --type image --watch cliphist store")
+    hl.exec_cmd("walker --gapplication-service")
     -- hl.exec_cmd(notifier)
     hl.exec_cmd("singboxUi")
     hl.exec_cmd("sunshine")
     hl.exec_cmd("aria2c --enable-rpc -x 16 --split=16 -d ~/Downloads -D") -- aria2 rpc service
 end)
-
+-- -- 实时监听并缓存文本)
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
+hl.env("EDITOR", "nvim")    -- 编辑器
+hl.env("LANG", "zh_CN.UTF-8") -- 语言
+hl.env("LC_ALL", "zh_CN.UTF-8")
 hl.env("XMODIFIERS", "@im=fcitx")   -- 修复输入法
-hl.env("GTK_IM_MODULE", "fcitx")
+-- hl.env("GTK_IM_MODULE", "fcitx")
 hl.env("QT_IM_MODULE", "fcitx")
 hl.env("GTK_THEME", "Adwaita:dark") -- 设置深色主题
 hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
@@ -64,6 +75,12 @@ hl.env("GDK_SCALE", "2")
 hl.env("QT_SCALE_FACTOR", "1.6")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+-- 代理
+local proxy_host="127.0.0.1:20122"
+hl.env("http_proxy", "http://"..proxy_host)
+hl.env("https_proxy", "http://"..proxy_host)
+hl.env("all_proxy", "socks5://"..proxy_host)
+hl.env("no_proxy", "localhost,127.0.0.1,::1")
 
 -----------------------
 ----- PERMISSIONS -----
@@ -327,7 +344,8 @@ hl.bind(mainMod .. "+F12", hl.dsp.pass({ window = "class:^(com.obsproject.Studio
 hl.bind(mainMod .. "+ESCAPE", hl.dsp.exec_cmd("missioncenter"))
 -- Code-OSS
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(coder))
-
+-- 绑定 Super + V 唤起剪贴板历史
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("walker -m clipboard"))
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
