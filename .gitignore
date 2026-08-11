@@ -1,10 +1,11 @@
 # .gitignore
 # White List
-* 
+*
 !*/
 
 # Manager
 !.gitignore
+!pkglist.toml
 !qingsConfig.sh
 
 # Default Application
