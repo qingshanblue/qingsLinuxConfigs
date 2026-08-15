@@ -39,20 +39,18 @@ local wallpaper   = "hyprpaper"
 -------------------
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
 hl.on("hyprland.start", function()
-    -- hl.exec_cmd(statusBar)
+    hl.exec_cmd(statusBar)
     hl.exec_cmd(wallpaper)
     hl.exec_cmd(clipboard)
-    -- 1. 监听文本并存入 cliphist
-    hl.exec_cmd("wl-paste --type text --watch cliphist store")
-    -- 2. 监听图片并存入 cliphist（预览图片必须开启此项）
-    hl.exec_cmd("wl-paste --type image --watch cliphist store")
     hl.exec_cmd("walker --gapplication-service")
     -- hl.exec_cmd(notifier)
     hl.exec_cmd("singboxUi")
-    hl.exec_cmd("sunshine")
-    hl.exec_cmd("aria2c --enable-rpc -x 16 --split=16 -d ~/Downloads -D") -- aria2 rpc service
+    -- hl.exec_cmd("sunshine")
+    -- hl.exec_cmd("aria2c --enable-rpc -x 16 --split=16 -d ~/Downloads -D") -- aria2 rpc service
+    hl.exec_cmd("elephant &")
+    hl.exec_cmd("systemctl --user start hyprpolkitagent || hyprpolkitagent")
+    hl.exec_cmd("fcitx5 -d --replace")
 end)
--- -- 实时监听并缓存文本)
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
@@ -76,7 +74,8 @@ hl.env("QT_SCALE_FACTOR", "1.6")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 -- 代理
-local proxy_host="127.0.0.1:20122"
+local proxy_host="192.168.6.5:20122"
+-- local proxy_host="127.0.0.1:20122"
 hl.env("http_proxy", "http://"..proxy_host)
 hl.env("https_proxy", "http://"..proxy_host)
 hl.env("all_proxy", "socks5://"..proxy_host)
@@ -243,7 +242,7 @@ hl.config({
         kb_options   = "",
         kb_rules     = "",
 
-        follow_mouse = 1,
+        follow_mouse = 2,
 
         sensitivity  = -0.15, -- -1.0 - 1.0, 0 means no modification.
 

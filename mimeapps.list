@@ -3,6 +3,8 @@ application/json=code-3.desktop;code-2.desktop;
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-2.desktop;libreoffice.desktop;
 application/zip=ark-2.desktop;ark.desktop;
 text/plain=code.desktop;
+x-scheme-handler/tg=org.telegram.desktop.desktop;
+x-scheme-handler/tonsite=org.telegram.desktop.desktop;
 
 [Default Applications]
 application/json=code-3.desktop;
@@ -15,3 +17,5 @@ x-scheme-handler/http=google-chrome.desktop
 x-scheme-handler/https=google-chrome.desktop
 x-scheme-handler/about=google-chrome.desktop
 x-scheme-handler/unknown=google-chrome.desktop
+x-scheme-handler/tg=org.telegram.desktop.desktop
+x-scheme-handler/tonsite=org.telegram.desktop.desktop
