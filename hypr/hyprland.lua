@@ -60,7 +60,7 @@ hl.env("EDITOR", "nvim")    -- 编辑器
 hl.env("LANG", "zh_CN.UTF-8") -- 语言
 hl.env("LC_ALL", "zh_CN.UTF-8")
 hl.env("XMODIFIERS", "@im=fcitx")   -- 修复输入法
--- hl.env("GTK_IM_MODULE", "fcitx")
+hl.env("GTK_IM_MODULE", "fcitx")
 hl.env("QT_IM_MODULE", "fcitx")
 hl.env("GTK_THEME", "Adwaita:dark") -- 设置深色主题
 hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
@@ -74,8 +74,8 @@ hl.env("QT_SCALE_FACTOR", "1.6")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 -- 代理
-local proxy_host="192.168.6.5:20122"
--- local proxy_host="127.0.0.1:20122"
+-- local proxy_host="192.168.6.5:20122"
+local proxy_host="127.0.0.1:20122"
 hl.env("http_proxy", "http://"..proxy_host)
 hl.env("https_proxy", "http://"..proxy_host)
 hl.env("all_proxy", "socks5://"..proxy_host)
@@ -129,7 +129,7 @@ hl.config({
         rounding_power   = 2,
 
         -- Change transparency of focused and unfocused windows
-        active_opacity   = 1,
+        active_opacity   = 1.00,
         inactive_opacity = 0.90,
 
         shadow           = {
