@@ -26,7 +26,11 @@ zsh/.histfile
 zsh/.zcompdump
 # starship
 !starship.toml
-# Fcitx5 Rime
+# Fcitx5
+!fcitx5/**
 !rime/**
 # walker
 !walker/**
+# GTK
+!gtk-3.0/**
+!gtk-4.0/**
