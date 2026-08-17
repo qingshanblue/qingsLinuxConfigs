@@ -1,5 +1,8 @@
 # qingsConfig.sh
 
+# 生成用户目录
+LC_ALL=C xdg-user-dirs-update --force
+
 # 设置 zsshenv
 echo \
 '# ~/.zshenv
@@ -9,7 +12,7 @@ export ZDOTDIR="$HOME/.config/zsh"' \
 echo "已设置zshenv"
 
 # 设置深色主题
-gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 echo "已设置深色主题"
 
 # 设置rime配置文件软链接

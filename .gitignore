@@ -8,6 +8,8 @@
 !pkglist.toml
 !qingsConfig.sh
 
+# user dirs
+!user-dirs.dirs
 # Default Application
 !mimeapps.list
 

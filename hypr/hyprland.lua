@@ -7,7 +7,7 @@ hl.monitor({
     output   = "eDP-1",
     mode     = "highrr",
     position = "auto",
-    scale    = "auto",
+    scale    = "1.6",
 })
 hl.monitor({
     output = "HDMI-A-1",
@@ -29,7 +29,7 @@ local imageViewr  = "swayimg"
 local videoViewr  = "Celluloid"
 local notifier    = "swaync"
 local coder       = "code"
-local archiver    = "xarchiver"
+local archiver    = "ark"
 local clipboard   = "wl-clipboard"
 local statusBar   = "waybar"
 local wallpaper   = "hyprpaper"
@@ -45,8 +45,8 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("walker --gapplication-service")
     -- hl.exec_cmd(notifier)
     hl.exec_cmd("singboxUi")
-    -- hl.exec_cmd("sunshine")
-    -- hl.exec_cmd("aria2c --enable-rpc -x 16 --split=16 -d ~/Downloads -D") -- aria2 rpc service
+    hl.exec_cmd("sunshine")
+    hl.exec_cmd("aria2c --enable-rpc -x 16 --split=16 -d ~/Downloads -D") -- aria2 rpc service
     hl.exec_cmd("elephant &")
     hl.exec_cmd("systemctl --user start hyprpolkitagent || hyprpolkitagent")
     hl.exec_cmd("fcitx5 -d --replace")
@@ -129,8 +129,8 @@ hl.config({
         rounding_power   = 2,
 
         -- Change transparency of focused and unfocused windows
-        active_opacity   = 1.00,
-        inactive_opacity = 0.90,
+        active_opacity   = 0.95,
+        inactive_opacity = 0.85,
 
         shadow           = {
             enabled      = true,
