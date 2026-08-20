@@ -163,10 +163,10 @@ hl.animation({ leaf = "windowsIn",  enabled = true, speed = 3.4, spring = "snapp
 hl.animation({ leaf = "windowsOut", enabled = true, speed = 2.6, bezier = "linear", style = "popin 85%" })
 
 -- 工作区切换改成滑动,fade 换 slide 更有"实体感"
-hl.animation({ leaf = "workspaces", enabled = true, speed = 7,   bezier = "easeOutQuint", style = "slide" })
+-- hl.animation({ leaf = "workspaces", enabled = true, speed = 7,   bezier = "easeOutQuint", style = "slide" })
 
 -- 特殊工作区从底部滑入
-hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 2.5, bezier = "easeOutQuint", style = "slidevert" })
+-- hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 2.5, bezier = "easeOutQuint", style = "slidevert" })
 
 -- ⭐ 渐变边框缓慢流动,配合上面 colors 渐变的 active_border
 hl.animation({ leaf = "borderangle", enabled = true, speed = 30, bezier = "linear", style = "loop" })
@@ -382,7 +382,7 @@ hl.window_rule({
 -- 打开对应界面后运行 hyprctl layers 可查看真实 namespace,按需增删
 hl.layer_rule({
     name  = "frost-layers",
-    match = { namespace = "^(waybar|walker|swaync-control-center|swaync-notification-window|notifications)$" },
+    match = { namespace = "^(walker|swaync-control-center|swaync-notification-window|notifications)$" },
     blur  = true,
 })
 
