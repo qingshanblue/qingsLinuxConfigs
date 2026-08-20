@@ -45,8 +45,8 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("walker --gapplication-service")
     -- hl.exec_cmd(notifier)
     hl.exec_cmd("singboxUi")
-    hl.exec_cmd("sunshine")
-    hl.exec_cmd("aria2c --enable-rpc -x 16 --split=16 -d ~/Downloads -D") -- aria2 rpc service
+    -- hl.exec_cmd("sunshine")
+    -- hl.exec_cmd("aria2c --enable-rpc -x 16 --split=16 -d ~/Downloads -D") -- aria2 rpc service
     hl.exec_cmd("elephant &")
     hl.exec_cmd("systemctl --user start hyprpolkitagent || hyprpolkitagent")
     hl.exec_cmd("fcitx5 -d --replace")
@@ -102,82 +102,76 @@ hl.env("no_proxy", "localhost,127.0.0.1,::1")
 -----------------------
 ---- LOOK AND FEEL ----
 -----------------------
--- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
     general = {
-        gaps_in          = 5,
-        gaps_out         = 10,
+        gaps_in     = 4,
+        gaps_out    = 12,   -- 外围留多点呼吸感,窗口像"悬浮卡片"
 
-        border_size      = 2,
+        border_size = 2,    -- 想让渐变更显眼可以试 3
 
-        col              = {
-            active_border   = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
-            inactive_border = "rgba(595959aa)",
+        col = {
+            -- 三选一,混搭也行:
+            -- A. 冰青(你原来的风格,降饱和更耐看)
+            active_border   = { colors = { "rgba(89dcebee)", "rgba(94e2d5ee)" }, angle = 45 },
+            -- B. Catppuccin 蓝紫(和下面 inactive 灰最搭)
+            -- active_border = { colors = { "rgba(89b4faee)", "rgba(cba6f7ee)" }, angle = 45 },
+            -- C. 樱花粉紫
+            -- active_border = { colors = { "rgba(f5c2e7ee)", "rgba(cba6f7ee)" }, angle = 45 },
+
+            inactive_border = "rgba(45475aaa)",
         },
 
-        -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
         resize_on_border = false,
-
-        -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
         allow_tearing    = false,
-
         layout           = "dwindle",
     },
 
     decoration = {
-        rounding         = 10,
-        rounding_power   = 2,
+        rounding       = 12,
+        rounding_power = 2,
 
-        -- Change transparency of focused and unfocused windows
         active_opacity   = 0.95,
-        inactive_opacity = 0.85,
+        inactive_opacity = 0.80,   -- 拉大聚焦对比
 
-        shadow           = {
+        shadow = {
             enabled      = true,
-            range        = 4,
-            render_power = 3,
-            color        = 0xee1a1a1a,
+            range        = 20,          -- 大而柔的阴影比小硬阴影更有悬浮感
+            render_power = 4,
+            color        = 0xcc1a1a26,  -- 带一点蓝调的黑,更柔和
         },
-        blur             = {
-            enabled  = true,
-            size     = 3,
-            passes   = 1,
-            vibrancy = 0.1696,
+        blur = {
+            enabled    = true,
+            size       = 8,       -- 3→8,模糊才看得出来
+            passes     = 2,       -- 2 遍 + 大 size = 真正的磨砂玻璃
+            vibrancy   = 0.1696,
+            contrast   = 0.8916,  -- 这三个是经典"奶玻璃"配方
+            brightness = 0.8172,
+            noise      = 0.0117,
         },
     },
 
-    animations = {
-        enabled = true,
-    },
+    animations = { enabled = true },
 })
 
--- Default curves and animations, see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
-hl.curve("easeOutQuint", { type = "bezier", points = { { 0.23, 1 }, { 0.32, 1 } } })
-hl.curve("easeInOutCubic", { type = "bezier", points = { { 0.65, 0.05 }, { 0.36, 1 } } })
-hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
-hl.curve("almostLinear", { type = "bezier", points = { { 0.5, 0.5 }, { 0.75, 1 } } })
-hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
+-- 新增两条曲线
+hl.curve("snappy", { type = "spring", mass = 1, stiffness = 230, dampening = 26 })
+hl.curve("bouncy", { type = "spring", mass = 1, stiffness = 300, dampening = 22 })
 
--- Default springs
-hl.curve("easy", { type = "spring", mass = 1, stiffness = 71.2633, dampening = 15.8273644 })
+-- 窗口开合更有生命感(想要更弹就换成 bouncy)
+hl.animation({ leaf = "windows",    enabled = true, speed = 4,   spring = "snappy" })
+hl.animation({ leaf = "windowsIn",  enabled = true, speed = 3.4, spring = "snappy", style = "popin 85%" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 2.6, bezier = "linear", style = "popin 85%" })
 
-hl.animation({ leaf = "global", enabled = true, speed = 10, bezier = "default" })
-hl.animation({ leaf = "border", enabled = true, speed = 5.39, bezier = "easeOutQuint" })
-hl.animation({ leaf = "windows", enabled = true, speed = 4.79, spring = "easy" })
-hl.animation({ leaf = "windowsIn", enabled = true, speed = 4.1, spring = "easy", style = "popin 87%" })
-hl.animation({ leaf = "windowsOut", enabled = true, speed = 1.49, bezier = "linear", style = "popin 87%" })
-hl.animation({ leaf = "fadeIn", enabled = true, speed = 1.73, bezier = "almostLinear" })
-hl.animation({ leaf = "fadeOut", enabled = true, speed = 1.46, bezier = "almostLinear" })
-hl.animation({ leaf = "fade", enabled = true, speed = 3.03, bezier = "quick" })
-hl.animation({ leaf = "layers", enabled = true, speed = 3.81, bezier = "easeOutQuint" })
-hl.animation({ leaf = "layersIn", enabled = true, speed = 4, bezier = "easeOutQuint", style = "fade" })
-hl.animation({ leaf = "layersOut", enabled = true, speed = 1.5, bezier = "linear", style = "fade" })
-hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 1.79, bezier = "almostLinear" })
-hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.39, bezier = "almostLinear" })
-hl.animation({ leaf = "workspaces", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesIn", enabled = true, speed = 1.21, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" })
+-- 工作区切换改成滑动,fade 换 slide 更有"实体感"
+hl.animation({ leaf = "workspaces", enabled = true, speed = 7,   bezier = "easeOutQuint", style = "slide" })
+
+-- 特殊工作区从底部滑入
+hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 2.5, bezier = "easeOutQuint", style = "slidevert" })
+
+-- ⭐ 渐变边框缓慢流动,配合上面 colors 渐变的 active_border
+hl.animation({ leaf = "borderangle", enabled = true, speed = 30, bezier = "linear", style = "loop" })
+
+-- 其余 fadeIn/fadeOut/layers 等保持你现在的默认即可
 
 -- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 -- "Smart gaps" / "No gaps when only"
@@ -305,8 +299,8 @@ hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with mainMod + scroll
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e+1" }))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
@@ -384,6 +378,20 @@ hl.window_rule({
 --     no_anim = true,
 -- })
 -- overlayLayerRule:set_enabled(false)
+-- 毛玻璃图层:bar、启动器、通知中心
+-- 打开对应界面后运行 hyprctl layers 可查看真实 namespace,按需增删
+hl.layer_rule({
+    name  = "frost-layers",
+    match = { namespace = "^(waybar|walker|swaync-control-center|swaync-notification-window|notifications)$" },
+    blur  = true,
+})
+
+-- 特殊工作区做成磨砂玻璃:按 Super+S 时,当前桌面隔着一层雾,很有质感
+hl.window_rule({
+    name    = "special-magic-frost",
+    match   = { workspace = "special:magic" },
+    opacity = 0.9,
+})
 
 hl.window_rule({ -- Hyprland-run windowrule
     name  = "move-hyprland-run",
@@ -433,7 +441,8 @@ hl.window_rule({ -- Terminal
     match = {
         class = "^.*(?i)" .. terminal .. ".*$"
     },
-    no_close_for = 200
+    no_close_for = 200,
+    opacity = 0.85
 })
 hl.window_rule({ -- Mission Center
     name   = "mission_center-float",
@@ -511,4 +520,13 @@ hl.window_rule({ -- QQ
     },
     float  = true,
     center = true,
+})
+hl.window_rule({ -- Motrix Next
+    name   = "motrix-next-float",
+    match  = {
+        initial_class = "motrix-next",
+    },
+    float  = true,
+    center = true,
+    size   = "monitor_w*0.3 monitor_h*0.7"
 })

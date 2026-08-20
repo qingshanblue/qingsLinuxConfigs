@@ -55,7 +55,7 @@ default = [
   "calc",
   # "runner",
   "websearch",
-  "clipboard",
+  # "clipboard",
 ] # providers to be queried by default
 empty = ["desktopapplications"] #  to be queried when query is empty
 ignore_preview = [] # providers that should not show previews

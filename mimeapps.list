@@ -5,6 +5,7 @@ application/zip=ark-2.desktop;ark.desktop;
 text/plain=code.desktop;
 x-scheme-handler/tg=org.telegram.desktop.desktop;
 x-scheme-handler/tonsite=org.telegram.desktop.desktop;
+text/markdown=code.desktop;
 
 [Default Applications]
 application/json=code-3.desktop;
@@ -19,3 +20,7 @@ x-scheme-handler/about=google-chrome.desktop
 x-scheme-handler/unknown=google-chrome.desktop
 x-scheme-handler/tg=org.telegram.desktop.desktop
 x-scheme-handler/tonsite=org.telegram.desktop.desktop
+text/markdown=code.desktop
+x-scheme-handler/magnet=.motrix-next-wrapped-handler.desktop
+x-scheme-handler/thunder=.motrix-next-wrapped-handler.desktop
+x-scheme-handler/motrixnext=.motrix-next-wrapped-handler.desktop

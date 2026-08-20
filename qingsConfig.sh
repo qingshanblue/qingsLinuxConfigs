@@ -13,7 +13,7 @@ echo "已设置zshenv"
 
 # 设置深色主题
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-echo "已设置深色主题"
+echo "已设置深色主题"1
 
 # 设置rime配置文件软链接
 mkdir -p ~/.local/share/fcitx5/rime/
