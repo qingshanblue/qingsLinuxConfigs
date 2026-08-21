@@ -382,7 +382,7 @@ hl.window_rule({
 -- 打开对应界面后运行 hyprctl layers 可查看真实 namespace,按需增删
 hl.layer_rule({
     name  = "frost-layers",
-    match = { namespace = "^(walker|swaync-control-center|swaync-notification-window|notifications)$" },
+    match = { namespace = "^(walker|swaync-control-center|notifications)$" },
     blur  = true,
 })
 
