@@ -19,6 +19,8 @@
     ],
     "modules-right": [
         "tray",
+        "bluetooth",
+        "network",
         "pulseaudio",
         "backlight",
         "battery",
@@ -73,6 +75,27 @@
             "blueman": "bluetooth",
             "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
         }
+    },
+    "bluetooth": {
+        "format": "󰂯",      // 使用 Nerd Font 蓝牙图标
+        "format-connected": "󰂱 {device_alias}",
+        "format-off": "󰂲",   // 关闭状态图标
+        "format-disabled": "󰂲", // 禁用状态图标
+        "on-click": "blueman-manager", // 改回 blueman-manager
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+    },
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-disabled": " Disabled",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}/{cidr}\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+        "tooltip-format-ethernet": "{ifname} \n{ipaddr}/{cidr}\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+        "on-click": "nm-connection-editor", // 点击打开 NetworkManager 设置
+        "on-click-right": "kitty -e nmtui"   // 右键点击打开终端版 nmtui
     },
     "pulseaudio": {
         "format": "{volume}% {icon} {format_source}",

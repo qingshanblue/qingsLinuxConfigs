@@ -38,16 +38,18 @@ tooltip label {
 }
 
 /* === 通用模块间距 === */
+/* 新增 #bluetooth */
 #workspaces, 
 #window, 
 #tray, 
 #network, 
+#bluetooth,      /* <--- 新增 */
 #pulseaudio, 
 #backlight, 
 #battery, 
 #clock, 
 #custom-notification {
-    margin: 0 6px;
+    margin: 0 4px;
     padding: 4px 0;
     background-color: transparent;
 }
@@ -85,6 +87,12 @@ tooltip label {
 #battery.full        { color: #98c379; }
 #window              { color: #e6f2d6; }
 #network             { color: #b0f5e5; }
+#bluetooth           { color: #a4e4fe; } /* <--- 新增：蓝牙默认蓝色 */
+
+/* === 蓝牙状态样式 === */
+#bluetooth.connected { color: #b0f5e5; } /* 已连接设备时变青色，和 network 一致 */
+#bluetooth.off       { color: #6c7086; } /* 蓝牙关闭时变灰 */
+#bluetooth.disabled  { color: #6c7086; } /* 蓝牙禁用时变灰 */
 
 /* === 通知模块样式 === */
 #custom-notification {
