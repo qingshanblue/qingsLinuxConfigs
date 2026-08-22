@@ -49,7 +49,7 @@ tooltip label {
 #battery, 
 #clock, 
 #custom-notification {
-    margin: 0 4px;
+    margin: 0 8px;
     padding: 4px 0;
     background-color: transparent;
 }

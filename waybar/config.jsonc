@@ -52,6 +52,7 @@
     "wlr/taskbar": {
         "format": "{icon}",
         "icon-size": 24,
+        "icon-theme": "Papirus",  // <--- 添加这一行，指定图标主题
         "tooltip-format": "{title}",
         "on-click": "activate",
         "on-click-middle": "close",
@@ -94,8 +95,7 @@
         "format-disabled": " Disabled",
         "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}/{cidr}\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
         "tooltip-format-ethernet": "{ifname} \n{ipaddr}/{cidr}\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
-        "on-click": "nm-connection-editor", // 点击打开 NetworkManager 设置
-        "on-click-right": "kitty -e nmtui"   // 右键点击打开终端版 nmtui
+        "on-click": "kitty -e nmtui"
     },
     "pulseaudio": {
         "format": "{volume}% {icon} {format_source}",
