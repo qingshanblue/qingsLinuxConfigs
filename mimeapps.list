@@ -26,3 +26,4 @@ x-scheme-handler/magnet=.motrix-next-wrapped-handler.desktop
 x-scheme-handler/thunder=.motrix-next-wrapped-handler.desktop
 x-scheme-handler/motrixnext=.motrix-next-wrapped-handler.desktop
 x-scheme-handler/podman-desktop=podman-desktop.desktop
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop

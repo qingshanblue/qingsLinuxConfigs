@@ -50,6 +50,9 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("elephant &")
     hl.exec_cmd("systemctl --user start hyprpolkitagent || hyprpolkitagent")
     hl.exec_cmd("fcitx5 -d --replace")
+    -- 开机自启 pi:静默开在特殊工作区(scratchpad),平时不可见
+    -- 按 Super+S 呼出/隐藏(见下方 keybindings 的 toggle_special("magic"))
+    hl.exec_cmd("[workspace special:magic silent] " .. terminal .. " --title pi pi")
 end)
 
 -------------------------------
@@ -236,7 +239,7 @@ hl.config({
         kb_options   = "",
         kb_rules     = "",
 
-        follow_mouse = 2,
+        follow_mouse = 1,
 
         sensitivity  = -0.15, -- -1.0 - 1.0, 0 means no modification.
 
@@ -299,8 +302,8 @@ hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with mainMod + scroll
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
