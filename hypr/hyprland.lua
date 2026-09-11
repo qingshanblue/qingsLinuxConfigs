@@ -9,19 +9,19 @@ hl.monitor({
     position = "auto",
     scale    = "auto",
 })
-hl.monitor({
-    output   = "eDP-2",
-    mode     = "highrr",
-    position = "auto",
-    scale    = "auto",
-})
-hl.monitor({
-    output = "HDMI-A-1",
-    mirror = "eDP-2",
-    -- mode     = "preferred",
-    -- position = "auto",
-    -- scale    = "auto",
-})
+-- hl.monitor({
+--     output   = "eDP-2",
+--     mode     = "highrr",
+--     position = "auto",
+--     scale    = "auto",
+-- })
+-- hl.monitor({
+--     output = "HDMI-A-1",
+--     mirror = "eDP-2",
+--     -- mode     = "preferred",
+--     -- position = "auto",
+--     -- scale    = "auto",
+-- })
 
 ---------------------
 ---- MY PROGRAMS ----
@@ -66,8 +66,8 @@ end)
 -------------------------------
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 hl.env("EDITOR", "nvim")    -- 编辑器
-hl.env("LANG", "zh_CN.UTF-8") -- 语言
-hl.env("LC_ALL", "zh_CN.UTF-8")
+hl.env("LANG", "zh_SG.UTF-8") -- 语言
+hl.env("LC_ALL", "zh_SG.UTF-8")
 hl.env("XMODIFIERS", "@im=fcitx")   -- 修复输入法
 hl.env("GTK_IM_MODULE", "fcitx")
 hl.env("QT_IM_MODULE", "fcitx")
@@ -134,6 +134,8 @@ hl.config({
         allow_tearing    = false,
         layout           = "dwindle",
     },
+
+    -- 移除了不兼容的 render 块
 
     decoration = {
         rounding       = 12,
@@ -307,6 +309,9 @@ end
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
+-- Lock screen (Windows-like Super + L)
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
@@ -328,7 +333,7 @@ hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
 
 -- Requires playerctl
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
+hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
@@ -444,6 +449,17 @@ hl.window_rule({ -- Pavucontrol
     float  = true,
     center = true,
     size   = "monitor_w*0.3 monitor_h*0.6"
+})
+hl.window_rule({ -- better-conrtol
+    name   = "better-control-float",
+    match  = {
+        initial_title = "Better Control"
+    },
+    float  = true,
+    center = true,
+    size   = "monitor_w*0.3 monitor_h*0.6",
+    -- 恢复为可用的 popin 动画，移除不兼容的 dimaround
+    animation = "popin 85%"
 })
 hl.window_rule({ -- Terminal
     name = "terminal-wait-load",

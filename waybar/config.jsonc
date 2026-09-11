@@ -82,7 +82,7 @@
         "format-connected": "󰂱 {device_alias}",
         "format-off": "󰂲",   // 关闭状态图标
         "format-disabled": "󰂲", // 禁用状态图标
-        "on-click": "blueman-manager", // 改回 blueman-manager
+        "on-click": "better-control -b", // 改回 blueman-manager
         "tooltip-format": "{controller_alias}\t{controller_address}",
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
@@ -95,7 +95,7 @@
         "format-disabled": " Disabled",
         "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}/{cidr}\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
         "tooltip-format-ethernet": "{ifname} \n{ipaddr}/{cidr}\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
-        "on-click": "kitty -e nmtui"
+        "on-click": "better-control -w"
     },
     "pulseaudio": {
         "format": "{volume}% {icon} {format_source}",
@@ -117,7 +117,7 @@
                 ""
             ]
         },
-        "on-click": "pavucontrol"
+        "on-click": "better-control -V"
     },
     "backlight": {
         "format": "{percent}% {icon}",
@@ -131,7 +131,8 @@
             "",
             "",
             ""
-        ]
+        ],
+        "on-click": "better-control -d"
     },
     "battery": {
         "states": {
@@ -150,7 +151,8 @@
             "",
             "",
             ""
-        ]
+        ],
+        "on-click": "better-control -B"
     },
 
     // === 自定义模块配置 ===
