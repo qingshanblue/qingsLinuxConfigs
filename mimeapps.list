@@ -7,6 +7,7 @@ x-scheme-handler/tg=org.telegram.desktop.desktop;
 x-scheme-handler/tonsite=org.telegram.desktop.desktop;
 text/markdown=code.desktop;
 x-scheme-handler/podman-desktop=podman-desktop.desktop;
+x-scheme-handler/lxmusic=lx-music-desktop.desktop;
 
 [Default Applications]
 application/json=code-3.desktop;
@@ -27,3 +28,4 @@ x-scheme-handler/thunder=.motrix-next-wrapped-handler.desktop
 x-scheme-handler/motrixnext=.motrix-next-wrapped-handler.desktop
 x-scheme-handler/podman-desktop=podman-desktop.desktop
 x-scheme-handler/claude-cli=claude-code-url-handler.desktop
+x-scheme-handler/lxmusic=lx-music-desktop.desktop

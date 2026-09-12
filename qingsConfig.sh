@@ -1,22 +1,17 @@
-# qingsConfig.sh
+set -euo pipefail
+echo "=== qingsConfig.sh ==="
 
-# 生成用户目录
-LC_ALL=C xdg-user-dirs-update --force
-
-# 设置 zsshenv
-echo \
-'# ~/.zshenv
-# 设置 Zsh 配置文件的目录
-export ZDOTDIR="$HOME/.config/zsh"' \
-> ~/.zshenv
-echo "已设置zshenv"
-
-# 设置深色主题
+# 基础设置
+xdg-user-dirs-update --force
+echo 'export ZDOTDIR="$HOME/.config/zsh"' > ~/.zshenv
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-echo "已设置深色主题"1
+echo "已设置深色主题"
 
-# 设置rime配置文件软链接
+# 链接 ~/.config/rime/ → ~/.local/share/fcitx5/rime/
+#    这样 rime 直接读取配置目录（包括 default.yaml）
 mkdir -p ~/.local/share/fcitx5/rime/
-rm -f ~/.local/share/fcitx5/rime/default.custom.yaml
+rm -rf ~/.local/share/fcitx5/rime/*
 ln -s ~/.config/rime/default.custom.yaml ~/.local/share/fcitx5/rime/default.custom.yaml
-echo "Rime 配置链接已创建"
+ln -s ~/.config/rime/default.yaml ~/.local/share/fcitx5/rime/default.yaml 2>/dev/null || true
+
+echo "=== done ==="
