@@ -15,13 +15,13 @@ hl.monitor({
 --     position = "auto",
 --     scale    = "auto",
 -- })
--- hl.monitor({
---     output = "HDMI-A-1",
---     mirror = "eDP-2",
---     -- mode     = "preferred",
---     -- position = "auto",
---     -- scale    = "auto",
--- })
+hl.monitor({
+    output = "HDMI-A-1",
+    mirror = "eDP-1",
+    mode     = "preferred",
+    position = "auto",
+    scale    = "auto",
+})
 
 ---------------------
 ---- MY PROGRAMS ----
@@ -51,7 +51,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("walker --gapplication-service")
     -- hl.exec_cmd(notifier)
     hl.exec_cmd("singboxUi")
-    -- hl.exec_cmd("sunshine")
+    hl.exec_cmd("sunshine")
     -- hl.exec_cmd("aria2c --enable-rpc -x 16 --split=16 -d ~/Downloads -D") -- aria2 rpc service
     hl.exec_cmd("elephant &")
     hl.exec_cmd("systemctl --user start hyprpolkitagent || hyprpolkitagent")
@@ -59,6 +59,7 @@ hl.on("hyprland.start", function()
     -- 开机自启 pi:静默开在特殊工作区(scratchpad),平时不可见
     -- 按 Super+S 呼出/隐藏(见下方 keybindings 的 toggle_special("magic"))
     hl.exec_cmd("[workspace special:magic silent] " .. terminal .. " --title pi pi")
+    hl.exec_cmd("hyprlock")
 end)
 
 -------------------------------
@@ -253,7 +254,7 @@ hl.config({
 
         touchpad     = {
             natural_scroll = true,
-            scroll_factor = 0.5
+            scroll_factor = 0.3
         },
     },
 })
