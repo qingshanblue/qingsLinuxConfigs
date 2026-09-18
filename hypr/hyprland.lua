@@ -341,9 +341,9 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 
 -- qings
 -- Hyprshot
-hl.bind(mainMod .. "+SHIFT" .. "+A", hl.dsp.exec_cmd("hyprshot -m region -c"))          -- 区域截图
-hl.bind(mainMod .. "+SHIFT" .. "+W", hl.dsp.exec_cmd("hyprshot -m window -c"))          -- 窗口截图
-hl.bind(mainMod .. "+SHIFT" .. "+D", hl.dsp.exec_cmd("hyprshot -m output -c"))          -- 显示器截图
+hl.bind(mainMod .. "+SHIFT" .. "+A", hl.dsp.exec_cmd("hyprshot -m region -c -o $HOME/Pictures/screenshot"))   -- 区域截图
+hl.bind(mainMod .. "+SHIFT" .. "+W", hl.dsp.exec_cmd("hyprshot -m window -c -o $HOME/Pictures/screenshot"))   -- 窗口截图
+hl.bind(mainMod .. "+SHIFT" .. "+D", hl.dsp.exec_cmd("hyprshot -m output -c -o $HOME/Pictures/screenshot"))   -- 显示器截图
 -- OBS
 hl.bind(mainMod .. "+F10", hl.dsp.pass({ window = "class:^(com.obsproject.Studio)$" })) -- 暂停/恢复录制
 hl.bind(mainMod .. "+F11", hl.dsp.pass({ window = "class:^(com.obsproject.Studio)$" })) -- 开始录制
