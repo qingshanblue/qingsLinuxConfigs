@@ -19,6 +19,7 @@
     ],
     "modules-right": [
         "group/tray",
+        "bluetooth",
         "network",
         "pulseaudio",
         "backlight",
