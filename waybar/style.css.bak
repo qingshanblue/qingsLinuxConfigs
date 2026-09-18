@@ -49,28 +49,9 @@ tooltip label {
 #battery, 
 #clock, 
 #custom-notification {
-    margin: 0 5px;
+    margin: 0 8px;
     padding: 4px 0;
     background-color: transparent;
-}
-
-/* === 托盘抽屉“把手” === */
-#custom-tray-toggle {
-    margin: 0 5px;
-    padding: 4px 0;
-    color: #e0e0e0;
-}
-
-/* === 特殊工作区按钮（触屏加大点击区） === */
-#custom-scratchpad {
-    margin: 0 5px;
-    padding: 8px 10px;
-    color: #89dceb;
-    border-radius: 999px;
-}
-
-#custom-scratchpad:hover {
-    background-color: rgba(255, 255, 255, 0.15);
 }
 
 /* === 工作区专属样式 === */

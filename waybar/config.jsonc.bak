@@ -10,15 +10,16 @@
 
     // === 模块布局 ===
     "modules-left": [
-        "custom/scratchpad",  // 触屏友好：点一下呼出/隐藏 pi 特殊工作区
-        "ext/workspaces",
-        "hyprland/window"
+        "hyprland/workspaces",
+        "hyprland/window",
+        "wlr/taskbar"
     ],
     "modules-center": [
         "clock"
     ],
     "modules-right": [
-        "group/tray",
+        "tray",
+        "bluetooth",
         "network",
         "pulseaudio",
         "backlight",
@@ -27,15 +28,9 @@
     ],
 
     // === 左侧模块配置 ===
-    "ext/workspaces": {
+    "hyprland/workspaces": {
         "format": "{icon}",
-        "on-click": "activate",  // 本模块合法选项：走 ext-workspace 协议激活，不依赖 hyprctl IPC
-        // 排序：sort-by-id 实为创建顺序（Hyprland 不发 id）；sort-by-name 会被 special:magic 毒化成字符串排序（1,10,2）；
-        // Hyprland 把工作区号放在 coordinates 里，按坐标排 = 纯数值 1..9,10
-        "sort-by-name": false,
-        "sort-by-coordinates": true,
-        "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({workspace=\"e-1\"})'",
-        "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({workspace=\"e+1\"})'",
+        "on-click": "activate",
         "format-icons": {
             "1": "1",
             "2": "2",
@@ -51,13 +46,8 @@
             "empty": ""
         }
     },
-    "custom/scratchpad": {
-        "format": "󰁨",  // md-auto_fix (F0068)：魔法棒，呼出/隐藏 special:magic（pi 终端）
-        "tooltip-format": "pi 终端 · special:magic",
-        "on-click": "hyprctl dispatch 'hl.dsp.workspace.toggle_special(\"magic\")'"
-    },
     "hyprland/window": {
-        "max-length": 40  // 超长标题截断，完整标题在悬停提示里
+        // 保持默认即可，此处留空以使用全局样式
     },
     "wlr/taskbar": {
         "format": "{icon}",
@@ -80,30 +70,16 @@
 
     // === 右侧模块配置 ===
     "tray": {
-        "icon-size": 16,
-        "spacing": 5,
+        "icon-size": 20,
+        "spacing": 10,
         "icons": {
             "blueman": "bluetooth",
             "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
         }
     },
-    "group/tray": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 400
-        },
-        "modules": [
-            "custom/tray-toggle",  // 首个模块是常驻“把手”，其余悬停时滑出
-            "tray"
-        ]
-    },
-    "custom/tray-toggle": {
-        "format": "󰅂",  // md-chevron-right (F0142)，与抽屉滑出方向一致
-        "tooltip-format": "后台程序"
-    },
     "bluetooth": {
         "format": "󰂯",      // 使用 Nerd Font 蓝牙图标
-        "format-connected": "󰂱",
+        "format-connected": "󰂱 {device_alias}",
         "format-off": "󰂲",   // 关闭状态图标
         "format-disabled": "󰂲", // 禁用状态图标
         "on-click": "better-control -b", // 改回 blueman-manager
@@ -112,13 +88,7 @@
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
     },
     "network": {
-        "format-wifi": "{icon} {signalStrength}%",
-        "format-icons": [
-            "󰤟",
-            "󰤢",
-            "󰤥",
-            "󰤨"
-        ],
+        "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
@@ -128,10 +98,10 @@
         "on-click": "better-control -w"
     },
     "pulseaudio": {
-        "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon}",
-        "format-bluetooth-muted": " {icon}",
-        "format-muted": "",
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
