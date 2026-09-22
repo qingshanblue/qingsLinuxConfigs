@@ -67,8 +67,8 @@ end)
 -------------------------------
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 hl.env("EDITOR", "nvim")    -- 编辑器
-hl.env("LANG", "zh_SG.UTF-8") -- 语言
-hl.env("LC_ALL", "zh_SG.UTF-8")
+hl.env("LANG", "zh_TW.UTF-8") -- 语言
+hl.env("LC_ALL", "zh_TW.UTF-8")
 hl.env("XMODIFIERS", "@im=fcitx")   -- 修复输入法
 hl.env("GTK_IM_MODULE", "fcitx")
 hl.env("QT_IM_MODULE", "fcitx")
@@ -398,7 +398,7 @@ hl.window_rule({
 hl.layer_rule({
     name  = "frost-layers",
     match = { namespace = "^(walker|swaync-control-center|notifications)$" },
-    blur  = true,
+    -- blur  = true,
 })
 
 -- 特殊工作区做成磨砂玻璃:按 Super+S 时,当前桌面隔着一层雾,很有质感

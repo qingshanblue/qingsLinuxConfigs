@@ -91,10 +91,11 @@
     "group/tray": {
         "orientation": "inherit",
         "drawer": {
-            "transition-duration": 400
+            "transition-duration": 400,
+            "click-to-reveal": true  // 点击展开并常开，再点收起；悬浮不触发（触屏/串流友好）
         },
         "modules": [
-            "custom/tray-toggle",  // 首个模块是常驻“把手”，其余悬停时滑出
+            "custom/tray-toggle",  // 首个模块是常驻“把手”，其余点击把手后滑出
             "tray"
         ]
     },

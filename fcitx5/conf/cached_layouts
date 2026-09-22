@@ -1,3765 +1,3765 @@
 [keyboard-bqn]
-Description="Keyboard - BQN"
+Description="鍵盤 - BQN"
 Language=en
 Label=bqn
 
 [keyboard-apl]
-Description="Keyboard - APL"
+Description="鍵盤 - APL"
 Language=en
 Label=apl
 
 [keyboard-apl-dyalog]
-Description="Keyboard - APL - APL symbols (Dyalog APL)"
+Description="鍵盤 - APL - APL symbols (Dyalog APL)"
 Language=en
 Label="dlg (dyalog)"
 
 [keyboard-apl-sax]
-Description="Keyboard - APL - APL symbols (SAX, Sharp APL for Unix)"
+Description="鍵盤 - APL - APL symbols (SAX, Sharp APL for Unix)"
 Language=en
 Label=sax
 
 [keyboard-apl-unified]
-Description="Keyboard - APL - APL symbols (unified)"
+Description="鍵盤 - APL - APL symbols (unified)"
 Language=en
 Label="ufd (unified)"
 
 [keyboard-apl-apl2]
-Description="Keyboard - APL - APL symbols (IBM APL2)"
+Description="鍵盤 - APL - APL symbols (IBM APL2)"
 Language=en
 Label=apl2
 
 [keyboard-apl-aplplusII]
-Description="Keyboard - APL - APL symbols (Manugistics APL*PLUS II)"
+Description="鍵盤 - APL - APL symbols (Manugistics APL*PLUS II)"
 Language=en
 Label="aplII (aplplusII)"
 
 [keyboard-apl-aplx]
-Description="Keyboard - APL - APL symbols (APLX unified)"
+Description="鍵盤 - APL - APL symbols (APLX unified)"
 Language=en
 Label=aplx
 
 [keyboard-ua]
-Description="Keyboard - Ukrainian"
+Description="鍵盤 - 烏克蘭語"
 Language=uk
 Label=uk
 
 [keyboard-ua-phonetic]
-Description="Keyboard - Ukrainian - Ukrainian (phonetic)"
+Description="鍵盤 - 烏克蘭語 - 烏克蘭語 (音標)"
 Language=uk
 Label="ua (phonetic)"
 
 [keyboard-ua-typewriter]
-Description="Keyboard - Ukrainian - Ukrainian (typewriter)"
+Description="鍵盤 - 烏克蘭語 - 烏克蘭語 (打字機)"
 Language=uk
 Label="ua (typewriter)"
 
 [keyboard-ua-winkeys]
-Description="Keyboard - Ukrainian - Ukrainian (Windows)"
+Description="鍵盤 - 烏克蘭語 - Ukrainian (Windows)"
 Language=uk
 Label="ua (winkeys)"
 
 [keyboard-ua-winkeysenhanced]
-Description="Keyboard - Ukrainian - Ukrainian (Windows Enhanced)"
+Description="鍵盤 - 烏克蘭語 - Ukrainian (Windows Enhanced)"
 Language=uk
 Label="ua (winkeysenhanced)"
 
 [keyboard-ua-macOS]
-Description="Keyboard - Ukrainian - Ukrainian (macOS)"
+Description="鍵盤 - 烏克蘭語 - Ukrainian (macOS)"
 Language=uk
 Label="ua (macOS)"
 
 [keyboard-ua-legacy]
-Description="Keyboard - Ukrainian - Ukrainian (legacy)"
+Description="鍵盤 - 烏克蘭語 - 烏克蘭語 (舊式)"
 Language=uk
 Label="ua (legacy)"
 
 [keyboard-ua-homophonic]
-Description="Keyboard - Ukrainian - Ukrainian (homophonic)"
+Description="鍵盤 - 烏克蘭語 - 烏克蘭語 (homophonic)"
 Language=uk
 Label="ua (homophonic)"
 
 [keyboard-ua-crh]
-Description="Keyboard - Ukrainian - Crimean Tatar (Turkish Q)"
+Description="鍵盤 - 烏克蘭語 - 克里米亞韃靼語 (土耳其語 Q)"
 Language=crh
 Label=crh
 
 [keyboard-ua-crh_f]
-Description="Keyboard - Ukrainian - Crimean Tatar (Turkish F)"
+Description="鍵盤 - 烏克蘭語 - 克里米亞韃靼語 (土耳其語 F)"
 Language=crh
 Label="crh (crh_f)"
 
 [keyboard-ua-crh_alt]
-Description="Keyboard - Ukrainian - Crimean Tatar (Turkish Alt-Q)"
+Description="鍵盤 - 烏克蘭語 - 克里米亞韃靼語 (土耳其語 Alt-Q)"
 Language=crh
 Label="crh (crh_alt)"
 
 [keyboard-ua-sun_type6]
-Description="Keyboard - Ukrainian - Ukrainian (Sun Type 6/7)"
+Description="鍵盤 - 烏克蘭語 - 烏克蘭語 (昇陽 Type 6/7)"
 Language=uk
 Label="ua (sun_type6)"
 
 [keyboard-th]
-Description="Keyboard - Thai"
+Description="鍵盤 - 泰語"
 Language=th
 Label=th
 
 [keyboard-th-tis]
-Description="Keyboard - Thai - Thai (TIS-820.2538)"
+Description="鍵盤 - 泰語 - 泰語 (TIS-820.2538)"
 Language=th
 Label="th (tis)"
 
 [keyboard-th-pat]
-Description="Keyboard - Thai - Thai (Pattachote)"
+Description="鍵盤 - 泰語 - 泰語 (Pattachote)"
 Language=th
 Label="th (pat)"
 
 [keyboard-th-mnc]
-Description="Keyboard - Thai - Thai (Manoonchai)"
+Description="鍵盤 - 泰語 - Thai (Manoonchai)"
 Language=th
 Label="th (mnc)"
 
 [keyboard-tz]
-Description="Keyboard - Swahili (Tanzania)"
+Description="鍵盤 - 史瓦西里語 (坦尚尼亞)"
 Language=sw
 Label=sw
 
 [keyboard-latam]
-Description="Keyboard - Spanish (Latin American)"
+Description="鍵盤 - 西班牙語 (拉丁美洲)"
 Language=es
 Label=es
 
 [keyboard-latam-nodeadkeys]
-Description="Keyboard - Spanish (Latin American) - Spanish (Latin American, no dead keys)"
+Description="鍵盤 - 西班牙語 (拉丁美洲) - Spanish (Latin American, no dead keys)"
 Language=es
 Label="latam (nodeadkeys)"
 
 [keyboard-latam-deadtilde]
-Description="Keyboard - Spanish (Latin American) - Spanish (Latin American, dead tilde)"
+Description="鍵盤 - 西班牙語 (拉丁美洲) - Spanish (Latin American, dead tilde)"
 Language=es
 Label="latam (deadtilde)"
 
 [keyboard-latam-dvorak]
-Description="Keyboard - Spanish (Latin American) - Spanish (Latin American, Dvorak)"
+Description="鍵盤 - 西班牙語 (拉丁美洲) - Spanish (Latin American, Dvorak)"
 Language=es
 Label="latam (dvorak)"
 
 [keyboard-latam-colemak]
-Description="Keyboard - Spanish (Latin American) - Spanish (Latin American, Colemak)"
+Description="鍵盤 - 西班牙語 (拉丁美洲) - Spanish (Latin American, Colemak)"
 Language=es
 Label="latam (colemak)"
 
 [keyboard-sk]
-Description="Keyboard - Slovak"
+Description="鍵盤 - 斯洛伐克"
 Language=sk
 Label=sk
 
 [keyboard-sk-bksl]
-Description="Keyboard - Slovak - Slovak (extra backslash)"
+Description="鍵盤 - 斯洛伐克 - Slovak (extra backslash)"
 Language=sk
 Label="sk (bksl)"
 
 [keyboard-sk-qwerty]
-Description="Keyboard - Slovak - Slovak (QWERTY)"
+Description="鍵盤 - 斯洛伐克 - Slovak (QWERTY)"
 Language=sk
 Label="sk (qwerty)"
 
 [keyboard-sk-qwerty_bksl]
-Description="Keyboard - Slovak - Slovak (QWERTY, extra backslash)"
+Description="鍵盤 - 斯洛伐克 - Slovak (QWERTY, extra backslash)"
 Language=sk
 Label="sk (qwerty_bksl)"
 
 [keyboard-sk-acc]
-Description="Keyboard - Slovak - Slovak (ACC layout, only accented letters)"
+Description="鍵盤 - 斯洛伐克 - Slovak (ACC layout, only accented letters)"
 Language=sk
 Label="sk (acc)"
 
 [keyboard-sk-sun_type6]
-Description="Keyboard - Slovak - Slovak (Sun Type 6/7)"
+Description="鍵盤 - 斯洛伐克 - 斯洛伐克語 (昇陽 Type 6/7)"
 Language=sk
 Label="sk (sun_type6)"
 
 [keyboard-ru]
-Description="Keyboard - Russian"
+Description="鍵盤 - 俄語"
 Language=ru
 Label=ru
 
 [keyboard-ru-phonetic]
-Description="Keyboard - Russian - Russian (phonetic)"
+Description="鍵盤 - 俄語 - 俄語 (音標)"
 Language=ru
 Label="ru (phonetic)"
 
 [keyboard-ru-phonetic_winkeys]
-Description="Keyboard - Russian - Russian (phonetic, Windows)"
+Description="鍵盤 - 俄語 - Russian (phonetic, Windows)"
 Language=ru
 Label="ru (phonetic_winkeys)"
 
 [keyboard-ru-phonetic_YAZHERTY]
-Description="Keyboard - Russian - Russian (phonetic, YAZHERTY)"
+Description="鍵盤 - 俄語 - Russian (phonetic, YAZHERTY)"
 Language=ru
 Label="ru (phonetic_YAZHERTY)"
 
 [keyboard-ru-phonetic_azerty]
-Description="Keyboard - Russian - Russian (phonetic, AZERTY)"
+Description="鍵盤 - 俄語 - Russian (phonetic, AZERTY)"
 Language=ru
 Label="ru (phonetic_azerty)"
 
 [keyboard-ru-phonetic_dvorak]
-Description="Keyboard - Russian - Russian (phonetic, Dvorak)"
+Description="鍵盤 - 俄語 - Russian (phonetic, Dvorak)"
 Language=ru
 Label="ru (phonetic_dvorak)"
 
 [keyboard-ru-typewriter]
-Description="Keyboard - Russian - Russian (typewriter)"
+Description="鍵盤 - 俄語 - 俄語 (打字機)"
 Language=ru
 Label="ru (typewriter)"
 
 [keyboard-ru-ruchey_ru]
-Description="Keyboard - Russian - Russian (engineering, RU)"
+Description="鍵盤 - 俄語 - Russian (engineering, RU)"
 Language=ru
 Label="ru (ruchey_ru)"
 
 [keyboard-ru-ruchey_en]
-Description="Keyboard - Russian - Russian (engineering, EN)"
+Description="鍵盤 - 俄語 - Russian (engineering, EN)"
 Language=ru
 Label="en (ruchey_en)"
 
 [keyboard-ru-legacy]
-Description="Keyboard - Russian - Russian (legacy)"
+Description="鍵盤 - 俄語 - 俄語 (舊式)"
 Language=ru
 Label="ru (legacy)"
 
 [keyboard-ru-typewriter-legacy]
-Description="Keyboard - Russian - Russian (typewriter, legacy)"
+Description="鍵盤 - 俄語 - 俄語 (打字機，舊式)"
 Language=ru
 Label="ru (typewriter-legacy)"
 
 [keyboard-ru-dos]
-Description="Keyboard - Russian - Russian (DOS)"
+Description="鍵盤 - 俄語 - 俄語 (DOS)"
 Language=ru
 Label="ru (dos)"
 
 [keyboard-ru-mac]
-Description="Keyboard - Russian - Russian (Macintosh)"
+Description="鍵盤 - 俄語 - 俄語 (麥金塔)"
 Language=ru
 Label="ru (mac)"
 
 [keyboard-ru-ab]
-Description="Keyboard - Russian - Abkhazian (Russia)"
+Description="鍵盤 - 俄語 - Abkhazian (Russia)"
 Language=ab
 Label="ru (ab)"
 
 [keyboard-ru-bak]
-Description="Keyboard - Russian - Bashkirian"
+Description="鍵盤 - 俄語 - 巴什喀爾語"
 Language=ba
 Label="ru (bak)"
 
 [keyboard-ru-cv]
-Description="Keyboard - Russian - Chuvash"
+Description="鍵盤 - 俄語 - 楚瓦什語"
 Language=cv
 Label="ru (cv)"
 
 [keyboard-ru-cv_latin]
-Description="Keyboard - Russian - Chuvash (Latin)"
+Description="鍵盤 - 俄語 - 楚瓦什語 (拉丁字母)"
 Language=cv
 Label="ru (cv_latin)"
 
 [keyboard-ru-xal]
-Description="Keyboard - Russian - Kalmyk"
+Description="鍵盤 - 俄語 - 卡爾梅克語"
 Language=xal
 Label="ru (xal)"
 
 [keyboard-ru-kom]
-Description="Keyboard - Russian - Komi"
+Description="鍵盤 - 俄語 - 科米語"
 Language=kv
 Label="ru (kom)"
 
 [keyboard-ru-chm]
-Description="Keyboard - Russian - Mari"
+Description="鍵盤 - 俄語 - 馬里語"
 Language=chm
 Label="ru (chm)"
 
 [keyboard-ru-os_legacy]
-Description="Keyboard - Russian - Ossetian (legacy)"
+Description="鍵盤 - 俄語 - 奧塞提語 (舊式)"
 Language=os
 Label="ru (os_legacy)"
 
 [keyboard-ru-os_winkeys]
-Description="Keyboard - Russian - Ossetian (Windows)"
+Description="鍵盤 - 俄語 - Ossetian (Windows)"
 Language=os
 Label="ru (os_winkeys)"
 
 [keyboard-ru-srp]
-Description="Keyboard - Russian - Serbian (Russia)"
+Description="鍵盤 - 俄語 - 塞爾維亞語 (俄羅斯)"
 Language=ru
 Label="ru (srp)"
 
 [keyboard-ru-tt]
-Description="Keyboard - Russian - Tatar"
+Description="鍵盤 - 俄語 - 韃靼語"
 Language=tt
 Label="ru (tt)"
 
 [keyboard-ru-udm]
-Description="Keyboard - Russian - Udmurt"
+Description="鍵盤 - 俄語 - 烏德穆爾特語"
 Language=udm
 Label="ru (udm)"
 
 [keyboard-ru-sah]
-Description="Keyboard - Russian - Yakut"
+Description="鍵盤 - 俄語 - 雅庫特語"
 Language=sah
 Label="ru (sah)"
 
 [keyboard-ru-chu]
-Description="Keyboard - Russian - Church Slavonic"
+Description="鍵盤 - 俄語 - Church Slavonic"
 Language=cu
 Label="ru (chu)"
 
 [keyboard-ru-ruu]
-Description="Keyboard - Russian - Russian (plus Ukrainian and Belarusian letters)"
+Description="鍵盤 - 俄語 - Russian (plus Ukrainian and Belarusian letters)"
 Language=ru
 Label="ru (ruu)"
 
 [keyboard-ru-rulemak]
-Description="Keyboard - Russian - Russian (Rulemak, phonetic Colemak)"
+Description="鍵盤 - 俄語 - Russian (Rulemak, phonetic Colemak)"
 Language=ru
 Label="ru (rulemak)"
 
 [keyboard-ru-phonetic_mac]
-Description="Keyboard - Russian - Russian (phonetic, Macintosh)"
+Description="鍵盤 - 俄語 - Russian (phonetic, Macintosh)"
 Language=ru
 Label="ru (phonetic_mac)"
 
 [keyboard-ru-sun_type6]
-Description="Keyboard - Russian - Russian (Sun Type 6/7)"
+Description="鍵盤 - 俄語 - 俄語 (昇陽 Type 6/7)"
 Language=ru
 Label="ru (sun_type6)"
 
 [keyboard-ru-unipunct]
-Description="Keyboard - Russian - Russian (with US punctuation)"
+Description="鍵盤 - 俄語 - Russian (with US punctuation)"
 Language=ru
 Label="ru (unipunct)"
 
 [keyboard-ru-gost-6431-75-48]
-Description="Keyboard - Russian - Russian (GOST 6431-75)"
+Description="鍵盤 - 俄語 - Russian (GOST 6431-75)"
 Language=ru
 Label="ru (gost-6431-75-48)"
 
 [keyboard-ru-gost-14289-88]
-Description="Keyboard - Russian - Russian (GOST 14289-88)"
+Description="鍵盤 - 俄語 - Russian (GOST 14289-88)"
 Language=ru
 Label="ru (gost-14289-88)"
 
 [keyboard-ru-prxn]
-Description="Keyboard - Russian - Russian (Polyglot and Reactionary)"
+Description="鍵盤 - 俄語 - Russian (Polyglot and Reactionary)"
 Language=ru
 Label="ru (prxn)"
 
 [keyboard-ru-winkeys-p]
-Description="Keyboard - Russian - Russian (Programmer)"
+Description="鍵盤 - 俄語 - Russian (Programmer)"
 Language=ru
 Label=winkeys-p
 
 [keyboard-ru-typo]
-Description="Keyboard - Russian - Russian (plus typographic symbols)"
+Description="鍵盤 - 俄語 - Russian (plus typographic symbols)"
 Language=ru
 Label="ru (typo)"
 
 [keyboard-ru-rtu]
-Description="Keyboard - Russian - Russian (plus Tatar letters)"
+Description="鍵盤 - 俄語 - Russian (plus Tatar letters)"
 Language=ru
 Label="ru (rtu)"
 
 [keyboard-ru-diktor]
-Description="Keyboard - Russian - Russian (Diktor)"
+Description="鍵盤 - 俄語 - Russian (Diktor)"
 Language=ru
 Label=diktor
 
 [keyboard-ru-ruintl_ru]
-Description="Keyboard - Russian - Russian (international, RU)"
+Description="鍵盤 - 俄語 - Russian (international, RU)"
 Language=ru
 Label="ru (ruintl_ru)"
 
 [keyboard-ru-ruintl_en]
-Description="Keyboard - Russian - Russian (international, EN)"
+Description="鍵盤 - 俄語 - Russian (international, EN)"
 Language=en
 Label="en (ruintl_en)"
 
 [keyboard-br]
-Description="Keyboard - Portuguese (Brazil)"
+Description="鍵盤 - 葡萄牙 (巴西)"
 Language=pt
 Label=pt
 
 [keyboard-br-nodeadkeys]
-Description="Keyboard - Portuguese (Brazil) - Portuguese (Brazil, no dead keys)"
+Description="鍵盤 - 葡萄牙 (巴西) - Portuguese (Brazil, no dead keys)"
 Language=pt
 Label="br (nodeadkeys)"
 
 [keyboard-br-dvorak]
-Description="Keyboard - Portuguese (Brazil) - Portuguese (Brazil, Dvorak)"
+Description="鍵盤 - 葡萄牙 (巴西) - 葡萄牙 (巴西，Dvorak 配置)"
 Language=pt
 Label="br (dvorak)"
 
 [keyboard-br-nativo]
-Description="Keyboard - Portuguese (Brazil) - Portuguese (Brazil, Nativo)"
+Description="鍵盤 - 葡萄牙 (巴西) - Portuguese (Brazil, Nativo)"
 Language=pt
 Label="br (nativo)"
 
 [keyboard-br-nativo-us]
-Description="Keyboard - Portuguese (Brazil) - Portuguese (Brazil, Nativo for US keyboards)"
+Description="鍵盤 - 葡萄牙 (巴西) - Portuguese (Brazil, Nativo for US keyboards)"
 Language=pt
 Label="br (nativo-us)"
 
 [keyboard-br-thinkpad]
-Description="Keyboard - Portuguese (Brazil) - Portuguese (Brazil, IBM/Lenovo ThinkPad)"
+Description="鍵盤 - 葡萄牙 (巴西) - Portuguese (Brazil, IBM/Lenovo ThinkPad)"
 Language=pt
 Label="br (thinkpad)"
 
 [keyboard-br-thinkpad_nodeadkeys]
-Description="Keyboard - Portuguese (Brazil) - Portuguese (Brazil, IBM/Lenovo ThinkPad, no dead keys)"
+Description="鍵盤 - 葡萄牙 (巴西) - Portuguese (Brazil, IBM/Lenovo ThinkPad, no dead keys)"
 Language=pt
 Label="br (thinkpad_nodeadkeys)"
 
 [keyboard-br-nativo-epo]
-Description="Keyboard - Portuguese (Brazil) - Esperanto (Brazil, Nativo)"
+Description="鍵盤 - 葡萄牙 (巴西) - Esperanto (Brazil, Nativo)"
 Language=eo
 Label="br (nativo-epo)"
 
 [keyboard-br-rus]
-Description="Keyboard - Portuguese (Brazil) - Russian (Brazil, phonetic)"
+Description="鍵盤 - 葡萄牙 (巴西) - Russian (Brazil, phonetic)"
 Language=ru
 Label="ru (rus)"
 
 [keyboard-br-sun_type6]
-Description="Keyboard - Portuguese (Brazil) - Portuguese (Brazil, Sun Type 6/7)"
+Description="鍵盤 - 葡萄牙 (巴西) - 葡萄牙語 (巴西，昇陽 Type 6/7)"
 Language=pt
 Label="br (sun_type6)"
 
 [keyboard-ro]
-Description="Keyboard - Romanian"
+Description="鍵盤 - 羅馬尼亞語"
 Language=ro
 Label=ro
 
 [keyboard-ro-std]
-Description="Keyboard - Romanian - Romanian (standard)"
+Description="鍵盤 - 羅馬尼亞語 - 羅馬尼亞語 (標準)"
 Language=ro
 Label="ro (std)"
 
 [keyboard-ro-winkeys]
-Description="Keyboard - Romanian - Romanian (Windows)"
+Description="鍵盤 - 羅馬尼亞語 - Romanian (Windows)"
 Language=ro
 Label="ro (winkeys)"
 
 [keyboard-ro-crh_dobruja]
-Description="Keyboard - Romanian - Crimean Tatar (Dobruja Q)"
+Description="鍵盤 - 羅馬尼亞語 - 克里米亞韃靼語 (Dobruja Q)"
 Language=crh
 Label="crh (crh_dobruja)"
 
 [keyboard-ro-ergonomic]
-Description="Keyboard - Romanian - Romanian (ergonomic Touchtype)"
+Description="鍵盤 - 羅馬尼亞語 - 羅馬尼亞語 (人體工學觸控型式)"
 Language=ro
 Label="ro (ergonomic)"
 
 [keyboard-ro-sun_type6]
-Description="Keyboard - Romanian - Romanian (Sun Type 6/7)"
+Description="鍵盤 - 羅馬尼亞語 - 羅馬尼亞語 (昇陽 Type 6/7)"
 Language=ro
 Label="ro (sun_type6)"
 
 [keyboard-pl]
-Description="Keyboard - Polish"
+Description="鍵盤 - 波蘭語"
 Language=pl
 Label=pl
 
 [keyboard-pl-legacy]
-Description="Keyboard - Polish - Polish (legacy)"
+Description="鍵盤 - 波蘭語 - 波蘭語 (舊式)"
 Language=pl
 Label="pl (legacy)"
 
 [keyboard-pl-qwertz]
-Description="Keyboard - Polish - Polish (QWERTZ)"
+Description="鍵盤 - 波蘭語 - Polish (QWERTZ)"
 Language=pl
 Label="pl (qwertz)"
 
 [keyboard-pl-dvorak]
-Description="Keyboard - Polish - Polish (Dvorak)"
+Description="鍵盤 - 波蘭語 - 波蘭語 (Dvorak 配置)"
 Language=pl
 Label="pl (dvorak)"
 
 [keyboard-pl-dvorak_quotes]
-Description="Keyboard - Polish - Polish (Dvorak, with Polish quotes on quotemark key)"
+Description="鍵盤 - 波蘭語 - Polish (Dvorak, with Polish quotes on quotemark key)"
 Language=pl
 Label="pl (dvorak_quotes)"
 
 [keyboard-pl-dvorak_altquotes]
-Description="Keyboard - Polish - Polish (Dvorak, with Polish quotes on key 1)"
+Description="鍵盤 - 波蘭語 - Polish (Dvorak, with Polish quotes on key 1)"
 Language=pl
 Label="pl (dvorak_altquotes)"
 
 [keyboard-pl-dvp]
-Description="Keyboard - Polish - Polish (programmer Dvorak)"
+Description="鍵盤 - 波蘭語 - 波蘭語 (程式員 Dvorak 配置)"
 Language=pl
 Label="pl (dvp)"
 
 [keyboard-pl-csb]
-Description="Keyboard - Polish - Kashubian"
+Description="鍵盤 - 波蘭語 - 卡舒比語"
 Language=csb
 Label="pl (csb)"
 
 [keyboard-pl-szl]
-Description="Keyboard - Polish - Silesian"
+Description="鍵盤 - 波蘭語 - Silesian"
 Language=szl
 Label="pl (szl)"
 
 [keyboard-pl-ru_phonetic_dvorak]
-Description="Keyboard - Polish - Russian (Poland, phonetic Dvorak)"
+Description="鍵盤 - 波蘭語 - 俄語 (波蘭，音標 Dvorak 配置)"
 Language=ru
 Label="ru (ru_phonetic_dvorak)"
 
 [keyboard-pl-intl]
-Description="Keyboard - Polish - Polish (intl., with dead keys)"
+Description="鍵盤 - 波蘭語 - Polish (intl., with dead keys)"
 Language=pl
 Label="pl (intl)"
 
 [keyboard-pl-colemak]
-Description="Keyboard - Polish - Polish (Colemak)"
+Description="鍵盤 - 波蘭語 - 波蘭語 (Colemak 配置)"
 Language=pl
 Label="pl (colemak)"
 
 [keyboard-pl-colemak_dh_ansi]
-Description="Keyboard - Polish - Polish (Colemak-DH)"
+Description="鍵盤 - 波蘭語 - Polish (Colemak-DH)"
 Language=pl
 Label="pl (colemak_dh_ansi)"
 
 [keyboard-pl-colemak_dh]
-Description="Keyboard - Polish - Polish (Colemak-DH ISO)"
+Description="鍵盤 - 波蘭語 - Polish (Colemak-DH ISO)"
 Language=pl
 Label="pl (colemak_dh)"
 
 [keyboard-pl-colemak_dh_ortho]
-Description="Keyboard - Polish - Polish (Colemak-DH Ortholinear)"
+Description="鍵盤 - 波蘭語 - Polish (Colemak-DH Ortholinear)"
 Language=pl
 Label="pl (colemak_dh_ortho)"
 
 [keyboard-pl-sun_type6]
-Description="Keyboard - Polish - Polish (Sun Type 6/7)"
+Description="鍵盤 - 波蘭語 - 波蘭語 (昇陽 Type 6/7)"
 Language=pl
 Label="pl (sun_type6)"
 
 [keyboard-pl-glagolica]
-Description="Keyboard - Polish - Polish (Glagolica)"
+Description="鍵盤 - 波蘭語 - Polish (Glagolica)"
 Language=pl
 Label="pl (glagolica)"
 
 [keyboard-pl-lefty]
-Description="Keyboard - Polish - Polish (lefty)"
+Description="鍵盤 - 波蘭語 - Polish (lefty)"
 Language=pl
 Label="pl (lefty)"
 
 [keyboard-pl-slaviature]
-Description="Keyboard - Polish - Polish (Slavistic Phonetic Alphabet)"
+Description="鍵盤 - 波蘭語 - Polish (Slavistic Phonetic Alphabet)"
 Language=pl
 Label="pl (slaviature)"
 
 [keyboard-trans]
-Description="Keyboard - International Phonetic Alphabet"
+Description="鍵盤 - International Phonetic Alphabet"
 Language=
 Label=ipa
 
 [keyboard-trans-qwerty]
-Description="Keyboard - International Phonetic Alphabet - International Phonetic Alphabet (QWERTY)"
+Description="鍵盤 - International Phonetic Alphabet - International Phonetic Alphabet (QWERTY)"
 Language=
 Label="trans (qwerty)"
 
 [keyboard-ir]
-Description="Keyboard - Persian"
+Description="鍵盤 - 波斯語"
 Language=fa
 Label=fa
 
 [keyboard-ir-pes_keypad]
-Description="Keyboard - Persian - Persian (with Persian keypad)"
+Description="鍵盤 - 波斯語 - Persian (with Persian keypad)"
 Language=fa
 Label="ir (pes_keypad)"
 
 [keyboard-ir-winkeys]
-Description="Keyboard - Persian - Persian (Windows)"
+Description="鍵盤 - 波斯語 - Persian (Windows)"
 Language=fa
 Label="ir (winkeys)"
 
 [keyboard-ir-azb]
-Description="Keyboard - Persian - Azerbaijani (Iran)"
+Description="鍵盤 - 波斯語 - Azerbaijani (Iran)"
 Language=azb
 Label=azb
 
 [keyboard-ir-ku]
-Description="Keyboard - Persian - Kurdish (Iran, Latin Q)"
+Description="鍵盤 - 波斯語 - 庫德語 (伊朗，拉丁字母 Q)"
 Language=ku
 Label=ku
 
 [keyboard-ir-ku_alt]
-Description="Keyboard - Persian - Kurdish (Iran, Latin Alt-Q)"
+Description="鍵盤 - 波斯語 - 庫德語 (伊朗，拉丁字母 Alt-Q)"
 Language=ku
 Label="ku (ku_alt)"
 
 [keyboard-ir-ku_f]
-Description="Keyboard - Persian - Kurdish (Iran, F)"
+Description="鍵盤 - 波斯語 - 庫德語 (伊朗，F)"
 Language=ku
 Label="ku (ku_f)"
 
 [keyboard-ir-ku_ara]
-Description="Keyboard - Persian - Kurdish (Iran, Arabic-Latin)"
+Description="鍵盤 - 波斯語 - 庫德語 (伊朗，阿拉伯-拉丁字母)"
 Language=ku
 Label="ku (ku_ara)"
 
 [keyboard-custom]
-Description="Keyboard - A user-defined custom Layout"
+Description="鍵盤 - A user-defined custom Layout"
 Language=und
 Label=custom
 
 [keyboard-no]
-Description="Keyboard - Norwegian"
+Description="鍵盤 - 挪威語"
 Language=no
 Label=no
 
 [keyboard-no-nodeadkeys]
-Description="Keyboard - Norwegian - Norwegian (no dead keys)"
+Description="鍵盤 - 挪威語 - Norwegian (no dead keys)"
 Language=no
 Label="no (nodeadkeys)"
 
 [keyboard-no-winkeys]
-Description="Keyboard - Norwegian - Norwegian (Windows)"
+Description="鍵盤 - 挪威語 - Norwegian (Windows)"
 Language=no
 Label="no (winkeys)"
 
 [keyboard-no-mac]
-Description="Keyboard - Norwegian - Norwegian (Macintosh)"
+Description="鍵盤 - 挪威語 - 挪威語 (麥金塔)"
 Language=no
 Label="no (mac)"
 
 [keyboard-no-mac_nodeadkeys]
-Description="Keyboard - Norwegian - Norwegian (Macintosh, no dead keys)"
+Description="鍵盤 - 挪威語 - Norwegian (Macintosh, no dead keys)"
 Language=no
 Label="no (mac_nodeadkeys)"
 
 [keyboard-no-colemak]
-Description="Keyboard - Norwegian - Norwegian (Colemak)"
+Description="鍵盤 - 挪威語 - 挪威語 (Colemak 配置)"
 Language=no
 Label="no (colemak)"
 
 [keyboard-no-colemak_dh]
-Description="Keyboard - Norwegian - Norwegian (Colemak-DH)"
+Description="鍵盤 - 挪威語 - Norwegian (Colemak-DH)"
 Language=no
 Label="no (colemak_dh)"
 
 [keyboard-no-colemak_dh_wide]
-Description="Keyboard - Norwegian - Norwegian (Colemak-DH Wide)"
+Description="鍵盤 - 挪威語 - Norwegian (Colemak-DH Wide)"
 Language=no
 Label="no (colemak_dh_wide)"
 
 [keyboard-no-dvorak]
-Description="Keyboard - Norwegian - Norwegian (Dvorak)"
+Description="鍵盤 - 挪威語 - 挪威語 (Dvorak 配置)"
 Language=no
 Label="no (dvorak)"
 
 [keyboard-no-smi]
-Description="Keyboard - Norwegian - Northern Saami (Norway)"
+Description="鍵盤 - 挪威語 - 北方薩米語 (挪威)"
 Language=se
 Label="no (smi)"
 
 [keyboard-no-smi_nodeadkeys]
-Description="Keyboard - Norwegian - Northern Saami (Norway, no dead keys)"
+Description="鍵盤 - 挪威語 - Northern Saami (Norway, no dead keys)"
 Language=se
 Label="no (smi_nodeadkeys)"
 
 [keyboard-no-sun_type6]
-Description="Keyboard - Norwegian - Norwegian (Sun Type 6/7)"
+Description="鍵盤 - 挪威語 - 挪威語 (昇陽 Type 6/7)"
 Language=no
 Label="no (sun_type6)"
 
 [keyboard-gn]
-Description="Keyboard - N'Ko (AZERTY)"
+Description="鍵盤 - N'Ko (AZERTY)"
 Language=nqo
 Label=nqo
 
 [keyboard-tm]
-Description="Keyboard - Turkmen"
+Description="鍵盤 - 土庫曼語"
 Language=tk
 Label=tk
 
 [keyboard-tm-alt]
-Description="Keyboard - Turkmen - Turkmen (Alt-Q)"
+Description="鍵盤 - 土庫曼語 - 土庫曼語 (Alt-Q)"
 Language=tk
 Label="tm (alt)"
 
 [keyboard-np]
-Description="Keyboard - Nepali"
+Description="鍵盤 - 尼泊爾語"
 Language=ne
 Label=ne
 
 [keyboard-ancient]
-Description="Keyboard - Ancient"
+Description="鍵盤 - Ancient"
 Language=got
 Label=xx
 
 [keyboard-ancient-got]
-Description="Keyboard - Ancient - Gothic"
+Description="鍵盤 - Ancient - Gothic"
 Language=got
 Label="ancient (got)"
 
 [keyboard-ancient-uga]
-Description="Keyboard - Ancient - Ugaritic"
+Description="鍵盤 - Ancient - Ugaritic"
 Language=uga
 Label="ancient (uga)"
 
 [keyboard-ancient-ave]
-Description="Keyboard - Ancient - Avestan"
+Description="鍵盤 - Ancient - 阿維斯塔語"
 Language=ae
 Label="ancient (ave)"
 
 [keyboard-ancient-got-alt]
-Description="Keyboard - Ancient - Gothic (Alternative)"
+Description="鍵盤 - Ancient - Gothic (Alternative)"
 Language=got
 Label="ancient (got-alt)"
 
 [keyboard-mt]
-Description="Keyboard - Maltese"
+Description="鍵盤 - 馬爾他語"
 Language=mt
 Label=mt
 
 [keyboard-mt-us]
-Description="Keyboard - Maltese - Maltese (US)"
+Description="鍵盤 - 馬爾他語 - Maltese (US)"
 Language=mt
 Label="mt (us)"
 
 [keyboard-mt-alt-us]
-Description="Keyboard - Maltese - Maltese (US, with AltGr overrides)"
+Description="鍵盤 - 馬爾他語 - Maltese (US, with AltGr overrides)"
 Language=mt
 Label="mt (alt-us)"
 
 [keyboard-mt-alt-gb]
-Description="Keyboard - Maltese - Maltese (UK, with AltGr overrides)"
+Description="鍵盤 - 馬爾他語 - Maltese (UK, with AltGr overrides)"
 Language=mt
 Label="mt (alt-gb)"
 
 [keyboard-pt]
-Description="Keyboard - Portuguese"
+Description="鍵盤 - 葡萄牙語"
 Language=pt
 Label=pt
 
 [keyboard-pt-nodeadkeys]
-Description="Keyboard - Portuguese - Portuguese (no dead keys)"
+Description="鍵盤 - 葡萄牙語 - Portuguese (no dead keys)"
 Language=pt
 Label="pt (nodeadkeys)"
 
 [keyboard-pt-mac]
-Description="Keyboard - Portuguese - Portuguese (Macintosh)"
+Description="鍵盤 - 葡萄牙語 - 葡萄牙語 (麥金塔)"
 Language=pt
 Label="pt (mac)"
 
 [keyboard-pt-mac_nodeadkeys]
-Description="Keyboard - Portuguese - Portuguese (Macintosh, no dead keys)"
+Description="鍵盤 - 葡萄牙語 - Portuguese (Macintosh, no dead keys)"
 Language=pt
 Label="pt (mac_nodeadkeys)"
 
 [keyboard-pt-nativo]
-Description="Keyboard - Portuguese - Portuguese (Nativo)"
+Description="鍵盤 - 葡萄牙語 - 葡萄牙語 (Nativo)"
 Language=pt
 Label="pt (nativo)"
 
 [keyboard-pt-nativo-us]
-Description="Keyboard - Portuguese - Portuguese (Nativo for US keyboards)"
+Description="鍵盤 - 葡萄牙語 - Portuguese (Nativo for US keyboards)"
 Language=pt
 Label="pt (nativo-us)"
 
 [keyboard-pt-nativo-epo]
-Description="Keyboard - Portuguese - Esperanto (Portugal, Nativo)"
+Description="鍵盤 - 葡萄牙語 - 世界語 (葡萄牙，Nativo)"
 Language=eo
 Label="pt (nativo-epo)"
 
 [keyboard-pt-sun_type6]
-Description="Keyboard - Portuguese - Portuguese (Sun Type 6/7)"
+Description="鍵盤 - 葡萄牙語 - 葡萄牙語 (昇陽 Type 6/7)"
 Language=pt
 Label="pt (sun_type6)"
 
 [keyboard-pt-colemak]
-Description="Keyboard - Portuguese - Portuguese (Colemak)"
+Description="鍵盤 - 葡萄牙語 - Portuguese (Colemak)"
 Language=pt
 Label="pt (colemak)"
 
 [keyboard-my]
-Description="Keyboard - Malay (Jawi, Arabic Keyboard)"
+Description="鍵盤 - Malay (Jawi, Arabic Keyboard)"
 Language=id
 Label=ms
 
 [keyboard-my-phonetic]
-Description="Keyboard - Malay (Jawi, Arabic Keyboard) - Malay (Jawi, phonetic)"
+Description="鍵盤 - Malay (Jawi, Arabic Keyboard) - Malay (Jawi, phonetic)"
 Language=id
 Label="my (phonetic)"
 
 [keyboard-mk]
-Description="Keyboard - Macedonian"
+Description="鍵盤 - 馬其頓語"
 Language=mk
 Label=mk
 
 [keyboard-mk-nodeadkeys]
-Description="Keyboard - Macedonian - Macedonian (no dead keys)"
+Description="鍵盤 - 馬其頓語 - Macedonian (no dead keys)"
 Language=mk
 Label="mk (nodeadkeys)"
 
 [keyboard-kg]
-Description="Keyboard - Kyrgyz"
+Description="鍵盤 - 吉爾吉斯語"
 Language=ky
 Label=ki
 
 [keyboard-kg-phonetic]
-Description="Keyboard - Kyrgyz - Kyrgyz (phonetic)"
+Description="鍵盤 - 吉爾吉斯語 - 吉爾吉斯 (音標)"
 Language=ky
 Label="kg (phonetic)"
 
 [keyboard-tj]
-Description="Keyboard - Tajik"
+Description="鍵盤 - 塔吉克語"
 Language=tg
 Label=tg
 
 [keyboard-tj-legacy]
-Description="Keyboard - Tajik - Tajik (legacy)"
+Description="鍵盤 - 塔吉克語 - 塔吉克語 (舊式)"
 Language=tg
 Label="tj (legacy)"
 
 [keyboard-mv]
-Description="Keyboard - Dhivehi"
+Description="鍵盤 - 迪貝喜語"
 Language=dv
 Label=dv
 
 [keyboard-lk]
-Description="Keyboard - Sinhala (phonetic)"
+Description="鍵盤 - 錫蘭僧加羅語 (音標)"
 Language=si
 Label=si
 
 [keyboard-lk-us]
-Description="Keyboard - Sinhala (phonetic) - Sinhala (US)"
+Description="鍵盤 - 錫蘭僧加羅語 (音標) - Sinhala (US)"
 Language=si
 Label="si (us)"
 
 [keyboard-lk-tam_unicode]
-Description="Keyboard - Sinhala (phonetic) - Tamil (Sri Lanka, TamilNet '99)"
+Description="鍵盤 - 錫蘭僧加羅語 (音標) - Tamil (Sri Lanka, TamilNet '99)"
 Language=ta
 Label="ta (tam_unicode)"
 
 [keyboard-lk-tam_TAB]
-Description="Keyboard - Sinhala (phonetic) - Tamil (Sri Lanka, TamilNet '99, TAB encoding)"
+Description="鍵盤 - 錫蘭僧加羅語 (音標) - Tamil (Sri Lanka, TamilNet '99, TAB encoding)"
 Language=ta
 Label="lk (tam_TAB)"
 
 [keyboard-al]
-Description="Keyboard - Albanian"
+Description="鍵盤 - 阿爾巴尼亞語"
 Language=sq
 Label=sq
 
 [keyboard-al-plisi]
-Description="Keyboard - Albanian - Albanian (Plisi)"
+Description="鍵盤 - 阿爾巴尼亞語 - Albanian (Plisi)"
 Language=sq
 Label="al (plisi)"
 
 [keyboard-al-veqilharxhi]
-Description="Keyboard - Albanian - Albanian (Veqilharxhi)"
+Description="鍵盤 - 阿爾巴尼亞語 - Albanian (Veqilharxhi)"
 Language=sq
 Label="al (veqilharxhi)"
 
 [keyboard-cz]
-Description="Keyboard - Czech"
+Description="鍵盤 - 捷克語"
 Language=cs
 Label=cs
 
 [keyboard-cz-bksl]
-Description="Keyboard - Czech - Czech (extra backslash)"
+Description="鍵盤 - 捷克語 - Czech (extra backslash)"
 Language=cs
 Label="cz (bksl)"
 
 [keyboard-cz-qwerty]
-Description="Keyboard - Czech - Czech (QWERTY)"
+Description="鍵盤 - 捷克語 - Czech (QWERTY)"
 Language=cs
 Label="cz (qwerty)"
 
 [keyboard-cz-qwerty_bksl]
-Description="Keyboard - Czech - Czech (QWERTY, extra backslash)"
+Description="鍵盤 - 捷克語 - Czech (QWERTY, extra backslash)"
 Language=cs
 Label="cz (qwerty_bksl)"
 
 [keyboard-cz-winkeys]
-Description="Keyboard - Czech - Czech (QWERTZ, Windows)"
+Description="鍵盤 - 捷克語 - Czech (QWERTZ, Windows)"
 Language=cs
 Label="cz (winkeys)"
 
 [keyboard-cz-winkeys-qwerty]
-Description="Keyboard - Czech - Czech (QWERTY, Windows)"
+Description="鍵盤 - 捷克語 - Czech (QWERTY, Windows)"
 Language=cs
 Label="cz (winkeys-qwerty)"
 
 [keyboard-cz-qwerty-mac]
-Description="Keyboard - Czech - Czech (QWERTY, Macintosh)"
+Description="鍵盤 - 捷克語 - Czech (QWERTY, Macintosh)"
 Language=cs
 Label="cz (qwerty-mac)"
 
 [keyboard-cz-ucw]
-Description="Keyboard - Czech - Czech (UCW, only accented letters)"
+Description="鍵盤 - 捷克語 - Czech (UCW, only accented letters)"
 Language=cs
 Label="cz (ucw)"
 
 [keyboard-cz-dvorak-ucw]
-Description="Keyboard - Czech - Czech (US, Dvorak, UCW support)"
+Description="鍵盤 - 捷克語 - Czech (US, Dvorak, UCW support)"
 Language=cs
 Label="cz (dvorak-ucw)"
 
 [keyboard-cz-rus]
-Description="Keyboard - Czech - Russian (Czechia, phonetic)"
+Description="鍵盤 - 捷克語 - Russian (Czechia, phonetic)"
 Language=ru
 Label="ru (rus)"
 
 [keyboard-cz-sun_type6]
-Description="Keyboard - Czech - Czech (Sun Type 6/7)"
+Description="鍵盤 - 捷克語 - 捷克語 (昇陽 Type 6/7)"
 Language=cs
 Label="cz (sun_type6)"
 
 [keyboard-cz-prog]
-Description="Keyboard - Czech - Czech (programming)"
+Description="鍵盤 - 捷克語 - Czech (programming)"
 Language=cs
 Label="cz (prog)"
 
 [keyboard-cz-prog_typo]
-Description="Keyboard - Czech - Czech (programming, typographic)"
+Description="鍵盤 - 捷克語 - Czech (programming, typographic)"
 Language=cs
 Label="cz (prog_typo)"
 
 [keyboard-cz-coder]
-Description="Keyboard - Czech - Czech (coder)"
+Description="鍵盤 - 捷克語 - Czech (coder)"
 Language=cs
 Label="cz (coder)"
 
 [keyboard-cz-colemak-ucw]
-Description="Keyboard - Czech - Czech (US, Colemak, UCW support)"
+Description="鍵盤 - 捷克語 - Czech (US, Colemak, UCW support)"
 Language=cs
 Label="cz (colemak-ucw)"
 
 [keyboard-brai]
-Description="Keyboard - Braille"
+Description="鍵盤 - 盲人點字符號"
 Language=
 Label=brl
 
 [keyboard-brai-left_hand]
-Description="Keyboard - Braille - Braille (one-handed, left)"
+Description="鍵盤 - 盲人點字符號 - Braille (one-handed, left)"
 Language=
 Label="brai (left_hand)"
 
 [keyboard-brai-left_hand_invert]
-Description="Keyboard - Braille - Braille (one-handed, left, inverted thumb)"
+Description="鍵盤 - 盲人點字符號 - Braille (one-handed, left, inverted thumb)"
 Language=
 Label="brai (left_hand_invert)"
 
 [keyboard-brai-right_hand]
-Description="Keyboard - Braille - Braille (one-handed, right)"
+Description="鍵盤 - 盲人點字符號 - Braille (one-handed, right)"
 Language=
 Label="brai (right_hand)"
 
 [keyboard-brai-right_hand_invert]
-Description="Keyboard - Braille - Braille (one-handed, right, inverted thumb)"
+Description="鍵盤 - 盲人點字符號 - Braille (one-handed, right, inverted thumb)"
 Language=
 Label="brai (right_hand_invert)"
 
 [keyboard-se]
-Description="Keyboard - Swedish"
+Description="鍵盤 - 瑞典語"
 Language=sv
 Label=sv
 
 [keyboard-se-nodeadkeys]
-Description="Keyboard - Swedish - Swedish (no dead keys)"
+Description="鍵盤 - 瑞典語 - Swedish (no dead keys)"
 Language=sv
 Label="se (nodeadkeys)"
 
 [keyboard-se-dvorak]
-Description="Keyboard - Swedish - Swedish (Dvorak)"
+Description="鍵盤 - 瑞典語 - 瑞典語 (Dvorak 配置)"
 Language=sv
 Label="se (dvorak)"
 
 [keyboard-se-us_dvorak]
-Description="Keyboard - Swedish - Swedish (Dvorak, intl.)"
+Description="鍵盤 - 瑞典語 - Swedish (Dvorak, intl.)"
 Language=sv
 Label="se (us_dvorak)"
 
 [keyboard-se-svdvorak]
-Description="Keyboard - Swedish - Swedish (Svdvorak)"
+Description="鍵盤 - 瑞典語 - 瑞典語 (Svdvorak)"
 Language=sv
 Label="se (svdvorak)"
 
 [keyboard-se-colemak]
-Description="Keyboard - Swedish - Swedish (Colemak)"
+Description="鍵盤 - 瑞典語 - Swedish (Colemak)"
 Language=sv
 Label="se (colemak)"
 
 [keyboard-se-mac]
-Description="Keyboard - Swedish - Swedish (Macintosh)"
+Description="鍵盤 - 瑞典語 - 瑞典語 (麥金塔)"
 Language=sv
 Label="se (mac)"
 
 [keyboard-se-us]
-Description="Keyboard - Swedish - Swedish (US)"
+Description="鍵盤 - 瑞典語 - Swedish (US)"
 Language=sv
 Label="se (us)"
 
 [keyboard-se-swl]
-Description="Keyboard - Swedish - Swedish Sign Language"
+Description="鍵盤 - 瑞典語 - 瑞典手語"
 Language=swl
 Label="se (swl)"
 
 [keyboard-se-smi]
-Description="Keyboard - Swedish - Northern Saami (Sweden)"
+Description="鍵盤 - 瑞典語 - 北方薩米語 (瑞典)"
 Language=se
 Label="se (smi)"
 
 [keyboard-se-rus]
-Description="Keyboard - Swedish - Russian (Sweden, phonetic)"
+Description="鍵盤 - 瑞典語 - 俄語 (瑞典，音標)"
 Language=ru
 Label="ru (rus)"
 
 [keyboard-se-dvorak_a5]
-Description="Keyboard - Swedish - Swedish (Dvorak A5)"
+Description="鍵盤 - 瑞典語 - Swedish (Dvorak A5)"
 Language=sv
 Label="se (dvorak_a5)"
 
 [keyboard-se-sun_type6]
-Description="Keyboard - Swedish - Swedish (Sun Type 6/7)"
+Description="鍵盤 - 瑞典語 - 瑞典語 (昇陽 Type 6/7)"
 Language=sv
 Label="se (sun_type6)"
 
 [keyboard-se-ovd]
-Description="Keyboard - Swedish - Elfdalian (Sweden, with combining ogonek)"
+Description="鍵盤 - 瑞典語 - Elfdalian (Sweden, with combining ogonek)"
 Language=ovd
 Label="se (ovd)"
 
 [keyboard-bg]
-Description="Keyboard - Bulgarian"
+Description="鍵盤 - 保加利亞語"
 Language=bg
 Label=bg
 
 [keyboard-bg-phonetic]
-Description="Keyboard - Bulgarian - Bulgarian (traditional phonetic)"
+Description="鍵盤 - 保加利亞語 - 保加利亞語 (傳統音標)"
 Language=bg
 Label="bg (phonetic)"
 
 [keyboard-bg-bas_phonetic]
-Description="Keyboard - Bulgarian - Bulgarian (new phonetic)"
+Description="鍵盤 - 保加利亞語 - 保加利亞語 (新式音標)"
 Language=bg
 Label="bg (bas_phonetic)"
 
 [keyboard-bg-bekl]
-Description="Keyboard - Bulgarian - Bulgarian (enhanced)"
+Description="鍵盤 - 保加利亞語 - Bulgarian (enhanced)"
 Language=bg
 Label="bg (bekl)"
 
 [keyboard-pk]
-Description="Keyboard - Urdu (Pakistan)"
+Description="鍵盤 - 烏爾都語 (巴基斯坦)"
 Language=ur
 Label=ur
 
 [keyboard-pk-urd-crulp]
-Description="Keyboard - Urdu (Pakistan) - Urdu (Pakistan, CRULP)"
+Description="鍵盤 - 烏爾都語 (巴基斯坦) - 烏爾都語 (巴基斯坦，CRULP)"
 Language=ur
 Label="pk (urd-crulp)"
 
 [keyboard-pk-urd-nla]
-Description="Keyboard - Urdu (Pakistan) - Urdu (Pakistan, NLA)"
+Description="鍵盤 - 烏爾都語 (巴基斯坦) - 烏爾都語 (巴基斯坦，NLA)"
 Language=ur
 Label="pk (urd-nla)"
 
 [keyboard-pk-pak_urdu_phonetic]
-Description="Keyboard - Urdu (Pakistan) - Urdu (Pak Urdu Phonetic)"
+Description="鍵盤 - 烏爾都語 (巴基斯坦) - Urdu (Pak Urdu Phonetic)"
 Language=ur
 Label="pk (pak_urdu_phonetic)"
 
 [keyboard-pk-ara]
-Description="Keyboard - Urdu (Pakistan) - Arabic (Pakistan)"
+Description="鍵盤 - 烏爾都語 (巴基斯坦) - 阿拉伯語 (巴基斯坦)"
 Language=ar
 Label="ar (ara)"
 
 [keyboard-pk-snd]
-Description="Keyboard - Urdu (Pakistan) - Sindhi"
+Description="鍵盤 - 烏爾都語 (巴基斯坦) - 信德語"
 Language=sd
 Label="sd (snd)"
 
 [keyboard-pk-urd-navees]
-Description="Keyboard - Urdu (Pakistan) - Urdu (Pakistan, Navees)"
+Description="鍵盤 - 烏爾都語 (巴基斯坦) - Urdu (Pakistan, Navees)"
 Language=ur
 Label="pk (urd-navees)"
 
 [keyboard-au]
-Description="Keyboard - English (Australia)"
+Description="鍵盤 - English (Australia)"
 Language=en
 Label=en
 
 [keyboard-mn]
-Description="Keyboard - Mongolian"
+Description="鍵盤 - 蒙古語"
 Language=mn
 Label=mn
 
 [keyboard-dz]
-Description="Keyboard - Berber (Algeria, Latin)"
+Description="鍵盤 - Berber (Algeria, Latin)"
 Language=tzm
 Label=kab
 
 [keyboard-dz-ber]
-Description="Keyboard - Berber (Algeria, Latin) - Berber (Algeria, Tifinagh)"
+Description="鍵盤 - Berber (Algeria, Latin) - Berber (Algeria, Tifinagh)"
 Language=kab
 Label="kab (ber)"
 
 [keyboard-dz-azerty-deadkeys]
-Description="Keyboard - Berber (Algeria, Latin) - Kabyle (AZERTY, with dead keys)"
+Description="鍵盤 - Berber (Algeria, Latin) - Kabyle (AZERTY, with dead keys)"
 Language=kab
 Label="kab (azerty-deadkeys)"
 
 [keyboard-dz-qwerty-gb-deadkeys]
-Description="Keyboard - Berber (Algeria, Latin) - Kabyle (QWERTY, UK, with dead keys)"
+Description="鍵盤 - Berber (Algeria, Latin) - Kabyle (QWERTY, UK, with dead keys)"
 Language=kab
 Label="kab (qwerty-gb-deadkeys)"
 
 [keyboard-dz-qwerty-us-deadkeys]
-Description="Keyboard - Berber (Algeria, Latin) - Kabyle (QWERTY, US, with dead keys)"
+Description="鍵盤 - Berber (Algeria, Latin) - Kabyle (QWERTY, US, with dead keys)"
 Language=kab
 Label="kab (qwerty-us-deadkeys)"
 
 [keyboard-dz-ar]
-Description="Keyboard - Berber (Algeria, Latin) - Arabic (Algeria)"
+Description="鍵盤 - Berber (Algeria, Latin) - Arabic (Algeria)"
 Language=ar
 Label=ar
 
 [keyboard-me]
-Description="Keyboard - Montenegrin"
+Description="鍵盤 - 蒙特內哥羅語"
 Language=sr
 Label=sr
 
 [keyboard-me-cyrillic]
-Description="Keyboard - Montenegrin - Montenegrin (Cyrillic)"
+Description="鍵盤 - 蒙特內哥羅語 - 蒙特內哥羅語 (斯拉夫字母)"
 Language=sr
 Label="me (cyrillic)"
 
 [keyboard-me-cyrillicyz]
-Description="Keyboard - Montenegrin - Montenegrin (Cyrillic, ZE and ZHE swapped)"
+Description="鍵盤 - 蒙特內哥羅語 - Montenegrin (Cyrillic, ZE and ZHE swapped)"
 Language=sr
 Label="me (cyrillicyz)"
 
 [keyboard-me-cyrillicalternatequotes]
-Description="Keyboard - Montenegrin - Montenegrin (Cyrillic, with guillemets)"
+Description="鍵盤 - 蒙特內哥羅語 - Montenegrin (Cyrillic, with guillemets)"
 Language=sr
 Label="me (cyrillicalternatequotes)"
 
 [keyboard-me-latinunicode]
-Description="Keyboard - Montenegrin - Montenegrin (Latin, Unicode)"
+Description="鍵盤 - 蒙特內哥羅語 - Montenegrin (Latin, Unicode)"
 Language=sr
 Label="me (latinunicode)"
 
 [keyboard-me-latinyz]
-Description="Keyboard - Montenegrin - Montenegrin (Latin, QWERTY)"
+Description="鍵盤 - 蒙特內哥羅語 - Montenegrin (Latin, QWERTY)"
 Language=sr
 Label="me (latinyz)"
 
 [keyboard-me-latinunicodeyz]
-Description="Keyboard - Montenegrin - Montenegrin (Latin, Unicode, QWERTY)"
+Description="鍵盤 - 蒙特內哥羅語 - Montenegrin (Latin, Unicode, QWERTY)"
 Language=sr
 Label="me (latinunicodeyz)"
 
 [keyboard-me-latinalternatequotes]
-Description="Keyboard - Montenegrin - Montenegrin (Latin, with guillemets)"
+Description="鍵盤 - 蒙特內哥羅語 - Montenegrin (Latin, with guillemets)"
 Language=sr
 Label="me (latinalternatequotes)"
 
 [keyboard-lv]
-Description="Keyboard - Latvian"
+Description="鍵盤 - 拉脫維亞語"
 Language=lv
 Label=lv
 
 [keyboard-lv-apostrophe]
-Description="Keyboard - Latvian - Latvian (apostrophe)"
+Description="鍵盤 - 拉脫維亞語 - Latvian (apostrophe)"
 Language=lv
 Label="lv (apostrophe)"
 
 [keyboard-lv-tilde]
-Description="Keyboard - Latvian - Latvian (tilde)"
+Description="鍵盤 - 拉脫維亞語 - Latvian (tilde)"
 Language=lv
 Label="lv (tilde)"
 
 [keyboard-lv-fkey]
-Description="Keyboard - Latvian - Latvian (F)"
+Description="鍵盤 - 拉脫維亞語 - Latvian (F)"
 Language=lv
 Label="lv (fkey)"
 
 [keyboard-lv-modern]
-Description="Keyboard - Latvian - Latvian (Modern Latin)"
+Description="鍵盤 - 拉脫維亞語 - Latvian (Modern Latin)"
 Language=lv
 Label="lv (modern)"
 
 [keyboard-lv-modern-cyr]
-Description="Keyboard - Latvian - Latvian (Modern Cyrillic)"
+Description="鍵盤 - 拉脫維亞語 - Latvian (Modern Cyrillic)"
 Language=lv
 Label="lv (modern-cyr)"
 
 [keyboard-lv-ergonomic]
-Description="Keyboard - Latvian - Latvian (ergonomic, ŪGJRMV)"
+Description="鍵盤 - 拉脫維亞語 - 拉脫維亞語 (人體工學，ŪGJRMV)"
 Language=lv
 Label="lv (ergonomic)"
 
 [keyboard-lv-adapted]
-Description="Keyboard - Latvian - Latvian (adapted)"
+Description="鍵盤 - 拉脫維亞語 - 拉脫維亞語 (調整)"
 Language=lv
 Label="lv (adapted)"
 
 [keyboard-lv-dvorak]
-Description="Keyboard - Latvian - Latvian (Dvorak)"
+Description="鍵盤 - 拉脫維亞語 - Latvian (Dvorak)"
 Language=lv
 Label="lv (dvorak)"
 
 [keyboard-lv-ykeydvorak]
-Description="Keyboard - Latvian - Latvian (Dvorak, with Y)"
+Description="鍵盤 - 拉脫維亞語 - Latvian (Dvorak, with Y)"
 Language=lv
 Label="lv (ykeydvorak)"
 
 [keyboard-lv-minuskeydvorak]
-Description="Keyboard - Latvian - Latvian (Dvorak, with minus)"
+Description="鍵盤 - 拉脫維亞語 - Latvian (Dvorak, with minus)"
 Language=lv
 Label="lv (minuskeydvorak)"
 
 [keyboard-lv-dvorakprogr]
-Description="Keyboard - Latvian - Latvian (programmer Dvorak)"
+Description="鍵盤 - 拉脫維亞語 - Latvian (programmer Dvorak)"
 Language=lv
 Label="lv (dvorakprogr)"
 
 [keyboard-lv-ykeydvorakprogr]
-Description="Keyboard - Latvian - Latvian (programmer Dvorak, with Y)"
+Description="鍵盤 - 拉脫維亞語 - Latvian (programmer Dvorak, with Y)"
 Language=lv
 Label="lv (ykeydvorakprogr)"
 
 [keyboard-lv-minuskeydvorakprogr]
-Description="Keyboard - Latvian - Latvian (programmer Dvorak, with minus)"
+Description="鍵盤 - 拉脫維亞語 - Latvian (programmer Dvorak, with minus)"
 Language=lv
 Label="lv (minuskeydvorakprogr)"
 
 [keyboard-lv-colemak]
-Description="Keyboard - Latvian - Latvian (Colemak)"
+Description="鍵盤 - 拉脫維亞語 - Latvian (Colemak)"
 Language=lv
 Label="lv (colemak)"
 
 [keyboard-lv-apostrophecolemak]
-Description="Keyboard - Latvian - Latvian (Colemak, with apostrophe)"
+Description="鍵盤 - 拉脫維亞語 - Latvian (Colemak, with apostrophe)"
 Language=lv
 Label="lv (apostrophecolemak)"
 
 [keyboard-lv-sun_type6]
-Description="Keyboard - Latvian - Latvian (Sun Type 6/7)"
+Description="鍵盤 - 拉脫維亞語 - 拉脫維亞語 (昇陽 Type 6/7)"
 Language=lv
 Label="lv (sun_type6)"
 
 [keyboard-lv-apostrophe-deadquotes]
-Description="Keyboard - Latvian - Latvian (apostrophe, dead quotes)"
+Description="鍵盤 - 拉脫維亞語 - Latvian (apostrophe, dead quotes)"
 Language=lv
 Label="lv (apostrophe-deadquotes)"
 
 [keyboard-ba]
-Description="Keyboard - Bosnian"
+Description="鍵盤 - 波士尼亞語"
 Language=bs
 Label=bs
 
 [keyboard-ba-alternatequotes]
-Description="Keyboard - Bosnian - Bosnian (with guillemets)"
+Description="鍵盤 - 波士尼亞語 - Bosnian (with guillemets)"
 Language=bs
 Label="ba (alternatequotes)"
 
 [keyboard-ba-unicode]
-Description="Keyboard - Bosnian - Bosnian (with Bosnian digraphs)"
+Description="鍵盤 - 波士尼亞語 - Bosnian (with Bosnian digraphs)"
 Language=bs
 Label="ba (unicode)"
 
 [keyboard-ba-unicodeus]
-Description="Keyboard - Bosnian - Bosnian (US, with Bosnian digraphs)"
+Description="鍵盤 - 波士尼亞語 - Bosnian (US, with Bosnian digraphs)"
 Language=bs
 Label="ba (unicodeus)"
 
 [keyboard-ba-us]
-Description="Keyboard - Bosnian - Bosnian (US)"
+Description="鍵盤 - 波士尼亞語 - Bosnian (US)"
 Language=bs
 Label="ba (us)"
 
 [keyboard-tw]
-Description="Keyboard - Taiwanese"
+Description="鍵盤 - 臺灣語"
 Language=fox
 Label=zh
 
 [keyboard-tw-indigenous]
-Description="Keyboard - Taiwanese - Taiwanese (indigenous)"
+Description="鍵盤 - 臺灣語 - 臺灣語 (原住民)"
 Language=ami
 Label="tw (indigenous)"
 
 [keyboard-tw-saisiyat]
-Description="Keyboard - Taiwanese - Saisiyat (Taiwan)"
+Description="鍵盤 - 臺灣語 - 賽夏族語 (臺灣)"
 Language=xsy
 Label="xsy (saisiyat)"
 
 [keyboard-rs]
-Description="Keyboard - Serbian"
+Description="鍵盤 - 塞爾維亞語"
 Language=sr
 Label=sr
 
 [keyboard-rs-alternatequotes]
-Description="Keyboard - Serbian - Serbian (Cyrillic, with guillemets)"
+Description="鍵盤 - 塞爾維亞語 - Serbian (Cyrillic, with guillemets)"
 Language=sr
 Label="rs (alternatequotes)"
 
 [keyboard-rs-yz]
-Description="Keyboard - Serbian - Serbian (Cyrillic, ZE and ZHE swapped)"
+Description="鍵盤 - 塞爾維亞語 - Serbian (Cyrillic, ZE and ZHE swapped)"
 Language=sr
 Label="rs (yz)"
 
 [keyboard-rs-latin]
-Description="Keyboard - Serbian - Serbian (Latin)"
+Description="鍵盤 - 塞爾維亞語 - 塞爾維亞語 (拉丁字母)"
 Language=sr
 Label="rs (latin)"
 
 [keyboard-rs-latinalternatequotes]
-Description="Keyboard - Serbian - Serbian (Latin, with guillemets)"
+Description="鍵盤 - 塞爾維亞語 - Serbian (Latin, with guillemets)"
 Language=sr
 Label="rs (latinalternatequotes)"
 
 [keyboard-rs-latinunicode]
-Description="Keyboard - Serbian - Serbian (Latin, Unicode)"
+Description="鍵盤 - 塞爾維亞語 - Serbian (Latin, Unicode)"
 Language=sr
 Label="rs (latinunicode)"
 
 [keyboard-rs-latinyz]
-Description="Keyboard - Serbian - Serbian (Latin, QWERTY)"
+Description="鍵盤 - 塞爾維亞語 - Serbian (Latin, QWERTY)"
 Language=sr
 Label="rs (latinyz)"
 
 [keyboard-rs-latinunicodeyz]
-Description="Keyboard - Serbian - Serbian (Latin, Unicode, QWERTY)"
+Description="鍵盤 - 塞爾維亞語 - Serbian (Latin, Unicode, QWERTY)"
 Language=sr
 Label="rs (latinunicodeyz)"
 
 [keyboard-rs-rue]
-Description="Keyboard - Serbian - Pannonian Rusyn"
+Description="鍵盤 - 塞爾維亞語 - Pannonian Rusyn"
 Language=rue
 Label="rs (rue)"
 
 [keyboard-rs-combiningkeys]
-Description="Keyboard - Serbian - Serbian (combining accents instead of dead keys)"
+Description="鍵盤 - 塞爾維亞語 - 塞爾維亞語 (合併音調以代替廢鍵)"
 Language=sr
 Label="rs (combiningkeys)"
 
 [keyboard-dk]
-Description="Keyboard - Danish"
+Description="鍵盤 - 丹麥語"
 Language=da
 Label=da
 
 [keyboard-dk-nodeadkeys]
-Description="Keyboard - Danish - Danish (no dead keys)"
+Description="鍵盤 - 丹麥語 - Danish (no dead keys)"
 Language=da
 Label="dk (nodeadkeys)"
 
 [keyboard-dk-winkeys]
-Description="Keyboard - Danish - Danish (Windows)"
+Description="鍵盤 - 丹麥語 - Danish (Windows)"
 Language=da
 Label="dk (winkeys)"
 
 [keyboard-dk-mac]
-Description="Keyboard - Danish - Danish (Macintosh)"
+Description="鍵盤 - 丹麥語 - 丹麥語 (麥金塔)"
 Language=da
 Label="dk (mac)"
 
 [keyboard-dk-mac_nodeadkeys]
-Description="Keyboard - Danish - Danish (Macintosh, no dead keys)"
+Description="鍵盤 - 丹麥語 - Danish (Macintosh, no dead keys)"
 Language=da
 Label="dk (mac_nodeadkeys)"
 
 [keyboard-dk-dvorak]
-Description="Keyboard - Danish - Danish (Dvorak)"
+Description="鍵盤 - 丹麥語 - 丹麥語 (Dvorak 配置)"
 Language=da
 Label="dk (dvorak)"
 
 [keyboard-dk-sun_type6]
-Description="Keyboard - Danish - Danish (Sun Type 6/7)"
+Description="鍵盤 - 丹麥語 - 丹麥語 (昇陽 Type 6/7)"
 Language=da
 Label="dk (sun_type6)"
 
 [keyboard-bw]
-Description="Keyboard - Tswana"
+Description="鍵盤 - 茨瓦納語"
 Language=tn
 Label=tn
 
 [keyboard-kr]
-Description="Keyboard - Korean"
+Description="鍵盤 - 韓語"
 Language=ko
 Label=ko
 
 [keyboard-kr-kr104]
-Description="Keyboard - Korean - Korean (101/104-key compatible)"
+Description="鍵盤 - 韓語 - Korean (101/104-key compatible)"
 Language=ko
 Label="kr (kr104)"
 
 [keyboard-kr-sun_type6]
-Description="Keyboard - Korean - Korean (Sun Type 6/7)"
+Description="鍵盤 - 韓語 - 韓語 (昇陽 Type 6/7)"
 Language=ko
 Label="kr (sun_type6)"
 
 [keyboard-nl]
-Description="Keyboard - Dutch"
+Description="鍵盤 - 荷蘭語"
 Language=nl
 Label=nl
 
 [keyboard-nl-us]
-Description="Keyboard - Dutch - Dutch (US)"
+Description="鍵盤 - 荷蘭語 - Dutch (US)"
 Language=nl
 Label="nl (us)"
 
 [keyboard-nl-mac]
-Description="Keyboard - Dutch - Dutch (Macintosh)"
+Description="鍵盤 - 荷蘭語 - 荷蘭語 (麥金塔)"
 Language=nl
 Label="nl (mac)"
 
 [keyboard-nl-std]
-Description="Keyboard - Dutch - Dutch (standard)"
+Description="鍵盤 - 荷蘭語 - 荷蘭語 (標準)"
 Language=nl
 Label="nl (std)"
 
 [keyboard-nl-sun_type6]
-Description="Keyboard - Dutch - Dutch (Sun Type 6/7)"
+Description="鍵盤 - 荷蘭語 - 荷蘭語 (昇陽 Type 6/7)"
 Language=nl
 Label="nl (sun_type6)"
 
 [keyboard-et]
-Description="Keyboard - Amharic"
+Description="鍵盤 - 阿姆哈拉語"
 Language=am
 Label=am
 
 [keyboard-be]
-Description="Keyboard - Belgian"
+Description="鍵盤 - 比利時語"
 Language=de
 Label=be
 
 [keyboard-be-oss]
-Description="Keyboard - Belgian - Belgian (alt.)"
+Description="鍵盤 - 比利時語 - Belgian (alt.)"
 Language=de
 Label="be (oss)"
 
 [keyboard-be-oss_latin9]
-Description="Keyboard - Belgian - Belgian (Latin-9 only, alt.)"
+Description="鍵盤 - 比利時語 - Belgian (Latin-9 only, alt.)"
 Language=de
 Label="be (oss_latin9)"
 
 [keyboard-be-iso-alternate]
-Description="Keyboard - Belgian - Belgian (ISO, alt.)"
+Description="鍵盤 - 比利時語 - Belgian (ISO, alt.)"
 Language=de
 Label="be (iso-alternate)"
 
 [keyboard-be-nodeadkeys]
-Description="Keyboard - Belgian - Belgian (no dead keys)"
+Description="鍵盤 - 比利時語 - Belgian (no dead keys)"
 Language=de
 Label="be (nodeadkeys)"
 
 [keyboard-be-wang]
-Description="Keyboard - Belgian - Belgian (Wang 724 AZERTY)"
+Description="鍵盤 - 比利時語 - Belgian (Wang 724 AZERTY)"
 Language=de
 Label="be (wang)"
 
 [keyboard-be-sun_type6]
-Description="Keyboard - Belgian - Belgian (Sun Type 6/7)"
+Description="鍵盤 - 比利時語 - 比利時語 (昇陽 Type 6/7)"
 Language=de
 Label="be (sun_type6)"
 
 [keyboard-la]
-Description="Keyboard - Lao"
+Description="鍵盤 - 老撾語"
 Language=lo
 Label=lo
 
 [keyboard-la-stea]
-Description="Keyboard - Lao - Lao (STEA)"
+Description="鍵盤 - 老撾語 - Lao (STEA)"
 Language=lo
 Label="la (stea)"
 
 [keyboard-bt]
-Description="Keyboard - Dzongkha"
+Description="鍵盤 - 宗卡語"
 Language=dz
 Label=dz
 
 [keyboard-mm]
-Description="Keyboard - Burmese"
+Description="鍵盤 - 緬甸語"
 Language=my
 Label=my
 
 [keyboard-mm-zawgyi]
-Description="Keyboard - Burmese - Burmese (Zawgyi)"
+Description="鍵盤 - 緬甸語 - Burmese (Zawgyi)"
 Language=my
 Label="my-zwg (zawgyi)"
 
 [keyboard-mm-mara]
-Description="Keyboard - Burmese - Mara"
+Description="鍵盤 - 緬甸語 - Mara"
 Language=mrh
 Label="mrh (mara)"
 
 [keyboard-mm-mnw]
-Description="Keyboard - Burmese - Mon"
+Description="鍵盤 - 緬甸語 - Mon"
 Language=mnw
 Label=mnw
 
 [keyboard-mm-mnw-a1]
-Description="Keyboard - Burmese - Mon (A1)"
+Description="鍵盤 - 緬甸語 - Mon (A1)"
 Language=mnw
 Label="mnw (mnw-a1)"
 
 [keyboard-mm-shn]
-Description="Keyboard - Burmese - Shan"
+Description="鍵盤 - 緬甸語 - Shan"
 Language=shn
 Label=shn
 
 [keyboard-mm-zgt]
-Description="Keyboard - Burmese - Shan (Zawgyi)"
+Description="鍵盤 - 緬甸語 - Shan (Zawgyi)"
 Language=shn
 Label="shn-zwg (zgt)"
 
 [keyboard-si]
-Description="Keyboard - Slovenian"
+Description="鍵盤 - 斯洛維尼亞語"
 Language=sl
 Label=sl
 
 [keyboard-si-alternatequotes]
-Description="Keyboard - Slovenian - Slovenian (with guillemets)"
+Description="鍵盤 - 斯洛維尼亞語 - Slovenian (with guillemets)"
 Language=sl
 Label="si (alternatequotes)"
 
 [keyboard-si-us]
-Description="Keyboard - Slovenian - Slovenian (US)"
+Description="鍵盤 - 斯洛維尼亞語 - Slovenian (US)"
 Language=sl
 Label="si (us)"
 
 [keyboard-am]
-Description="Keyboard - Armenian"
+Description="鍵盤 - 亞美尼亞語"
 Language=hy
 Label=hy
 
 [keyboard-am-phonetic]
-Description="Keyboard - Armenian - Armenian (phonetic)"
+Description="鍵盤 - 亞美尼亞語 - 亞美尼亞語 (音標)"
 Language=hy
 Label="am (phonetic)"
 
 [keyboard-am-phonetic-alt]
-Description="Keyboard - Armenian - Armenian (alt. phonetic)"
+Description="鍵盤 - 亞美尼亞語 - Armenian (alt. phonetic)"
 Language=hy
 Label="am (phonetic-alt)"
 
 [keyboard-am-eastern]
-Description="Keyboard - Armenian - Armenian (eastern)"
+Description="鍵盤 - 亞美尼亞語 - 亞美尼亞語 (東部)"
 Language=hy
 Label="am (eastern)"
 
 [keyboard-am-eastern-alt]
-Description="Keyboard - Armenian - Armenian (alt. eastern)"
+Description="鍵盤 - 亞美尼亞語 - Armenian (alt. eastern)"
 Language=hy
 Label="am (eastern-alt)"
 
 [keyboard-am-western]
-Description="Keyboard - Armenian - Armenian (western)"
+Description="鍵盤 - 亞美尼亞語 - 亞美尼亞語 (西部)"
 Language=hy
 Label="am (western)"
 
 [keyboard-am-olpc-phonetic]
-Description="Keyboard - Armenian - Armenian (OLPC, phonetic)"
+Description="鍵盤 - 亞美尼亞語 - Armenian (OLPC, phonetic)"
 Language=hy
 Label="am (olpc-phonetic)"
 
 [keyboard-by]
-Description="Keyboard - Belarusian"
+Description="鍵盤 - 白俄羅斯語"
 Language=be
 Label=by
 
 [keyboard-by-legacy]
-Description="Keyboard - Belarusian - Belarusian (legacy)"
+Description="鍵盤 - 白俄羅斯語 - 白俄羅斯語 (舊式)"
 Language=be
 Label="by (legacy)"
 
 [keyboard-by-latin]
-Description="Keyboard - Belarusian - Belarusian (Latin)"
+Description="鍵盤 - 白俄羅斯語 - 白俄羅斯語 (拉丁字母)"
 Language=be
 Label="by (latin)"
 
 [keyboard-by-intl]
-Description="Keyboard - Belarusian - Belarusian (intl.)"
+Description="鍵盤 - 白俄羅斯語 - Belarusian (intl.)"
 Language=be
 Label="by (intl)"
 
 [keyboard-by-phonetic]
-Description="Keyboard - Belarusian - Belarusian (phonetic)"
+Description="鍵盤 - 白俄羅斯語 - Belarusian (phonetic)"
 Language=be
 Label="by (phonetic)"
 
 [keyboard-by-ru]
-Description="Keyboard - Belarusian - Russian (Belarus)"
+Description="鍵盤 - 白俄羅斯語 - Russian (Belarus)"
 Language=ru
 Label="by (ru)"
 
 [keyboard-vn]
-Description="Keyboard - Vietnamese"
+Description="鍵盤 - 越南語"
 Language=vi
 Label=vi
 
 [keyboard-vn-us]
-Description="Keyboard - Vietnamese - Vietnamese (US)"
+Description="鍵盤 - 越南語 - Vietnamese (US)"
 Language=vi
 Label="vn (us)"
 
 [keyboard-vn-fr]
-Description="Keyboard - Vietnamese - Vietnamese (France)"
+Description="鍵盤 - 越南語 - Vietnamese (France)"
 Language=vi
 Label="vn (fr)"
 
 [keyboard-vn-aderty]
-Description="Keyboard - Vietnamese - Vietnamese (AÐERTY)"
+Description="鍵盤 - 越南語 - Vietnamese (AÐERTY)"
 Language=vi
 Label="vn (aderty)"
 
 [keyboard-vn-qderty]
-Description="Keyboard - Vietnamese - Vietnamese (QĐERTY)"
+Description="鍵盤 - 越南語 - Vietnamese (QĐERTY)"
 Language=vi
 Label="vn (qderty)"
 
 [keyboard-ml]
-Description="Keyboard - Bambara"
+Description="鍵盤 - 班巴拉語"
 Language=bm
 Label=bm
 
 [keyboard-ml-fr-oss]
-Description="Keyboard - Bambara - French (Mali, alt.)"
+Description="鍵盤 - 班巴拉語 - French (Mali, alt.)"
 Language=fr
 Label="fr (fr-oss)"
 
 [keyboard-ml-us-mac]
-Description="Keyboard - Bambara - English (Mali, US, Macintosh)"
+Description="鍵盤 - 班巴拉語 - English (Mali, US, Macintosh)"
 Language=en
 Label="en (us-mac)"
 
 [keyboard-ml-us-intl]
-Description="Keyboard - Bambara - English (Mali, US, intl.)"
+Description="鍵盤 - 班巴拉語 - English (Mali, US, intl.)"
 Language=en
 Label="en (us-intl)"
 
 [keyboard-ara]
-Description="Keyboard - Arabic"
+Description="鍵盤 - 阿拉伯語"
 Language=ar
 Label=ar
 
 [keyboard-ara-digits]
-Description="Keyboard - Arabic - Arabic (Eastern Arabic numerals)"
+Description="鍵盤 - 阿拉伯語 - Arabic (Eastern Arabic numerals)"
 Language=ar
 Label="ara (digits)"
 
 [keyboard-ara-azerty]
-Description="Keyboard - Arabic - Arabic (AZERTY)"
+Description="鍵盤 - 阿拉伯語 - Arabic (AZERTY)"
 Language=ar
 Label="ara (azerty)"
 
 [keyboard-ara-azerty_digits]
-Description="Keyboard - Arabic - Arabic (AZERTY, Eastern Arabic numerals)"
+Description="鍵盤 - 阿拉伯語 - Arabic (AZERTY, Eastern Arabic numerals)"
 Language=ar
 Label="ara (azerty_digits)"
 
 [keyboard-ara-buckwalter]
-Description="Keyboard - Arabic - Arabic (Buckwalter)"
+Description="鍵盤 - 阿拉伯語 - 阿拉伯語 (Buckwalter 配置)"
 Language=ar
 Label="ara (buckwalter)"
 
 [keyboard-ara-mac]
-Description="Keyboard - Arabic - Arabic (Macintosh)"
+Description="鍵盤 - 阿拉伯語 - Arabic (Macintosh)"
 Language=ar
 Label="ara (mac)"
 
 [keyboard-ara-mac-phonetic]
-Description="Keyboard - Arabic - Arabic (Macintosh, phonetic)"
+Description="鍵盤 - 阿拉伯語 - Arabic (Macintosh, phonetic)"
 Language=ar
 Label="ara (mac-phonetic)"
 
 [keyboard-ara-olpc]
-Description="Keyboard - Arabic - Arabic (OLPC)"
+Description="鍵盤 - 阿拉伯語 - Arabic (OLPC)"
 Language=ar
 Label="ara (olpc)"
 
 [keyboard-ara-sun_type6]
-Description="Keyboard - Arabic - Arabic (Sun Type 6/7)"
+Description="鍵盤 - 阿拉伯語 - 阿拉伯語 (昇陽 Type 6/7)"
 Language=ar
 Label="ara (sun_type6)"
 
 [keyboard-ara-basic_ext]
-Description="Keyboard - Arabic - Arabic (Arabic numerals, extensions in the 4th level)"
+Description="鍵盤 - 阿拉伯語 - Arabic (Arabic numerals, extensions in the 4th level)"
 Language=ar
 Label="ara (basic_ext)"
 
 [keyboard-ara-basic_ext_digits]
-Description="Keyboard - Arabic - Arabic (Eastern Arabic numerals, extensions in the 4th level)"
+Description="鍵盤 - 阿拉伯語 - Arabic (Eastern Arabic numerals, extensions in the 4th level)"
 Language=ar
 Label="ara (basic_ext_digits)"
 
 [keyboard-ara-ergoarabic]
-Description="Keyboard - Arabic - Arabic (ErgoArabic)"
+Description="鍵盤 - 阿拉伯語 - Arabic (ErgoArabic)"
 Language=ar
 Label="ara (ergoarabic)"
 
 [keyboard-ie]
-Description="Keyboard - Irish"
+Description="鍵盤 - 愛爾蘭語"
 Language=en
 Label=ie
 
 [keyboard-ie-UnicodeExpert]
-Description="Keyboard - Irish - Irish (UnicodeExpert)"
+Description="鍵盤 - 愛爾蘭語 - 愛爾蘭語 (萬國碼專家)"
 Language=en
 Label="ie (UnicodeExpert)"
 
 [keyboard-ie-CloGaelach]
-Description="Keyboard - Irish - CloGaelach"
+Description="鍵盤 - 愛爾蘭語 - CloGaelach"
 Language=ga
 Label="ie (CloGaelach)"
 
 [keyboard-ie-ogam]
-Description="Keyboard - Irish - Ogham"
+Description="鍵盤 - 愛爾蘭語 - 歐甘語 (古愛爾蘭)"
 Language=sga
 Label="ie (ogam)"
 
 [keyboard-ie-ogam_is434]
-Description="Keyboard - Irish - Ogham (IS434)"
+Description="鍵盤 - 愛爾蘭語 - 歐甘語 (IS434)"
 Language=sga
 Label="ie (ogam_is434)"
 
 [keyboard-cm]
-Description="Keyboard - English (Cameroon)"
+Description="鍵盤 - 英語 (喀麥隆)"
 Language=en
 Label=cm
 
 [keyboard-cm-french]
-Description="Keyboard - English (Cameroon) - French (Cameroon)"
+Description="鍵盤 - 英語 (喀麥隆) - 法語 (喀麥隆)"
 Language=fr
 Label="fr (french)"
 
 [keyboard-cm-qwerty]
-Description="Keyboard - English (Cameroon) - Cameroon Multilingual (QWERTY, intl.)"
+Description="鍵盤 - 英語 (喀麥隆) - Cameroon Multilingual (QWERTY, intl.)"
 Language=en
 Label="cm (qwerty)"
 
 [keyboard-cm-azerty]
-Description="Keyboard - English (Cameroon) - Cameroon (AZERTY, intl.)"
+Description="鍵盤 - 英語 (喀麥隆) - Cameroon (AZERTY, intl.)"
 Language=fr
 Label="cm (azerty)"
 
 [keyboard-cm-dvorak]
-Description="Keyboard - English (Cameroon) - Cameroon (Dvorak, intl.)"
+Description="鍵盤 - 英語 (喀麥隆) - Cameroon (Dvorak, intl.)"
 Language=en
 Label="cm (dvorak)"
 
 [keyboard-cm-mmuock]
-Description="Keyboard - English (Cameroon) - Mmuock"
+Description="鍵盤 - 英語 (喀麥隆) - Mmuock"
 Language=en
 Label="cm (mmuock)"
 
 [keyboard-iq]
-Description="Keyboard - Arabic (Iraq)"
+Description="鍵盤 - Arabic (Iraq)"
 Language=ar
 Label=ar
 
 [keyboard-iq-ku]
-Description="Keyboard - Arabic (Iraq) - Kurdish (Iraq, Latin Q)"
+Description="鍵盤 - Arabic (Iraq) - 庫德語 (伊拉克，拉丁字母 Q)"
 Language=ku
 Label=ku
 
 [keyboard-iq-ku_alt]
-Description="Keyboard - Arabic (Iraq) - Kurdish (Iraq, Latin Alt-Q)"
+Description="鍵盤 - Arabic (Iraq) - 庫德語 (伊拉克，拉丁字母 Alt-Q)"
 Language=ku
 Label="ku (ku_alt)"
 
 [keyboard-iq-ku_f]
-Description="Keyboard - Arabic (Iraq) - Kurdish (Iraq, F)"
+Description="鍵盤 - Arabic (Iraq) - 庫德語 (伊拉克，F)"
 Language=ku
 Label="ku (ku_f)"
 
 [keyboard-iq-ku_ara]
-Description="Keyboard - Arabic (Iraq) - Kurdish (Iraq, Arabic-Latin)"
+Description="鍵盤 - Arabic (Iraq) - 庫德語 (伊拉克，阿拉伯-拉丁字母)"
 Language=ku
 Label="ku (ku_ara)"
 
 [keyboard-af]
-Description="Keyboard - Dari"
+Description="鍵盤 - Dari"
 Language=prs
 Label=fa
 
 [keyboard-af-ps]
-Description="Keyboard - Dari - Pashto"
+Description="鍵盤 - Dari - 普什圖語"
 Language=ps
 Label=ps
 
 [keyboard-af-uz]
-Description="Keyboard - Dari - Uzbek (Afghanistan)"
+Description="鍵盤 - Dari - 烏茲別克語 (阿富汗)"
 Language=uz
 Label=uz
 
 [keyboard-af-fa-olpc]
-Description="Keyboard - Dari - Dari (Afghanistan, OLPC)"
+Description="鍵盤 - Dari - Dari (Afghanistan, OLPC)"
 Language=prs
 Label="fa (fa-olpc)"
 
 [keyboard-af-ps-olpc]
-Description="Keyboard - Dari - Pashto (Afghanistan, OLPC)"
+Description="鍵盤 - Dari - 普什圖語 (阿富汗，OLPC)"
 Language=ps
 Label="ps (ps-olpc)"
 
 [keyboard-af-uz-olpc]
-Description="Keyboard - Dari - Uzbek (Afghanistan, OLPC)"
+Description="鍵盤 - Dari - 烏茲別克語 (阿富汗，OLPC)"
 Language=uz
 Label="uz (uz-olpc)"
 
 [keyboard-hr]
-Description="Keyboard - Croatian"
+Description="鍵盤 - 克羅埃西亞語"
 Language=hr
 Label=hr
 
 [keyboard-hr-alternatequotes]
-Description="Keyboard - Croatian - Croatian (with guillemets)"
+Description="鍵盤 - 克羅埃西亞語 - Croatian (with guillemets)"
 Language=hr
 Label="hr (alternatequotes)"
 
 [keyboard-hr-unicode]
-Description="Keyboard - Croatian - Croatian (with Croatian digraphs)"
+Description="鍵盤 - 克羅埃西亞語 - Croatian (with Croatian digraphs)"
 Language=hr
 Label="hr (unicode)"
 
 [keyboard-hr-unicodeus]
-Description="Keyboard - Croatian - Croatian (US, with Croatian digraphs)"
+Description="鍵盤 - 克羅埃西亞語 - Croatian (US, with Croatian digraphs)"
 Language=hr
 Label="hr (unicodeus)"
 
 [keyboard-hr-us]
-Description="Keyboard - Croatian - Croatian (US)"
+Description="鍵盤 - 克羅埃西亞語 - Croatian (US)"
 Language=hr
 Label="hr (us)"
 
 [keyboard-ma]
-Description="Keyboard - Arabic (Morocco)"
+Description="鍵盤 - 阿拉伯語 (摩洛哥)"
 Language=ary
 Label=ar
 
 [keyboard-ma-tifinagh]
-Description="Keyboard - Arabic (Morocco) - Berber (Morocco, Tifinagh)"
+Description="鍵盤 - 阿拉伯語 (摩洛哥) - 柏柏爾語 (摩洛哥，提非納字母)"
 Language=ber
 Label="ber (tifinagh)"
 
 [keyboard-ma-tifinagh-alt]
-Description="Keyboard - Arabic (Morocco) - Berber (Morocco, Tifinagh alt.)"
+Description="鍵盤 - 阿拉伯語 (摩洛哥) - Berber (Morocco, Tifinagh alt.)"
 Language=ber
 Label="ber (tifinagh-alt)"
 
 [keyboard-ma-tifinagh-alt-phonetic]
-Description="Keyboard - Arabic (Morocco) - Berber (Morocco, Tifinagh phonetic, alt.)"
+Description="鍵盤 - 阿拉伯語 (摩洛哥) - Berber (Morocco, Tifinagh phonetic, alt.)"
 Language=ber
 Label="ber (tifinagh-alt-phonetic)"
 
 [keyboard-ma-tifinagh-extended]
-Description="Keyboard - Arabic (Morocco) - Berber (Morocco, Tifinagh extended)"
+Description="鍵盤 - 阿拉伯語 (摩洛哥) - 柏柏爾語 (摩洛哥，提非納字母擴充)"
 Language=ber
 Label="ber (tifinagh-extended)"
 
 [keyboard-ma-tifinagh-phonetic]
-Description="Keyboard - Arabic (Morocco) - Berber (Morocco, Tifinagh phonetic)"
+Description="鍵盤 - 阿拉伯語 (摩洛哥) - 柏柏爾語 (摩洛哥，提非納字母音標)"
 Language=ber
 Label="ber (tifinagh-phonetic)"
 
 [keyboard-ma-tifinagh-extended-phonetic]
-Description="Keyboard - Arabic (Morocco) - Berber (Morocco, Tifinagh extended phonetic)"
+Description="鍵盤 - 阿拉伯語 (摩洛哥) - 柏柏爾語 (摩洛哥，提非納字母擴充音標)"
 Language=ber
 Label="ber (tifinagh-extended-phonetic)"
 
 [keyboard-ma-french]
-Description="Keyboard - Arabic (Morocco) - French (Morocco)"
+Description="鍵盤 - 阿拉伯語 (摩洛哥) - 法語 (摩洛哥)"
 Language=fr
 Label="fr (french)"
 
 [keyboard-ma-rif]
-Description="Keyboard - Arabic (Morocco) - Tarifit"
+Description="鍵盤 - 阿拉伯語 (摩洛哥) - Tarifit"
 Language=rif
 Label=rif
 
 [keyboard-sy]
-Description="Keyboard - Arabic (Syria)"
+Description="鍵盤 - 阿拉伯語 (敘利亞)"
 Language=syr
 Label=ar
 
 [keyboard-sy-syc]
-Description="Keyboard - Arabic (Syria) - Syriac"
+Description="鍵盤 - 阿拉伯語 (敘利亞) - 敘利亞語"
 Language=syr
 Label=syc
 
 [keyboard-sy-syc_phonetic]
-Description="Keyboard - Arabic (Syria) - Syriac (phonetic)"
+Description="鍵盤 - 阿拉伯語 (敘利亞) - 敘利亞語 (音標)"
 Language=syr
 Label="syc (syc_phonetic)"
 
 [keyboard-sy-ku]
-Description="Keyboard - Arabic (Syria) - Kurdish (Syria, Latin Q)"
+Description="鍵盤 - 阿拉伯語 (敘利亞) - 庫德語 (敘利亞，拉丁字母 Q)"
 Language=ku
 Label=ku
 
 [keyboard-sy-ku_alt]
-Description="Keyboard - Arabic (Syria) - Kurdish (Syria, Latin Alt-Q)"
+Description="鍵盤 - 阿拉伯語 (敘利亞) - 庫德語 (敘利亞，拉丁字母 Alt-Q)"
 Language=ku
 Label="ku (ku_alt)"
 
 [keyboard-sy-ku_f]
-Description="Keyboard - Arabic (Syria) - Kurdish (Syria, F)"
+Description="鍵盤 - 阿拉伯語 (敘利亞) - 庫德語 (敘利亞，F)"
 Language=ku
 Label="ku (ku_f)"
 
 [keyboard-at]
-Description="Keyboard - German (Austria)"
+Description="鍵盤 - 德語 (奧地利)"
 Language=de
 Label=de
 
 [keyboard-at-nodeadkeys]
-Description="Keyboard - German (Austria) - German (Austria, no dead keys)"
+Description="鍵盤 - 德語 (奧地利) - German (Austria, no dead keys)"
 Language=de
 Label="at (nodeadkeys)"
 
 [keyboard-at-mac]
-Description="Keyboard - German (Austria) - German (Austria, Macintosh)"
+Description="鍵盤 - 德語 (奧地利) - 德語 (奧地利，麥金塔)"
 Language=de
 Label="at (mac)"
 
 [keyboard-nz]
-Description="Keyboard - English (New Zealand)"
+Description="鍵盤 - English (New Zealand)"
 Language=en
 Label=en
 
 [keyboard-nz-mao]
-Description="Keyboard - English (New Zealand) - Maori"
+Description="鍵盤 - English (New Zealand) - 毛利語"
 Language=mi
 Label="mi (mao)"
 
 [keyboard-epo]
-Description="Keyboard - Esperanto"
+Description="鍵盤 - 世界語"
 Language=eo
 Label=eo
 
 [keyboard-epo-legacy]
-Description="Keyboard - Esperanto - Esperanto (legacy)"
+Description="鍵盤 - 世界語 - Esperanto (legacy)"
 Language=eo
 Label="epo (legacy)"
 
 [keyboard-eu]
-Description="Keyboard - EurKEY (US)"
+Description="鍵盤 - EurKEY (US)"
 Language=ca
 Label=eu
 
 [keyboard-za]
-Description="Keyboard - English (South Africa)"
+Description="鍵盤 - 英語 (南非)"
 Language=en
 Label=en
 
 [keyboard-fo]
-Description="Keyboard - Faroese"
+Description="鍵盤 - 法羅群島語"
 Language=fo
 Label=fo
 
 [keyboard-fo-nodeadkeys]
-Description="Keyboard - Faroese - Faroese (no dead keys)"
+Description="鍵盤 - 法羅群島語 - Faroese (no dead keys)"
 Language=fo
 Label="fo (nodeadkeys)"
 
 [keyboard-gb]
-Description="Keyboard - English (UK)"
+Description="鍵盤 - 英語 (英式)"
 Language=en
 Label=en
 
 [keyboard-gb-extd]
-Description="Keyboard - English (UK) - English (UK, extended, Windows)"
+Description="鍵盤 - 英語 (英式) - English (UK, extended, Windows)"
 Language=en
 Label="gb (extd)"
 
 [keyboard-gb-intl]
-Description="Keyboard - English (UK) - English (UK, intl., with dead keys)"
+Description="鍵盤 - 英語 (英式) - English (UK, intl., with dead keys)"
 Language=en
 Label="gb (intl)"
 
 [keyboard-gb-dvorak]
-Description="Keyboard - English (UK) - English (UK, Dvorak)"
+Description="鍵盤 - 英語 (英式) - 英語 (英式，Dvorak 配置)"
 Language=en
 Label="gb (dvorak)"
 
 [keyboard-gb-dvorakukp]
-Description="Keyboard - English (UK) - English (UK, Dvorak, with UK punctuation)"
+Description="鍵盤 - 英語 (英式) - English (UK, Dvorak, with UK punctuation)"
 Language=en
 Label="gb (dvorakukp)"
 
 [keyboard-gb-mac]
-Description="Keyboard - English (UK) - English (UK, Macintosh)"
+Description="鍵盤 - 英語 (英式) - 英語 (英式，麥金塔)"
 Language=en
 Label="gb (mac)"
 
 [keyboard-gb-mac_intl]
-Description="Keyboard - English (UK) - English (UK, Macintosh, intl.)"
+Description="鍵盤 - 英語 (英式) - English (UK, Macintosh, intl.)"
 Language=en
 Label="gb (mac_intl)"
 
 [keyboard-gb-colemak]
-Description="Keyboard - English (UK) - English (UK, Colemak)"
+Description="鍵盤 - 英語 (英式) - 英語 (英式，Colemak 配置)"
 Language=en
 Label="gb (colemak)"
 
 [keyboard-gb-colemak_dh]
-Description="Keyboard - English (UK) - English (UK, Colemak-DH)"
+Description="鍵盤 - 英語 (英式) - English (UK, Colemak-DH)"
 Language=en
 Label="gb (colemak_dh)"
 
 [keyboard-gb-gla]
-Description="Keyboard - English (UK) - Scottish Gaelic"
+Description="鍵盤 - 英語 (英式) - Scottish Gaelic"
 Language=en
 Label="gd (gla)"
 
 [keyboard-gb-pl]
-Description="Keyboard - English (UK) - Polish (British keyboard)"
+Description="鍵盤 - 英語 (英式) - Polish (British keyboard)"
 Language=pl
 Label=pl
 
 [keyboard-gb-sun_type6]
-Description="Keyboard - English (UK) - English (UK, Sun Type 6/7)"
+Description="鍵盤 - 英語 (英式) - 英語 (英式，昇陽 Type 6/7)"
 Language=en
 Label="gb (sun_type6)"
 
 [keyboard-ke]
-Description="Keyboard - Swahili (Kenya)"
+Description="鍵盤 - 史瓦西里語 (肯亞)"
 Language=sw
 Label=sw
 
 [keyboard-ke-kik]
-Description="Keyboard - Swahili (Kenya) - Kikuyu"
+Description="鍵盤 - 史瓦西里語 (肯亞) - 基庫尤語"
 Language=ki
 Label="ki (kik)"
 
 [keyboard-md]
-Description="Keyboard - Moldavian"
+Description="鍵盤 - 摩爾達維亞語"
 Language=ro
 Label=ro
 
 [keyboard-md-gag]
-Description="Keyboard - Moldavian - Gagauz (Moldova)"
+Description="鍵盤 - 摩爾達維亞語 - Gagauz (Moldova)"
 Language=gag
 Label=gag
 
 [keyboard-us]
-Description="Keyboard - English (US)"
+Description="鍵盤 - 英語 (美式)"
 Language=en
 Label=en
 
 [keyboard-us-euro]
-Description="Keyboard - English (US) - English (US, euro on 5)"
+Description="鍵盤 - 英語 (美式) - English (US, euro on 5)"
 Language=en
 Label="us (euro)"
 
 [keyboard-us-intl]
-Description="Keyboard - English (US) - English (US, intl., with dead keys)"
+Description="鍵盤 - 英語 (美式) - English (US, intl., with dead keys)"
 Language=en
 Label="us (intl)"
 
 [keyboard-us-alt-intl]
-Description="Keyboard - English (US) - English (US, alt. intl.)"
+Description="鍵盤 - 英語 (美式) - English (US, alt. intl.)"
 Language=en
 Label="us (alt-intl)"
 
 [keyboard-us-altgr-intl]
-Description="Keyboard - English (US) - English (intl., with AltGr dead keys)"
+Description="鍵盤 - 英語 (美式) - English (intl., with AltGr dead keys)"
 Language=en
 Label="us (altgr-intl)"
 
 [keyboard-us-mac]
-Description="Keyboard - English (US) - English (Macintosh, ABC, ANSI)"
+Description="鍵盤 - 英語 (美式) - English (Macintosh, ABC, ANSI)"
 Language=en
 Label="us (mac)"
 
 [keyboard-us-mac-iso]
-Description="Keyboard - English (US) - English (Macintosh, ABC, ISO)"
+Description="鍵盤 - 英語 (美式) - English (Macintosh, ABC, ISO)"
 Language=en
 Label="us (mac-iso)"
 
 [keyboard-us-colemak]
-Description="Keyboard - English (US) - English (Colemak)"
+Description="鍵盤 - 英語 (美式) - 英語 (Colemak 配置)"
 Language=en
 Label="us (colemak)"
 
 [keyboard-us-colemak_dh]
-Description="Keyboard - English (US) - English (Colemak-DH)"
+Description="鍵盤 - 英語 (美式) - English (Colemak-DH)"
 Language=en
 Label="us (colemak_dh)"
 
 [keyboard-us-colemak_dh_wide]
-Description="Keyboard - English (US) - English (Colemak-DH Wide)"
+Description="鍵盤 - 英語 (美式) - English (Colemak-DH Wide)"
 Language=en
 Label="us (colemak_dh_wide)"
 
 [keyboard-us-colemak_dh_ortho]
-Description="Keyboard - English (US) - English (Colemak-DH Ortholinear)"
+Description="鍵盤 - 英語 (美式) - English (Colemak-DH Ortholinear)"
 Language=en
 Label="us (colemak_dh_ortho)"
 
 [keyboard-us-colemak_dh_iso]
-Description="Keyboard - English (US) - English (Colemak-DH ISO)"
+Description="鍵盤 - 英語 (美式) - English (Colemak-DH ISO)"
 Language=en
 Label="us (colemak_dh_iso)"
 
 [keyboard-us-colemak_dh_wide_iso]
-Description="Keyboard - English (US) - English (Colemak-DH Wide ISO)"
+Description="鍵盤 - 英語 (美式) - English (Colemak-DH Wide ISO)"
 Language=en
 Label="us (colemak_dh_wide_iso)"
 
 [keyboard-us-dvorak]
-Description="Keyboard - English (US) - English (Dvorak)"
+Description="鍵盤 - 英語 (美式) - 英語 (Dvorak 配置)"
 Language=en
 Label="us (dvorak)"
 
 [keyboard-us-dvorak-intl]
-Description="Keyboard - English (US) - English (Dvorak, intl., with dead keys)"
+Description="鍵盤 - 英語 (美式) - English (Dvorak, intl., with dead keys)"
 Language=en
 Label="us (dvorak-intl)"
 
 [keyboard-us-dvorak-alt-intl]
-Description="Keyboard - English (US) - English (Dvorak, alt. intl.)"
+Description="鍵盤 - 英語 (美式) - English (Dvorak, alt. intl.)"
 Language=en
 Label="us (dvorak-alt-intl)"
 
 [keyboard-us-dvorak-l]
-Description="Keyboard - English (US) - English (Dvorak, one-handed, left)"
+Description="鍵盤 - 英語 (美式) - English (Dvorak, one-handed, left)"
 Language=en
 Label="us (dvorak-l)"
 
 [keyboard-us-dvorak-r]
-Description="Keyboard - English (US) - English (Dvorak, one-handed, right)"
+Description="鍵盤 - 英語 (美式) - English (Dvorak, one-handed, right)"
 Language=en
 Label="us (dvorak-r)"
 
 [keyboard-us-dvorak-classic]
-Description="Keyboard - English (US) - English (classic Dvorak)"
+Description="鍵盤 - 英語 (美式) - 英語 (傳統型 Dvorak 配置)"
 Language=en
 Label="us (dvorak-classic)"
 
 [keyboard-us-dvp]
-Description="Keyboard - English (US) - English (programmer Dvorak)"
+Description="鍵盤 - 英語 (美式) - 英語 (程式員 Dvorak 配置)"
 Language=en
 Label="us (dvp)"
 
 [keyboard-us-dvorak-mac]
-Description="Keyboard - English (US) - English (Dvorak, Macintosh, ANSI)"
+Description="鍵盤 - 英語 (美式) - English (Dvorak, Macintosh, ANSI)"
 Language=en
 Label="us (dvorak-mac)"
 
 [keyboard-us-dvorak-mac-iso]
-Description="Keyboard - English (US) - English (Dvorak, Macintosh, ISO)"
+Description="鍵盤 - 英語 (美式) - English (Dvorak, Macintosh, ISO)"
 Language=en
 Label="us (dvorak-mac-iso)"
 
 [keyboard-us-norman]
-Description="Keyboard - English (US) - English (Norman)"
+Description="鍵盤 - 英語 (美式) - English (Norman)"
 Language=en
 Label="us (norman)"
 
 [keyboard-us-symbolic]
-Description="Keyboard - English (US) - English (US, Symbolic)"
+Description="鍵盤 - 英語 (美式) - English (US, Symbolic)"
 Language=en
 Label="us (symbolic)"
 
 [keyboard-us-workman]
-Description="Keyboard - English (US) - English (Workman)"
+Description="鍵盤 - 英語 (美式) - 英語 (Workman 配置)"
 Language=en
 Label="us (workman)"
 
 [keyboard-us-workman-intl]
-Description="Keyboard - English (US) - English (Workman, intl., with dead keys)"
+Description="鍵盤 - 英語 (美式) - English (Workman, intl., with dead keys)"
 Language=en
 Label="us (workman-intl)"
 
 [keyboard-us-olpc2]
-Description="Keyboard - English (US) - English (the divide/multiply toggle the layout)"
+Description="鍵盤 - 英語 (美式) - English (the divide/multiply toggle the layout)"
 Language=en
 Label="us (olpc2)"
 
 [keyboard-us-chr]
-Description="Keyboard - English (US) - Cherokee"
+Description="鍵盤 - 英語 (美式) - 卻洛奇語"
 Language=chr
 Label=chr
 
 [keyboard-us-haw]
-Description="Keyboard - English (US) - Hawaiian"
+Description="鍵盤 - 英語 (美式) - Hawaiian"
 Language=haw
 Label=haw
 
 [keyboard-us-rus]
-Description="Keyboard - English (US) - Russian (US, phonetic)"
+Description="鍵盤 - 英語 (美式) - 俄語 (美式音標)"
 Language=ru
 Label="ru (rus)"
 
 [keyboard-us-hbs]
-Description="Keyboard - English (US) - Serbo-Croatian (US)"
+Description="鍵盤 - 英語 (美式) - 塞爾維亞克羅埃西亞語 (美式)"
 Language=en
 Label="us (hbs)"
 
 [keyboard-us-intl-unicode]
-Description="Keyboard - English (US) - English (US, intl., AltGr Unicode combining)"
+Description="鍵盤 - 英語 (美式) - English (US, intl., AltGr Unicode combining)"
 Language=en
 Label="us (intl-unicode)"
 
 [keyboard-us-alt-intl-unicode]
-Description="Keyboard - English (US) - English (US, intl., AltGr Unicode combining, alt.)"
+Description="鍵盤 - 英語 (美式) - English (US, intl., AltGr Unicode combining, alt.)"
 Language=en
 Label="us (alt-intl-unicode)"
 
 [keyboard-us-ats]
-Description="Keyboard - English (US) - Atsina"
+Description="鍵盤 - 英語 (美式) - 阿齊納語"
 Language=en
 Label="us (ats)"
 
 [keyboard-us-crd]
-Description="Keyboard - English (US) - Coeur d'Alene Salish"
+Description="鍵盤 - 英語 (美式) - Coeur d'Alene Salish"
 Language=crd
 Label="us (crd)"
 
 [keyboard-us-cz_sk_de]
-Description="Keyboard - English (US) - Czech, Slovak and German (US)"
+Description="鍵盤 - 英語 (美式) - Czech, Slovak and German (US)"
 Language=en
 Label="us (cz_sk_de)"
 
 [keyboard-us-cz_sk_pl_de_es_fi_sv]
-Description="Keyboard - English (US) - Czech, Slovak, Polish, Spanish, Finnish, Swedish and German (US)"
+Description="鍵盤 - 英語 (美式) - Czech, Slovak, Polish, Spanish, Finnish, Swedish and German (US)"
 Language=en
 Label="us (cz_sk_pl_de_es_fi_sv)"
 
 [keyboard-us-drix]
-Description="Keyboard - English (US) - English (Drix)"
+Description="鍵盤 - 英語 (美式) - English (Drix)"
 Language=en
 Label="us (drix)"
 
 [keyboard-us-de_se_fi]
-Description="Keyboard - English (US) - German, Swedish and Finnish (US)"
+Description="鍵盤 - 英語 (美式) - German, Swedish and Finnish (US)"
 Language=en
 Label="us (de_se_fi)"
 
 [keyboard-us-ibm238l]
-Description="Keyboard - English (US) - English (US, IBM Arabic 238_L)"
+Description="鍵盤 - 英語 (美式) - English (US, IBM Arabic 238_L)"
 Language=en
 Label="us (ibm238l)"
 
 [keyboard-us-sun_type6]
-Description="Keyboard - English (US) - English (US, Sun Type 6/7)"
+Description="鍵盤 - 英語 (美式) - 英語 (美式，昇陽 Type 6/7)"
 Language=en
 Label="us (sun_type6)"
 
 [keyboard-us-carpalx]
-Description="Keyboard - English (US) - English (Carpalx)"
+Description="鍵盤 - 英語 (美式) - English (Carpalx)"
 Language=en
 Label="us (carpalx)"
 
 [keyboard-us-carpalx-intl]
-Description="Keyboard - English (US) - English (Carpalx, intl., with dead keys)"
+Description="鍵盤 - 英語 (美式) - English (Carpalx, intl., with dead keys)"
 Language=en
 Label="us (carpalx-intl)"
 
 [keyboard-us-carpalx-altgr-intl]
-Description="Keyboard - English (US) - English (Carpalx, intl., with AltGr dead keys)"
+Description="鍵盤 - 英語 (美式) - English (Carpalx, intl., with AltGr dead keys)"
 Language=en
 Label="us (carpalx-altgr-intl)"
 
 [keyboard-us-carpalx-full]
-Description="Keyboard - English (US) - English (Carpalx, full optimization)"
+Description="鍵盤 - 英語 (美式) - English (Carpalx, full optimization)"
 Language=en
 Label="us (carpalx-full)"
 
 [keyboard-us-carpalx-full-intl]
-Description="Keyboard - English (US) - English (Carpalx, full optimization, intl., with dead keys)"
+Description="鍵盤 - 英語 (美式) - English (Carpalx, full optimization, intl., with dead keys)"
 Language=en
 Label="us (carpalx-full-intl)"
 
 [keyboard-us-carpalx-full-altgr-intl]
-Description="Keyboard - English (US) - English (Carpalx, full optimization, intl., with AltGr dead keys)"
+Description="鍵盤 - 英語 (美式) - English (Carpalx, full optimization, intl., with AltGr dead keys)"
 Language=en
 Label="us (carpalx-full-altgr-intl)"
 
 [keyboard-us-3l]
-Description="Keyboard - English (US) - English (3l)"
+Description="鍵盤 - 英語 (美式) - English (3l)"
 Language=en
 Label="us (3l)"
 
 [keyboard-us-3l-cros]
-Description="Keyboard - English (US) - English (3l, Chromebook)"
+Description="鍵盤 - 英語 (美式) - English (3l, Chromebook)"
 Language=en
 Label="us (3l-cros)"
 
 [keyboard-us-3l-emacs]
-Description="Keyboard - English (US) - English (3l, emacs)"
+Description="鍵盤 - 英語 (美式) - English (3l, emacs)"
 Language=en
 Label="us (3l-emacs)"
 
 [keyboard-us-workman-p]
-Description="Keyboard - English (US) - English (Workman-P)"
+Description="鍵盤 - 英語 (美式) - English (Workman-P)"
 Language=en
 Label=workman-p
 
 [keyboard-us-scn]
-Description="Keyboard - English (US) - Sicilian (US keyboard)"
+Description="鍵盤 - 英語 (美式) - Sicilian (US keyboard)"
 Language=en
 Label="us (scn)"
 
 [keyboard-us-altgr-weur]
-Description="Keyboard - English (US) - English (Western European AltGr dead keys)"
+Description="鍵盤 - 英語 (美式) - English (Western European AltGr dead keys)"
 Language=en
 Label="us (altgr-weur)"
 
 [keyboard-ge]
-Description="Keyboard - Georgian"
+Description="鍵盤 - 喬治亞語"
 Language=ka
 Label=ka
 
 [keyboard-ge-ergonomic]
-Description="Keyboard - Georgian - Georgian (ergonomic)"
+Description="鍵盤 - 喬治亞語 - 喬治亞語 (人體工學)"
 Language=ka
 Label="ge (ergonomic)"
 
 [keyboard-ge-mess]
-Description="Keyboard - Georgian - Georgian (MESS)"
+Description="鍵盤 - 喬治亞語 - 喬治亞語 (MESS)"
 Language=ka
 Label="ge (mess)"
 
 [keyboard-ge-os]
-Description="Keyboard - Georgian - Ossetian (Georgia)"
+Description="鍵盤 - 喬治亞語 - 奧塞提語 (喬治亞)"
 Language=os
 Label="ge (os)"
 
 [keyboard-ge-ru]
-Description="Keyboard - Georgian - Russian (Georgia)"
+Description="鍵盤 - 喬治亞語 - 俄語 (喬治亞)"
 Language=ru
 Label=ru
 
 [keyboard-es]
-Description="Keyboard - Spanish"
+Description="鍵盤 - 西班牙語"
 Language=es
 Label=es
 
 [keyboard-es-nodeadkeys]
-Description="Keyboard - Spanish - Spanish (no dead keys)"
+Description="鍵盤 - 西班牙語 - Spanish (no dead keys)"
 Language=es
 Label="es (nodeadkeys)"
 
 [keyboard-es-deadtilde]
-Description="Keyboard - Spanish - Spanish (dead tilde)"
+Description="鍵盤 - 西班牙語 - Spanish (dead tilde)"
 Language=es
 Label="es (deadtilde)"
 
 [keyboard-es-winkeys]
-Description="Keyboard - Spanish - Spanish (Windows)"
+Description="鍵盤 - 西班牙語 - Spanish (Windows)"
 Language=es
 Label="es (winkeys)"
 
 [keyboard-es-dvorak]
-Description="Keyboard - Spanish - Spanish (Dvorak)"
+Description="鍵盤 - 西班牙語 - 西班牙語 (Dvorak 配置)"
 Language=es
 Label="es (dvorak)"
 
 [keyboard-es-ast]
-Description="Keyboard - Spanish - Asturian (Spain, with bottom-dot H and L)"
+Description="鍵盤 - 西班牙語 - Asturian (Spain, with bottom-dot H and L)"
 Language=ast
 Label=ast
 
 [keyboard-es-cat]
-Description="Keyboard - Spanish - Catalan (Spain, with middle-dot L)"
+Description="鍵盤 - 西班牙語 - 加泰羅尼亞語 (西班牙，附中點 L)"
 Language=ca
 Label="ca (cat)"
 
 [keyboard-es-sun_type6]
-Description="Keyboard - Spanish - Spanish (Sun Type 6/7)"
+Description="鍵盤 - 西班牙語 - 西班牙語 (昇陽 Type 6/7)"
 Language=es
 Label="es (sun_type6)"
 
 [keyboard-ee]
-Description="Keyboard - Estonian"
+Description="鍵盤 - 愛沙尼亞語"
 Language=et
 Label=et
 
 [keyboard-ee-nodeadkeys]
-Description="Keyboard - Estonian - Estonian (no dead keys)"
+Description="鍵盤 - 愛沙尼亞語 - Estonian (no dead keys)"
 Language=et
 Label="ee (nodeadkeys)"
 
 [keyboard-ee-dvorak]
-Description="Keyboard - Estonian - Estonian (Dvorak)"
+Description="鍵盤 - 愛沙尼亞語 - 愛沙尼亞語 (Dvorak 配置)"
 Language=et
 Label="ee (dvorak)"
 
 [keyboard-ee-us]
-Description="Keyboard - Estonian - Estonian (US)"
+Description="鍵盤 - 愛沙尼亞語 - Estonian (US)"
 Language=et
 Label="ee (us)"
 
 [keyboard-ee-sun_type6]
-Description="Keyboard - Estonian - Estonian (Sun Type 6/7)"
+Description="鍵盤 - 愛沙尼亞語 - 愛沙尼亞語 (昇陽 Type 6/7)"
 Language=et
 Label="ee (sun_type6)"
 
 [keyboard-bd]
-Description="Keyboard - Bangla"
+Description="鍵盤 - Bangla"
 Language=bn
 Label=bn
 
 [keyboard-bd-probhat]
-Description="Keyboard - Bangla - Bangla (Probhat)"
+Description="鍵盤 - Bangla - Bangla (Probhat)"
 Language=bn
 Label="bd (probhat)"
 
 [keyboard-ph]
-Description="Keyboard - Filipino"
+Description="鍵盤 - 菲律賓語"
 Language=en
 Label=ph
 
 [keyboard-ph-qwerty-bay]
-Description="Keyboard - Filipino - Filipino (QWERTY, Baybayin)"
+Description="鍵盤 - 菲律賓語 - Filipino (QWERTY, Baybayin)"
 Language=bik
 Label="ph (qwerty-bay)"
 
 [keyboard-ph-capewell-dvorak]
-Description="Keyboard - Filipino - Filipino (Capewell-Dvorak, Latin)"
+Description="鍵盤 - 菲律賓語 - Filipino (Capewell-Dvorak, Latin)"
 Language=en
 Label="ph (capewell-dvorak)"
 
 [keyboard-ph-capewell-dvorak-bay]
-Description="Keyboard - Filipino - Filipino (Capewell-Dvorak, Baybayin)"
+Description="鍵盤 - 菲律賓語 - Filipino (Capewell-Dvorak, Baybayin)"
 Language=bik
 Label="ph (capewell-dvorak-bay)"
 
 [keyboard-ph-capewell-qwerf2k6]
-Description="Keyboard - Filipino - Filipino (Capewell-QWERF 2006, Latin)"
+Description="鍵盤 - 菲律賓語 - Filipino (Capewell-QWERF 2006, Latin)"
 Language=en
 Label="ph (capewell-qwerf2k6)"
 
 [keyboard-ph-capewell-qwerf2k6-bay]
-Description="Keyboard - Filipino - Filipino (Capewell-QWERF 2006, Baybayin)"
+Description="鍵盤 - 菲律賓語 - Filipino (Capewell-QWERF 2006, Baybayin)"
 Language=bik
 Label="ph (capewell-qwerf2k6-bay)"
 
 [keyboard-ph-colemak]
-Description="Keyboard - Filipino - Filipino (Colemak, Latin)"
+Description="鍵盤 - 菲律賓語 - Filipino (Colemak, Latin)"
 Language=en
 Label="ph (colemak)"
 
 [keyboard-ph-colemak-bay]
-Description="Keyboard - Filipino - Filipino (Colemak, Baybayin)"
+Description="鍵盤 - 菲律賓語 - Filipino (Colemak, Baybayin)"
 Language=bik
 Label="ph (colemak-bay)"
 
 [keyboard-ph-dvorak]
-Description="Keyboard - Filipino - Filipino (Dvorak, Latin)"
+Description="鍵盤 - 菲律賓語 - Filipino (Dvorak, Latin)"
 Language=en
 Label="ph (dvorak)"
 
 [keyboard-ph-dvorak-bay]
-Description="Keyboard - Filipino - Filipino (Dvorak, Baybayin)"
+Description="鍵盤 - 菲律賓語 - Filipino (Dvorak, Baybayin)"
 Language=bik
 Label="ph (dvorak-bay)"
 
 [keyboard-uz]
-Description="Keyboard - Uzbek"
+Description="鍵盤 - 烏茲別克語"
 Language=uz
 Label=uz
 
 [keyboard-uz-latin]
-Description="Keyboard - Uzbek - Uzbek (Latin)"
+Description="鍵盤 - 烏茲別克語 - 烏茲別克語 (拉丁字母)"
 Language=uz
 Label="uz (latin)"
 
 [keyboard-lt]
-Description="Keyboard - Lithuanian"
+Description="鍵盤 - 立陶宛語"
 Language=lt
 Label=lt
 
 [keyboard-lt-std]
-Description="Keyboard - Lithuanian - Lithuanian (standard)"
+Description="鍵盤 - 立陶宛語 - 立陶宛語 (標準)"
 Language=lt
 Label="lt (std)"
 
 [keyboard-lt-us]
-Description="Keyboard - Lithuanian - Lithuanian (US)"
+Description="鍵盤 - 立陶宛語 - Lithuanian (US)"
 Language=lt
 Label="lt (us)"
 
 [keyboard-lt-ibm]
-Description="Keyboard - Lithuanian - Lithuanian (IBM)"
+Description="鍵盤 - 立陶宛語 - Lithuanian (IBM)"
 Language=lt
 Label="lt (ibm)"
 
 [keyboard-lt-lekp]
-Description="Keyboard - Lithuanian - Lithuanian (LEKP)"
+Description="鍵盤 - 立陶宛語 - 立陶宛語 (LEKP)"
 Language=lt
 Label="lt (lekp)"
 
 [keyboard-lt-lekpa]
-Description="Keyboard - Lithuanian - Lithuanian (LEKPa)"
+Description="鍵盤 - 立陶宛語 - 立陶宛語 (LEKPa)"
 Language=lt
 Label="lt (lekpa)"
 
 [keyboard-lt-ratise]
-Description="Keyboard - Lithuanian - Lithuanian (Ratise)"
+Description="鍵盤 - 立陶宛語 - Lithuanian (Ratise)"
 Language=lt
 Label="lt (ratise)"
 
 [keyboard-lt-sgs]
-Description="Keyboard - Lithuanian - Samogitian"
+Description="鍵盤 - 立陶宛語 - Samogitian"
 Language=sgs
 Label="lt (sgs)"
 
 [keyboard-lt-us_dvorak]
-Description="Keyboard - Lithuanian - Lithuanian (Dvorak)"
+Description="鍵盤 - 立陶宛語 - Lithuanian (Dvorak)"
 Language=lt
 Label="lt (us_dvorak)"
 
 [keyboard-lt-sun_type6]
-Description="Keyboard - Lithuanian - Lithuanian (Sun Type 6/7)"
+Description="鍵盤 - 立陶宛語 - 立陶宛語 (昇陽 Type 6/7)"
 Language=lt
 Label="lt (sun_type6)"
 
 [keyboard-fi]
-Description="Keyboard - Finnish"
+Description="鍵盤 - 芬蘭語"
 Language=fi
 Label=fi
 
 [keyboard-fi-winkeys]
-Description="Keyboard - Finnish - Finnish (Windows)"
+Description="鍵盤 - 芬蘭語 - Finnish (Windows)"
 Language=fi
 Label="fi (winkeys)"
 
 [keyboard-fi-classic]
-Description="Keyboard - Finnish - Finnish (classic)"
+Description="鍵盤 - 芬蘭語 - 芬蘭語 (傳統型)"
 Language=fi
 Label="fi (classic)"
 
 [keyboard-fi-nodeadkeys]
-Description="Keyboard - Finnish - Finnish (classic, no dead keys)"
+Description="鍵盤 - 芬蘭語 - Finnish (classic, no dead keys)"
 Language=fi
 Label="fi (nodeadkeys)"
 
 [keyboard-fi-mac]
-Description="Keyboard - Finnish - Finnish (Macintosh)"
+Description="鍵盤 - 芬蘭語 - 芬蘭語 (麥金塔)"
 Language=fi
 Label="fi (mac)"
 
 [keyboard-fi-smi]
-Description="Keyboard - Finnish - Northern Saami (Finland)"
+Description="鍵盤 - 芬蘭語 - 北方薩米語 (芬蘭)"
 Language=se
 Label="fi (smi)"
 
 [keyboard-fi-sun_type6]
-Description="Keyboard - Finnish - Finnish (Sun Type 6/7)"
+Description="鍵盤 - 芬蘭語 - 芬蘭語 (昇陽 Type 6/7)"
 Language=fi
 Label="fi (sun_type6)"
 
 [keyboard-fi-das]
-Description="Keyboard - Finnish - Finnish (DAS)"
+Description="鍵盤 - 芬蘭語 - Finnish (DAS)"
 Language=fi
 Label="fi (das)"
 
 [keyboard-fi-fidvorak]
-Description="Keyboard - Finnish - Finnish (Dvorak)"
+Description="鍵盤 - 芬蘭語 - Finnish (Dvorak)"
 Language=fi
 Label="fi (fidvorak)"
 
 [keyboard-cn]
-Description="Keyboard - Chinese"
+Description="鍵盤 - 漢語"
 Language=zh
 Label=zh
 
 [keyboard-cn-altgr-pinyin]
-Description="Keyboard - Chinese - Hanyu Pinyin Letters (with AltGr dead keys)"
+Description="鍵盤 - 漢語 - Hanyu Pinyin Letters (with AltGr dead keys)"
 Language=zh
 Label="cn (altgr-pinyin)"
 
 [keyboard-cn-mon_trad]
-Description="Keyboard - Chinese - Mongolian (Bichig)"
+Description="鍵盤 - 漢語 - Mongolian (Bichig)"
 Language=mvf
 Label="cn (mon_trad)"
 
 [keyboard-cn-mon_trad_todo]
-Description="Keyboard - Chinese - Mongolian (Todo)"
+Description="鍵盤 - 漢語 - Mongolian (Todo)"
 Language=mvf
 Label="cn (mon_trad_todo)"
 
 [keyboard-cn-mon_trad_xibe]
-Description="Keyboard - Chinese - Mongolian (Xibe)"
+Description="鍵盤 - 漢語 - Mongolian (Xibe)"
 Language=sjo
 Label="cn (mon_trad_xibe)"
 
 [keyboard-cn-mon_trad_manchu]
-Description="Keyboard - Chinese - Mongolian (Manchu)"
+Description="鍵盤 - 漢語 - Mongolian (Manchu)"
 Language=mnc
 Label="cn (mon_trad_manchu)"
 
 [keyboard-cn-mon_trad_galik]
-Description="Keyboard - Chinese - Mongolian (Galik)"
+Description="鍵盤 - 漢語 - Mongolian (Galik)"
 Language=mvf
 Label="cn (mon_trad_galik)"
 
 [keyboard-cn-mon_todo_galik]
-Description="Keyboard - Chinese - Mongolian (Todo Galik)"
+Description="鍵盤 - 漢語 - Mongolian (Todo Galik)"
 Language=mvf
 Label="cn (mon_todo_galik)"
 
 [keyboard-cn-mon_manchu_galik]
-Description="Keyboard - Chinese - Mongolian (Manchu Galik)"
+Description="鍵盤 - 漢語 - Mongolian (Manchu Galik)"
 Language=mnc
 Label="cn (mon_manchu_galik)"
 
 [keyboard-cn-tib]
-Description="Keyboard - Chinese - Tibetan"
+Description="鍵盤 - 漢語 - 藏語"
 Language=bo
 Label="cn (tib)"
 
 [keyboard-cn-tib_asciinum]
-Description="Keyboard - Chinese - Tibetan (with ASCII numerals)"
+Description="鍵盤 - 漢語 - 藏語 (附 ASCII 數字)"
 Language=bo
 Label="cn (tib_asciinum)"
 
 [keyboard-cn-ug]
-Description="Keyboard - Chinese - Uyghur"
+Description="鍵盤 - 漢語 - 維吾爾語"
 Language=ug
 Label=ug
 
 [keyboard-ca]
-Description="Keyboard - French (Canada)"
+Description="鍵盤 - 法語 (加拿大)"
 Language=fr
 Label=fr
 
 [keyboard-ca-fr-dvorak]
-Description="Keyboard - French (Canada) - French (Canada, Dvorak)"
+Description="鍵盤 - 法語 (加拿大) - 法語 (加拿大，Dvorak 配置)"
 Language=fr
 Label="fr (fr-dvorak)"
 
 [keyboard-ca-fr-legacy]
-Description="Keyboard - French (Canada) - French (Canada, legacy)"
+Description="鍵盤 - 法語 (加拿大) - 法語 (加拿大，舊式)"
 Language=fr
 Label="fr (fr-legacy)"
 
 [keyboard-ca-multix]
-Description="Keyboard - French (Canada) - Canadian (CSA)"
+Description="鍵盤 - 法語 (加拿大) - Canadian (CSA)"
 Language=fr
 Label="ca (multix)"
 
 [keyboard-ca-eng]
-Description="Keyboard - French (Canada) - English (Canada)"
+Description="鍵盤 - 法語 (加拿大) - 英語 (加拿大)"
 Language=en
 Label="en (eng)"
 
 [keyboard-ca-ike]
-Description="Keyboard - French (Canada) - Inuktitut"
+Description="鍵盤 - 法語 (加拿大) - 伊努伊特鍵盤"
 Language=iu
 Label=ike
 
 [keyboard-ca-kut]
-Description="Keyboard - French (Canada) - Kutenai"
+Description="鍵盤 - 法語 (加拿大) - 庫特內語"
 Language=fr
 Label=kut
 
 [keyboard-ca-shs]
-Description="Keyboard - French (Canada) - Secwepemctsin"
+Description="鍵盤 - 法語 (加拿大) - 蘇斯瓦語"
 Language=fr
 Label=shs
 
 [keyboard-ca-sun_type6]
-Description="Keyboard - French (Canada) - Multilingual (Canada, Sun Type 6/7)"
+Description="鍵盤 - 法語 (加拿大) - 多語言 (加拿大，昇陽 Type 6/7)"
 Language=fr
 Label="ca (sun_type6)"
 
 [keyboard-gh]
-Description="Keyboard - English (Ghana)"
+Description="鍵盤 - 英語 (迦納)"
 Language=en
 Label=en
 
 [keyboard-gh-generic]
-Description="Keyboard - English (Ghana) - English (Ghana, multilingual)"
+Description="鍵盤 - 英語 (迦納) - 英語 (迦納，多語言)"
 Language=en
 Label="gh (generic)"
 
 [keyboard-gh-gillbt]
-Description="Keyboard - English (Ghana) - English (Ghana, GILLBT)"
+Description="鍵盤 - 英語 (迦納) - 英語 (迦納，GILLBT)"
 Language=en
 Label="gh (gillbt)"
 
 [keyboard-gh-akan]
-Description="Keyboard - English (Ghana) - Akan"
+Description="鍵盤 - 英語 (迦納) - 迦納語"
 Language=ak
 Label="ak (akan)"
 
 [keyboard-gh-avn]
-Description="Keyboard - English (Ghana) - Avatime"
+Description="鍵盤 - 英語 (迦納) - 阿瓦蒂梅語"
 Language=avn
 Label=avn
 
 [keyboard-gh-ewe]
-Description="Keyboard - English (Ghana) - Ewe"
+Description="鍵盤 - 英語 (迦納) - 埃維語"
 Language=ee
 Label="ee (ewe)"
 
 [keyboard-gh-fula]
-Description="Keyboard - English (Ghana) - Fula"
+Description="鍵盤 - 英語 (迦納) - 富拉語"
 Language=ff
 Label="ff (fula)"
 
 [keyboard-gh-ga]
-Description="Keyboard - English (Ghana) - Ga"
+Description="鍵盤 - 英語 (迦納) - 格語"
 Language=gaa
 Label="gaa (ga)"
 
 [keyboard-gh-hausa]
-Description="Keyboard - English (Ghana) - Hausa (Ghana)"
+Description="鍵盤 - 英語 (迦納) - Hausa (Ghana)"
 Language=ha
 Label="ha (hausa)"
 
 [keyboard-fr]
-Description="Keyboard - French"
+Description="鍵盤 - 法語"
 Language=fr
 Label=fr
 
 [keyboard-fr-nodeadkeys]
-Description="Keyboard - French - French (no dead keys)"
+Description="鍵盤 - 法語 - French (no dead keys)"
 Language=fr
 Label="fr (nodeadkeys)"
 
 [keyboard-fr-oss]
-Description="Keyboard - French - French (alt.)"
+Description="鍵盤 - 法語 - French (alt.)"
 Language=fr
 Label="fr (oss)"
 
 [keyboard-fr-oss_nodeadkeys]
-Description="Keyboard - French - French (alt., no dead keys)"
+Description="鍵盤 - 法語 - French (alt., no dead keys)"
 Language=fr
 Label="fr (oss_nodeadkeys)"
 
 [keyboard-fr-oss_latin9]
-Description="Keyboard - French - French (alt., Latin-9 only)"
+Description="鍵盤 - 法語 - French (alt., Latin-9 only)"
 Language=fr
 Label="fr (oss_latin9)"
 
 [keyboard-fr-latin9]
-Description="Keyboard - French - French (legacy, alt.)"
+Description="鍵盤 - 法語 - French (legacy, alt.)"
 Language=fr
 Label="fr (latin9)"
 
 [keyboard-fr-latin9_nodeadkeys]
-Description="Keyboard - French - French (legacy, alt., no dead keys)"
+Description="鍵盤 - 法語 - French (legacy, alt., no dead keys)"
 Language=fr
 Label="fr (latin9_nodeadkeys)"
 
 [keyboard-fr-azerty]
-Description="Keyboard - French - French (AZERTY)"
+Description="鍵盤 - 法語 - French (AZERTY)"
 Language=fr
 Label="fr (azerty)"
 
 [keyboard-fr-afnor]
-Description="Keyboard - French - French (AZERTY, AFNOR)"
+Description="鍵盤 - 法語 - French (AZERTY, AFNOR)"
 Language=fr
 Label="fr (afnor)"
 
 [keyboard-fr-bepo]
-Description="Keyboard - French - French (BEPO)"
+Description="鍵盤 - 法語 - French (BEPO)"
 Language=fr
 Label="fr (bepo)"
 
 [keyboard-fr-bepo_latin9]
-Description="Keyboard - French - French (BEPO, Latin-9 only)"
+Description="鍵盤 - 法語 - French (BEPO, Latin-9 only)"
 Language=fr
 Label="fr (bepo_latin9)"
 
 [keyboard-fr-bepo_afnor]
-Description="Keyboard - French - French (BEPO, AFNOR)"
+Description="鍵盤 - 法語 - French (BEPO, AFNOR)"
 Language=fr
 Label="fr (bepo_afnor)"
 
 [keyboard-fr-dvorak]
-Description="Keyboard - French - French (Dvorak)"
+Description="鍵盤 - 法語 - 法語 (Dvorak 配置)"
 Language=fr
 Label="fr (dvorak)"
 
 [keyboard-fr-ergol]
-Description="Keyboard - French - French (Ergo‑L)"
+Description="鍵盤 - 法語 - French (Ergo‑L)"
 Language=fr
 Label="fr (ergol)"
 
 [keyboard-fr-ergol_iso]
-Description="Keyboard - French - French (Ergo‑L, ISO variant)"
+Description="鍵盤 - 法語 - French (Ergo‑L, ISO variant)"
 Language=fr
 Label="fr (ergol_iso)"
 
 [keyboard-fr-mac]
-Description="Keyboard - French - French (Macintosh)"
+Description="鍵盤 - 法語 - 法語 (麥金塔)"
 Language=fr
 Label="fr (mac)"
 
 [keyboard-fr-us]
-Description="Keyboard - French - French (US)"
+Description="鍵盤 - 法語 - French (US)"
 Language=fr
 Label="fr (us)"
 
 [keyboard-fr-bre]
-Description="Keyboard - French - Breton (France)"
+Description="鍵盤 - 法語 - Breton (France)"
 Language=br
 Label="fr (bre)"
 
 [keyboard-fr-oci]
-Description="Keyboard - French - Occitan"
+Description="鍵盤 - 法語 - 奧克西坦語"
 Language=oc
 Label="fr (oci)"
 
 [keyboard-fr-geo]
-Description="Keyboard - French - Georgian (France, AZERTY Tskapo)"
+Description="鍵盤 - 法語 - 喬治亞語 (法國，AZERTY Tskapo)"
 Language=ka
 Label="fr (geo)"
 
 [keyboard-fr-sun_type6]
-Description="Keyboard - French - French (Sun Type 6/7)"
+Description="鍵盤 - 法語 - 法語 (昇陽 Type 6/7)"
 Language=fr
 Label="fr (sun_type6)"
 
 [keyboard-fr-us-alt]
-Description="Keyboard - French - French (US with dead keys, alt.)"
+Description="鍵盤 - 法語 - French (US with dead keys, alt.)"
 Language=fr
 Label="fr (us-alt)"
 
 [keyboard-fr-us-azerty]
-Description="Keyboard - French - French (US, AZERTY)"
+Description="鍵盤 - 法語 - French (US, AZERTY)"
 Language=fr
 Label="fr (us-azerty)"
 
 [keyboard-eg]
-Description="Keyboard - Arabic (Egypt)"
+Description="鍵盤 - Arabic (Egypt)"
 Language=ar
 Label=ar
 
 [keyboard-eg-cop]
-Description="Keyboard - Arabic (Egypt) - Coptic"
+Description="鍵盤 - Arabic (Egypt) - Coptic"
 Language=cop
 Label=cop
 
 [keyboard-cd]
-Description="Keyboard - French (Democratic Republic of the Congo)"
+Description="鍵盤 - 法語 (剛果民主共和國)"
 Language=fr
 Label=fr
 
 [keyboard-tg]
-Description="Keyboard - French (Togo)"
+Description="鍵盤 - French (Togo)"
 Language=fr
 Label=fr
 
 [keyboard-kz]
-Description="Keyboard - Kazakh"
+Description="鍵盤 - 哈薩克語"
 Language=kk
 Label=kk
 
 [keyboard-kz-kazrus]
-Description="Keyboard - Kazakh - Kazakh (with Russian)"
+Description="鍵盤 - 哈薩克語 - 哈薩克語 (附俄語)"
 Language=kk
 Label="kz (kazrus)"
 
 [keyboard-kz-ext]
-Description="Keyboard - Kazakh - Kazakh (extended)"
+Description="鍵盤 - 哈薩克語 - Kazakh (extended)"
 Language=kk
 Label="kz (ext)"
 
 [keyboard-kz-latin]
-Description="Keyboard - Kazakh - Kazakh (Latin)"
+Description="鍵盤 - 哈薩克語 - Kazakh (Latin)"
 Language=kk
 Label="kz (latin)"
 
 [keyboard-kz-ruskaz]
-Description="Keyboard - Kazakh - Russian (Kazakhstan, with Kazakh)"
+Description="鍵盤 - 哈薩克語 - 俄語 (哈薩克，附哈薩克語)"
 Language=kk
 Label="ru (ruskaz)"
 
 [keyboard-ch]
-Description="Keyboard - German (Switzerland)"
+Description="鍵盤 - 德語 (瑞士)"
 Language=de
 Label=de
 
 [keyboard-ch-de_nodeadkeys]
-Description="Keyboard - German (Switzerland) - German (Switzerland, no dead keys)"
+Description="鍵盤 - 德語 (瑞士) - German (Switzerland, no dead keys)"
 Language=de
 Label="de (de_nodeadkeys)"
 
 [keyboard-ch-de_mac]
-Description="Keyboard - German (Switzerland) - German (Switzerland, Macintosh)"
+Description="鍵盤 - 德語 (瑞士) - 德語 (瑞士，麥金塔)"
 Language=de
 Label="de (de_mac)"
 
 [keyboard-ch-legacy]
-Description="Keyboard - German (Switzerland) - German (Switzerland, legacy)"
+Description="鍵盤 - 德語 (瑞士) - 德語 (瑞士，舊式)"
 Language=de
 Label="ch (legacy)"
 
 [keyboard-ch-fr]
-Description="Keyboard - German (Switzerland) - French (Switzerland)"
+Description="鍵盤 - 德語 (瑞士) - 法語 (瑞士)"
 Language=fr
 Label=fr
 
 [keyboard-ch-fr_nodeadkeys]
-Description="Keyboard - German (Switzerland) - French (Switzerland, no dead keys)"
+Description="鍵盤 - 德語 (瑞士) - French (Switzerland, no dead keys)"
 Language=fr
 Label="fr (fr_nodeadkeys)"
 
 [keyboard-ch-fr_mac]
-Description="Keyboard - German (Switzerland) - French (Switzerland, Macintosh)"
+Description="鍵盤 - 德語 (瑞士) - 法語 (瑞士，麥金塔)"
 Language=fr
 Label="fr (fr_mac)"
 
 [keyboard-ch-sun_type6_de]
-Description="Keyboard - German (Switzerland) - German (Switzerland, Sun Type 6/7)"
+Description="鍵盤 - 德語 (瑞士) - 德語 (瑞士，昇陽 Type 6/7)"
 Language=de
 Label="ch (sun_type6_de)"
 
 [keyboard-ch-sun_type6_fr]
-Description="Keyboard - German (Switzerland) - French (Switzerland, Sun Type 6/7)"
+Description="鍵盤 - 德語 (瑞士) - 法語 (瑞士，昇陽 Type 6/7)"
 Language=de
 Label="ch (sun_type6_fr)"
 
 [keyboard-gr]
-Description="Keyboard - Greek"
+Description="鍵盤 - 希臘語"
 Language=el
 Label=gr
 
 [keyboard-gr-simple]
-Description="Keyboard - Greek - Greek (simple)"
+Description="鍵盤 - 希臘語 - 希臘語 (簡單)"
 Language=el
 Label="gr (simple)"
 
 [keyboard-gr-nodeadkeys]
-Description="Keyboard - Greek - Greek (no dead keys)"
+Description="鍵盤 - 希臘語 - Greek (no dead keys)"
 Language=el
 Label="gr (nodeadkeys)"
 
 [keyboard-gr-polytonic]
-Description="Keyboard - Greek - Greek (polytonic)"
+Description="鍵盤 - 希臘語 - 希臘語 (多音調)"
 Language=el
 Label="gr (polytonic)"
 
 [keyboard-gr-sun_type6]
-Description="Keyboard - Greek - Greek (Sun Type 6/7)"
+Description="鍵盤 - 希臘語 - 希臘語 (昇陽 Type 6/7)"
 Language=el
 Label="gr (sun_type6)"
 
 [keyboard-gr-colemak]
-Description="Keyboard - Greek - Greek (Colemak)"
+Description="鍵盤 - 希臘語 - Greek (Colemak)"
 Language=el
 Label="gr (colemak)"
 
 [keyboard-tr]
-Description="Keyboard - Turkish"
+Description="鍵盤 - 土耳其語"
 Language=tr
 Label=tr
 
 [keyboard-tr-f]
-Description="Keyboard - Turkish - Turkish (F)"
+Description="鍵盤 - 土耳其語 - 土耳其語 (F)"
 Language=tr
 Label="tr (f)"
 
 [keyboard-tr-e]
-Description="Keyboard - Turkish - Turkish (E)"
+Description="鍵盤 - 土耳其語 - Turkish (E)"
 Language=tr
 Label="tr (e)"
 
 [keyboard-tr-alt]
-Description="Keyboard - Turkish - Turkish (Alt-Q)"
+Description="鍵盤 - 土耳其語 - 土耳其語 (Alt-Q)"
 Language=tr
 Label="tr (alt)"
 
 [keyboard-tr-intl]
-Description="Keyboard - Turkish - Turkish (intl., with dead keys)"
+Description="鍵盤 - 土耳其語 - Turkish (intl., with dead keys)"
 Language=tr
 Label="tr (intl)"
 
 [keyboard-tr-ku]
-Description="Keyboard - Turkish - Kurdish (Turkey, Latin Q)"
+Description="鍵盤 - 土耳其語 - 庫德語 (土耳其，拉丁字母 Q)"
 Language=ku
 Label=ku
 
 [keyboard-tr-ku_f]
-Description="Keyboard - Turkish - Kurdish (Turkey, F)"
+Description="鍵盤 - 土耳其語 - 庫德語 (土耳其，F)"
 Language=ku
 Label="ku (ku_f)"
 
 [keyboard-tr-ku_alt]
-Description="Keyboard - Turkish - Kurdish (Turkey, Latin Alt-Q)"
+Description="鍵盤 - 土耳其語 - 庫德語 (土耳其，拉丁字母 Alt-Q)"
 Language=ku
 Label="ku (ku_alt)"
 
 [keyboard-tr-sun_type6]
-Description="Keyboard - Turkish - Turkish (Sun Type 6/7)"
+Description="鍵盤 - 土耳其語 - 土耳其語 (昇陽 Type 6/7)"
 Language=tr
 Label="tr (sun_type6)"
 
 [keyboard-tr-us]
-Description="Keyboard - Turkish - Turkish (i and ı swapped)"
+Description="鍵盤 - 土耳其語 - Turkish (i and ı swapped)"
 Language=tr
 Label="tr (us)"
 
 [keyboard-tr-otk]
-Description="Keyboard - Turkish - Old Turkic"
+Description="鍵盤 - 土耳其語 - Old Turkic"
 Language=tr
 Label="tr (otk)"
 
 [keyboard-tr-otkf]
-Description="Keyboard - Turkish - Old Turkic (F)"
+Description="鍵盤 - 土耳其語 - Old Turkic (F)"
 Language=tr
 Label="tr (otkf)"
 
 [keyboard-tr-ot]
-Description="Keyboard - Turkish - Ottoman (Q)"
+Description="鍵盤 - 土耳其語 - Ottoman (Q)"
 Language=tr
 Label="tr (ot)"
 
 [keyboard-tr-otf]
-Description="Keyboard - Turkish - Ottoman (F)"
+Description="鍵盤 - 土耳其語 - Ottoman (F)"
 Language=tr
 Label="tr (otf)"
 
 [keyboard-il]
-Description="Keyboard - Hebrew"
+Description="鍵盤 - 希伯來語"
 Language=he
 Label=he
 
 [keyboard-il-si2]
-Description="Keyboard - Hebrew - Hebrew (SI-1452-2)"
+Description="鍵盤 - 希伯來語 - Hebrew (SI-1452-2)"
 Language=he
 Label="il (si2)"
 
 [keyboard-il-lyx]
-Description="Keyboard - Hebrew - Hebrew (lyx)"
+Description="鍵盤 - 希伯來語 - 希伯來語 (lyx)"
 Language=he
 Label="il (lyx)"
 
 [keyboard-il-phonetic]
-Description="Keyboard - Hebrew - Hebrew (phonetic)"
+Description="鍵盤 - 希伯來語 - 希伯來語 (音標)"
 Language=he
 Label="il (phonetic)"
 
 [keyboard-il-biblical]
-Description="Keyboard - Hebrew - Hebrew (Biblical, Tiro)"
+Description="鍵盤 - 希伯來語 - 希伯來語 (Biblical，Tiro)"
 Language=he
 Label="il (biblical)"
 
 [keyboard-il-biblicalSIL]
-Description="Keyboard - Hebrew - Hebrew (Biblical, SIL phonetic)"
+Description="鍵盤 - 希伯來語 - 希伯來語 (Biblical，SIL 音標)"
 Language=he
 Label="il (biblicalSIL)"
 
 [keyboard-de]
-Description="Keyboard - German"
+Description="鍵盤 - 德語"
 Language=de
 Label=de
 
 [keyboard-de-deadacute]
-Description="Keyboard - German - German (dead acute)"
+Description="鍵盤 - 德語 - 德語 (廢銳音)"
 Language=de
 Label="de (deadacute)"
 
 [keyboard-de-deadgraveacute]
-Description="Keyboard - German - German (dead grave acute)"
+Description="鍵盤 - 德語 - 德語 (廢抑銳音)"
 Language=de
 Label="de (deadgraveacute)"
 
 [keyboard-de-deadtilde]
-Description="Keyboard - German - German (dead tilde)"
+Description="鍵盤 - 德語 - German (dead tilde)"
 Language=de
 Label="de (deadtilde)"
 
 [keyboard-de-nodeadkeys]
-Description="Keyboard - German - German (no dead keys)"
+Description="鍵盤 - 德語 - German (no dead keys)"
 Language=de
 Label="de (nodeadkeys)"
 
 [keyboard-de-e1]
-Description="Keyboard - German - German (E1)"
+Description="鍵盤 - 德語 - German (E1)"
 Language=de
 Label="de (e1)"
 
 [keyboard-de-e2]
-Description="Keyboard - German - German (E2)"
+Description="鍵盤 - 德語 - German (E2)"
 Language=de
 Label="de (e2)"
 
 [keyboard-de-T3]
-Description="Keyboard - German - German (T3)"
+Description="鍵盤 - 德語 - 德語 (T3)"
 Language=de
 Label="de (T3)"
 
 [keyboard-de-us]
-Description="Keyboard - German - German (US)"
+Description="鍵盤 - 德語 - German (US)"
 Language=de
 Label="de (us)"
 
 [keyboard-de-dvorak]
-Description="Keyboard - German - German (Dvorak)"
+Description="鍵盤 - 德語 - 德語 (Dvorak 配置)"
 Language=de
 Label="de (dvorak)"
 
 [keyboard-de-mac]
-Description="Keyboard - German - German (Macintosh)"
+Description="鍵盤 - 德語 - 德語 (麥金塔)"
 Language=de
 Label="de (mac)"
 
 [keyboard-de-mac_nodeadkeys]
-Description="Keyboard - German - German (Macintosh, no dead keys)"
+Description="鍵盤 - 德語 - German (Macintosh, no dead keys)"
 Language=de
 Label="de (mac_nodeadkeys)"
 
 [keyboard-de-neo]
-Description="Keyboard - German - German (Neo 2)"
+Description="鍵盤 - 德語 - 德語 (Neo 2)"
 Language=de
 Label="de (neo)"
 
 [keyboard-de-qwerty]
-Description="Keyboard - German - German (QWERTY)"
+Description="鍵盤 - 德語 - German (QWERTY)"
 Language=de
 Label="de (qwerty)"
 
 [keyboard-de-dsb]
-Description="Keyboard - German - Lower Sorbian"
+Description="鍵盤 - 德語 - 低地文德語"
 Language=dsb
 Label="de (dsb)"
 
 [keyboard-de-dsb_qwertz]
-Description="Keyboard - German - Lower Sorbian (QWERTZ)"
+Description="鍵盤 - 德語 - Lower Sorbian (QWERTZ)"
 Language=dsb
 Label="de (dsb_qwertz)"
 
 [keyboard-de-ro]
-Description="Keyboard - German - Romanian (Germany)"
+Description="鍵盤 - 德語 - 羅馬尼亞語 (德國)"
 Language=ro
 Label="de (ro)"
 
 [keyboard-de-ro_nodeadkeys]
-Description="Keyboard - German - Romanian (Germany, no dead keys)"
+Description="鍵盤 - 德語 - Romanian (Germany, no dead keys)"
 Language=ro
 Label="de (ro_nodeadkeys)"
 
 [keyboard-de-ru]
-Description="Keyboard - German - Russian (Germany, phonetic)"
+Description="鍵盤 - 德語 - 俄語 (德國，音標)"
 Language=ru
 Label=ru
 
 [keyboard-de-tr]
-Description="Keyboard - German - Turkish (Germany)"
+Description="鍵盤 - 德語 - Turkish (Germany)"
 Language=tr
 Label="de (tr)"
 
 [keyboard-de-hu]
-Description="Keyboard - German - German (with Hungarian letters, no dead keys)"
+Description="鍵盤 - 德語 - German (with Hungarian letters, no dead keys)"
 Language=de
 Label="de (hu)"
 
 [keyboard-de-pl]
-Description="Keyboard - German - Polish (Germany, no dead keys)"
+Description="鍵盤 - 德語 - Polish (Germany, no dead keys)"
 Language=de
 Label="de (pl)"
 
 [keyboard-de-sun_type6]
-Description="Keyboard - German - German (Sun Type 6/7)"
+Description="鍵盤 - 德語 - 德語 (昇陽 Type 6/7)"
 Language=de
 Label="de (sun_type6)"
 
 [keyboard-de-adnw]
-Description="Keyboard - German - German (Aus der Neo-Welt)"
+Description="鍵盤 - 德語 - German (Aus der Neo-Welt)"
 Language=de
 Label="de (adnw)"
 
 [keyboard-de-koy]
-Description="Keyboard - German - German (KOY)"
+Description="鍵盤 - 德語 - German (KOY)"
 Language=de
 Label="de (koy)"
 
 [keyboard-de-bone]
-Description="Keyboard - German - German (Bone)"
+Description="鍵盤 - 德語 - German (Bone)"
 Language=de
 Label="de (bone)"
 
 [keyboard-de-bone_eszett_home]
-Description="Keyboard - German - German (Bone, eszett in the home row)"
+Description="鍵盤 - 德語 - German (Bone, eszett in the home row)"
 Language=de
 Label="de (bone_eszett_home)"
 
 [keyboard-de-neo_qwertz]
-Description="Keyboard - German - German (Neo, QWERTZ)"
+Description="鍵盤 - 德語 - German (Neo, QWERTZ)"
 Language=de
 Label="de (neo_qwertz)"
 
 [keyboard-de-neo_qwerty]
-Description="Keyboard - German - German (Neo, QWERTY)"
+Description="鍵盤 - 德語 - German (Neo, QWERTY)"
 Language=de
 Label="de (neo_qwerty)"
 
 [keyboard-de-noted]
-Description="Keyboard - German - German (Noted)"
+Description="鍵盤 - 德語 - German (Noted)"
 Language=de
 Label="de (noted)"
 
 [keyboard-de-ru-recom]
-Description="Keyboard - German - Russian (Germany, recommended)"
+Description="鍵盤 - 德語 - Russian (Germany, recommended)"
 Language=ru
 Label="ru (ru-recom)"
 
 [keyboard-de-ru-translit]
-Description="Keyboard - German - Russian (Germany, transliteration)"
+Description="鍵盤 - 德語 - Russian (Germany, transliteration)"
 Language=ru
 Label="ru (ru-translit)"
 
 [keyboard-id]
-Description="Keyboard - Indonesian (Latin)"
+Description="鍵盤 - Indonesian (Latin)"
 Language=id
 Label=id
 
 [keyboard-id-melayu-phonetic]
-Description="Keyboard - Indonesian (Latin) - Indonesian (Arab Melayu, phonetic)"
+Description="鍵盤 - Indonesian (Latin) - Indonesian (Arab Melayu, phonetic)"
 Language=id
 Label="id (melayu-phonetic)"
 
 [keyboard-id-melayu-phoneticx]
-Description="Keyboard - Indonesian (Latin) - Indonesian (Arab Melayu, extended phonetic)"
+Description="鍵盤 - Indonesian (Latin) - Indonesian (Arab Melayu, extended phonetic)"
 Language=id
 Label="id (melayu-phoneticx)"
 
 [keyboard-id-pegon-phonetic]
-Description="Keyboard - Indonesian (Latin) - Indonesian (Arab Pegon, phonetic)"
+Description="鍵盤 - Indonesian (Latin) - Indonesian (Arab Pegon, phonetic)"
 Language=id
 Label="id (pegon-phonetic)"
 
 [keyboard-id-javanese]
-Description="Keyboard - Indonesian (Latin) - Javanese"
+Description="鍵盤 - Indonesian (Latin) - Javanese"
 Language=id
 Label="id (javanese)"
 
 [keyboard-sn]
-Description="Keyboard - Wolof"
+Description="鍵盤 - 渥魯夫語"
 Language=wo
 Label=wo
 
 [keyboard-az]
-Description="Keyboard - Azerbaijani"
+Description="鍵盤 - 亞塞拜然語"
 Language=az
 Label=az
 
 [keyboard-az-cyrillic]
-Description="Keyboard - Azerbaijani - Azerbaijani (Cyrillic)"
+Description="鍵盤 - 亞塞拜然語 - 亞塞拜然語 (斯拉夫字母)"
 Language=az
 Label="az (cyrillic)"
 
 [keyboard-kh]
-Description="Keyboard - Khmer (Cambodia)"
+Description="鍵盤 - 高棉語 (柬埔寨)"
 Language=km
 Label=km
 
 [keyboard-hu]
-Description="Keyboard - Hungarian"
+Description="鍵盤 - 匈牙利語"
 Language=hu
 Label=hu
 
 [keyboard-hu-standard]
-Description="Keyboard - Hungarian - Hungarian (standard)"
+Description="鍵盤 - 匈牙利語 - 匈牙利語 (標準)"
 Language=hu
 Label="hu (standard)"
 
 [keyboard-hu-nodeadkeys]
-Description="Keyboard - Hungarian - Hungarian (no dead keys)"
+Description="鍵盤 - 匈牙利語 - Hungarian (no dead keys)"
 Language=hu
 Label="hu (nodeadkeys)"
 
 [keyboard-hu-qwerty]
-Description="Keyboard - Hungarian - Hungarian (QWERTY)"
+Description="鍵盤 - 匈牙利語 - Hungarian (QWERTY)"
 Language=hu
 Label="hu (qwerty)"
 
 [keyboard-hu-101_qwertz_comma_dead]
-Description="Keyboard - Hungarian - Hungarian (QWERTZ, 101-key, comma, dead keys)"
+Description="鍵盤 - 匈牙利語 - Hungarian (QWERTZ, 101-key, comma, dead keys)"
 Language=hu
 Label="hu (101_qwertz_comma_dead)"
 
 [keyboard-hu-101_qwertz_comma_nodead]
-Description="Keyboard - Hungarian - Hungarian (QWERTZ, 101-key, comma, no dead keys)"
+Description="鍵盤 - 匈牙利語 - Hungarian (QWERTZ, 101-key, comma, no dead keys)"
 Language=hu
 Label="hu (101_qwertz_comma_nodead)"
 
 [keyboard-hu-101_qwertz_dot_dead]
-Description="Keyboard - Hungarian - Hungarian (QWERTZ, 101-key, dot, dead keys)"
+Description="鍵盤 - 匈牙利語 - Hungarian (QWERTZ, 101-key, dot, dead keys)"
 Language=hu
 Label="hu (101_qwertz_dot_dead)"
 
 [keyboard-hu-101_qwertz_dot_nodead]
-Description="Keyboard - Hungarian - Hungarian (QWERTZ, 101-key, dot, no dead keys)"
+Description="鍵盤 - 匈牙利語 - Hungarian (QWERTZ, 101-key, dot, no dead keys)"
 Language=hu
 Label="hu (101_qwertz_dot_nodead)"
 
 [keyboard-hu-101_qwerty_comma_dead]
-Description="Keyboard - Hungarian - Hungarian (QWERTY, 101-key, comma, dead keys)"
+Description="鍵盤 - 匈牙利語 - Hungarian (QWERTY, 101-key, comma, dead keys)"
 Language=hu
 Label="hu (101_qwerty_comma_dead)"
 
 [keyboard-hu-101_qwerty_comma_nodead]
-Description="Keyboard - Hungarian - Hungarian (QWERTY, 101-key, comma, no dead keys)"
+Description="鍵盤 - 匈牙利語 - Hungarian (QWERTY, 101-key, comma, no dead keys)"
 Language=hu
 Label="hu (101_qwerty_comma_nodead)"
 
 [keyboard-hu-101_qwerty_dot_dead]
-Description="Keyboard - Hungarian - Hungarian (QWERTY, 101-key, dot, dead keys)"
+Description="鍵盤 - 匈牙利語 - Hungarian (QWERTY, 101-key, dot, dead keys)"
 Language=hu
 Label="hu (101_qwerty_dot_dead)"
 
 [keyboard-hu-101_qwerty_dot_nodead]
-Description="Keyboard - Hungarian - Hungarian (QWERTY, 101-key, dot, no dead keys)"
+Description="鍵盤 - 匈牙利語 - Hungarian (QWERTY, 101-key, dot, no dead keys)"
 Language=hu
 Label="hu (101_qwerty_dot_nodead)"
 
 [keyboard-hu-102_qwertz_comma_dead]
-Description="Keyboard - Hungarian - Hungarian (QWERTZ, 102-key, comma, dead keys)"
+Description="鍵盤 - 匈牙利語 - Hungarian (QWERTZ, 102-key, comma, dead keys)"
 Language=hu
 Label="hu (102_qwertz_comma_dead)"
 
 [keyboard-hu-102_qwertz_comma_nodead]
-Description="Keyboard - Hungarian - Hungarian (QWERTZ, 102-key, comma, no dead keys)"
+Description="鍵盤 - 匈牙利語 - Hungarian (QWERTZ, 102-key, comma, no dead keys)"
 Language=hu
 Label="hu (102_qwertz_comma_nodead)"
 
 [keyboard-hu-102_qwertz_dot_dead]
-Description="Keyboard - Hungarian - Hungarian (QWERTZ, 102-key, dot, dead keys)"
+Description="鍵盤 - 匈牙利語 - Hungarian (QWERTZ, 102-key, dot, dead keys)"
 Language=hu
 Label="hu (102_qwertz_dot_dead)"
 
 [keyboard-hu-102_qwertz_dot_nodead]
-Description="Keyboard - Hungarian - Hungarian (QWERTZ, 102-key, dot, no dead keys)"
+Description="鍵盤 - 匈牙利語 - Hungarian (QWERTZ, 102-key, dot, no dead keys)"
 Language=hu
 Label="hu (102_qwertz_dot_nodead)"
 
 [keyboard-hu-102_qwerty_comma_dead]
-Description="Keyboard - Hungarian - Hungarian (QWERTY, 102-key, comma, dead keys)"
+Description="鍵盤 - 匈牙利語 - Hungarian (QWERTY, 102-key, comma, dead keys)"
 Language=hu
 Label="hu (102_qwerty_comma_dead)"
 
 [keyboard-hu-102_qwerty_comma_nodead]
-Description="Keyboard - Hungarian - Hungarian (QWERTY, 102-key, comma, no dead keys)"
+Description="鍵盤 - 匈牙利語 - Hungarian (QWERTY, 102-key, comma, no dead keys)"
 Language=hu
 Label="hu (102_qwerty_comma_nodead)"
 
 [keyboard-hu-102_qwerty_dot_dead]
-Description="Keyboard - Hungarian - Hungarian (QWERTY, 102-key, dot, dead keys)"
+Description="鍵盤 - 匈牙利語 - Hungarian (QWERTY, 102-key, dot, dead keys)"
 Language=hu
 Label="hu (102_qwerty_dot_dead)"
 
 [keyboard-hu-102_qwerty_dot_nodead]
-Description="Keyboard - Hungarian - Hungarian (QWERTY, 102-key, dot, no dead keys)"
+Description="鍵盤 - 匈牙利語 - Hungarian (QWERTY, 102-key, dot, no dead keys)"
 Language=hu
 Label="hu (102_qwerty_dot_nodead)"
 
 [keyboard-hu-oldhunlig]
-Description="Keyboard - Hungarian - Old Hungarian (for ligatures)"
+Description="鍵盤 - 匈牙利語 - Old Hungarian (for ligatures)"
 Language=hu
 Label="oldhun(lig) (oldhunlig)"
 
 [keyboard-hu-oldhun_sk_sh]
-Description="Keyboard - Hungarian - Old Hungarian (Carpathian Highlands, S as Sh)"
+Description="鍵盤 - 匈牙利語 - Old Hungarian (Carpathian Highlands, S as Sh)"
 Language=hu
 Label="oldhun(SK,Sh) (oldhun_sk_sh)"
 
 [keyboard-hu-oldhun_sk_sz]
-Description="Keyboard - Hungarian - Old Hungarian (Carpathian Highlands, S as Sz)"
+Description="鍵盤 - 匈牙利語 - Old Hungarian (Carpathian Highlands, S as Sz)"
 Language=hu
 Label="oldhun(SK,Sz) (oldhun_sk_sz)"
 
 [keyboard-hu-us]
-Description="Keyboard - Hungarian - Hungarian (US)"
+Description="鍵盤 - 匈牙利語 - Hungarian (US)"
 Language=hu
 Label=us
 
 [keyboard-ng]
-Description="Keyboard - English (Nigeria)"
+Description="鍵盤 - 英語 (奈及利亞)"
 Language=en
 Label=en
 
 [keyboard-ng-hausa]
-Description="Keyboard - English (Nigeria) - Hausa (Nigeria)"
+Description="鍵盤 - 英語 (奈及利亞) - Hausa (Nigeria)"
 Language=ha
 Label="ha (hausa)"
 
 [keyboard-ng-igbo]
-Description="Keyboard - English (Nigeria) - Igbo"
+Description="鍵盤 - 英語 (奈及利亞) - 伊布語"
 Language=ig
 Label="ig (igbo)"
 
 [keyboard-ng-yoruba]
-Description="Keyboard - English (Nigeria) - Yoruba"
+Description="鍵盤 - 英語 (奈及利亞) - 約魯巴語"
 Language=yo
 Label="yo (yoruba)"
 
 [keyboard-is]
-Description="Keyboard - Icelandic"
+Description="鍵盤 - 冰島語"
 Language=is
 Label=is
 
 [keyboard-is-mac_legacy]
-Description="Keyboard - Icelandic - Icelandic (Macintosh, legacy)"
+Description="鍵盤 - 冰島語 - Icelandic (Macintosh, legacy)"
 Language=is
 Label="is (mac_legacy)"
 
 [keyboard-is-mac]
-Description="Keyboard - Icelandic - Icelandic (Macintosh)"
+Description="鍵盤 - 冰島語 - 冰島語 (麥金塔)"
 Language=is
 Label="is (mac)"
 
 [keyboard-is-dvorak]
-Description="Keyboard - Icelandic - Icelandic (Dvorak)"
+Description="鍵盤 - 冰島語 - 冰島語 (Dvorak 配置)"
 Language=is
 Label="is (dvorak)"
 
 [keyboard-in]
-Description="Keyboard - Indian"
+Description="鍵盤 - 印度語"
 Language=hi
 Label=in
 
 [keyboard-in-asm-kagapa]
-Description="Keyboard - Indian - Assamese (KaGaPa, phonetic)"
+Description="鍵盤 - 印度語 - Assamese (KaGaPa, phonetic)"
 Language=as
 Label="as (asm-kagapa)"
 
 [keyboard-in-ben]
-Description="Keyboard - Indian - Bangla (India)"
+Description="鍵盤 - 印度語 - Bangla (India)"
 Language=bn
 Label="bn (ben)"
 
 [keyboard-in-ben_probhat]
-Description="Keyboard - Indian - Bangla (India, Probhat)"
+Description="鍵盤 - 印度語 - Bangla (India, Probhat)"
 Language=bn
 Label="bn (ben_probhat)"
 
 [keyboard-in-ben_baishakhi]
-Description="Keyboard - Indian - Bangla (India, Baishakhi)"
+Description="鍵盤 - 印度語 - Bangla (India, Baishakhi)"
 Language=bn
 Label="in (ben_baishakhi)"
 
 [keyboard-in-ben_bornona]
-Description="Keyboard - Indian - Bangla (India, Bornona)"
+Description="鍵盤 - 印度語 - Bangla (India, Bornona)"
 Language=bn
 Label="in (ben_bornona)"
 
 [keyboard-in-ben-kagapa]
-Description="Keyboard - Indian - Bangla (India, KaGaPa, phonetic)"
+Description="鍵盤 - 印度語 - Bangla (India, KaGaPa, phonetic)"
 Language=bn
 Label="in (ben-kagapa)"
 
 [keyboard-in-ben_gitanjali]
-Description="Keyboard - Indian - Bangla (India, Gitanjali)"
+Description="鍵盤 - 印度語 - Bangla (India, Gitanjali)"
 Language=bn
 Label="in (ben_gitanjali)"
 
 [keyboard-in-ben_inscript]
-Description="Keyboard - Indian - Bangla (India, Baishakhi InScript)"
+Description="鍵盤 - 印度語 - Bangla (India, Baishakhi InScript)"
 Language=bn
 Label="in (ben_inscript)"
 
 [keyboard-in-eng]
-Description="Keyboard - Indian - English (India, with rupee)"
+Description="鍵盤 - 印度語 - English (India, with rupee)"
 Language=en
 Label="en (eng)"
 
 [keyboard-in-guj]
-Description="Keyboard - Indian - Gujarati"
+Description="鍵盤 - 印度語 - 印度語 (古吉拉特文)"
 Language=gu
 Label="gu (guj)"
 
 [keyboard-in-guj-kagapa]
-Description="Keyboard - Indian - Gujarati (KaGaPa, phonetic)"
+Description="鍵盤 - 印度語 - Gujarati (KaGaPa, phonetic)"
 Language=gu
 Label="gu (guj-kagapa)"
 
 [keyboard-in-bolnagri]
-Description="Keyboard - Indian - Hindi (Bolnagri)"
+Description="鍵盤 - 印度語 - 北印度語 (Bolnagri)"
 Language=hi
 Label="hi (bolnagri)"
 
 [keyboard-in-hin-wx]
-Description="Keyboard - Indian - Hindi (Wx)"
+Description="鍵盤 - 印度語 - 北印度語 (Wx)"
 Language=hi
 Label="hi (hin-wx)"
 
 [keyboard-in-hin-kagapa]
-Description="Keyboard - Indian - Hindi (KaGaPa, phonetic)"
+Description="鍵盤 - 印度語 - Hindi (KaGaPa, phonetic)"
 Language=hi
 Label="hi (hin-kagapa)"
 
 [keyboard-in-kan]
-Description="Keyboard - Indian - Kannada"
+Description="鍵盤 - 印度語 - 印度卡納達語"
 Language=kn
 Label="kn (kan)"
 
 [keyboard-in-kan-kagapa]
-Description="Keyboard - Indian - Kannada (KaGaPa, phonetic)"
+Description="鍵盤 - 印度語 - Kannada (KaGaPa, phonetic)"
 Language=kn
 Label="kn (kan-kagapa)"
 
 [keyboard-in-mal]
-Description="Keyboard - Indian - Malayalam"
+Description="鍵盤 - 印度語 - 馬來雅拉姆語"
 Language=ml
 Label="ml (mal)"
 
 [keyboard-in-mal_lalitha]
-Description="Keyboard - Indian - Malayalam (Lalitha)"
+Description="鍵盤 - 印度語 - 馬來亞拉姆語 (Lalitha)"
 Language=ml
 Label="ml (mal_lalitha)"
 
 [keyboard-in-mal_enhanced]
-Description="Keyboard - Indian - Malayalam (enhanced InScript, with rupee)"
+Description="鍵盤 - 印度語 - Malayalam (enhanced InScript, with rupee)"
 Language=ml
 Label="ml (mal_enhanced)"
 
 [keyboard-in-mal_poorna]
-Description="Keyboard - Indian - Malayalam (Poorna, extended InScript)"
+Description="鍵盤 - 印度語 - Malayalam (Poorna, extended InScript)"
 Language=ml
 Label="ml (mal_poorna)"
 
 [keyboard-in-mara]
-Description="Keyboard - Indian - Mara"
+Description="鍵盤 - 印度語 - Mara"
 Language=mrh
 Label="mrh (mara)"
 
 [keyboard-in-mni]
-Description="Keyboard - Indian - Manipuri (Meitei)"
+Description="鍵盤 - 印度語 - Manipuri (Meitei)"
 Language=mni
 Label="in (mni)"
 
 [keyboard-in-mar-kagapa]
-Description="Keyboard - Indian - Marathi (KaGaPa, phonetic)"
+Description="鍵盤 - 印度語 - Marathi (KaGaPa, phonetic)"
 Language=mr
 Label="mr (mar-kagapa)"
 
 [keyboard-in-marathi]
-Description="Keyboard - Indian - Marathi (enhanced InScript)"
+Description="鍵盤 - 印度語 - Marathi (enhanced InScript)"
 Language=mr
 Label="in (marathi)"
 
 [keyboard-in-ori]
-Description="Keyboard - Indian - Oriya"
+Description="鍵盤 - 印度語 - 奧里雅族語"
 Language=or
 Label="or (ori)"
 
 [keyboard-in-ori-bolnagri]
-Description="Keyboard - Indian - Oriya (Bolnagri)"
+Description="鍵盤 - 印度語 - Oriya (Bolnagri)"
 Language=or
 Label="or (ori-bolnagri)"
 
 [keyboard-in-ori-wx]
-Description="Keyboard - Indian - Oriya (Wx)"
+Description="鍵盤 - 印度語 - Oriya (Wx)"
 Language=or
 Label="or (ori-wx)"
 
 [keyboard-in-guru]
-Description="Keyboard - Indian - Punjabi (Gurmukhi)"
+Description="鍵盤 - 印度語 - 旁遮普語 (果魯穆其)"
 Language=pa
 Label="pa (guru)"
 
 [keyboard-in-jhelum]
-Description="Keyboard - Indian - Punjabi (Gurmukhi Jhelum)"
+Description="鍵盤 - 印度語 - 旁遮普語 (Gurmukhi Jhelum)"
 Language=pa
 Label="pa (jhelum)"
 
 [keyboard-in-san-kagapa]
-Description="Keyboard - Indian - Sanskrit (KaGaPa, phonetic)"
+Description="鍵盤 - 印度語 - Sanskrit (KaGaPa, phonetic)"
 Language=sa
 Label="sa (san-kagapa)"
 
 [keyboard-in-sat]
-Description="Keyboard - Indian - Santali (Ol Chiki)"
+Description="鍵盤 - 印度語 - Santali (Ol Chiki)"
 Language=sat
 Label=sat
 
 [keyboard-in-tamilnet]
-Description="Keyboard - Indian - Tamil (TamilNet '99)"
+Description="鍵盤 - 印度語 - Tamil (TamilNet '99)"
 Language=ta
 Label="ta (tamilnet)"
 
 [keyboard-in-tamilnet_tamilnumbers]
-Description="Keyboard - Indian - Tamil (TamilNet '99 with Tamil numerals)"
+Description="鍵盤 - 印度語 - Tamil (TamilNet '99 with Tamil numerals)"
 Language=ta
 Label="ta (tamilnet_tamilnumbers)"
 
 [keyboard-in-tamilnet_TAB]
-Description="Keyboard - Indian - Tamil (TamilNet '99, TAB encoding)"
+Description="鍵盤 - 印度語 - Tamil (TamilNet '99, TAB encoding)"
 Language=ta
 Label="ta (tamilnet_TAB)"
 
 [keyboard-in-tamilnet_TSCII]
-Description="Keyboard - Indian - Tamil (TamilNet '99, TSCII encoding)"
+Description="鍵盤 - 印度語 - Tamil (TamilNet '99, TSCII encoding)"
 Language=ta
 Label="ta (tamilnet_TSCII)"
 
 [keyboard-in-tam]
-Description="Keyboard - Indian - Tamil (InScript, with Arabic numerals)"
+Description="鍵盤 - 印度語 - Tamil (InScript, with Arabic numerals)"
 Language=ta
 Label="ta (tam)"
 
 [keyboard-in-tam_tamilnumbers]
-Description="Keyboard - Indian - Tamil (InScript, with Tamil numerals)"
+Description="鍵盤 - 印度語 - Tamil (InScript, with Tamil numerals)"
 Language=ta
 Label="ta (tam_tamilnumbers)"
 
 [keyboard-in-tel]
-Description="Keyboard - Indian - Telugu"
+Description="鍵盤 - 印度語 - 泰盧固語"
 Language=te
 Label="te (tel)"
 
 [keyboard-in-tel-kagapa]
-Description="Keyboard - Indian - Telugu (KaGaPa, phonetic)"
+Description="鍵盤 - 印度語 - Telugu (KaGaPa, phonetic)"
 Language=te
 Label="te (tel-kagapa)"
 
 [keyboard-in-tel-sarala]
-Description="Keyboard - Indian - Telugu (Sarala)"
+Description="鍵盤 - 印度語 - Telugu (Sarala)"
 Language=te
 Label="te (tel-sarala)"
 
 [keyboard-in-urd-phonetic]
-Description="Keyboard - Indian - Urdu (phonetic)"
+Description="鍵盤 - 印度語 - 烏爾都語 (音標)"
 Language=ur
 Label="ur (urd-phonetic)"
 
 [keyboard-in-urd-phonetic3]
-Description="Keyboard - Indian - Urdu (alt. phonetic)"
+Description="鍵盤 - 印度語 - Urdu (alt. phonetic)"
 Language=ur
 Label="ur (urd-phonetic3)"
 
 [keyboard-in-urd-winkeys]
-Description="Keyboard - Indian - Urdu (Windows)"
+Description="鍵盤 - 印度語 - Urdu (Windows)"
 Language=ur
 Label="ur (urd-winkeys)"
 
 [keyboard-in-iipa]
-Description="Keyboard - Indian - Indic IPA"
+Description="鍵盤 - 印度語 - Indic IPA"
 Language=en
 Label="in (iipa)"
 
 [keyboard-in-modi-kagapa]
-Description="Keyboard - Indian - Modi (KaGaPa, phonetic)"
+Description="鍵盤 - 印度語 - Modi (KaGaPa, phonetic)"
 Language=mr
 Label="mr (modi-kagapa)"
 
 [keyboard-in-san-misc]
-Description="Keyboard - Indian - Sanskrit symbols"
+Description="鍵盤 - 印度語 - Sanskrit symbols"
 Language=sa
 Label="sas (san-misc)"
 
 [keyboard-in-urd-navees]
-Description="Keyboard - Indian - Urdu (Navees)"
+Description="鍵盤 - 印度語 - Urdu (Navees)"
 Language=ur
 Label="ur (urd-navees)"
 
 [keyboard-it]
-Description="Keyboard - Italian"
+Description="鍵盤 - 義大利語"
 Language=it
 Label=it
 
 [keyboard-it-nodeadkeys]
-Description="Keyboard - Italian - Italian (no dead keys)"
+Description="鍵盤 - 義大利語 - Italian (no dead keys)"
 Language=it
 Label="it (nodeadkeys)"
 
 [keyboard-it-winkeys]
-Description="Keyboard - Italian - Italian (Windows)"
+Description="鍵盤 - 義大利語 - Italian (Windows)"
 Language=it
 Label="it (winkeys)"
 
 [keyboard-it-mac]
-Description="Keyboard - Italian - Italian (Macintosh)"
+Description="鍵盤 - 義大利語 - 義大利語 (麥金塔)"
 Language=it
 Label="it (mac)"
 
 [keyboard-it-us]
-Description="Keyboard - Italian - Italian (US)"
+Description="鍵盤 - 義大利語 - Italian (US)"
 Language=it
 Label="it (us)"
 
 [keyboard-it-ibm]
-Description="Keyboard - Italian - Italian (IBM 142)"
+Description="鍵盤 - 義大利語 - 義大利語 (IBM 142)"
 Language=it
 Label="it (ibm)"
 
 [keyboard-it-fur]
-Description="Keyboard - Italian - Friulian (Italy)"
+Description="鍵盤 - 義大利語 - Friulian (Italy)"
 Language=fur
 Label="it (fur)"
 
 [keyboard-it-scn]
-Description="Keyboard - Italian - Sicilian"
+Description="鍵盤 - 義大利語 - Sicilian"
 Language=it
 Label="it (scn)"
 
 [keyboard-it-geo]
-Description="Keyboard - Italian - Georgian (Italy)"
+Description="鍵盤 - 義大利語 - 喬治亞語 (義大利)"
 Language=ka
 Label="it (geo)"
 
 [keyboard-it-sun_type6]
-Description="Keyboard - Italian - Italian (Sun Type 6/7)"
+Description="鍵盤 - 義大利語 - 義大利語 (昇陽 Type 6/7)"
 Language=it
 Label="it (sun_type6)"
 
 [keyboard-it-lld]
-Description="Keyboard - Italian - Ladin (Italian keyboard)"
+Description="鍵盤 - 義大利語 - Ladin (Italian keyboard)"
 Language=it
 Label="it_lld (lld)"
 
 [keyboard-it-lldde]
-Description="Keyboard - Italian - Ladin (German keyboard)"
+Description="鍵盤 - 義大利語 - Ladin (German keyboard)"
 Language=de
 Label="de_lld (lldde)"
 
 [keyboard-it-dvorak]
-Description="Keyboard - Italian - Italian (Dvorak)"
+Description="鍵盤 - 義大利語 - Italian (Dvorak)"
 Language=it
 Label="it (dvorak)"
 
 [keyboard-jp]
-Description="Keyboard - Japanese"
+Description="鍵盤 - 日語"
 Language=ja
 Label=ja
 
 [keyboard-jp-kana]
-Description="Keyboard - Japanese - Japanese (Kana)"
+Description="鍵盤 - 日語 - 日語 (假名)"
 Language=ja
 Label="jp (kana)"
 
 [keyboard-jp-OADG109A]
-Description="Keyboard - Japanese - Japanese (OADG 109A)"
+Description="鍵盤 - 日語 - 日語 (OADG 109A)"
 Language=ja
 Label="jp (OADG109A)"
 
 [keyboard-jp-mac]
-Description="Keyboard - Japanese - Japanese (Macintosh)"
+Description="鍵盤 - 日語 - 日語 (麥金塔)"
 Language=ja
 Label="jp (mac)"
 
 [keyboard-jp-dvorak]
-Description="Keyboard - Japanese - Japanese (Dvorak)"
+Description="鍵盤 - 日語 - 日語 (Dvorak 配置)"
 Language=ja
 Label="jp (dvorak)"
 
 [keyboard-jp-sun_type6]
-Description="Keyboard - Japanese - Japanese (Sun Type 6)"
+Description="鍵盤 - 日語 - 日語 (昇陽 Type 6)"
 Language=ja
 Label="jp (sun_type6)"
 
 [keyboard-jp-sun_type7]
-Description="Keyboard - Japanese - Japanese (Sun Type 7, PC-compatible)"
+Description="鍵盤 - 日語 - Japanese (Sun Type 7, PC-compatible)"
 Language=ja
 Label="jp (sun_type7)"
 
 [keyboard-jp-sun_type7_suncompat]
-Description="Keyboard - Japanese - Japanese (Sun Type 7, Sun-compatible)"
+Description="鍵盤 - 日語 - Japanese (Sun Type 7, Sun-compatible)"
 Language=ja
 Label="jp (sun_type7_suncompat)"
 
