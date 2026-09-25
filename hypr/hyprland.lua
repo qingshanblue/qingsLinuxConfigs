@@ -6,7 +6,7 @@
 hl.monitor({
     output   = "eDP-1",
     mode     = "highrr",
-    position = "auto",
+    position = "0x0",
     scale    = "auto",
 })
 -- hl.monitor({
@@ -15,6 +15,14 @@ hl.monitor({
 --     position = "auto",
 --     scale    = "auto",
 -- })
+hl.monitor({
+    output    = "DP-1",
+    mode      = "highrr",       -- 2560x1600@160Hz
+    transform = 1,              -- 竖屏摆放;若画面上下颠倒,改成 3
+    position  = "-1600x-0",  -- 主屏左侧、底边对齐;竖屏后高 2560,上边界远高于主屏
+    scale     = 1.6,
+})
+
 hl.monitor({
     output = "HDMI-A-1",
     mirror = "eDP-1",
@@ -70,7 +78,7 @@ hl.env("EDITOR", "nvim")    -- 编辑器
 hl.env("LANG", "zh_TW.UTF-8") -- 语言
 hl.env("LC_ALL", "zh_TW.UTF-8")
 hl.env("XMODIFIERS", "@im=fcitx")   -- 修复输入法
-hl.env("GTK_IM_MODULE", "fcitx")
+-- hl.env("GTK_IM_MODULE", "fcitx")
 hl.env("QT_IM_MODULE", "fcitx")
 hl.env("GTK_THEME", "Adwaita:dark") -- 设置深色主题
 hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
@@ -133,7 +141,7 @@ hl.config({
 
         resize_on_border = false,
         allow_tearing    = false,
-        layout           = "dwindle",
+        layout           = "scrolling",   -- 无限平铺;想回老手感改回 "dwindle"
     },
 
     -- 移除了不兼容的 render 块
@@ -290,6 +298,15 @@ hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
+
+-- scrolling 无限平铺
+hl.bind(mainMod .. " + period", hl.dsp.layout("move +col"))           -- 视野右滚一列
+hl.bind(mainMod .. " + comma",  hl.dsp.layout("move -col"))           -- 视野左滚一列
+hl.bind(mainMod .. " + SHIFT + period", hl.dsp.layout("swapcol r"))   -- 当前列与右列交换
+hl.bind(mainMod .. " + SHIFT + comma",  hl.dsp.layout("swapcol l"))   -- 当前列与左列交换
+hl.bind(mainMod .. " + K",         hl.dsp.layout("consume_or_expel next"))  -- 独列↔并入右列
+hl.bind(mainMod .. " + SHIFT + K", hl.dsp.layout("colresize +conf"))       -- 列宽循环 0.33/0.5/0.667/1.0
+hl.bind(mainMod .. " + O",         hl.dsp.layout("fit active"))             -- 当前列拉回视野
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 
 -- Move focus with mainMod + arrow keys
