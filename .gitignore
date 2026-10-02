@@ -29,7 +29,9 @@ zsh/.zcompdump
 # starship
 !starship.toml
 # Fcitx5
-!fcitx5/**
+!fcitx5/profile
+!fcitx5/config
+!fcitx5/conf/notifications.conf
 !rime/**
 # walker
 !walker/**

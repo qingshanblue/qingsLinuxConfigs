@@ -58,7 +58,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd(clipboard)
     hl.exec_cmd("walker --gapplication-service")
     -- hl.exec_cmd(notifier)
-    hl.exec_cmd("singboxUi")
+    -- hl.exec_cmd("singboxUi") -- 改由 systemd 服务 webui-for-singbox 托管
     hl.exec_cmd("sunshine")
     -- hl.exec_cmd("aria2c --enable-rpc -x 16 --split=16 -d ~/Downloads -D") -- aria2 rpc service
     hl.exec_cmd("elephant &")
