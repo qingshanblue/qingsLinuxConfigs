@@ -60,18 +60,6 @@
     "hyprland/window": {
         "max-length": 40  // 超长标题截断，完整标题在悬停提示里
     },
-    "wlr/taskbar": {
-        "format": "{icon}",
-        "icon-size": 24,
-        "icon-theme": "Papirus",  // <--- 添加这一行，指定图标主题
-        "tooltip-format": "{title}",
-        "on-click": "activate",
-        "on-click-middle": "close",
-        "ignore-list": [
-            "wofi",
-            "tofi"
-        ]
-    },
 
     // === 中间模块配置 ===
     "clock": {
