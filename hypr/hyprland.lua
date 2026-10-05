@@ -17,15 +17,14 @@ hl.monitor({
 -- })
 hl.monitor({
     output    = "DP-1",
-    mode      = "highrr",       -- 2560x1600@160Hz
-    transform = 1,              -- 竖屏摆放;若画面上下颠倒,改成 3
-    position  = "-1600x-0",  -- 主屏左侧、底边对齐;竖屏后高 2560,上边界远高于主屏
+    mode      = "highrr",   -- 2560x1600@160Hz
+    transform = 1,          -- 竖屏摆放;若画面上下颠倒,改成 3
+    position  = "-1600x-0", -- 主屏左侧、底边对齐;竖屏后高 2560,上边界远高于主屏
     scale     = 1.6,
 })
-
 hl.monitor({
-    output = "HDMI-A-1",
-    mirror = "eDP-1",
+    output   = "HDMI-A-1",
+    mirror   = "eDP-1",
     mode     = "preferred",
     position = "auto",
     scale    = "auto",
@@ -64,7 +63,6 @@ hl.on("hyprland.start", function()
     -- hl.exec_cmd("hypridle")  -- 空闲息屏/锁屏守护:配置在 ~/.config/hypr/hypridle.conf(当前全注释,刻意未启用;需要时取消注释并放开本行)
     hl.exec_cmd("fcitx5 -d --replace")
     -- 开机自启 pi:静默开在特殊工作区(scratchpad),平时不可见
-    -- 按 Super+S 呼出/隐藏(见下方 keybindings 的 toggle_special("magic"))
     hl.exec_cmd("[workspace special:magic silent] " .. terminal .. " --title pi pi")
     hl.exec_cmd("hyprlock")
 end)
@@ -73,47 +71,32 @@ end)
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
-hl.env("EDITOR", "nvim")    -- 编辑器
-hl.env("LANG", "zh_TW.UTF-8") -- 语言
+hl.env("EDITOR", "nvim")          -- 编辑器
+hl.env("LANG", "zh_TW.UTF-8")     -- 语言
 hl.env("LC_ALL", "zh_TW.UTF-8")
-hl.env("XMODIFIERS", "@im=fcitx")   -- 修复输入法
+hl.env("XMODIFIERS", "@im=fcitx") -- 修复输入法
 -- hl.env("GTK_IM_MODULE", "fcitx")
 hl.env("QT_IM_MODULE", "fcitx")
-hl.env("GTK_THEME", "Adwaita:dark") -- 设置深色主题
+hl.env("GTK_THEME", "Adwaita:dark")                     -- 设置深色主题
 hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
-hl.config({ -- 修复xWayland应用缩放模糊
-    xwayland = {
-        force_zero_scaling = true
-    }
-})
+hl.config({ xwayland = { force_zero_scaling = true } }) -- 修复xWayland应用缩放模糊
 hl.env("GDK_SCALE", "2")
 hl.env("QT_SCALE_FACTOR", "1.6")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 -- 代理
 -- local proxy_host="192.168.6.5:20122"
-local proxy_host="127.0.0.1:20122"
-hl.env("http_proxy", "http://"..proxy_host)
-hl.env("https_proxy", "http://"..proxy_host)
-hl.env("all_proxy", "socks5://"..proxy_host)
+local proxy_host = "127.0.0.1:20122"
+hl.env("http_proxy", "http://" .. proxy_host)
+hl.env("https_proxy", "http://" .. proxy_host)
+hl.env("all_proxy", "socks5://" .. proxy_host)
 hl.env("no_proxy", "localhost,127.0.0.1,::1")
 
 -----------------------
 ----- PERMISSIONS -----
 -----------------------
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Permissions/
--- Please note permission changes here require a Hyprland restart and are not applied on-the-fly
--- for security reasons
 
--- hl.config({
---   ecosystem = {
---     enforce_permissions = true,
---   },
--- })
-
--- hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
--- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
--- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
 
 
 -----------------------
@@ -121,119 +104,73 @@ hl.env("no_proxy", "localhost,127.0.0.1,::1")
 -----------------------
 hl.config({
     general = {
-        gaps_in     = 4,
-        gaps_out    = 12,   -- 外围留多点呼吸感,窗口像"悬浮卡片"
-
-        border_size = 2,    -- 想让渐变更显眼可以试 3
-
-        col = {
-            -- 三选一,混搭也行:
-            -- A. 冰青(你原来的风格,降饱和更耐看)
-            active_border   = { colors = { "rgba(89dcebee)", "rgba(94e2d5ee)" }, angle = 45 },
-            -- B. Catppuccin 蓝紫(和下面 inactive 灰最搭)
-            -- active_border = { colors = { "rgba(89b4faee)", "rgba(cba6f7ee)" }, angle = 45 },
-            -- C. 樱花粉紫
-            -- active_border = { colors = { "rgba(f5c2e7ee)", "rgba(cba6f7ee)" }, angle = 45 },
-
+        gaps_in          = 4,
+        gaps_out         = 12, -- 外围留多点呼吸感,窗口像"悬浮卡片"
+        border_size      = 2,  -- 想让渐变更显眼可以试 3
+        col              = {
+            active_border   = {
+                colors = { "rgba(89dcebee)", "rgba(94e2d5ee)" },
+                angle = 45
+            },
             inactive_border = "rgba(45475aaa)",
         },
-
         resize_on_border = false,
         allow_tearing    = false,
-        layout           = "scrolling",   -- 无限平铺;想回老手感改回 "dwindle"
+        layout           = "scrolling", -- 无限平铺;想回老手感改回 "dwindle"
     },
-
-    -- 移除了不兼容的 render 块
-
     decoration = {
-        rounding       = 12,
-        rounding_power = 2,
-
+        rounding         = 12,
+        rounding_power   = 2,
         active_opacity   = 0.95,
-        inactive_opacity = 0.80,   -- 拉大聚焦对比
-
-        shadow = {
+        inactive_opacity = 0.80, -- 拉大聚焦对比
+        shadow           = {
             enabled      = true,
-            range        = 20,          -- 大而柔的阴影比小硬阴影更有悬浮感
+            range        = 20,         -- 大而柔的阴影比小硬阴影更有悬浮感
             render_power = 4,
-            color        = 0xcc1a1a26,  -- 带一点蓝调的黑,更柔和
+            color        = 0xcc1a1a26, -- 带一点蓝调的黑,更柔和
         },
-        blur = {
+        blur             = {
             enabled    = true,
-            size       = 8,       -- 3→8,模糊才看得出来
-            passes     = 2,       -- 2 遍 + 大 size = 真正的磨砂玻璃
+            size       = 8,      -- 3→8,模糊才看得出来
+            passes     = 2,      -- 2 遍+大 size = 真正的磨砂玻璃
             vibrancy   = 0.1696,
-            contrast   = 0.8916,  -- 这三个是经典"奶玻璃"配方
+            contrast   = 0.8916, -- 这三个是经典"奶玻璃"配方
             brightness = 0.8172,
             noise      = 0.0117,
         },
     },
-
     animations = { enabled = true },
 })
-
 -- 自定义曲线
 hl.curve("snappy", { type = "spring", mass = 1, stiffness = 230, dampening = 26 })
 hl.curve("bouncy", { type = "spring", mass = 1, stiffness = 300, dampening = 22 })
 hl.curve("easeOutQuint", { type = "bezier", points = { { 0.22, 1 }, { 0.36, 1 } } }) -- 标准缓出曲线
-
 -- 窗口开合更有生命感(想要更弹就换成 bouncy)
-hl.animation({ leaf = "windows",    enabled = true, speed = 4,   spring = "snappy" })
-hl.animation({ leaf = "windowsIn",  enabled = true, speed = 3.4, spring = "snappy", style = "popin 85%" })
+hl.animation({ leaf = "windows", enabled = true, speed = 4, spring = "snappy" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 3.4, spring = "snappy", style = "popin 85%" })
 hl.animation({ leaf = "windowsOut", enabled = true, speed = 2.6, bezier = "linear", style = "popin 85%" })
-
 -- 工作区切换:垂直滑动动画,配合三指上下滑切工作区的方向感
-hl.animation({ leaf = "workspaces", enabled = true, speed = 5,   bezier = "easeOutQuint", style = "slidevert" })
-
+hl.animation({ leaf = "workspaces", enabled = true, speed = 5, bezier = "easeOutQuint", style = "slidevert" })
 -- 特殊工作区从底部滑入(不显式写的话会继承 workspaces 的动画,这里固定下来)
 hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 2.5, bezier = "easeOutQuint", style = "slidevert" })
-
--- ⭐ 渐变边框缓慢流动,配合上面 colors 渐变的 active_border
+-- 渐变边框缓慢流动,配合上面 colors 渐变的 active_border
 hl.animation({ leaf = "borderangle", enabled = true, speed = 30, bezier = "linear", style = "loop" })
-
--- 其余 fadeIn/fadeOut/layers 等保持你现在的默认即可
-
--- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
--- "Smart gaps" / "No gaps when only"
--- uncomment all if you wish to use that.
--- hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
--- hl.workspace_rule({ workspace = "f[1]",   gaps_out = 0, gaps_in = 0 })
--- hl.window_rule({
---     name  = "no-gaps-wtv1",
---     match = { float = false, workspace = "w[tv1]" },
---     border_size = 0,
---     rounding    = 0,
--- })
--- hl.window_rule({
---     name  = "no-gaps-f1",
---     match = { float = false, workspace = "f[1]" },
---     border_size = 0,
---     rounding    = 0,
--- })
-
 -- See https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/ for more
-hl.config({
-    scrolling = {
-        fullscreen_on_one_column = true,
-    },
-})
+hl.config({ scrolling = { fullscreen_on_one_column = true, }, })
 
 ----------------
 ----  MISC  ----
 ----------------
-
 hl.config({
     misc = {
-        force_default_wallpaper = -1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
-        disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
+        force_default_wallpaper = -1,   -- Set to 0 or 1 to disable the anime mascot wallpapers
+        disable_hyprland_logo   = true, -- If true disables the random hyprland logo / anime girl background. :(
     },
 })
-
 
 ---------------
 ---- INPUT ----
 ---------------
-
 hl.config({
     input = {
         kb_layout    = "us",
@@ -241,147 +178,187 @@ hl.config({
         kb_model     = "",
         kb_options   = "",
         kb_rules     = "",
-
         follow_mouse = 1,
-
-        sensitivity  = -0.15, -- -1.0 - 1.0, 0 means no modification.
-
+        sensitivity  = 0, -- -1.0 - 1.0, 0 means no modification.
         touchpad     = {
             natural_scroll = true,
             scroll_factor = 0.33,
-            clickfinger_behavior = true  -- 按指头数点击:1指=左键,2指=右键,3指=中键(替代右下角软按钮区)
+            clickfinger_behavior = true -- 按指头数点击:1指=左键,2指=右键,3指=中键(替代右下角软按钮区)
         },
     },
 })
-
--- 触控板手势:适配 scrolling 布局
+---------------------
+---- KEYBINDINGS ----
+---------------------
+local mainMod = "SUPER" -- Sets "Windows" key as main modifier
+-- ────────── 适配 scrolling 布局 ──────────
+-- Super+双指捏合:调整当前窗口大小(进入后按位移方向缩放,右下=放大/左上=缩小;不按 Super 的双指捏合留给应用缩放)
+hl.gesture({
+    fingers = 2,
+    direction = "pinch",
+    mods = mainMod,
+    action = "resize"
+})
+-- 三指捏合:跟手放大镜,锚定光标(再捏一次取消)
+hl.gesture({
+    fingers = 3,
+    direction = "pinch",
+    action = "cursor_zoom",
+    zoom_level = 1,
+    mode = "live"
+})
+-- 左右滑:跟手滚动胶带(轴向一致,行程也长)
 hl.gesture({
     fingers   = 3,
     direction = "horizontal",
-    action    = "scroll_move"   -- 左右滑:跟手滚动胶带(轴向一致,行程也长)
+    action    = "scroll_move"
 })
+-- Super+Shift+三指横滑:移动当前窗口(跟手,不用再按住鼠标键拖)
+hl.gesture({
+    fingers = 3,
+    direction = "horizontal",
+    mods = mainMod .. "+SHIFT",
+    action = "move"
+})
+-- 上下滑:切换工作区
 hl.gesture({
     fingers   = 3,
     direction = "vertical",
-    action    = "workspace"     -- 上下滑:切换工作区
+    action    = "workspace"
 })
-hl.gesture({
-    fingers   = 4,
-    direction = "up",
-    action    = function()       -- 四指上滑:呼出 magic(已开着则原地不动)
-        hl.dispatch(hl.dsp.focus({ workspace = "special:magic" }))
-    end
-})
-hl.gesture({
-    fingers   = 4,
-    direction = "down",
-    action    = function()       -- 四指下滑:仅当 magic 开着时收起
-        if hl.get_active_special_workspace() ~= nil then
-            hl.dispatch(hl.dsp.workspace.toggle_special("magic"))
-        end
-    end
-})
--- Super+Shift+三指横滑:移动当前窗口(跟手,不用再按住鼠标键拖)
-hl.gesture({ fingers = 3, direction = "horizontal", mods = "SUPER SHIFT", action = "move" })
-
--- Super+Shift+三指上下滑:窗口扔到上/下一个工作区(上滑=下一个,下滑=上一个;本工作区不跟随)
+-- Super+Shift+三指上下滑:窗口扔到上/下一个工作区(上滑=上一个,下滑=下一个;人跟过去,与 Shift+W/S 一致)
 local ws_dy = 0
 hl.gesture({
     fingers   = 3,
     direction = "vertical",
-    mods      = "SUPER SHIFT",
+    mods      = mainMod .. "+SHIFT",
     action    = {
         start  = function() ws_dy = 0 end,
         update = function(e) ws_dy = ws_dy + e.delta.y end,
         finish = function()
             if ws_dy < -40 then
-                hl.dispatch(hl.dsp.window.move({ workspace = "e-1", follow = false })) -- 上滑:上一个
+                hl.dispatch(hl.dsp.window.move({ workspace = "e-1" })) -- 上滑:上一个
             elseif ws_dy > 40 then
-                hl.dispatch(hl.dsp.window.move({ workspace = "e+1", follow = false })) -- 下滑:下一个
+                hl.dispatch(hl.dsp.window.move({ workspace = "e+1" })) -- 下滑:下一个
             end
         end
     }
 })
+-- 四指上滑:呼出 magic(已开着则原地不动)
+hl.gesture({
+    fingers   = 4,
+    direction = "up",
+    action    = function()
+        hl.dispatch(hl.dsp.focus({ workspace = "special:magic" }))
+    end
+})
+-- 四指下滑:仅当 magic 开着时收起
+hl.gesture({
+    fingers   = 4,
+    direction = "down",
+    action    = function()
+        if hl.get_active_special_workspace() ~= nil then
+            hl.dispatch(hl.dsp.workspace.toggle_special("magic"))
+        end
+    end
+})
 
--- Super+双指捏合:调整当前窗口大小(进入后按位移方向缩放,右下=放大/左上=缩小;不按 Super 的双指捏合留给应用缩放)
-hl.gesture({ fingers = 2, direction = "pinch", mods = "SUPER", action = "resize" })
--- 三指捏合:跟手放大镜,锚定光标(再捏一次取消)
-hl.gesture({ fingers = 3, direction = "pinch", action = "cursor_zoom", zoom_level = 1, mode = "live" })
+-- ────────── 窗口状态(四态+鼠标拖拽) ──────────
+-- 关闭窗口
+hl.bind(mainMod .. "+Q", hl.dsp.window.close())
+-- 全屏切换
+hl.bind(mainMod .. "+E", hl.dsp.window.fullscreen({ action = "toggle" })) -- 全屏切换(scrolling 布局下可滚走,回来还是全屏)
+-- 窗口浮动
+hl.bind(mainMod .. "+F", hl.dsp.window.float({ action = "toggle" }))
+-- 钉住浮动窗口
+hl.bind(mainMod .. "+R", hl.dsp.window.pin({ action = "toggle" }))
+-- 调整窗口位置
+hl.bind(mainMod .. "+mouse:272", hl.dsp.window.drag(), { mouse = true })
+-- 调整当前窗口大小
+hl.bind(mainMod .. "+mouse:273", hl.dsp.window.resize(), { mouse = true })
 
----------------------
----- KEYBINDINGS ----
----------------------
+-- ────────── 布局调整(列与视野) ──────────
+hl.bind(mainMod .. "+X", hl.dsp.layout("colresize +conf"))     -- 列宽循环 0.33/0.5/0.667/1.0(高频)
+hl.bind(mainMod .. "+C", hl.dsp.layout("consume_or_expel next")) -- 独列↔并入右列(窗口上下排↔并排)
 
-local mainMod = "SUPER" -- Sets "Windows" key as main modifier
-
--- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-hl.bind("ALT + T", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + Q", hl.dsp.window.close())
-hl.bind(mainMod .. " + M",
-    hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-hl.bind("ALT + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + W", hl.dsp.window.fullscreen({ action = "toggle" })) -- 全屏切换(scrolling 布局下可滚走,回来还是全屏)
-hl.bind(mainMod .. " + E", hl.dsp.window.float({ action = "toggle" }))
-hl.bind("ALT + R", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + R", hl.dsp.window.pin({ action = "toggle" })) -- 浮窗钉住:跨工作区置顶,对浮动窗口生效
-
--- scrolling 无限平铺
-hl.bind(mainMod .. " + D", hl.dsp.layout("move +col"))           -- 视野右滚一列(WASD)
-hl.bind(mainMod .. " + A", hl.dsp.layout("move -col"))           -- 视野左滚一列
-hl.bind(mainMod .. " + SHIFT + A", hl.dsp.layout("swapcol l"))        -- 当前列与左列交换
-hl.bind(mainMod .. " + SHIFT + D", hl.dsp.layout("swapcol r"))        -- 当前列与右列交换
-hl.bind(mainMod .. " + F",         hl.dsp.layout("colresize +conf"))       -- 列宽循环 0.33/0.5/0.667/1.0(高频)
-hl.bind(mainMod .. " + G",         hl.dsp.layout("consume_or_expel next"))  -- 独列↔并入右列(窗口上下排↔并排)
-hl.bind(mainMod .. " + T",         hl.dsp.layout("inhibit_scroll"))         -- 锁定/解锁本工作区的视野自动滚动(T=Tape)
-hl.bind("ALT + B", hl.dsp.exec_cmd(browser))
-
--- Move focus with mainMod + arrow keys
-hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
-
--- Move active window with mainMod + SHIFT + arrow keys (Shift=移动窗口规则)
-hl.bind(mainMod .. " + SHIFT + left",  hl.dsp.window.move({ direction = "l" }))
-hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.move({ direction = "r" }))
-hl.bind(mainMod .. " + SHIFT + up",    hl.dsp.window.move({ direction = "u" }))
-hl.bind(mainMod .. " + SHIFT + down",  hl.dsp.window.move({ direction = "d" }))
-
--- Switch workspaces with mainMod + [0-9]
--- Move active window to a workspace with mainMod + SHIFT + [0-9]
+-- ────────── 导航:胶带与工作区(WASD 十字) ──────────
+-- 数字键:切换工作区
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
-    hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+    hl.bind(mainMod .. "+" .. key, hl.dsp.focus({ workspace = i }))
 end
+-- A/D:胶带左/右滚一列
+hl.bind(mainMod .. "+A", hl.dsp.layout("move -col"))
+hl.bind(mainMod .. "+D", hl.dsp.layout("move +col"))
+-- W/S:上一个/下一个工作区(与 slidevert 动画方向一致)
+hl.bind(mainMod .. "+W", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. "+S", hl.dsp.focus({ workspace = "e+1" }))
+-- 方向键:移动焦点
+hl.bind(mainMod .. "+left", hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. "+right", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. "+up", hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. "+down", hl.dsp.focus({ direction = "down" }))
+-- 滚轮与侧键:工作区/胶带循环(裸侧键仍归应用)
+hl.bind(mainMod .. "+mouse_up", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. "+mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mainMod .. "+mouse:276", hl.dsp.layout("move -col")) -- 侧键前=左滚
+hl.bind(mainMod .. "+mouse:275", hl.dsp.layout("move +col")) -- 侧键后=右滚
 
--- mainMod + TAB:在最近两个工作区之间快切(A/B)
-hl.bind(mainMod .. " + TAB", function()
-    local last = hl.get_last_workspace()
-    if last ~= nil then hl.dispatch(hl.dsp.focus({ workspace = last })) end
+-- ────────── 搬移(Super+Shift 系) ──────────
+-- Shift+数字:窗口搬到对应工作区
+for i = 1, 10 do
+    local key = i % 10
+    hl.bind(mainMod .. "+SHIFT+" .. key, hl.dsp.window.move({ workspace = i }))
+end
+-- Shift+A/D:当前列与左/右列交换
+hl.bind(mainMod .. "+SHIFT+A", hl.dsp.layout("swapcol l")) -- 当前列与左列交换
+hl.bind(mainMod .. "+SHIFT+D", hl.dsp.layout("swapcol r")) -- 当前列与右列交换
+-- Shift+W/S:将当前窗口移动到上一个/下一个工作区(与 W/S 同向)
+hl.bind(mainMod .. "+SHIFT+W", hl.dsp.window.move({ workspace = "e-1" }))
+hl.bind(mainMod .. "+SHIFT+S", hl.dsp.window.move({ workspace = "e+1" }))
+-- Shift+方向键:跨列/行移动窗口
+hl.bind(mainMod .. "+SHIFT+left", hl.dsp.window.move({ direction = "l" }))
+hl.bind(mainMod .. "+SHIFT+right", hl.dsp.window.move({ direction = "r" }))
+hl.bind(mainMod .. "+SHIFT+up", hl.dsp.window.move({ direction = "u" }))
+hl.bind(mainMod .. "+SHIFT+down", hl.dsp.window.move({ direction = "d" }))
+-- Shift+滚轮与侧键:滚轮=窗口扔到下/上一个工作区;侧键前/后=与左/右列交换(与导航组鼠标成对)
+hl.bind(mainMod .. "+SHIFT+mouse_down", hl.dsp.window.move({ workspace = "e+1" }))
+hl.bind(mainMod .. "+SHIFT+mouse_up", hl.dsp.window.move({ workspace = "e-1" }))
+hl.bind(mainMod .. "+SHIFT+mouse:276", hl.dsp.layout("swapcol l"))
+hl.bind(mainMod .. "+SHIFT+mouse:275", hl.dsp.layout("swapcol r"))
+
+-- ────────── 特殊工作区(special:magic) ──────────
+hl.bind(mainMod .. "+Z", hl.dsp.workspace.toggle_special("magic")) -- 特殊工作区(常放 pi,不限于此)
+hl.bind(mainMod .. "+SHIFT+Z", hl.dsp.window.move({ workspace = "special:magic" }))
+-- Super+中键:呼出/收起特殊工作区(触控板上即 Super+三指轻点,clickfinger 三指点击=中键)
+hl.bind(mainMod .. "+mouse:274", hl.dsp.workspace.toggle_special("magic"))
+
+-- ────────── 回跳与循环(窗口/工作区往返) ──────────
+-- Super+Tab:跳回上一个聚焦的窗口(跨工作区跟随;再按弹回,天然 A/B 交替)
+-- 用 Hyprland 自带的焦点历史(get_last_window),无需手动记录
+hl.bind(mainMod .. "+TAB", function()
+    local w = hl.get_last_window()
+    if w == nil then return end
+    if w.workspace ~= nil and not w.workspace.special then
+        hl.dispatch(hl.dsp.focus({ workspace = w.workspace.id }))
+    end
+    hl.dispatch(hl.dsp.focus({ window = w }))
 end)
 
--- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+-- ────────── 启动器(Alt 层) ──────────
+hl.bind("ALT+T", hl.dsp.exec_cmd(terminal))              -- 终端
+hl.bind("ALT+E", hl.dsp.exec_cmd(fileManager))           -- 文件管理器
+hl.bind("ALT+R", hl.dsp.exec_cmd(menu))                  -- 应用启动器
+hl.bind("ALT+B", hl.dsp.exec_cmd(browser))               -- 浏览器
+hl.bind("ALT+C", hl.dsp.exec_cmd(coder))                 -- VS Code
+hl.bind("ALT+V", hl.dsp.exec_cmd("walker -m clipboard")) -- 剪贴板历史
+hl.bind("ALT+Q", hl.dsp.exec_cmd("walker -m windows"))   -- 窗口列表
+hl.bind("ALT+ESCAPE", hl.dsp.exec_cmd("missioncenter"))  -- 任务管理器
 
--- Lock screen (Windows-like Super + L)
-hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
-
--- Scroll through existing workspaces with mainMod + scroll
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
-
--- Super+中键:呼出/收起 pi 终端(触控板上即 Super+三指轻点,clickfinger 三指点击=中键)
-hl.bind(mainMod .. " + mouse:274", hl.dsp.workspace.toggle_special("magic"))
-
--- Super+侧键 前/后:胶带滚动(已按手感对调:前=左滚,后=右滚;裸侧键仍归应用)
-hl.bind(mainMod .. " + mouse:276", hl.dsp.layout("move -col"))
-hl.bind(mainMod .. " + mouse:275", hl.dsp.layout("move +col"))
-
--- Move/resize windows with mainMod + LMB/RMB and dragging
-hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+-- ────────── 系统(锁屏/关闭) ──────────
+hl.bind(mainMod .. "+L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. "+M",
+    hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
@@ -396,48 +373,36 @@ hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
 
 -- Requires playerctl
-hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"), { locked = true })
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
--- qings
--- Hyprshot
-hl.bind("ALT + A", hl.dsp.exec_cmd("hyprshot -m region -z -o $HOME/Pictures/screenshot"))   -- 区域截图(框选时画面冻结)
-hl.bind("ALT + W", hl.dsp.exec_cmd("hyprshot -m window -o $HOME/Pictures/screenshot"))   -- 窗口截图
+-- ────────── 截图与录制(Alt 层) ──────────
+hl.bind("ALT+A", hl.dsp.exec_cmd("hyprshot -m region -z -o $HOME/Pictures/screenshot")) -- 区域截图(框选时画面冻结)
+hl.bind("ALT+W", hl.dsp.exec_cmd("hyprshot -m window -o $HOME/Pictures/screenshot"))    -- 窗口截图
 -- Alt+D:区域截图并钉住(swayimg 悬浮右下,文件存 /tmp 重启自清;看完 Super+Q 关)
 -- 注:hyprshot 1.3 的截图在后台子进程完成,主进程退出码恒为 1(它自带的 -- command 也只支持无参命令),
 -- 故不依赖退出码:打时间戳→截图→轮询 pin.png 是否更新(30s 超时,Esc 取消则不弹窗)
-hl.bind("ALT + D", hl.dsp.exec_cmd(
+hl.bind("ALT+D", hl.dsp.exec_cmd(
     "touch /tmp/.pin_stamp; hyprshot -m region -s -z -o /tmp -f pin.png; i=0; until [ /tmp/pin.png -nt /tmp/.pin_stamp ] || [ $i -ge 100 ]; do sleep 0.3; i=$((i+1)); done; j=0; while [ -n \"$(pgrep -x grim)\" ] && [ $j -lt 50 ]; do sleep 0.2; j=$((j+1)); done; if [ /tmp/pin.png -nt /tmp/.pin_stamp ]; then eval set -- $(hyprctl monitors | awk '$1==\"Monitor\"{mon=$2} $1~/^[0-9]+x[0-9]+@/{match($1,/x/);x1=RSTART;match($1,/@/);x2=RSTART;pw=substr($1,1,x1-1);ph=substr($1,x1+1,x2-x1-1)} /scale:/{sc=$2} /transform:/{tr=$2} $1==\"focused:\"&&$2==\"yes\"{if(tr%2==1){print int(ph/sc),int(pw/sc),int(sc*1000)}else{print int(pw/sc),int(ph/sc),int(sc*1000)}}'); MW=$1; MH=$2; SCM=$3; set -- $(od -An -j 16 -N 8 -t u1 /tmp/pin.png); W=$(($1*16777216+$2*65536+$3*256+$4)); H=$(($5*16777216+$6*65536+$7*256+$8)); W=$(($W*1000/SCM)); H=$(($H*1000/SCM)); S=1000; [ $(($MW*800)) -lt $(($W*1000)) ] && S=$(($MW*800/$W)); [ $(($MH*800)) -lt $(($H*1000)) ] && [ $(($MH*800/$H)) -lt $S ] && S=$(($MH*800/$H)); swayimg -a pinshot -S $(($W*S/1000)),$(($H*S/1000)) /tmp/pin.png; fi"
 ))
 -- OBS
-hl.bind("ALT + F10", hl.dsp.pass({ window = "class:^(com.obsproject.Studio)$" })) -- 暂停/恢复录制
-hl.bind("ALT + F11", hl.dsp.pass({ window = "class:^(com.obsproject.Studio)$" })) -- 开始录制
-hl.bind("ALT + F12", hl.dsp.pass({ window = "class:^(com.obsproject.Studio)$" })) -- 停止录制
--- Mission center
-hl.bind("ALT + ESCAPE", hl.dsp.exec_cmd("missioncenter"))
--- VS Code
-hl.bind("ALT + C", hl.dsp.exec_cmd(coder))
--- Alt + V:剪贴板历史(walker)
-hl.bind("ALT + V", hl.dsp.exec_cmd("walker -m clipboard"))
+hl.bind("ALT+F10", hl.dsp.pass({ window = "class:^(com.obsproject.Studio)$" })) -- 暂停/恢复录制
+hl.bind("ALT+F11", hl.dsp.pass({ window = "class:^(com.obsproject.Studio)$" })) -- 开始录制
+hl.bind("ALT+F12", hl.dsp.pass({ window = "class:^(com.obsproject.Studio)$" })) -- 停止录制
+
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
 -- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/
 -- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
-
--- Example window rules that are useful
-
 local suppressMaximizeRule = hl.window_rule({
     -- Ignore maximize requests from all apps. You'll probably like this.
     name           = "suppress-maximize-events",
     match          = { class = ".*" },
-
     suppress_event = "maximize",
 })
--- suppressMaximizeRule:set_enabled(false)
-
 hl.window_rule({
     -- Fix some dragging issues with XWayland
     name     = "fix-xwayland-drags",
@@ -449,28 +414,17 @@ hl.window_rule({
         fullscreen = false,
         pin        = false,
     },
-
     no_focus = true,
 })
-
--- Layer rules also return a handle.
--- local overlayLayerRule = hl.layer_rule({
---     name  = "no-anim-overlay",
---     match = { namespace = "^my-overlay$" },
---     no_anim = true,
--- })
--- overlayLayerRule:set_enabled(false)
--- 特殊工作区做成磨砂玻璃:按 Super+S 时,当前桌面隔着一层雾,很有质感
+-- 特殊工作区
 hl.window_rule({
-    name    = "special-magic-frost",
+    name    = "special-magic",
     match   = { workspace = "special:magic" },
     opacity = 0.9,
 })
-
 hl.window_rule({ -- Hyprland-run windowrule
     name  = "move-hyprland-run",
     match = { class = "hyprland-run" },
-
     move  = "20 monitor_h-120",
     float = true,
 })
@@ -511,13 +465,13 @@ hl.window_rule({ -- Pavucontrol
     size   = "monitor_w*0.3 monitor_h*0.6"
 })
 hl.window_rule({ -- better-conrtol
-    name   = "better-control-float",
-    match  = {
+    name      = "better-control-float",
+    match     = {
         initial_title = "Better Control"
     },
-    float  = true,
-    center = true,
-    size   = "monitor_w*0.3 monitor_h*0.6",
+    float     = true,
+    center    = true,
+    size      = "monitor_w*0.3 monitor_h*0.6",
     -- 恢复为可用的 popin 动画，移除不兼容的 dimaround
     animation = "popin 85%"
 })

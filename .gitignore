@@ -13,7 +13,7 @@
 # Default Application
 !mimeapps.list
 
-# ConfigsR
+# Configs
 # systemd
 !environment.d/**
 # hyprland
