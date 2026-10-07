@@ -262,6 +262,15 @@ local function toggleSpecialNamed(name)
     end
     hl.dispatch(hl.dsp.workspace.toggle_special(name))
 end
+-- 特殊区层开关:开着则直接收起当前,没开则呼出最近使用的(Super+V 与 Super+中键共用)
+local function toggleSpecialLayer()
+    local cur = getActiveSpecialName()
+    if cur ~= nil then
+        hl.dispatch(hl.dsp.workspace.toggle_special(cur))
+    else
+        hl.dispatch(hl.dsp.focus({ workspace = "special:" .. lastSpecial }))
+    end
+end
 -- ────────── 适配 scrolling 布局 ──────────
 -- Super+双指捏合:调整当前窗口大小(进入后按位移方向缩放,右下=放大/左上=缩小;不按 Super 的双指捏合留给应用缩放)
 hl.gesture({
@@ -416,15 +425,10 @@ hl.bind(mainMod .. "+SHIFT+mouse:275", hl.dsp.layout("swapcol r"))
 -- ────────── 特殊工作区(special:magic) ──────────
 hl.bind(mainMod .. "+Z", function() toggleSpecialNamed("magic") end) -- 特殊工作区
 hl.bind(mainMod .. "+SHIFT+Z", hl.dsp.window.move({ workspace = "special:magic" }))
--- Super+中键:呼出最近使用的特殊工作区/收起当前特殊区(触控板上即 Super+三指轻点,clickfinger 三指点击=中键)
-hl.bind(mainMod .. "+mouse:274", function()
-    local cur = getActiveSpecialName()
-    if cur ~= nil then
-        hl.dispatch(hl.dsp.workspace.toggle_special(cur)) -- 收起当前特殊区
-    else
-        hl.dispatch(hl.dsp.focus({ workspace = "special:" .. lastSpecial })) -- 呼出最近使用的
-    end
-end)
+-- Super+V:特殊区层开关——开着则直接收起当前,没开则呼出最近使用的(不用先猜当前是哪个)
+hl.bind(mainMod .. "+V", function() toggleSpecialLayer() end)
+-- Super+中键:同 Super+V 的层开关(触控板上即 Super+三指轻点,clickfinger 三指点击=中键)
+hl.bind(mainMod .. "+mouse:274", function() toggleSpecialLayer() end)
 -- 两个补充的特殊工作区
 hl.bind(mainMod .. "+X", function() toggleSpecialNamed("mofa") end) -- 特殊工作区
 hl.bind(mainMod .. "+SHIFT+X", hl.dsp.window.move({ workspace = "special:mofa" }))
@@ -515,11 +519,22 @@ hl.window_rule({
     },
     no_focus = true,
 })
--- 特殊工作区
+-- 特殊工作区(边框颜色对应按键助记:magic(Z)=红 / mofa(X)=绿 / maho(C)=蓝,catppuccin 色板)
 hl.window_rule({
     name    = "special-magic",
     match   = { workspace = "special:magic" },
     opacity = 0.9,
+    border_color = "rgba(f38ba8dd)",
+})
+hl.window_rule({
+    name    = "special-mofa",
+    match   = { workspace = "special:mofa" },
+    border_color = "rgba(a6e3a1dd)",
+})
+hl.window_rule({
+    name    = "special-maho",
+    match   = { workspace = "special:maho" },
+    border_color = "rgba(89b4fadd)",
 })
 hl.window_rule({ -- Hyprland-run windowrule
     name  = "move-hyprland-run",
