@@ -58,13 +58,14 @@ hl.on("hyprland.start", function()
     -- hl.exec_cmd("singboxUi") -- 改由 systemd 服务 webui-for-singbox 托管
     hl.exec_cmd("sunshine")
     -- hl.exec_cmd("aria2c --enable-rpc -x 16 --split=16 -d ~/Downloads -D") -- aria2 rpc service
-    hl.exec_cmd("elephant &")
+    -- elephant 改由 NixOS 官方模块 services.elephant 托管(systemd 用户服务)，装完新软件后 systemctl --user restart elephant 即可刷新应用列表
+    -- 已切换 UWSM 会话(configuration.nix defaultSession)：会话环境由 UWSM 导入、graphical-session.target 正常激活，官方挂载点原生工作
+    -- 旧补丁(SDDM 直启时代的临时方案)保留备用：hl.exec_cmd("systemctl --user import-environment && systemctl --user restart elephant")
     hl.exec_cmd("systemctl --user start hyprpolkitagent || hyprpolkitagent")
     -- hl.exec_cmd("hypridle")  -- 空闲息屏/锁屏守护:配置在 ~/.config/hypr/hypridle.conf(当前全注释,刻意未启用;需要时取消注释并放开本行)
     hl.exec_cmd("fcitx5 -d --replace")
-    -- 开机自启 pi:静默开在特殊工作区(scratchpad),平时不可见
-    hl.exec_cmd("[workspace special:magic silent] " .. terminal .. " --title pi pi")
-    hl.exec_cmd("hyprlock")
+    -- hl.exec_cmd("[workspace special:magic silent] " .. terminal .. " --title pi pi") -- 开机自启 pi:静默开在特殊工作区(scratchpad),平时不可见
+    hl.exec_cmd("hyprlock") -- 自动登录后自锁，提升安全性
 end)
 
 -------------------------------
@@ -191,6 +192,76 @@ hl.config({
 ---- KEYBINDINGS ----
 ---------------------
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
+
+-- ────────── 工作区导航(特殊区状态感知) ──────────
+local specialOrder = { "magic", "mofa", "maho" }
+local lastSpecial = "magic" -- 最近使用的特殊工作区(呼出类操作的目标)
+-- 当前激活的特殊区名,没开则返回 nil
+local function getActiveSpecialName()
+    local raw = hl.get_active_special_workspace()
+    -- 实测返回 userdata(HL.Workspace 对象),属性经 __index 暴露;多重兜底防 API 细节差异
+    local cur = nil
+    if type(raw) == "string" then
+        cur = raw
+    elseif type(raw) == "userdata" or type(raw) == "table" then
+        local ok, name = pcall(function() return raw.name end)
+        if ok and name ~= nil then
+            cur = tostring(name)
+        else
+            cur = tostring(raw):match("special:([%w_%-]+)") -- 兜底:从 "HL.Workspace(-97:special:mofa)" 提取
+        end
+    end
+    if cur ~= nil then cur = cur:gsub("^special:", "") end
+    return cur
+end
+-- 当前特殊区的相邻项(首尾相接);cur 不在 specialOrder 内则返回 nil
+local function adjacentSpecial(cur, dir)
+    local idx = 0
+    for i, name in ipairs(specialOrder) do
+        if cur == name then idx = i break end
+    end
+    if idx == 0 then return nil end
+    return specialOrder[((idx - 1 + dir) % #specialOrder) + 1]
+end
+-- dir=1 下一个,-1 上一个。特殊区开着时在 magic/mofa/maho 之间循环;未开时切换常规工作区
+local function navWorkspace(dir)
+    local cur = getActiveSpecialName()
+    if cur == nil then
+        if dir == 1 then
+            hl.dispatch(hl.dsp.focus({ workspace = "e+1" })) -- 常规:下一个工作区
+        else
+            hl.dispatch(hl.dsp.focus({ workspace = "e-1" })) -- 常规:上一个工作区
+        end
+        return
+    end
+    local nxt = adjacentSpecial(cur, dir)
+    if nxt == nil then return end
+    lastSpecial = nxt
+    hl.dispatch(hl.dsp.focus({ workspace = "special:" .. nxt }))
+end
+-- 扔窗口:特殊区开着时扔到相邻特殊区(人跟过去);未开时扔到相邻常规工作区
+local function moveWindowNav(dir)
+    local cur = getActiveSpecialName()
+    if cur == nil then
+        if dir == 1 then
+            hl.dispatch(hl.dsp.window.move({ workspace = "e+1" })) -- 常规:下一个工作区
+        else
+            hl.dispatch(hl.dsp.window.move({ workspace = "e-1" })) -- 常规:上一个工作区
+        end
+        return
+    end
+    local nxt = adjacentSpecial(cur, dir)
+    if nxt == nil then return end
+    lastSpecial = nxt
+    hl.dispatch(hl.dsp.window.move({ workspace = "special:" .. nxt }))
+end
+-- 点名 toggle(Z/X/C 用):开/切到该特殊区时记为最近使用;关闭时不动
+local function toggleSpecialNamed(name)
+    if getActiveSpecialName() ~= name then
+        lastSpecial = name
+    end
+    hl.dispatch(hl.dsp.workspace.toggle_special(name))
+end
 -- ────────── 适配 scrolling 布局 ──────────
 -- Super+双指捏合:调整当前窗口大小(进入后按位移方向缩放,右下=放大/左上=缩小;不按 Super 的双指捏合留给应用缩放)
 hl.gesture({
@@ -220,13 +291,24 @@ hl.gesture({
     mods = mainMod .. "+SHIFT",
     action = "move"
 })
--- 上下滑:切换工作区
+-- 上下滑:切换工作区(特殊工作区开着时在三个特殊区之间循环;上滑=下一个,下滑=上一个,与旧内置手势同向)
+local gy3 = 0
 hl.gesture({
     fingers   = 3,
     direction = "vertical",
-    action    = "workspace"
+    action    = {
+        start  = function() gy3 = 0 end,
+        update = function(e) gy3 = gy3 + e.delta.y end,
+        finish = function()
+            if gy3 < -40 then
+                navWorkspace(1) -- 上滑:下一个
+            elseif gy3 > 40 then
+                navWorkspace(-1) -- 下滑:上一个
+            end
+        end
+    }
 })
--- Super+Shift+三指上下滑:窗口扔到上/下一个工作区(上滑=上一个,下滑=下一个;人跟过去,与 Shift+W/S 一致)
+-- Super+Shift+三指上下滑:窗口扔到上/下一个工作区(上滑=上一个,下滑=下一个;人跟过去,与 Shift+W/S 一致;特殊区开着时扔到相邻特殊区)
 local ws_dy = 0
 hl.gesture({
     fingers   = 3,
@@ -237,28 +319,31 @@ hl.gesture({
         update = function(e) ws_dy = ws_dy + e.delta.y end,
         finish = function()
             if ws_dy < -40 then
-                hl.dispatch(hl.dsp.window.move({ workspace = "e-1" })) -- 上滑:上一个
+                moveWindowNav(-1) -- 上滑:上一个
             elseif ws_dy > 40 then
-                hl.dispatch(hl.dsp.window.move({ workspace = "e+1" })) -- 下滑:下一个
+                moveWindowNav(1) -- 下滑:下一个
             end
         end
     }
 })
--- 四指上滑:呼出 magic(已开着则原地不动)
+-- 四指上滑:呼出最近使用的特殊工作区(已开着则原地不动)
 hl.gesture({
     fingers   = 4,
     direction = "up",
     action    = function()
-        hl.dispatch(hl.dsp.focus({ workspace = "special:magic" }))
+        if getActiveSpecialName() == nil then
+            hl.dispatch(hl.dsp.focus({ workspace = "special:" .. lastSpecial }))
+        end
     end
 })
--- 四指下滑:仅当 magic 开着时收起
+-- 四指下滑:有特殊区开着则直接收起当前的(不再固定跳到 magic)
 hl.gesture({
     fingers   = 4,
     direction = "down",
     action    = function()
-        if hl.get_active_special_workspace() ~= nil then
-            hl.dispatch(hl.dsp.workspace.toggle_special("magic"))
+        local cur = getActiveSpecialName()
+        if cur ~= nil then
+            hl.dispatch(hl.dsp.workspace.toggle_special(cur))
         end
     end
 })
@@ -271,15 +356,16 @@ hl.bind(mainMod .. "+E", hl.dsp.window.fullscreen({ action = "toggle" })) -- 全
 -- 窗口浮动
 hl.bind(mainMod .. "+F", hl.dsp.window.float({ action = "toggle" }))
 -- 钉住浮动窗口
-hl.bind(mainMod .. "+R", hl.dsp.window.pin({ action = "toggle" }))
+hl.bind(mainMod .. "+SHIFT +F", hl.dsp.window.pin({ action = "toggle" }))
 -- 调整窗口位置
 hl.bind(mainMod .. "+mouse:272", hl.dsp.window.drag(), { mouse = true })
 -- 调整当前窗口大小
 hl.bind(mainMod .. "+mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- ────────── 布局调整(列与视野) ──────────
-hl.bind(mainMod .. "+X", hl.dsp.layout("colresize +conf"))     -- 列宽循环 0.33/0.5/0.667/1.0(高频)
-hl.bind(mainMod .. "+C", hl.dsp.layout("consume_or_expel next")) -- 独列↔并入右列(窗口上下排↔并排)
+hl.bind(mainMod .. "+R", hl.dsp.layout("colresize +conf"))       -- 列宽循环 0.33/0.5/0.667/1.0(高频)
+hl.bind(mainMod .. "+SHIFT +R", hl.dsp.layout("consume_or_expel next")) -- 独列↔并入右列(窗口上下排↔并排)
+hl.bind(mainMod .. "+CTRL +SHIFT +R", hl.dsp.layout("inhibit_scroll"))      -- 锁定/解锁视野自动滚动
 
 -- ────────── 导航:胶带与工作区(WASD 十字) ──────────
 -- 数字键:切换工作区
@@ -290,17 +376,17 @@ end
 -- A/D:胶带左/右滚一列
 hl.bind(mainMod .. "+A", hl.dsp.layout("move -col"))
 hl.bind(mainMod .. "+D", hl.dsp.layout("move +col"))
--- W/S:上一个/下一个工作区(与 slidevert 动画方向一致)
-hl.bind(mainMod .. "+W", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mainMod .. "+S", hl.dsp.focus({ workspace = "e+1" }))
+-- W/S:上一个/下一个工作区(与 slidevert 动画方向一致;特殊工作区开着时在特殊区之间循环)
+hl.bind(mainMod .. "+W", function() navWorkspace(-1) end)
+hl.bind(mainMod .. "+S", function() navWorkspace(1) end)
 -- 方向键:移动焦点
 hl.bind(mainMod .. "+left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. "+right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. "+up", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. "+down", hl.dsp.focus({ direction = "down" }))
--- 滚轮与侧键:工作区/胶带循环(裸侧键仍归应用)
-hl.bind(mainMod .. "+mouse_up", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mainMod .. "+mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+-- 滚轮与侧键:工作区/胶带循环(裸侧键仍归应用;特殊工作区开着时滚轮在特殊区之间循环)
+hl.bind(mainMod .. "+mouse_up", function() navWorkspace(-1) end)
+hl.bind(mainMod .. "+mouse_down", function() navWorkspace(1) end)
 hl.bind(mainMod .. "+mouse:276", hl.dsp.layout("move -col")) -- 侧键前=左滚
 hl.bind(mainMod .. "+mouse:275", hl.dsp.layout("move +col")) -- 侧键后=右滚
 
@@ -313,25 +399,38 @@ end
 -- Shift+A/D:当前列与左/右列交换
 hl.bind(mainMod .. "+SHIFT+A", hl.dsp.layout("swapcol l")) -- 当前列与左列交换
 hl.bind(mainMod .. "+SHIFT+D", hl.dsp.layout("swapcol r")) -- 当前列与右列交换
--- Shift+W/S:将当前窗口移动到上一个/下一个工作区(与 W/S 同向)
-hl.bind(mainMod .. "+SHIFT+W", hl.dsp.window.move({ workspace = "e-1" }))
-hl.bind(mainMod .. "+SHIFT+S", hl.dsp.window.move({ workspace = "e+1" }))
+-- Shift+W/S:将当前窗口移动到上一个/下一个工作区(与 W/S 同向;特殊区开着时扔到相邻特殊区)
+hl.bind(mainMod .. "+SHIFT+W", function() moveWindowNav(-1) end)
+hl.bind(mainMod .. "+SHIFT+S", function() moveWindowNav(1) end)
 -- Shift+方向键:跨列/行移动窗口
 hl.bind(mainMod .. "+SHIFT+left", hl.dsp.window.move({ direction = "l" }))
 hl.bind(mainMod .. "+SHIFT+right", hl.dsp.window.move({ direction = "r" }))
 hl.bind(mainMod .. "+SHIFT+up", hl.dsp.window.move({ direction = "u" }))
 hl.bind(mainMod .. "+SHIFT+down", hl.dsp.window.move({ direction = "d" }))
--- Shift+滚轮与侧键:滚轮=窗口扔到下/上一个工作区;侧键前/后=与左/右列交换(与导航组鼠标成对)
-hl.bind(mainMod .. "+SHIFT+mouse_down", hl.dsp.window.move({ workspace = "e+1" }))
-hl.bind(mainMod .. "+SHIFT+mouse_up", hl.dsp.window.move({ workspace = "e-1" }))
+-- Shift+滚轮与侧键:滚轮=窗口扔到下/上一个工作区(特殊区开着时扔到相邻特殊区);侧键前/后=与左/右列交换(与导航组鼠标成对)
+hl.bind(mainMod .. "+SHIFT+mouse_down", function() moveWindowNav(1) end)
+hl.bind(mainMod .. "+SHIFT+mouse_up", function() moveWindowNav(-1) end)
 hl.bind(mainMod .. "+SHIFT+mouse:276", hl.dsp.layout("swapcol l"))
 hl.bind(mainMod .. "+SHIFT+mouse:275", hl.dsp.layout("swapcol r"))
 
 -- ────────── 特殊工作区(special:magic) ──────────
-hl.bind(mainMod .. "+Z", hl.dsp.workspace.toggle_special("magic")) -- 特殊工作区(常放 pi,不限于此)
+hl.bind(mainMod .. "+Z", function() toggleSpecialNamed("magic") end) -- 特殊工作区
 hl.bind(mainMod .. "+SHIFT+Z", hl.dsp.window.move({ workspace = "special:magic" }))
--- Super+中键:呼出/收起特殊工作区(触控板上即 Super+三指轻点,clickfinger 三指点击=中键)
-hl.bind(mainMod .. "+mouse:274", hl.dsp.workspace.toggle_special("magic"))
+-- Super+中键:呼出最近使用的特殊工作区/收起当前特殊区(触控板上即 Super+三指轻点,clickfinger 三指点击=中键)
+hl.bind(mainMod .. "+mouse:274", function()
+    local cur = getActiveSpecialName()
+    if cur ~= nil then
+        hl.dispatch(hl.dsp.workspace.toggle_special(cur)) -- 收起当前特殊区
+    else
+        hl.dispatch(hl.dsp.focus({ workspace = "special:" .. lastSpecial })) -- 呼出最近使用的
+    end
+end)
+-- 两个补充的特殊工作区
+hl.bind(mainMod .. "+X", function() toggleSpecialNamed("mofa") end) -- 特殊工作区
+hl.bind(mainMod .. "+SHIFT+X", hl.dsp.window.move({ workspace = "special:mofa" }))
+hl.bind(mainMod .. "+C", function() toggleSpecialNamed("maho") end) -- 特殊工作区
+hl.bind(mainMod .. "+SHIFT+C", hl.dsp.window.move({ workspace = "special:maho" }))
+
 
 -- ────────── 回跳与循环(窗口/工作区往返) ──────────
 -- Super+Tab:跳回上一个聚焦的窗口(跨工作区跟随;再按弹回,天然 A/B 交替)
