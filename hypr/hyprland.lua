@@ -110,10 +110,10 @@ hl.config({
         border_size      = 2,  -- 想让渐变更显眼可以试 3
         col              = {
             active_border   = {
-                colors = { "rgba(89dcebee)", "rgba(94e2d5ee)" },
+                colors = { "rgba(cba6f7ee)", "rgba(f5c2e7ee)" }, -- 常规工作区=紫→粉渐变(备选:黄 f9e2af/琥珀 e5c890/暖白 f5e0dc)
                 angle = 45
             },
-            inactive_border = "rgba(45475aaa)",
+            inactive_border = "rgba(8fb2c9aa)",
         },
         resize_on_border = false,
         allow_tearing    = false,
