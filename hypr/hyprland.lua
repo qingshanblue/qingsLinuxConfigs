@@ -154,8 +154,8 @@ hl.animation({ leaf = "windowsOut", enabled = true, speed = 2.6, bezier = "linea
 hl.animation({ leaf = "workspaces", enabled = true, speed = 5, bezier = "easeOutQuint", style = "slidevert" })
 -- 特殊工作区从底部滑入(不显式写的话会继承 workspaces 的动画,这里固定下来)
 hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 2.5, bezier = "easeOutQuint", style = "slidevert" })
--- 渐变边框缓慢流动,配合上面 colors 渐变的 active_border
-hl.animation({ leaf = "borderangle", enabled = true, speed = 30, bezier = "linear", style = "loop" })
+-- 渐变边框流动动画:loop 模式会持续重绘导致 VFR 完全失效(空闲时 GPU/CPU 也常驻工作),为续航关闭;想要流动效果改回 enabled = true
+-- hl.animation({ leaf = "borderangle", enabled = true, speed = 30, bezier = "linear", style = "loop" })
 -- See https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/ for more
 hl.config({ scrolling = { fullscreen_on_one_column = true, }, })
 
@@ -166,6 +166,7 @@ hl.config({
     misc = {
         force_default_wallpaper = -1,   -- Set to 0 or 1 to disable the anime mascot wallpapers
         disable_hyprland_logo   = true, -- If true disables the random hyprland logo / anime girl background. :(
+        -- vfr(变帧率)默认即为 true,无需显式声明;此前 borderangle 常驻动画已关,VFR 现在能真正生效
     },
 })
 
@@ -375,6 +376,77 @@ hl.bind(mainMod .. "+mouse:273", hl.dsp.window.resize(), { mouse = true })
 hl.bind(mainMod .. "+R", hl.dsp.layout("colresize +conf"))       -- 列宽循环 0.33/0.5/0.667/1.0(高频)
 hl.bind(mainMod .. "+SHIFT +R", hl.dsp.layout("consume_or_expel next")) -- 独列↔并入右列(窗口上下排↔并排)
 hl.bind(mainMod .. "+CTRL +SHIFT +R", hl.dsp.layout("inhibit_scroll"))      -- 锁定/解锁视野自动滚动
+
+-- ────────── 省电模式切换(Super+Ctrl 层)与档位收敛 ──────────
+-- 架构:ppd 档位 = 唯一事实源,特效作跟随者:
+--   快捷键 powerMode() = 写档位 + 立即 applyVisuals;hl.timer 每 3s 轮询(sysfs 纯文件读):
+--   ① EPP → 任何入口(better-control/CLI)改档位,特效 ≤3s 跟随;开机/重载首拍静默同步
+--   ② AC 在线状态 → 插拔自动切档(拔电=power-saver,插电=balanced;边沿触发,首拍只建档)
+-- 映射:epp=power → 省电视效;其余 → 性能视效。timer 只读不写档位,不会与 better-control 打架
+-- 注意:恢复侧 0.95/0.80 需与上方 decoration 配置同步修改
+local lastPerf = nil
+local function applyVisuals(perf, notify)
+    lastPerf = perf
+    hl.config({
+        animations = { enabled = perf },
+        decoration = {
+            active_opacity   = perf and 0.95 or 1,
+            inactive_opacity = perf and 0.80 or 1,
+            shadow = { enabled = perf },
+            blur   = { enabled = perf },
+        },
+    })
+    hl.monitor({ output = "eDP-1", mode = perf and "2560x1440@165" or "2560x1440@60", position = "0x0", scale = 1.6 })
+    if notify ~= false then
+        hl.notification.create({
+            text = perf and "性能模式:特效全开 · 165Hz" or "省电模式:特效已关 · 60Hz",
+            duration = 2500,
+            color = perf and "rgb(a6e3a1)" or "rgb(f9e2af)",
+        })
+    end
+end
+local function powerMode(perf)
+    hl.exec_cmd("powerprofilesctl set " .. (perf and "balanced" or "power-saver"))
+    applyVisuals(perf)
+end
+hl.bind(mainMod .. "+CTRL +P", function() powerMode(false) end)       -- 进省电:动画/blur/阴影关,不透明,60Hz,CPU→power-saver
+hl.bind(mainMod .. "+CTRL +SHIFT +P", function() powerMode(true) end) -- 回性能:特效全开,165Hz,CPU→balanced
+-- 轮询①:档位→特效收敛(仅状态变化时动作,首拍静默同步)
+local function syncVisuals()
+    local f = io.open("/sys/devices/system/cpu/cpu0/cpufreq/energy_performance_preference", "r")
+    if not f then return end
+    local epp = f:read("*l")
+    f:close()
+    local perf = (epp ~= "power")
+    if perf ~= lastPerf then applyVisuals(perf, lastPerf ~= nil) end
+end
+-- 轮询②:AC 插拔自动切档(边沿触发;首拍只建档不动作,boot 档位交由 ppd/用户)
+-- 注意:插拔边沿会覆盖手动选择(拔电必进省电/插电必回 balanced),标准笔记本语义
+local lastAc = nil
+local function acOnline()
+    for _, p in ipairs({ "/sys/class/power_supply/AC0/online", "/sys/class/power_supply/AC/online" }) do
+        local f = io.open(p, "r")
+        if f then
+            local v = f:read("*l")
+            f:close()
+            if v == "1" then return true elseif v == "0" then return false end
+        end
+    end
+    return nil
+end
+local function pollPower()
+    syncVisuals()
+    local ac = acOnline()
+    if ac ~= nil then
+        if lastAc == nil then
+            lastAc = ac
+        elseif ac ~= lastAc then
+            lastAc = ac
+            powerMode(ac) -- 拔电(ac=false)→省电,插电→balanced
+        end
+    end
+end
+hl.timer(pollPower, { timeout = 3000, type = "repeat" })
 
 -- ────────── 导航:胶带与工作区(WASD 十字) ──────────
 -- 数字键:切换工作区

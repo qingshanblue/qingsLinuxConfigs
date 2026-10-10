@@ -120,7 +120,7 @@ tooltip label {
 
 #custom-notification.notification {
     color: #eb4d4b; /* 有未读通知时变红 */
-    animation: spin 0.5s linear infinite; /* 轻微动画提示 */
+    /* animation: spin 0.5s linear infinite; — GTK 坑:即使无 @keyframes 定义,该动画也会让 frame clock 全速运转(waybar 32% CPU 元凶);已改为纯色提示 */
 }
 
 #custom-notification.dnd-none {
