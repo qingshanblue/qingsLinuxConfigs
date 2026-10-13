@@ -35,3 +35,5 @@ x-scheme-handler/lxmusic=lx-music-desktop.desktop
 application/pdf=okularApplication_pdf.desktop
 image/jpeg=swayimg.desktop
 image/png=swayimg.desktop
+x-scheme-handler/x-github-client=github-desktop.desktop
+x-scheme-handler/x-github-desktop-dev-auth=github-desktop.desktop
