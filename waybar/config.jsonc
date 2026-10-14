@@ -35,8 +35,8 @@
         // Hyprland 把工作区号放在 coordinates 里，按坐标排 = 纯数值 1..9,10
         "sort-by-name": false,
         "sort-by-coordinates": true,
-        "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({workspace=\"e-1\"})'",
-        "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({workspace=\"e+1\"})'",
+        "on-scroll-up": "c=$(hyprctl -j monitors | yq -r '[.[]|select(.focused)][0].specialWorkspace.name'); case \"$c\" in special:magic) n=maho;; special:maho) n=mofa;; special:mofa) n=magic;; *) n=magic;; esac; holder=$(hyprctl -j monitors | yq -r '.[]|select(.specialWorkspace.name==\"special:'\"$n\"'\")|.name'); if [ -n \"$holder\" ]; then hyprctl dispatch 'hl.dsp.focus({monitor=\"'\"$holder\"'\"})'; else hyprctl dispatch 'hl.dsp.workspace.toggle_special(\"'\"$n\"'\"})'; fi",
+        "on-scroll-down": "c=$(hyprctl -j monitors | yq -r '[.[]|select(.focused)][0].specialWorkspace.name'); case \"$c\" in special:magic) n=mofa;; special:mofa) n=maho;; special:maho) n=magic;; *) n=magic;; esac; holder=$(hyprctl -j monitors | yq -r '.[]|select(.specialWorkspace.name==\"special:'\"$n\"'\")|.name'); if [ -n \"$holder\" ]; then hyprctl dispatch 'hl.dsp.focus({monitor=\"'\"$holder\"'\"})'; else hyprctl dispatch 'hl.dsp.workspace.toggle_special(\"'\"$n\"'\"})'; fi",
         "format-icons": {
             "1": "1",
             "2": "2",
@@ -54,8 +54,11 @@
     },
     "custom/scratchpad": {
         "format": "󰁨",  // md-auto_fix (F0068)：魔法棒，呼出/隐藏 special:magic（pi 终端）
-        "tooltip-format": "pi 终端 · special:magic",
-        "on-click": "hyprctl dispatch 'hl.dsp.workspace.toggle_special(\"magic\")'"
+        "tooltip-format": "pi 终端 · special:magic\n滚轮:切换 magic/mofa/maho",
+        "on-click": "n=$(cat /dev/shm/hypr-last-special 2>/dev/null); [ -n \"$n\" ] || n=magic; holder=$(hyprctl -j monitors | yq -r '.[]|select(.specialWorkspace.name==\"special:'\"$n\"'\")|.name'); cur=$(hyprctl -j monitors | yq -r '.[]|select(.focused)|.name'); if [ -n \"$holder\" ] && [ \"$holder\" = \"$cur\" ]; then hyprctl dispatch 'hl.dsp.workspace.toggle_special(\"'\"$n\"'\")'; elif [ -n \"$holder\" ]; then hyprctl dispatch 'hl.dsp.focus({monitor=\"'\"$holder\"'\"})'; else hyprctl dispatch 'hl.dsp.workspace.toggle_special(\"'\"$n\"'\")'; fi",
+        // 滚轮:在 magic/mofa/maho 三个特殊区之间循环(下滑=下一个,上滑=上一个)
+        "on-scroll-down": "c=$(hyprctl -j monitors | yq -r '[.[]|select(.focused)][0].specialWorkspace.name'); case \"$c\" in special:magic) n=mofa;; special:mofa) n=maho;; special:maho) n=magic;; *) n=magic;; esac; holder=$(hyprctl -j monitors | yq -r '.[]|select(.specialWorkspace.name==\"special:'\"$n\"'\")|.name'); if [ -n \"$holder\" ]; then hyprctl dispatch 'hl.dsp.focus({monitor=\"'\"$holder\"'\"})'; else hyprctl dispatch 'hl.dsp.workspace.toggle_special(\"'\"$n\"'\")'; fi",
+        "on-scroll-up": "c=$(hyprctl -j monitors | yq -r '[.[]|select(.focused)][0].specialWorkspace.name'); case \"$c\" in special:magic) n=maho;; special:maho) n=mofa;; special:mofa) n=magic;; *) n=magic;; esac; holder=$(hyprctl -j monitors | yq -r '.[]|select(.specialWorkspace.name==\"special:'\"$n\"'\")|.name'); if [ -n \"$holder\" ]; then hyprctl dispatch 'hl.dsp.focus({monitor=\"'\"$holder\"'\"})'; else hyprctl dispatch 'hl.dsp.workspace.toggle_special(\"'\"$n\"'\")'; fi"
     },
     "hyprland/window": {
         "max-length": 40  // 超长标题截断，完整标题在悬停提示里
@@ -118,11 +121,11 @@
         "on-click": "better-control -w"
     },
     "pulseaudio": {
-        "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon}",
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
         "format-bluetooth-muted": " {icon}",
-        "format-muted": "",
-        "format-source": "{volume}% ",
+        "format-muted": "󰝟",
+        "format-source": " {volume}%",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
@@ -132,15 +135,22 @@
             "portable": "",
             "car": "",
             "default": [
-                "",
-                "",
-                ""
+                "󰝟", "󰕿", "󰕿", "󰕿", "󰕿", "󰕿", "󰕿", "󰕿", "󰕿", "󰕿",
+                "󰕿", "󰕿", "󰕿", "󰕿", "󰕿", "󰕿", "󰕿", "󰕿", "󰕿", "󰕿",
+                "󰕿", "󰕿", "󰕿", "󰕿", "󰕿", "󰕿", "󰕿", "󰕿", "󰕿", "󰕿",
+                "󰕿", "󰕿", "󰕿", "󰖀", "󰖀", "󰖀", "󰖀", "󰖀", "󰖀", "󰖀",
+                "󰖀", "󰖀", "󰖀", "󰖀", "󰖀", "󰖀", "󰖀", "󰖀", "󰖀", "󰖀",
+                "󰖀", "󰖀", "󰖀", "󰖀", "󰖀", "󰖀", "󰖀", "󰖀", "󰖀", "󰖀",
+                "󰖀", "󰖀", "󰖀", "󰖀", "󰖀", "󰖀", "󰕾", "󰕾", "󰕾", "󰕾",
+                "󰕾", "󰕾", "󰕾", "󰕾", "󰕾", "󰕾", "󰕾", "󰕾", "󰕾", "󰕾",
+                "󰕾", "󰕾", "󰕾", "󰕾", "󰕾", "󰕾", "󰕾", "󰕾", "󰕾", "󰕾",
+                "󰕾", "󰕾", "󰕾", "󰕾", "󰕾", "󰕾", "󰕾", "󰕾", "󰕾", "󰕾"
             ]
         },
         "on-click": "better-control -V"
     },
     "backlight": {
-        "format": "{percent}% {icon}",
+        "format": "{icon} {percent}%",
         "format-icons": [
             "",
             "",
@@ -160,11 +170,11 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "tooltip-format": "{capacity}% · {time}",
         "format-icons": [
             "",
             "",

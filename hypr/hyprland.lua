@@ -278,18 +278,30 @@ hl.config({
 ---------------
 ----  POWER  ----
 ---------------
--- 省电模式切换与档位收敛:
+-- 电源模式与档位收敛:
 --   架构:ppd 档位 = 唯一事实源,特效作跟随者:
 --     快捷键 powerMode() = 写档位 + 立即 applyVisuals;hl.timer 每 3s 轮询(sysfs 纯文件读):
 --     ① EPP → 任何入口(better-control/CLI)改档位,特效 ≤3s 跟随;开机/重载首拍静默同步
---     ② AC 在线状态 → 插拔自动切档(拔电=power-saver,插电=balanced;边沿触发,首拍只建档)
+--     ② AC 在线状态 → 插电=performance,断电=power-saver(边沿触发,首拍只建档)
+--     ③ 电量检测 → ≤15% 提醒,≤10% 先挂起,≤5% 落盘休眠(仅放电中触发;每级每周期一次)
 --   映射:epp=power → 省电视效;其余 → 性能视效。timer 只读不写档位,不会与 better-control 打架
+--   省电模式:关动画/blur/阴影,内屏 60Hz,并让所有窗口完全不透明
 --   注意:恢复侧 0.95/0.80 需与上方 decoration 配置同步修改
 local lastPerf = nil
+
+-- 需要在省电模式下关闭的「按窗口透明度」规则(由下方 WINDOWS AND WORKSPACES 段注册进来)
+-- 省电时关掉它们,窗口就回落到 decoration 的 1.0 → 全部不透明
+local dimRules = {}
 
 -- 应用性能/省电视效;notify=false 时不弹通知(用于开机/重载首拍静默同步)
 local function applyVisuals(perf, notify)
     lastPerf = perf
+    -- 性能模式启用按窗口透明度;省电模式关闭 → 全部不透明
+    for _, r in ipairs(dimRules) do
+        if r ~= nil then
+            pcall(function() r:set_enabled(perf) end)
+        end
+    end
     hl.config({
         animations = { enabled = perf },
         decoration = {
@@ -311,8 +323,13 @@ local function applyVisuals(perf, notify)
 end
 
 -- 切换 ppd 档位并立即应用视效
+-- 插电(perf=true)→ performance(不支持 performance 的机器回退 balanced);断电 → power-saver
 local function powerMode(perf)
-    hl.exec_cmd("powerprofilesctl set " .. (perf and "balanced" or "power-saver"))
+    if perf then
+        hl.exec_cmd("powerprofilesctl set performance || powerprofilesctl set balanced")
+    else
+        hl.exec_cmd("powerprofilesctl set power-saver")
+    end
     applyVisuals(perf)
 end
 
@@ -327,7 +344,7 @@ local function syncVisuals()
 end
 
 -- 轮询②:AC 插拔自动切档(边沿触发;首拍只建档不动作,boot 档位交由 ppd/用户)
--- 注意:插拔边沿会覆盖手动选择(拔电必进省电 / 插电必回 balanced),标准笔记本语义
+-- 注意:插拔边沿会覆盖手动选择(拔电必进 power-saver / 插电必进 performance),标准笔记本语义
 local lastAc = nil
 
 -- 读取 AC 在线状态;取不到返回 nil
@@ -343,15 +360,105 @@ local function acOnline()
     return nil
 end
 
+-- ── 电量检测:低电提醒 / 先挂起 / 落盘休眠 ──
+-- 阈值(%),低于且在放电中时触发:
+local BAT_WARN = 15       -- 低电提醒
+local BAT_SUSPEND = 10    -- 先挂起(suspend-then-hibernate);系统在 ≤5% 或 HibernateDelaySec 后自动落盘
+local BAT_HIBERNATE = 5   -- 直接落盘休眠
+-- 动作命令(失败时逐级回退)
+local SUSPEND_CMD   = "systemctl suspend-then-hibernate || systemctl suspend"
+local HIBERNATE_CMD = "systemctl hibernate || systemctl suspend-then-hibernate || systemctl suspend"
+-- 电池路径候选(避免在回调里 fork 扫描目录,依次取第一个可用)
+local BAT_CANDIDATES = {
+    "/sys/class/power_supply/BAT0",
+    "/sys/class/power_supply/BAT1",
+    "/sys/class/power_supply/BAT2",
+    "/sys/class/power_supply/BAT",
+}
+
+-- 读取第一个可用电池的电量(%)与充电状态;无电池返回 nil, nil
+local function readBattery()
+    for _, base in ipairs(BAT_CANDIDATES) do
+        local fc = io.open(base .. "/capacity", "r")
+        if fc then
+            local cap = tonumber(fc:read("*l"))
+            fc:close()
+            local status = "Unknown"
+            local fs = io.open(base .. "/status", "r")
+            if fs then
+                status = fs:read("*l") or "Unknown"
+                fs:close()
+            end
+            return cap, status
+        end
+    end
+    return nil, nil
+end
+
+-- 每个放电周期只告警一次 + 只采取一次紧急动作;插电或充电时重置
+local batWarned, batActed = false, false
+
+-- 低电检测;ac = AC 在线状态(true 插电 / false 断电 / nil 未知)
+local function checkBattery(ac)
+    local cap, status = readBattery()
+    -- 无电池(台式机)直接跳过
+    if cap == nil then return end
+    -- 是否放电中:优先看 AC,再看电池 status(充电 / 满电都算非放电)
+    local onBattery
+    if ac ~= nil then
+        onBattery = (ac == false) and (status ~= "Charging" and status ~= "Full")
+    else
+        onBattery = (status == "Discharging")
+    end
+    if not onBattery then
+        batWarned, batActed = false, false
+        return
+    end
+    -- ≤5%:直接落盘休眠(冷启动/兜底;正常路径下这一步由 systemd 在挂起中完成)
+    if cap <= BAT_HIBERNATE and not batActed then
+        batActed, batWarned = true, true
+        hl.notification.create({
+            text     = string.format("电量仅 %d%%,即将休眠落盘", cap),
+            duration = 5000,
+            color    = "rgb(f38ba8)",
+        })
+        hl.exec_cmd(HIBERNATE_CMD)
+        return
+    end
+    -- ≤10%:先挂起(suspend-then-hibernate);系统在 ≤5% 或 HibernateDelaySec 后自动落盘
+    -- 与上面共用 batActed:避免休眠恢复后立刻再次触发(否则恢复后 3s 内又会睡下去)
+    if cap <= BAT_SUSPEND and not batActed then
+        batActed, batWarned = true, true
+        hl.notification.create({
+            text     = string.format("电量 %d%%,即将挂起待休眠", cap),
+            duration = 5000,
+            color    = "rgb(fab387)",
+        })
+        hl.exec_cmd(SUSPEND_CMD)
+        return
+    end
+    -- ≤15%:低电提醒(仅一次)
+    if cap <= BAT_WARN and not batWarned then
+        batWarned = true
+        hl.notification.create({
+            text     = string.format("电量偏低 %d%%,请及时充电", cap),
+            duration = 5000,
+            color    = "rgb(f9e2af)",
+        })
+    end
+end
+
 local function pollPower()
     syncVisuals()
     local ac = acOnline()
+    -- 低电检测(低于阈值且放电中 → 提醒 / 休眠)
+    checkBattery(ac)
     if ac ~= nil then
         if lastAc == nil then
             lastAc = ac
         elseif ac ~= lastAc then
             lastAc = ac
-            -- 拔电(ac=false)→ 省电,插电 → balanced
+            -- 拔电(ac=false)→ power-saver,插电 → performance
             powerMode(ac)
         end
     end
@@ -374,24 +481,51 @@ local specialOrder = { "magic", "mofa", "maho" }
 -- 最近使用的特殊工作区(呼出类操作的目标)
 local lastSpecial = "magic"
 
--- 当前激活的特殊区名;没开则返回 nil
-local function getActiveSpecialName()
-    -- 实测返回 userdata(HL.Workspace 对象),属性经 __index 暴露;多重兜底防 API 差异
-    local raw = hl.get_active_special_workspace()
-    local cur = nil
-    if type(raw) == "string" then
-        cur = raw
-    elseif type(raw) == "userdata" or type(raw) == "table" then
-        local ok, name = pcall(function() return raw.name end)
-        if ok and name ~= nil then
-            cur = tostring(name)
+-- 把"最近使用的特殊区"镜像到文件,供 waybar 魔法棒/外部读取(waybar 左键 = Super+` 的语义)
+local LAST_SPECIAL_FILE = "/dev/shm/hypr-last-special"
+local function rememberSpecial(name)
+    lastSpecial = name
+    local f = io.open(LAST_SPECIAL_FILE, "w")
+    if f then
+        f:write(name)
+        f:close()
+    end
+end
+
+-- 从工作区对象/字符串里取出特殊区名(去掉 "special:" 前缀);取不到返回 nil
+local function specialNameOf(ws)
+    if ws == nil then return nil end
+    local name
+    if type(ws) == "string" then
+        name = ws
+    else
+        -- 实测返回 userdata(HL.Workspace 对象),属性经 __index 暴露;多重兜底防 API 差异
+        local ok, n = pcall(function() return ws.name end)
+        if ok and n ~= nil then
+            name = tostring(n)
         else
             -- 兜底:从 "HL.Workspace(-97:special:mofa)" 里提取 mofa
-            cur = tostring(raw):match("special:([%w_%-]+)")
+            name = tostring(ws):match("special:([%w_%-]+)")
         end
     end
-    if cur ~= nil then cur = cur:gsub("^special:", "") end
-    return cur
+    if name ~= nil then name = name:gsub("^special:", "") end
+    return name
+end
+
+-- 当前(聚焦屏)激活的特殊区名;没开则返回 nil
+local function getActiveSpecialName()
+    return specialNameOf(hl.get_active_special_workspace())
+end
+
+-- 找到正在显示特殊区 name 的显示器对象;没有则返回 nil
+local function specialHolder(name)
+    for _, m in ipairs(hl.get_monitors()) do
+        local sp = m.active_special_workspace
+        if sp ~= nil and specialNameOf(sp) == name then
+            return m
+        end
+    end
+    return nil
 end
 
 -- 当前特殊区的相邻项(首尾相接);cur 不在 specialOrder 内则返回 nil
@@ -404,7 +538,36 @@ local function adjacentSpecial(cur, dir)
     return specialOrder[((idx - 1 + dir) % #specialOrder) + 1]
 end
 
--- 切工作区:dir=1 下一个,-1 上一个。特殊区开着时在 magic/mofa/maho 之间循环;未开时切常规工作区
+-- 让特殊区 name "出现并聚焦":已在别的屏 → 聚焦那屏;否则在当前屏打开
+local function activateSpecial(name)
+    local cur = hl.get_active_monitor()
+    local holder = specialHolder(name)
+    if holder ~= nil and holder.name ~= cur.name then
+        hl.dispatch(hl.dsp.focus({ monitor = holder.name }))
+    else
+        hl.dispatch(hl.dsp.workspace.toggle_special(name))
+    end
+    rememberSpecial(name)
+end
+
+-- 点名/层开关:已在当前屏 → 关闭;已在别的屏 → 聚焦那屏;都没开 → 当前屏打开
+local function invokeSpecial(name)
+    local cur = hl.get_active_monitor()
+    local holder = specialHolder(name)
+    if holder ~= nil and holder.name == cur.name then
+        -- 当前屏已开 → 关闭(不改"最近使用")
+        hl.dispatch(hl.dsp.workspace.toggle_special(name))
+        return
+    end
+    rememberSpecial(name)
+    if holder ~= nil then
+        hl.dispatch(hl.dsp.focus({ monitor = holder.name }))
+    else
+        hl.dispatch(hl.dsp.workspace.toggle_special(name))
+    end
+end
+
+-- 切工作区:dir=1 下一个,-1 上一个。有特殊区开着时在 magic/mofa/maho 之间循环;未开时切常规工作区
 local function navWorkspace(dir)
     local cur = getActiveSpecialName()
     if cur == nil then
@@ -419,11 +582,10 @@ local function navWorkspace(dir)
     end
     local nxt = adjacentSpecial(cur, dir)
     if nxt == nil then return end
-    lastSpecial = nxt
-    hl.dispatch(hl.dsp.focus({ workspace = "special:" .. nxt }))
+    activateSpecial(nxt)
 end
 
--- 扔窗口:特殊区开着时扔到相邻特殊区(人跟过去);未开时扔到相邻常规工作区
+-- 扔窗口:有特殊区开着时扔到相邻特殊区(人跟过去);未开时扔到相邻常规工作区
 local function moveWindowNav(dir)
     local cur = getActiveSpecialName()
     if cur == nil then
@@ -438,25 +600,23 @@ local function moveWindowNav(dir)
     end
     local nxt = adjacentSpecial(cur, dir)
     if nxt == nil then return end
-    lastSpecial = nxt
+    -- 先让目标特殊区出现/聚焦(已在别屏则聚焦那屏),再把窗口移进去
+    activateSpecial(nxt)
     hl.dispatch(hl.dsp.window.move({ workspace = "special:" .. nxt }))
 end
 
--- 点名 toggle(Z/X/C 用):开/切到该特殊区时记为最近使用;关闭时不动
+-- 点名 toggle(Z/X/C 用)
 local function toggleSpecialNamed(name)
-    if getActiveSpecialName() ~= name then
-        lastSpecial = name
-    end
-    hl.dispatch(hl.dsp.workspace.toggle_special(name))
+    invokeSpecial(name)
 end
 
--- 特殊区层开关:开着则直接收起当前,没开则呼出最近使用的(Super+` 与 Super+中键共用)
+-- 特殊区层开关:当前屏开着则收起;否则呼出最近使用的(已在别屏则聚焦那屏)
 local function toggleSpecialLayer()
     local cur = getActiveSpecialName()
     if cur ~= nil then
         hl.dispatch(hl.dsp.workspace.toggle_special(cur))
     else
-        hl.dispatch(hl.dsp.focus({ workspace = "special:" .. lastSpecial }))
+        invokeSpecial(lastSpecial)
     end
 end
 
@@ -561,16 +721,25 @@ hl.bind(mainMod .. "+SHIFT+C", hl.dsp.window.move({ workspace = "special:maho" }
 
 -- ═══ 回跳(窗口往返)═══
 
--- Super+Tab:跳回上一个聚焦的窗口(跨工作区跟随;再按弹回,天然 A/B 交替)
--- 用 Hyprland 自带的焦点历史(get_last_window),无需手动记录
+-- Super+Tab:跳到"最近的、非特殊工作区"的窗口(特殊区不计入;再按弹回,A/B 交替)
+-- 自行扫描窗口的 focus_history_id(0=最近聚焦)筛选,不依赖 get_last_window
 hl.bind(mainMod .. "+TAB", function()
-    local w = hl.get_last_window()
-    if w == nil then return end
-    -- 先切到该窗口所在工作区(特殊区除外)
-    if w.workspace ~= nil and not w.workspace.special then
-        hl.dispatch(hl.dsp.focus({ workspace = w.workspace.id }))
+    local cur = hl.get_active_window()
+    local best, bestId = nil, nil
+    for _, w in ipairs(hl.get_windows()) do
+        local ws = w.workspace
+        if ws ~= nil and not ws.special and (cur == nil or w.address ~= cur.address) then
+            local id = w.focus_history_id
+            if id ~= nil and id >= 0 and (bestId == nil or id < bestId) then
+                best, bestId = w, id
+            end
+        end
     end
-    hl.dispatch(hl.dsp.focus({ window = w }))
+    if best == nil then return end
+    if best.workspace ~= nil then
+        hl.dispatch(hl.dsp.focus({ workspace = best.workspace.id }))
+    end
+    hl.dispatch(hl.dsp.focus({ window = best }))
 end)
 
 -- ═══ 多屏工作区调度(G / Shift+G / Ctrl+数字)═══
@@ -811,7 +980,6 @@ hl.window_rule({
 hl.window_rule({
     name         = "special-magic",
     match        = { workspace = "special:magic" },
-    opacity      = 0.9,
     border_color = "rgba(f38ba8dd)",
 })
 hl.window_rule({
@@ -824,6 +992,12 @@ hl.window_rule({
     match        = { workspace = "special:maho" },
     border_color = "rgba(89b4fadd)",
 })
+-- 特殊工作区半透明(仅性能模式;省电模式由 dimRules 关掉 → 不透明)
+table.insert(dimRules, hl.window_rule({
+    name    = "special-magic-dim",
+    match   = { workspace = "special:magic" },
+    opacity = 0.9,
+}))
 -- Hyprland-run 窗口
 hl.window_rule({
     name  = "move-hyprland-run",
@@ -872,13 +1046,18 @@ hl.window_rule({
     size      = "monitor_w*0.3 monitor_h*0.6",
     animation = "popin 85%"
 })
--- 终端(等待加载,略透明)
+-- 终端:打开后 200ms 内不可关闭
 hl.window_rule({
     name         = "terminal-wait-load",
     match        = { class = "^.*(?i)" .. terminal .. ".*$" },
     no_close_for = 200,
-    opacity      = 0.85
 })
+-- 终端:略透明(仅性能模式;省电模式由 dimRules 关掉 → 不透明)
+table.insert(dimRules, hl.window_rule({
+    name    = "terminal-dim",
+    match   = { class = "^.*(?i)" .. terminal .. ".*$" },
+    opacity = 0.85,
+}))
 -- 任务管理器(Mission Center)
 hl.window_rule({
     name   = "mission_center-float",

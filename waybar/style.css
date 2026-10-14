@@ -54,6 +54,29 @@ tooltip label {
     background-color: transparent;
 }
 
+/* === 右侧状态图标:略加大间距,避免图标显示不完整(音量→通知中心) === */
+.modules-right #bluetooth,
+.modules-right #network,
+.modules-right #pulseaudio,
+.modules-right #backlight,
+.modules-right #battery,
+.modules-right #custom-notification,
+.modules-right #tray,
+.modules-right #custom-tray-toggle {
+    margin: 0 6px;
+}
+
+/* tray 前后间距再小一点 */
+.modules-right #custom-tray-toggle,
+.modules-right #tray {
+    margin: 0 3px;
+}
+
+/* 右侧药丸容器左右留白 */
+.modules-right {
+    padding: 2px 14px;
+}
+
 /* === 托盘抽屉“把手” === */
 #custom-tray-toggle {
     margin: 0 5px;
