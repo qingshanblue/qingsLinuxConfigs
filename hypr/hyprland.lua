@@ -282,7 +282,7 @@ hl.config({
 --   架构:ppd 档位 = 唯一事实源,特效作跟随者:
 --     快捷键 powerMode() = 写档位 + 立即 applyVisuals;hl.timer 每 3s 轮询(sysfs 纯文件读):
 --     ① EPP → 任何入口(better-control/CLI)改档位,特效 ≤3s 跟随;开机/重载首拍静默同步
---     ② AC 在线状态 → 插电=performance,断电=power-saver(边沿触发,首拍只建档)
+--     ② AC 在线状态 → 插电=performance,断电=power-saver(边沿触发;首拍按当前 AC 状态静默对齐)
 --     ③ 电量检测 → ≤15% 提醒,≤10% 先挂起,≤5% 落盘休眠(仅放电中触发;每级每周期一次)
 --   映射:epp=power → 省电视效;其余 → 性能视效。timer 只读不写档位,不会与 better-control 打架
 --   省电模式:关动画/blur/阴影,内屏 60Hz,并让所有窗口完全不透明
@@ -324,13 +324,13 @@ end
 
 -- 切换 ppd 档位并立即应用视效
 -- 插电(perf=true)→ performance(不支持 performance 的机器回退 balanced);断电 → power-saver
-local function powerMode(perf)
+local function powerMode(perf, notify)
     if perf then
         hl.exec_cmd("powerprofilesctl set performance || powerprofilesctl set balanced")
     else
         hl.exec_cmd("powerprofilesctl set power-saver")
     end
-    applyVisuals(perf)
+    applyVisuals(perf, notify)
 end
 
 -- 轮询①:档位 → 特效收敛(仅状态变化时动作,首拍静默同步)
@@ -343,7 +343,7 @@ local function syncVisuals()
     if perf ~= lastPerf then applyVisuals(perf, lastPerf ~= nil) end
 end
 
--- 轮询②:AC 插拔自动切档(边沿触发;首拍只建档不动作,boot 档位交由 ppd/用户)
+-- 轮询②:AC 插拔自动切档(边沿触发;首拍(开机/重载)按当前 AC 状态静默对齐一次)
 -- 注意:插拔边沿会覆盖手动选择(拔电必进 power-saver / 插电必进 performance),标准笔记本语义
 local lastAc = nil
 
@@ -449,19 +449,21 @@ local function checkBattery(ac)
 end
 
 local function pollPower()
-    syncVisuals()
     local ac = acOnline()
-    -- 低电检测(低于阈值且放电中 → 提醒 / 休眠)
-    checkBattery(ac)
-    if ac ~= nil then
-        if lastAc == nil then
-            lastAc = ac
-        elseif ac ~= lastAc then
+    -- 首拍(开机 / 重载):按当前电源状态强制对齐一次档位与特效,静默不弹通知
+    if ac ~= nil and lastAc == nil then
+        lastAc = ac
+        powerMode(ac, false)
+    else
+        syncVisuals()
+        if ac ~= nil and ac ~= lastAc then
             lastAc = ac
             -- 拔电(ac=false)→ power-saver,插电 → performance
             powerMode(ac)
         end
     end
+    -- 低电检测(低于阈值且放电中 → 提醒 / 休眠)
+    checkBattery(ac)
 end
 
 -- 每 3s 轮询一次
