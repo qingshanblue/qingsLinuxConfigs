@@ -49,13 +49,32 @@ Item {
         x: track.width * root.clamped - width / 2
     }
 
+    // 只有真正拖动（按下后移动超过阈值）才回写数值。
+    // 直接单击不回写，避免面板切换时鼠标恰好落在滑块上导致音量被改。
+    property bool dragging: false
+    property real pressX: 0
+
     MouseArea {
         anchors.fill: parent
         cursorShape: Qt.PointingHandCursor
-        onPressed: mouse => root.setFromX(mouse.x)
-        onPositionChanged: mouse => {
-            if (pressed) root.setFromX(mouse.x);
+
+        onPressed: mouse => {
+            root.dragging = false;
+            root.pressX = mouse.x;
         }
-        onReleased: root.released()
+
+        onPositionChanged: mouse => {
+            if (!pressed) return;
+            if (!root.dragging) {
+                if (Math.abs(mouse.x - root.pressX) < 4) return;   // 阈值内视为点击
+                root.dragging = true;
+            }
+            root.setFromX(mouse.x);
+        }
+
+        onReleased: {
+            if (root.dragging) root.released();
+            root.dragging = false;
+        }
     }
 }

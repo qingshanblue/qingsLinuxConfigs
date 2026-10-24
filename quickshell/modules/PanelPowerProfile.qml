@@ -1,32 +1,29 @@
 // 面板 · 电源档位：省电 / 平衡 / 性能 三个按钮，高亮当前档位。
-// 通过 powerprofilesctl 读写（Process，不轮询）：面板打开时读一次，点击后写入并再读回校验。
+// 走 Quickshell.Services.UPower 的原生 D-Bus 接口（power-profiles-daemon），
+// 不调用 powerprofilesctl，属性变化自动刷新。
 import QtQuick
-import Quickshell.Io
+import Quickshell.Services.UPower
 import qs
 
 Column {
     id: root
 
-    // 当前档位：power-saver / balanced / performance，空串表示未知
-    property string current: ""
-    property bool readFailed: false
-
-    // 档位定义：内部值 -> 显示文字
+    // 档位定义：枚举值 -> 显示文字
     readonly property var profiles: [
-        { key: "power-saver", label: "省电" },
-        { key: "balanced", label: "平衡" },
-        { key: "performance", label: "性能" }
+        { value: PowerProfile.PowerSaver, label: "省电" },
+        { value: PowerProfile.Balanced, label: "平衡" },
+        { value: PowerProfile.Performance, label: "性能" }
     ]
 
-    // 外部调用：重新读取当前档位（面板每次打开时调用一次）
-    function refresh() {
-        getProc.running = true;
-    }
+    // 当前档位（原生属性，自动跟随 daemon 变化）
+    readonly property int current: PowerProfiles.profile ?? -1
+    readonly property bool hasPerformance: PowerProfiles.hasPerformanceProfile ?? true
 
-    function setProfile(key) {
-        root.current = key;   // 乐观更新，随后由读回结果校正
-        setProc.command = ["powerprofilesctl", "set", key];
-        setProc.running = true;
+    // 面板打开时的钩子（保留接口，原生绑定后无需主动读取）
+    function refresh() {}
+
+    function setProfile(value) {
+        PowerProfiles.profile = value;
     }
 
     spacing: 8
@@ -49,7 +46,7 @@ Column {
             delegate: Rectangle {
                 required property var modelData
 
-                readonly property bool active: root.current === modelData.key
+                readonly property bool active: root.current === modelData.value
 
                 width: (root.width - 2 * 6) / 3
                 height: Theme.pillHeight
@@ -68,38 +65,19 @@ Column {
                 MouseArea {
                     anchors.fill: parent
                     cursorShape: Qt.PointingHandCursor
-                    onClicked: root.setProfile(parent.modelData.key)
+                    onClicked: root.setProfile(modelData.value)
                 }
             }
         }
     }
 
+    // 不支持性能档位时的提示
     Text {
-        visible: root.readFailed
-        text: "无法读取档位（powerprofilesctl 失败）"
+        visible: !root.hasPerformance
+        text: "此设备不支持「性能」档位"
         color: Theme.panelMuted
         font.family: Theme.fontFamily
-        font.pixelSize: Theme.fontSize
+        font.pixelSize: Theme.fontSize - 2
         font.weight: Theme.fontWeight
-    }
-
-    // 读取当前档位
-    Process {
-        id: getProc
-        command: ["powerprofilesctl", "get"]
-        stdout: StdioCollector {
-            id: getOut
-            onStreamFinished: root.current = getOut.text.trim()
-        }
-        onExited: code => root.readFailed = code !== 0
-    }
-
-    // 写入档位；写完后再读一次，以实际结果为准
-    Process {
-        id: setProc
-        onExited: code => {
-            root.readFailed = code !== 0;
-            getProc.running = true;
-        }
     }
 }

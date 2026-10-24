@@ -47,6 +47,19 @@ Column {
         root.inTarget = null;
     }
 
+    // 切页/打开面板后短暂禁用回写，避免布局重排时滑块误触发
+    property bool writeLocked: false
+    onShowInputsChanged: {
+        root.writeLocked = true;
+        unlockTimer.restart();
+    }
+    Timer {
+        id: unlockTimer
+        interval: 250
+        running: false
+        onTriggered: root.writeLocked = false
+    }
+
     // 流 node.name -> 当前连接的目标设备名
     property var linkMap: ({})
 
@@ -78,6 +91,16 @@ Column {
                 return root.allNodes[i].description || nodeName;
         }
         return nodeName;
+    }
+
+    // 重启 PipeWire 服务栈（与 systemctl --user restart pipewire pipewire-pulse wireplumber 等价）
+    function resetAudio() {
+        resetProc.command = ["systemctl", "--user", "restart", "pipewire", "pipewire-pulse", "wireplumber"];
+        resetProc.running = true;
+    }
+
+    Process {
+        id: resetProc
     }
 
     // ── 解析 pw-link -l：得到 流节点 -> 对端设备 ──
@@ -125,12 +148,15 @@ Column {
         }
     }
 
-    // ── 音量条 ──
-    Row {
+    // ── 音量条标题行：用锚定布局，避免固定宽度计算把右侧开关挤出面板 ──
+    Item {
         width: parent.width
+        // 高度取最高的子元素，避免按钮上下被裁切
+        height: Math.max(24, muteToggle.implicitHeight, resetBtn.implicitHeight)
 
         Text {
             id: volLabel
+            anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
             text: {
                 const base = root.showInputs ? "麦克风" : "音量";
@@ -142,19 +168,28 @@ Column {
             font.weight: Theme.fontWeight
         }
 
-        Item {
-            width: parent.width - volLabel.implicitWidth - muteToggle.width
-            height: 1
-        }
-
+        // 静音开关贴右
         PanelToggle {
             id: muteToggle
+            anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
             checked: !root.muted          // 打开 = 有声音
             enabledState: !!root.activeDevice
             onToggled: v => {
                 if (root.activeDevice?.audio) root.activeDevice.audio.muted = !v;
             }
+        }
+
+        // 重置按钮：静音开关左侧 14px
+        PanelButton {
+            id: resetBtn
+            width: 56
+            anchors.right: muteToggle.left
+            anchors.rightMargin: 14
+            anchors.verticalCenter: parent.verticalCenter
+            text: "重置"
+            accent: Theme.brightness
+            onClicked: root.resetAudio()
         }
     }
 
@@ -167,6 +202,7 @@ Column {
             anchors.verticalCenter: parent.verticalCenter
             value: root.volume
             onMoved: v => {
+                if (root.writeLocked) return;
                 if (root.activeDevice?.audio) root.activeDevice.audio.volume = v;
             }
         }
