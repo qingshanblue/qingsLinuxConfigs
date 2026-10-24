@@ -40,3 +40,7 @@ zsh/.zcompdump
 !gtk-4.0/**
 # swayimg
 !swayimg/**
+
+# tmp
+!wayle/**
+!quickshell/**

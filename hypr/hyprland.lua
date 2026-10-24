@@ -80,8 +80,8 @@ local notifier    = "swaync"
 local coder       = "code"
 -- 压缩包管理器
 local archiver    = "ark"
--- 状态栏
-local statusBar   = "waybar"
+-- 状态栏(已切换为 wayle;回退 waybar 时改回 "waybar")
+local statusBar   = "wayle shell"
 -- 壁纸
 local wallpaper   = "hyprpaper"
 
@@ -176,9 +176,9 @@ hl.config({
             -- 常规工作区 = 紫→粉渐变(备选:黄 f9e2af / 琥珀 e5c890 / 暖白 f5e0dc)
             active_border = {
                 colors = { "rgba(cba6f7ee)", "rgba(f5c2e7ee)" },
-                angle  = 45
+                angle  = 90
             },
-            inactive_border = "rgba(8fb2c9aa)",
+            inactive_border = "rgba(45475a88)",
         },
         resize_on_border = false,
         allow_tearing    = false,
@@ -186,30 +186,30 @@ hl.config({
         layout = "scrolling",
     },
     decoration = {
-        rounding       = 12,
+        rounding       = 14,
         rounding_power = 2,
-        active_opacity = 0.95,
-        -- 拉大聚焦对比
-        inactive_opacity = 0.80,
+        active_opacity = 0.96,
+        -- 非活动窗口轻微压暗,聚焦更明确
+        inactive_opacity = 0.84,
         shadow = {
             enabled = true,
-            -- 大而柔的阴影比小硬阴影更有悬浮感
-            range        = 20,
-            render_power = 4,
-            -- 带一点蓝调的黑,更柔和
-            color = 0xcc1a1a26,
+            -- 更大更柔的散开,面板感更强
+            range        = 28,
+            render_power = 3,
+            offset       = { 0, 6 },
+            -- 带一点蓝调的黑,柔和底部投影
+            color = 0x661a1a26,
         },
         blur = {
             enabled = true,
-            -- 3→8,模糊才看得出来
-            size   = 8,
-            -- 2 遍 + 大 size = 真正的磨砂玻璃
-            passes = 2,
-            vibrancy = 0.1696,
-            -- 下面三个是经典"奶玻璃"配方
-            contrast   = 0.8916,
-            brightness = 0.8172,
-            noise      = 0.0117,
+            -- 调小:只保留轻微虚化,不再是厚重的奶玻璃,文字更清晰
+            size   = 3,
+            passes = 1,
+            -- 去掉偏色/提亮/噪点,保证前景可读
+            vibrancy = 0.0,
+            contrast   = 1.0,
+            brightness = 1.0,
+            noise      = 0.0,
         },
     },
     animations = { enabled = true },
@@ -222,15 +222,25 @@ hl.curve("snappy", { type = "spring", mass = 1, stiffness = 230, dampening = 26 
 hl.curve("bouncy", { type = "spring", mass = 1, stiffness = 300, dampening = 22 })
 -- easeOutQuint:标准缓出曲线
 hl.curve("easeOutQuint", { type = "bezier", points = { { 0.22, 1 }, { 0.36, 1 } } })
+-- easeOutExpo:更干脆的收尾,用于窗口关闭与特殊区
+hl.curve("easeOutExpo", { type = "bezier", points = { { 0.16, 1 }, { 0.3, 1 } } })
+-- easeInOutCubic:两端都缓,用于工作区横向/纵向切换
+hl.curve("easeInOutCubic", { type = "bezier", points = { { 0.65, 0 }, { 0.35, 1 } } })
 
 -- 窗口开合更有生命感
-hl.animation({ leaf = "windows", enabled = true, speed = 4, spring = "snappy" })
-hl.animation({ leaf = "windowsIn", enabled = true, speed = 3.4, spring = "snappy", style = "popin 85%" })
-hl.animation({ leaf = "windowsOut", enabled = true, speed = 2.6, bezier = "linear", style = "popin 85%" })
--- 工作区切换:垂直滑动动画,配合三指上下滑切工作区的方向感
-hl.animation({ leaf = "workspaces", enabled = true, speed = 5, bezier = "easeOutQuint", style = "slidevert" })
--- 特殊工作区从底部滑入(不显式写的话会继承 workspaces 的动画,这里固定下来)
-hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 2.5, bezier = "easeOutQuint", style = "slidevert" })
+hl.animation({ leaf = "windows", enabled = true, speed = 3.5, spring = "snappy" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 3, spring = "snappy", style = "popin 92%" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 2.2, bezier = "easeOutExpo", style = "popin 92%" })
+-- 卷轴(scrolling)布局中窗口横向滑动:与工作区切换同一节奏
+hl.animation({ leaf = "windowsMove", enabled = true, speed = 12, bezier = "easeOutExpo" })
+hl.animation({ leaf = "fade", enabled = true, speed = 3.5, bezier = "easeOutQuint" })
+hl.animation({ leaf = "layers", enabled = true, speed = 3, bezier = "easeOutQuint", style = "fade" })
+-- 边框颜色过渡:快速跟随焦点变化
+hl.animation({ leaf = "border", enabled = true, speed = 6, bezier = "easeOutQuint" })
+-- 工作区切换:垂直滑动,两端缓动,配合三指上下滑的方向感
+hl.animation({ leaf = "workspaces", enabled = true, speed = 12, bezier = "easeOutExpo", style = "slidevert" })
+-- 特殊工作区从底部滑入
+hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 3.5, bezier = "easeOutExpo", style = "slidevert" })
 -- 渐变边框流动动画:loop 模式会持续重绘导致 VFR 完全失效(空闲时 GPU/CPU 也常驻工作),为续航关闭;想要流动效果改回 enabled = true
 -- hl.animation({ leaf = "borderangle", enabled = true, speed = 30, bezier = "linear", style = "loop" })
 
@@ -286,7 +296,7 @@ hl.config({
 --     ③ 电量检测 → ≤15% 提醒,≤10% 先挂起,≤5% 落盘休眠(仅放电中触发;每级每周期一次)
 --   映射:epp=power → 省电视效;其余 → 性能视效。timer 只读不写档位,不会与 better-control 打架
 --   省电模式:关动画/blur/阴影,内屏 60Hz,并让所有窗口完全不透明
---   注意:恢复侧 0.95/0.80 需与上方 decoration 配置同步修改
+--   注意:恢复侧 0.96/0.84 需与上方 decoration 配置同步修改
 local lastPerf = nil
 
 -- 需要在省电模式下关闭的「按窗口透明度」规则(由下方 WINDOWS AND WORKSPACES 段注册进来)
@@ -305,8 +315,8 @@ local function applyVisuals(perf, notify)
     hl.config({
         animations = { enabled = perf },
         decoration = {
-            active_opacity   = perf and 0.95 or 1,
-            inactive_opacity = perf and 0.80 or 1,
+            active_opacity   = perf and 0.96 or 1,
+            inactive_opacity = perf and 0.84 or 1,
             shadow = { enabled = perf },
             blur   = { enabled = perf },
         },
@@ -826,9 +836,9 @@ hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ to
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
     { locked = true, repeating = true })
 -- 亮度 +
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set 5%+"), { locked = true, repeating = true })
 -- 亮度 -
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), { locked = true, repeating = true })
 -- 下一曲(需 playerctl)
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 -- 播放/暂停
@@ -977,6 +987,12 @@ hl.window_rule({
         pin        = false,
     },
     no_focus = true,
+})
+-- wayle 状态栏:开启 Hyprland 模糊(对应 waybar 的毛玻璃效果)
+hl.layer_rule({
+    name  = "wayle-bar-blur",
+    match = { namespace = "wayle-bar-.*" },
+    blur  = true,
 })
 -- 特殊工作区边框色(与按键助记对应:magic(Z)=红 / mofa(X)=绿 / maho(C)=蓝,catppuccin 色板)
 hl.window_rule({

@@ -1,3 +1,18 @@
+// ============================================================
+// [已停用] waybar 配置 —— 保留以便未来恢复
+// 停用时间：2026-10
+// 本配置依赖的软件（均已从 NixOS 系统包中删除，恢复需重新安装）:
+//   - waybar                    状态栏本体
+//   - better-control            蓝牙/网络/音量/亮度/电池的点击面板(需 LC_ALL=C.UTF-8 包装)
+//   - swaynotificationcenter    通知中心(swaync / swaync-client,custom/notification 依赖)
+//   - hyprctl / hyprland IPC    工作区、窗口、特殊工作区
+//   - yq (kislyuk 版,jq 包装)   解析 hyprctl -j 的 JSON
+// 恢复步骤:
+//   1. configuration.nix 中取消注释 waybar、swaynotificationcenter 及 better-control 块,sudo nixos-rebuild switch
+//   2. systemctl --user unmask waybar swaync && systemctl --user start waybar swaync
+//   3. hyprland.lua 中 local statusBar = "waybar"(当前为 "wayle shell")
+// 注意: 恢复后 wayle 与 waybar 不能同时运行(顶部会重叠)
+// ============================================================
 // qings waybar config
 // -*- mode: jsonc -*-
 
