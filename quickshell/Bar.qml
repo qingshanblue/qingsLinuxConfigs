@@ -33,7 +33,10 @@ PanelWindow {
         Workspaces {
             monitorName: bar.monitorName
         }
-        ActiveWindow {}
+        ActiveWindow {
+            // 按屏幕宽度限制标题最大宽度，避免超长标题顶到右侧药丸
+            maxWidth: Math.max(120, Math.round(bar.width * 0.22))
+        }
     }
 
     // ---- 中区 ----

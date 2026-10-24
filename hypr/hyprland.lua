@@ -1014,7 +1014,7 @@ hl.window_rule({
 table.insert(dimRules, hl.window_rule({
     name    = "special-magic-dim",
     match   = { workspace = "special:magic" },
-    opacity = 0.9,
+    opacity = 0.96,
 }))
 -- Hyprland-run 窗口
 hl.window_rule({
@@ -1074,7 +1074,6 @@ hl.window_rule({
 table.insert(dimRules, hl.window_rule({
     name    = "terminal-dim",
     match   = { class = "^.*(?i)" .. terminal .. ".*$" },
-    opacity = 0.85,
 }))
 -- 任务管理器(Mission Center)
 hl.window_rule({

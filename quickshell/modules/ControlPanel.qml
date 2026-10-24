@@ -27,7 +27,12 @@ PopupWindow {
     signal brightnessChanged()
 
     implicitWidth: Theme.panelWidth
-    implicitHeight: body.implicitHeight + Theme.panelPadding * 2
+
+    // 面板可用高度：取所在屏幕高度减去状态栏与上下留白，保证不超出屏幕
+    readonly property int screenHeight: (panel.screen?.height ?? 900)
+    readonly property int maxBodyHeight: Math.max(200, Math.min(620, panel.screenHeight - Theme.barHeight - 80))
+    readonly property int contentHeight: Math.min(body.implicitHeight, panel.maxBodyHeight)
+    implicitHeight: panel.contentHeight + Theme.panelPadding * 2
 
     // 面板自身透明，圆角背景由内部 Rectangle 绘制，使四角干净
     color: "transparent"
@@ -47,6 +52,8 @@ PopupWindow {
             panel.visible = false;
             return;
         }
+        // 切换面板类型时，离开音量面板就恢复默认目标
+        if (volumeSection && k !== "volume") volumeSection.resetTarget();
         panel.kind = k;
         panel.anchor.item = item;
         panel.visible = true;
@@ -57,7 +64,11 @@ PopupWindow {
     }
 
     // 点面板外导致合成器关闭弹窗
-    onClosed: panel.lastClosedMs = Date.now()
+    onClosed: {
+        panel.lastClosedMs = Date.now();
+        // 关闭面板时音量条恢复跟随系统默认设备
+        if (volumeSection) volumeSection.resetTarget();
+    }
 
     Rectangle {
         anchors.fill: parent
@@ -67,15 +78,26 @@ PopupWindow {
         border.width: 1
     }
 
-    // 各块内容互斥显示：只有 kind 匹配的块 visible，Column 会忽略不可见子项的布局空间
-    Column {
-        id: body
+    // 内容区可滚动：设备列表较长时用鼠标滚轮浏览
+    Flickable {
+        id: flick
         x: Theme.panelPadding
         y: Theme.panelPadding
         width: panel.implicitWidth - Theme.panelPadding * 2
-        spacing: 12
+        height: panel.contentHeight
+        contentHeight: body.implicitHeight
+        clip: true
+        boundsBehavior: Flickable.StopAtBounds
+        interactive: body.implicitHeight > panel.maxBodyHeight
+
+        // 各块内容互斥显示：只有 kind 匹配的块 visible，Column 会忽略不可见子项的布局空间
+        Column {
+            id: body
+            width: flick.width
+            spacing: 12
 
         PanelVolume {
+            id: volumeSection
             width: parent.width
             visible: panel.kind === "volume"
         }
@@ -113,6 +135,7 @@ PopupWindow {
         PanelNotify {
             width: parent.width
             visible: panel.kind === "notify"
+        }
         }
     }
 }

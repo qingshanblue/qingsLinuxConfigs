@@ -41,7 +41,7 @@ QtObject {
 
     // ---- 控制面板（第二阶段新增） ----
     readonly property color panelBg: "#121212"      // 面板背景，不透明（避免透明可读性问题）
-    readonly property int panelWidth: 300            // 面板宽度
+    readonly property int panelWidth: 340            // 面板宽度
     readonly property int panelPadding: 14           // 面板内边距
     readonly property int panelRadius: 14            // 面板圆角
     readonly property color panelDivider: Qt.rgba(1, 1, 1, 0.08)

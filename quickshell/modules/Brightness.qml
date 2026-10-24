@@ -72,15 +72,7 @@ Row {
         onTriggered: udevMonitor.running = true
     }
 
-    Timer {
-        id: fallbackPoll
-        interval: 5000
-        running: true
-        repeat: true
-        onTriggered: root.refresh()
-    }
-
-    // 立即重读一次亮度（面板里的 +/- 点击后由外部调用，避免等到下一次轮询）
+    // 立即重读一次亮度（面板里的 +/- 点击后由外部调用，也用于 udev 事件触发）
     function refresh() {
         brightnessFile.reload();   // max_brightness 是常量，不必每次都读
     }
