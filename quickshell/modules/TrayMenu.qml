@@ -30,12 +30,19 @@ PopupWindow {
     // 贴边时左右滑回屏幕内；下方空间不足时翻到上方
     anchor.adjustment: PopupAdjustment.SlideX | PopupAdjustment.FlipY
 
-    visible: false
-    // 抓取焦点：点击面板外时合成器发出 popup_done，窗口才能自动关闭
-    grabFocus: true
+    visible: anim.surfaced
+    // 抓取焦点：点击面板外时合成器发出 popup_done，窗口才能自动关闭；
+    // 收起时立刻松开抓取，避免退出动画期间还占着焦点。
+    // 恒定 true：PopupWindow 的抓取必须与「表面创建」同一时刻生效，绑到会变化的
+        // 属性上（曾写成 anim.open）会让抓取请求与表面映射竞争而被丢弃，
+        // 表现为「点面板外关不掉」。抓取的存续由 visible: anim.surfaced 控制。
+        grabFocus: true
     color: "transparent"
     implicitWidth: panel.implicitWidth
     implicitHeight: panel.implicitHeight
+
+    // 出现/消失动画控制器：外部只改 anim.open（见 openFor/close）
+    property PanelAnim anim: PanelAnim { target: menu }
 
     // 菜单树（children 为 DBusMenuItem 列表）
     QsMenuOpener {
@@ -66,28 +73,11 @@ PopupWindow {
         menu.targetItem = item;
         menu.anchorItem = anchorObj;
         menu.menuStack = [];
-        menu.visible = true;
-
-        // 诊断：记录菜单树是否真的拿到了。DBusMenu 布局是异步加载的，需延迟再查一次。
-        console.log("TRAYPROBE open title=" + (item?.title ?? "?")
-            + " hasMenu=" + (item?.hasMenu ?? "?")
-            + " handle=" + (item?.menu ? "obj" : "null"));
-        probeTimer.restart();
-    }
-
-    // 打开 800ms 后再记录一次 children 数量（此时异步布局应该已就绪）
-    Timer {
-        id: probeTimer
-        interval: 800
-        running: false
-        onTriggered: {
-            console.log("TRAYPROBE after800 opener.menu=" + (opener.menu ? "obj" : "null")
-                + " repeaterCount=" + entryRepeater.count);
-        }
+        menu.anim.open = true;      // 由 PanelAnim 负责建表面 + 播出现动画
     }
 
     function close() {
-        menu.visible = false;
+        menu.anim.open = false;     // 先播消失动画，动画跑完才撤表面
         menu.menuStack = [];
     }
 
@@ -97,6 +87,15 @@ PopupWindow {
     Rectangle {
         id: panel
 
+        // 不用 anchors.fill：y 要参与动画，改用显式几何
+        x: 0
+        width: parent.width
+        height: parent.height
+        // 动画：从略小 / 略上 / 透明 → 正常（transformOrigin 在顶部，从图标那一侧展开）
+        opacity: menu.anim.progress
+        scale: menu.anim.scaleFrom + (1 - menu.anim.scaleFrom) * menu.anim.progress
+        y: menu.anim.offsetY * (1 - menu.anim.progress)
+        transformOrigin: Item.Top
         implicitWidth: Math.max(180, col.implicitWidth + 20)
         implicitHeight: col.implicitHeight + 12
         radius: 10

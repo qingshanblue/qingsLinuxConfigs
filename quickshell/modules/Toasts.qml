@@ -40,6 +40,42 @@ PanelWindow {
                 required property var modelData
                 readonly property var note: modelData.n
 
+                // ── 出现 / 消失动画 ──────────────────────────────
+                // 0 = 完全隐藏，1 = 完全显示。进场和退场共用一条时间轴：
+                // 进场 0→1（toastEnterMs），到期前 1→0（toastExitMs）。
+                // 退场提前在卡片被移除之前跑，所以真正删掉时视觉上已经消失了。
+                property real reveal: 0
+                property bool exiting: false
+
+                opacity: card.reveal
+                scale: 0.97 + 0.03 * card.reveal
+                transformOrigin: Item.Top
+                // 从上方 6px 处落下（跟面板动画同一套感觉），用 Translate 避免和 Column 抢几何属性
+                transform: Translate { y: (1 - card.reveal) * -6 }
+
+                Behavior on reveal {
+                    NumberAnimation {
+                        duration: card.exiting ? Theme.toastExitMs : Theme.toastEnterMs
+                        easing.type: card.exiting ? Easing.InCubic : Easing.OutCubic
+                    }
+                }
+
+                // 生命周期定时器：在到期前 toastExitMs 开始淡出
+                Timer {
+                    id: lifeTimer
+                    interval: Math.max(0, Notifs.toastMs - (Date.now() - card.modelData.at) - Theme.toastExitMs)
+                    onTriggered: {
+                        card.exiting = true;
+                        card.reveal = 0;
+                    }
+                }
+
+                Component.onCompleted: {
+                    // 下一帧再置 1，保证首帧确实从 0 开始（否则可能直接以最终态出现，看不到动画）
+                    Qt.callLater(function() { card.reveal = 1; });
+                    lifeTimer.start();
+                }
+
                 width: stack.width
                 height: content.implicitHeight + 24
                 radius: Theme.panelRadius

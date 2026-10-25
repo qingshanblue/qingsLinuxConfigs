@@ -5,6 +5,7 @@ pragma Singleton
 // 注意：wayle 持有同名 D-Bus 名字时，NotificationServer 注册会失败，属预期；需停掉 wayle 才能生效（由用户决定）。
 import QtQuick
 import Quickshell
+import Quickshell.Io
 import Quickshell.Services.Notifications
 
 Scope {
@@ -34,8 +35,25 @@ Scope {
         onNotification: n => {
             n.tracked = true;          // 进入历史；否则通知方关闭后对象即被销毁
             root.unread += 1;
-            if (!root.dnd) root.pushToast(n);
+            if (!root.dnd) {
+                root.pushToast(n);
+                root.playSound();
+            }
         }
+    }
+
+    // 通知提示音（Quickshell 无播放 API，用 pw-play 播放 freedesktop 提示音）
+    property string soundPath: "/run/current-system/sw/share/sounds/freedesktop/stereo/message.oga"
+
+    property Process soundProc: Process {
+        id: soundProc
+        command: ["pw-play", root.soundPath]
+    }
+
+    function playSound() {
+        if (root.soundProc.running) return;   // 正在播就跳过，避免叠加
+        root.soundProc.command = ["pw-play", root.soundPath];
+        root.soundProc.running = true;
     }
 
     function pushToast(n) {

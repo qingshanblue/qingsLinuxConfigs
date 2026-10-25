@@ -20,6 +20,9 @@ PopupWindow {
     // 上次因"点面板外"收起的时间戳（毫秒），用于去抖
     property real lastClosedMs: 0
 
+    // 出现/消失动画控制器：外部只改 anim.open，不要直接动 visible
+    property PanelAnim anim: PanelAnim { target: panel }
+
     // 亮度百分比（由 Bar 从 Brightness 模块传入，只读展示）
     property int brightnessPercent: 0
 
@@ -36,8 +39,11 @@ PopupWindow {
 
     // 面板自身透明，圆角背景由内部 Rectangle 绘制，使四角干净
     color: "transparent"
-    visible: false
-    grabFocus: true
+    visible: anim.surfaced
+    // 恒定 true：PopupWindow 的抓取必须与「表面创建」同一时刻生效，绑到会变化的
+        // 属性上（曾写成 anim.open）会让抓取请求与表面映射竞争而被丢弃，
+        // 表现为「点面板外关不掉」。抓取的存续由 visible: anim.surfaced 控制。
+        grabFocus: true
 
     // 锚定方式：贴在模块底边，水平居中于模块，超出屏幕时沿 X 方向滑入屏内
     anchor.edges: Edges.Bottom
@@ -48,15 +54,15 @@ PopupWindow {
     // k: 面板类型（见上方 kind）；item: 锚定的模块
     function openPanel(k, item) {
         if (Date.now() - panel.lastClosedMs < 350) return;
-        if (panel.visible && panel.anchor.item === item) {
-            panel.visible = false;
+        if (panel.anim.open && panel.anchor.item === item) {
+            panel.anim.open = false;
             return;
         }
         // 切换面板类型时，离开音量面板就恢复默认目标
         if (volumeSection && k !== "volume") volumeSection.resetTarget();
         panel.kind = k;
         panel.anchor.item = item;
-        panel.visible = true;
+        panel.anim.open = true;
         // 每次打开电池面板时读取一次电源档位（不轮询）
         if (k === "battery") powerSection.refresh();
         // 打开通知中心即视为已读
@@ -70,72 +76,86 @@ PopupWindow {
         if (volumeSection) volumeSection.resetTarget();
     }
 
-    Rectangle {
-        anchors.fill: parent
-        color: Theme.panelBg
-        radius: Theme.panelRadius
-        border.color: Theme.pillBorder
-        border.width: 1
-    }
+    // 背景 + 内容一起做出现/消失动画：用同一个 Items 容器承载，
+    // 保证圆角背景与内容同步缩放，不会出现「背景先到位、内容后到」的错位。
+    Item {
+        id: reveal
+        // 不用 anchors.fill：y 要参与动画，anchors 会接管 y 导致冲突，改用显式几何
+        x: 0
+        width: parent.width
+        height: parent.height
+        opacity: panel.anim.progress
+        scale: panel.anim.scaleFrom + (1 - panel.anim.scaleFrom) * panel.anim.progress
+        y: panel.anim.offsetY * (1 - panel.anim.progress)
+        transformOrigin: Item.Top      // 从锚点一侧（顶部药丸）展开
 
-    // 内容区可滚动：设备列表较长时用鼠标滚轮浏览
-    Flickable {
-        id: flick
-        x: Theme.panelPadding
-        y: Theme.panelPadding
-        width: panel.implicitWidth - Theme.panelPadding * 2
-        height: panel.contentHeight
-        contentHeight: body.implicitHeight
-        clip: true
-        boundsBehavior: Flickable.StopAtBounds
-        interactive: body.implicitHeight > panel.maxBodyHeight
-
-        // 各块内容互斥显示：只有 kind 匹配的块 visible，Column 会忽略不可见子项的布局空间
-        Column {
-            id: body
-            width: flick.width
-            spacing: 12
-
-        PanelVolume {
-            id: volumeSection
-            width: parent.width
-            visible: panel.kind === "volume"
+        Rectangle {
+            anchors.fill: parent
+            color: Theme.panelBg
+            radius: Theme.panelRadius
+            border.color: Theme.pillBorder
+            border.width: 1
         }
 
-        PanelNetwork {
-            width: parent.width
-            visible: panel.kind === "network"
-        }
+        // 内容区可滚动：设备列表较长时用鼠标滚轮浏览
+        Flickable {
+            id: flick
+            x: Theme.panelPadding
+            y: Theme.panelPadding
+            width: panel.implicitWidth - Theme.panelPadding * 2
+            height: panel.contentHeight
+            contentHeight: body.implicitHeight
+            clip: true
+            boundsBehavior: Flickable.StopAtBounds
+            interactive: body.implicitHeight > panel.maxBodyHeight
 
-        PanelBluetooth {
-            width: parent.width
-            visible: panel.kind === "bluetooth"
-        }
+            // 各块内容互斥显示：只有 kind 匹配的块 visible，Column 会忽略不可见子项的布局空间
+            Column {
+                id: body
+                width: flick.width
+                spacing: 12
 
-        PanelBrightness {
-            width: parent.width
-            percent: panel.brightnessPercent
-            visible: panel.kind === "brightness"
-            onApplied: panel.brightnessChanged()
-        }
+                PanelVolume {
+                    id: volumeSection
+                    width: parent.width
+                    visible: panel.kind === "volume"
+                }
 
-        // 电池面板：电量 + 电源档位（电源档位归属电池，不设独立入口）
-        PanelBattery {
-            width: parent.width
-            visible: panel.kind === "battery"
-        }
+                PanelNetwork {
+                    width: parent.width
+                    visible: panel.kind === "network"
+                }
 
-        PanelPowerProfile {
-            id: powerSection
-            width: parent.width
-            visible: panel.kind === "battery"
-        }
+                PanelBluetooth {
+                    width: parent.width
+                    visible: panel.kind === "bluetooth"
+                }
 
-        // 通知中心（历史列表较长，内部高度有上限）
-        PanelNotify {
-            width: parent.width
-            visible: panel.kind === "notify"
-        }
+                PanelBrightness {
+                    width: parent.width
+                    percent: panel.brightnessPercent
+                    visible: panel.kind === "brightness"
+                    onApplied: panel.brightnessChanged()
+                }
+
+                // 电池面板：电量 + 电源档位（电源档位归属电池，不设独立入口）
+                PanelBattery {
+                    width: parent.width
+                    visible: panel.kind === "battery"
+                }
+
+                PanelPowerProfile {
+                    id: powerSection
+                    width: parent.width
+                    visible: panel.kind === "battery"
+                }
+
+                // 通知中心（历史列表较长，内部高度有上限）
+                PanelNotify {
+                    width: parent.width
+                    visible: panel.kind === "notify"
+                }
+            }
         }
     }
 }

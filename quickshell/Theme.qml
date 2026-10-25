@@ -48,6 +48,16 @@ QtObject {
     readonly property color panelMuted: "#6c7086"    // 次要文字（与工作区空态同色）
     readonly property color panelText: "#cdd6f4"      // 面板主要文字（托盘菜单项等）
 
+    // ---- 面板出现/消失动画（集中管理，避免各处散落魔法数字） ----
+    // 出现：从略小 + 略向上 + 透明 → 正常；消失：反向。
+    // 时长取「跟手但不顿」的区间：出现稍慢有从容感，消失更快避免拖尾。
+    readonly property int panelEnterMs: 170          // 面板出现时长
+    readonly property int panelExitMs: 130           // 面板消失时长
+    readonly property real panelScaleFrom: 0.96      // 出现动画起始缩放
+    readonly property int panelOffsetY: -6           // 出现动画起始纵向位移（负值 = 从上方压下来）
+    readonly property int toastEnterMs: 200          // 通知卡片出现时长
+    readonly property int toastExitMs: 220           // 通知卡片消失时长（生命周期末尾淡出，见 Toasts.qml）
+
     // ---- 字体 ----
     readonly property string fontFamily: "Maple Mono NF CN"
     readonly property int fontSize: 13

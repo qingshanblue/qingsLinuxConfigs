@@ -1,3 +1,6 @@
 singleton Theme 1.0 Theme.qml
 singleton Notifs 1.0 Notifs.qml
 Bar 1.0 Bar.qml
+singleton Lunar 1.0 Lunar.qml
+singleton Monitors 1.0 Monitors.qml
+singleton Timers 1.0 Timers.qml
