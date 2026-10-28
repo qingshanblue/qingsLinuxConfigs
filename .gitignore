@@ -20,8 +20,9 @@
 !hypr/**
 # kitty
 !kitty/**
-# waybar
-!waybar/**
+# Dux-shell
+!dms/**
+!DankMaterialShell/**
 # zsh
 !zsh/**
 zsh/.histfile
@@ -40,7 +41,3 @@ zsh/.zcompdump
 !gtk-4.0/**
 # swayimg
 !swayimg/**
-
-# tmp
-!wayle/**
-!quickshell/**

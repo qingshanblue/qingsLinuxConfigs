@@ -23,12 +23,14 @@
 ---------------------
 -- 参考:https://wiki.hypr.land/Configuring/Basics/Monitors/
 
--- 内屏 eDP-1:最高刷新率,自动缩放
+-- 内屏 eDP-1:最高刷新率。显式 1.6：Hyprland 的 "auto" 也会算出 1.6（物理 PPI≈188
+-- → 默认 1.5，但 2560/1.5 不是整数，向上就近取到 1.6），只是显式写死可保证与各
+-- X11 程序里写死的 1.6 永远一致。
 hl.monitor({
     output   = "eDP-1",
     mode     = "highrr",
     position = "0x0",
-    scale    = "auto",
+    scale    = 1.6,
 })
 -- 备用内屏 eDP-2(暂未启用)
 -- hl.monitor({
@@ -80,8 +82,8 @@ local notifier    = "swaync"
 local coder       = "code"
 -- 压缩包管理器
 local archiver    = "ark"
--- 状态栏(已切换为 wayle;回退 waybar 时改回 "waybar")
-local statusBar   = "wayle shell"
+-- 状态栏(现由 dms.service 自启;此行只供手动跑,启动前先 systemctl --user stop dms)
+local statusBar   = "dms run --session"
 -- 壁纸
 local wallpaper   = "hyprpaper"
 
@@ -92,7 +94,7 @@ local wallpaper   = "hyprpaper"
 -- 参考:https://wiki.hypr.land/Configuring/Basics/Autostart/
 hl.on("hyprland.start", function()
     -- 状态栏
-    hl.exec_cmd(statusBar)
+    -- hl.exec_cmd(statusBar)
     -- 壁纸
     hl.exec_cmd(wallpaper)
     -- 应用启动器常驻服务
@@ -142,8 +144,19 @@ hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
 -- 修复 xWayland 应用缩放模糊
 hl.config({ xwayland = { force_zero_scaling = true } })
 -- 缩放与光标
-hl.env("GDK_SCALE", "2")
-hl.env("QT_SCALE_FACTOR", "1.6")
+-- 合成器对显示器做 scale（eDP-1 = 1.6）→ Wayland 原生程序（GTK/Qt/Electron/Chromium）
+-- 自动正确。这里绝不能再设 GDK_SCALE / QT_SCALE_FACTOR：Qt/GTK 在 Wayland 下会把
+-- 它们乘在合成器 scale 之上（1.6 x 1.6 = 2.56），FreeCAD / OpenSCAD 异常放大就是这么来的。
+-- 上面的 force_zero_scaling 让 XWayland 保持 1:1 物理像素（2560x1440 @96dpi：清晰，
+-- 但只有应有大小的 1/1.6）。补救办法：各 X11 程序自己按 1.6 渲染，且只能按程序设，
+-- 全局设会伤到 Wayland 原生程序。落地都在 /etc/nixos/configuration.nix：
+--   hmcl → HMCL_UI_SCALE=1.6（JavaFX 支持分数）
+--   stm32cubemx → sun.java2d.uiScale=2（Java2D 只支持整数，2 比 1.6 大 25%）
+--   steam → pkgs.steam.override { extraEnv.GDK_SCALE = "2"; }（GTK 只支持整数；
+--           走 Chromium/CEF 的 GTK 集成，能放大内嵌 Web UI）
+-- 注意 wechat 不在名单里：4.1 实测是 Wayland 原生，合成器缩放对它已经生效。
+-- hl.env("GDK_SCALE", "2")          -- 全局设 = Wayland GTK 也中招；X11 下还只有整数
+-- hl.env("QT_SCALE_FACTOR", "1.6")   -- 全局设 = Wayland Qt 双重重缩放
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 -- 代理
@@ -167,11 +180,11 @@ hl.env("no_proxy", "localhost,127.0.0.1,::1")
 -----------------------
 hl.config({
     general = {
-        gaps_in  = 4,
+        gaps_in  = 2,
         -- 外围留多点呼吸感,窗口像"悬浮卡片"
-        gaps_out = 12,
+        gaps_out = { top = 3, bottom = 7, left = 7, right = 7 },
         -- 想让渐变更显眼可以试 3
-        border_size = 2,
+        border_size = 3,
         col = {
             -- 常规工作区 = 紫→粉渐变(备选:黄 f9e2af / 琥珀 e5c890 / 暖白 f5e0dc)
             active_border = {
@@ -493,7 +506,7 @@ local specialOrder = { "magic", "mofa", "maho" }
 -- 最近使用的特殊工作区(呼出类操作的目标)
 local lastSpecial = "magic"
 
--- 把"最近使用的特殊区"镜像到文件,供 waybar 魔法棒/外部读取(waybar 左键 = Super+` 的语义)
+-- 把"最近使用的特殊区"镜像到文件,供外部脚本读取(Super+` 的语义)
 local LAST_SPECIAL_FILE = "/dev/shm/hypr-last-special"
 local function rememberSpecial(name)
     lastSpecial = name
@@ -988,12 +1001,6 @@ hl.window_rule({
     },
     no_focus = true,
 })
--- wayle 状态栏:开启 Hyprland 模糊(对应 waybar 的毛玻璃效果)
-hl.layer_rule({
-    name  = "wayle-bar-blur",
-    match = { namespace = "wayle-bar-.*" },
-    blur  = true,
-})
 -- 特殊工作区边框色(与按键助记对应:magic(Z)=红 / mofa(X)=绿 / maho(C)=蓝,catppuccin 色板)
 hl.window_rule({
     name         = "special-magic",
@@ -1070,11 +1077,6 @@ hl.window_rule({
     match        = { class = "^.*(?i)" .. terminal .. ".*$" },
     no_close_for = 200,
 })
--- 终端:略透明(仅性能模式;省电模式由 dimRules 关掉 → 不透明)
-table.insert(dimRules, hl.window_rule({
-    name    = "terminal-dim",
-    match   = { class = "^.*(?i)" .. terminal .. ".*$" },
-}))
 -- 任务管理器(Mission Center)
 hl.window_rule({
     name   = "mission_center-float",
@@ -1116,9 +1118,10 @@ hl.window_rule({
 -- 压缩包管理器(ark)
 hl.window_rule({
     name   = "archiver-float",
-    match  = { class = "^.*(?i)" .. archiver .. ".*$" },
+    match  = { initial_class = "^org.kde.ark$"},
     float  = true,
     center = true,
+    
 })
 -- Steam 子窗口(弹窗)
 hl.window_rule({
@@ -1150,9 +1153,12 @@ hl.window_rule({
 })
 -- Motrix Next(下载器)
 hl.window_rule({
-    name   = "motrix-next-float",
-    match  = { initial_class = "motrix-next" },
+    name   = "rayburst-float",
+    match  = { initial_class = "rayburst" },
     float  = true,
     center = true,
-    size   = "monitor_w*0.3 monitor_h*0.7"
+    size   = "monitor_w*0.6 monitor_h*0.7"
 })
+
+-- DMS Include Configs
+require("dms.outputs")
