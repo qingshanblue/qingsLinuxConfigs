@@ -502,7 +502,7 @@ local mainMod = "SUPER"
 -- ═══ 特殊工作区辅助逻辑(供下面快捷键/手势共用)═══
 
 -- 三个特殊工作区的顺序(用于循环)
-local specialOrder = { "magic", "mofa", "maho" }
+local specialOrder = { "magic", "maho", "mofa" }
 -- 最近使用的特殊工作区(呼出类操作的目标)
 local lastSpecial = "magic"
 
@@ -592,7 +592,7 @@ local function invokeSpecial(name)
     end
 end
 
--- 切工作区:dir=1 下一个,-1 上一个。有特殊区开着时在 magic/mofa/maho 之间循环;未开时切常规工作区
+-- 切工作区:dir=1 下一个,-1 上一个。有特殊区开着时在 magic/maho/mofa 之间循环;未开时切常规工作区
 local function navWorkspace(dir)
     local cur = getActiveSpecialName()
     if cur == nil then
@@ -725,7 +725,7 @@ hl.bind(mainMod .. "+SHIFT+mouse_up", function() moveWindowNav(-1) end)
 hl.bind(mainMod .. "+SHIFT+mouse:276", hl.dsp.layout("swapcol l"))
 hl.bind(mainMod .. "+SHIFT+mouse:275", hl.dsp.layout("swapcol r"))
 
--- ═══ 特殊工作区(scratchpad:magic / mofa / maho)═══
+-- ═══ 特殊工作区(scratchpad:magic / maho / mofa)═══
 
 -- 层开关:开着则直接收起当前,没开则呼出最近使用的(不用先猜当前是哪个)
 hl.bind(mainMod .. "+GRAVE", function() toggleSpecialLayer() end)
@@ -735,14 +735,14 @@ hl.bind(mainMod .. "+mouse:274", function() toggleSpecialLayer() end)
 hl.bind(mainMod .. "+Z", function() toggleSpecialNamed("magic") end)
 -- magic(Z):把窗口扔进去
 hl.bind(mainMod .. "+SHIFT+Z", hl.dsp.window.move({ workspace = "special:magic" }))
--- mofa(X):开合
-hl.bind(mainMod .. "+X", function() toggleSpecialNamed("mofa") end)
--- mofa(X):把窗口扔进去
-hl.bind(mainMod .. "+SHIFT+X", hl.dsp.window.move({ workspace = "special:mofa" }))
--- maho(C):开合
-hl.bind(mainMod .. "+C", function() toggleSpecialNamed("maho") end)
--- maho(C):把窗口扔进去
-hl.bind(mainMod .. "+SHIFT+C", hl.dsp.window.move({ workspace = "special:maho" }))
+-- maho(X):开合
+hl.bind(mainMod .. "+X", function() toggleSpecialNamed("maho") end)
+-- maho(X):把窗口扔进去
+hl.bind(mainMod .. "+SHIFT+X", hl.dsp.window.move({ workspace = "special:maho" }))
+-- mofa(C):开合
+hl.bind(mainMod .. "+C", function() toggleSpecialNamed("mofa") end)
+-- mofa(C):把窗口扔进去
+hl.bind(mainMod .. "+SHIFT+C", hl.dsp.window.move({ workspace = "special:mofa" }))
 
 -- ═══ 回跳(窗口往返)═══
 
@@ -1001,26 +1001,36 @@ hl.window_rule({
     },
     no_focus = true,
 })
--- 特殊工作区边框色(与按键助记对应:magic(Z)=红 / mofa(X)=绿 / maho(C)=蓝,catppuccin 色板)
+-- 特殊工作区边框色(与按键助记对应:magic(Z)=红 / maho(X)=绿 / mofa(C)=蓝,catppuccin 色板)
 hl.window_rule({
     name         = "special-magic",
     match        = { workspace = "special:magic" },
     border_color = "rgba(f38ba8dd)",
 })
 hl.window_rule({
-    name         = "special-mofa",
-    match        = { workspace = "special:mofa" },
+    name         = "special-maho",
+    match        = { workspace = "special:maho" },
     border_color = "rgba(a6e3a1dd)",
 })
 hl.window_rule({
-    name         = "special-maho",
-    match        = { workspace = "special:maho" },
+    name         = "special-mofa",
+    match        = { workspace = "special:mofa" },
     border_color = "rgba(89b4fadd)",
 })
 -- 特殊工作区半透明(仅性能模式;省电模式由 dimRules 关掉 → 不透明)
 table.insert(dimRules, hl.window_rule({
     name    = "special-magic-dim",
     match   = { workspace = "special:magic" },
+    opacity = 0.96,
+}))
+table.insert(dimRules, hl.window_rule({
+    name    = "special-magic-dim",
+    match   = { workspace = "special:maho" },
+    opacity = 0.96,
+}))
+table.insert(dimRules, hl.window_rule({
+    name    = "special-magic-dim",
+    match   = { workspace = "special:mofa" },
     opacity = 0.96,
 }))
 -- Hyprland-run 窗口
