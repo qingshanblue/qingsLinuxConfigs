@@ -852,15 +852,19 @@ hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURC
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set 5%+"), { locked = true, repeating = true })
 -- 亮度 -
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), { locked = true, repeating = true })
+-- 上一曲
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 -- 下一曲(需 playerctl)
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 -- 播放/暂停
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
--- 播放/暂停
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+-- 自定义播放控制
 -- 上一曲
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
-
+hl.bind(mainMod .. "+page_up", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+-- 下一曲
+hl.bind(mainMod .. "+page_down", hl.dsp.exec_cmd("playerctl next"), { locked = true })
+-- 播放/暂停
+hl.bind(mainMod .. "+delete", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 -- ═══ 截图与录制 ═══
 
 -- 区域截图(框选时画面冻结)
@@ -879,7 +883,6 @@ hl.bind(mainMod .. "+F10", hl.dsp.pass({ window = "class:^(com.obsproject.Studio
 hl.bind(mainMod .. "+F11", hl.dsp.pass({ window = "class:^(com.obsproject.Studio)$" }))
 -- OBS:停止录制
 hl.bind(mainMod .. "+F12", hl.dsp.pass({ window = "class:^(com.obsproject.Studio)$" }))
-
 
 ------------------------
 ----  GESTURES  ----

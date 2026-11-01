@@ -52,9 +52,10 @@
           "workspaceFollowFocus": true,
           "showOccupiedWorkspacesOnly": true,
           "showSpecialWorkspaces": true,
-          "workspaceIndicatorCompact": false,
+          "workspaceIndicatorCompact": true,
           "workspaceIndicatorRoundness": -1,
-          "showWorkspaceName": false
+          "showWorkspaceName": false,
+          "workspaceIndicatorStyle": "pills"
         },
         {
           "id": "focusedWindow",
@@ -70,12 +71,29 @@
         "weather"
       ],
       "rightWidgets": [
-        "systemTray",
+        {
+          "id": "systemTray",
+          "enabled": true,
+          "overflowMode": "always"
+        },
         {
           "id": "network_speed_monitor",
           "enabled": true,
           "compactMode": true,
-          "hideWhenIdle": false
+          "hideWhenIdle": false,
+          "overflowMode": "section"
+        },
+        {
+          "id": "cpuUsage",
+          "enabled": true,
+          "overflowMode": "section"
+        },
+        {
+          "id": "memUsage",
+          "enabled": true,
+          "showInGb": false,
+          "showSwap": false,
+          "overflowMode": "section"
         },
         {
           "id": "controlCenterButton",
@@ -83,12 +101,12 @@
           "showMicPercent": false,
           "showMicIcon": true,
           "showBrightnessIcon": true,
-          "showBatteryIcon": true,
+          "showBatteryIcon": false,
           "showAudioPercent": false,
           "controlCenterGroupOrder": [
-            "bluetooth",
             "network",
             "vpn",
+            "bluetooth",
             "audio",
             "microphone",
             "brightness",
@@ -101,7 +119,12 @@
           "showPrinterIcon": false,
           "showScreenSharingIcon": false,
           "showIdleInhibitorIcon": false,
-          "showDoNotDisturbIcon": false
+          "showDoNotDisturbIcon": false,
+          "showVpnIcon": true
+        },
+        {
+          "id": "battery",
+          "enabled": true
         },
         "notificationButton"
       ],
@@ -413,115 +436,162 @@
       "id": "user",
       "enabled": true,
       "w": 5,
-      "h": 1
+      "h": 1,
+      "col": 0,
+      "row": 0
     },
     {
       "id": "settings",
       "enabled": true,
       "w": 1,
       "h": 1,
-      "small": true
+      "small": true,
+      "col": 5,
+      "row": 0
     },
     {
       "id": "lock",
       "enabled": true,
       "w": 1,
       "h": 1,
-      "small": true
+      "small": true,
+      "col": 6,
+      "row": 0
     },
     {
       "id": "power",
       "enabled": true,
       "w": 1,
       "h": 1,
-      "small": true
+      "small": true,
+      "col": 7,
+      "row": 0
     },
     {
       "id": "brightnessSlider",
       "enabled": true,
-      "w": 4,
+      "w": 8,
       "h": 1,
-      "deviceName": "backlight:nvidia_0"
-    },
-    {
-      "id": "volumeSlider",
-      "enabled": true,
-      "w": 4,
-      "h": 1
+      "deviceName": "backlight:nvidia_0",
+      "col": 0,
+      "row": 1
     },
     {
       "id": "wifi",
       "enabled": true,
       "w": 4,
-      "h": 1
+      "h": 1,
+      "col": 0,
+      "row": 2
     },
     {
       "id": "bluetooth",
       "enabled": true,
       "w": 4,
-      "h": 1
+      "h": 1,
+      "col": 4,
+      "row": 2
     },
     {
       "id": "audioOutput",
       "enabled": true,
       "w": 4,
-      "h": 1
+      "h": 1,
+      "col": 0,
+      "row": 3
     },
     {
       "id": "audioInput",
       "enabled": true,
       "w": 4,
-      "h": 1
+      "h": 1,
+      "col": 4,
+      "row": 3
     },
     {
       "id": "darkMode",
       "enabled": true,
       "w": 2,
-      "h": 1
+      "h": 1,
+      "col": 0,
+      "row": 5
     },
     {
       "id": "nightMode",
       "enabled": true,
       "w": 2,
-      "h": 1
+      "h": 1,
+      "col": 2,
+      "row": 5
     },
     {
       "id": "doNotDisturb",
       "enabled": true,
       "w": 2,
-      "h": 1
+      "h": 1,
+      "col": 4,
+      "row": 4
     },
     {
       "id": "idleInhibitor",
       "enabled": true,
       "w": 2,
-      "h": 1
-    },
-    {
-      "id": "battery",
-      "enabled": true,
-      "w": 4,
-      "h": 1
-    },
-    {
-      "id": "diskUsage",
-      "enabled": true,
-      "w": 4,
-      "h": 1
+      "h": 1,
+      "col": 6,
+      "row": 4
     },
     {
       "id": "runningApps",
       "enabled": true,
       "w": 7,
       "h": 1,
-      "small": true
+      "small": true,
+      "col": 0,
+      "row": 6
     },
     {
       "id": "edit",
       "enabled": true,
       "w": 1,
       "h": 1,
-      "small": true
+      "small": true,
+      "col": 7,
+      "row": 6
+    },
+    {
+      "id": "builtin_tailscale",
+      "enabled": true,
+      "w": 2,
+      "h": 1,
+      "col": 2,
+      "row": 4
+    },
+    {
+      "id": "builtin_display_profiles",
+      "enabled": true,
+      "w": 2,
+      "h": 1,
+      "col": 4,
+      "row": 5
+    },
+    {
+      "id": "builtin_vpn",
+      "enabled": true,
+      "w": 2,
+      "h": 1,
+      "col": 0,
+      "row": 4
+    },
+    {
+      "id": "diskUsage",
+      "enabled": true,
+      "w": 2,
+      "h": 1,
+      "instanceId": "mvu9aonqj2ets1iy53jqs5jgn9cr6n",
+      "mountPath": "/",
+      "showMountPath": true,
+      "col": 6,
+      "row": 5
     }
   ],
   "dashCards": [
@@ -585,7 +655,7 @@
     "hibernate"
   ],
   "avatarRing": "tertiary",
-  "useAutoLocation": false,
+  "useAutoLocation": true,
   "windSpeedUnit": "ms",
   "batteryCriticalAnimation": true,
   "batteryCriticalThreshold": 20,
