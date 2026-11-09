@@ -74,15 +74,10 @@
         {
           "id": "systemTray",
           "enabled": true,
-          "overflowMode": "always"
-        },
-        {
-          "id": "cpuUsage",
-          "enabled": true
-        },
-        {
-          "id": "cpuTemp",
-          "enabled": true
+          "overflowMode": "section",
+          "trayUseInlineExpansion": true,
+          "trayAutoOverflow": true,
+          "trayMaxVisibleItems": 0
         },
         {
           "id": "controlCenterButton",
@@ -188,16 +183,16 @@
           "enabled": true
         },
         {
-          "id": "privacy",
+          "id": "media",
           "enabled": true
+        },
+        {
+          "id": "privacy",
+          "enabled": false
         },
         {
           "id": "weather",
-          "enabled": true
-        },
-        {
-          "id": "media",
-          "enabled": true
+          "enabled": false
         },
         {
           "id": "workspaces",
@@ -461,7 +456,7 @@
       "enabled": true,
       "w": 8,
       "h": 1,
-      "deviceName": "backlight:nvidia_0",
+      "deviceName": "software:DP-1",
       "col": 0,
       "row": 1
     },
@@ -482,28 +477,12 @@
       "row": 2
     },
     {
-      "id": "audioOutput",
-      "enabled": true,
-      "w": 4,
-      "h": 1,
-      "col": 0,
-      "row": 3
-    },
-    {
-      "id": "audioInput",
-      "enabled": true,
-      "w": 4,
-      "h": 1,
-      "col": 4,
-      "row": 3
-    },
-    {
       "id": "darkMode",
       "enabled": true,
       "w": 2,
       "h": 1,
       "col": 0,
-      "row": 5
+      "row": 4
     },
     {
       "id": "nightMode",
@@ -511,7 +490,7 @@
       "w": 2,
       "h": 1,
       "col": 2,
-      "row": 5
+      "row": 4
     },
     {
       "id": "doNotDisturb",
@@ -553,7 +532,7 @@
       "w": 2,
       "h": 1,
       "col": 2,
-      "row": 4
+      "row": 5
     },
     {
       "id": "builtin_display_profiles",
@@ -569,7 +548,7 @@
       "w": 2,
       "h": 1,
       "col": 0,
-      "row": 4
+      "row": 5
     },
     {
       "id": "diskUsage",
@@ -581,6 +560,22 @@
       "showMountPath": true,
       "col": 6,
       "row": 5
+    },
+    {
+      "id": "audioOutput",
+      "enabled": true,
+      "w": 4,
+      "h": 1,
+      "col": 0,
+      "row": 3
+    },
+    {
+      "id": "audioInput",
+      "enabled": true,
+      "w": 4,
+      "h": 1,
+      "col": 4,
+      "row": 3
     }
   ],
   "dashCards": [
@@ -636,21 +631,23 @@
   "osdAlwaysShowValue": false,
   "osdMediaPlaybackEnabled": true,
   "bluetoothMprisEnabled": true,
-  "powerMenuGridLayout": false,
+  "powerMenuGridLayout": true,
   "powerMenuActions": [
     "reboot",
     "logout",
     "poweroff",
     "lock",
     "suspend",
-    "restart",
-    "hibernate"
+    "hibernate",
+    "switchuser",
+    "softreboot",
+    "restart"
   ],
   "avatarRing": "tertiary",
-  "useAutoLocation": true,
+  "useAutoLocation": false,
   "windSpeedUnit": "ms",
   "batteryCriticalAnimation": true,
-  "batteryCriticalThreshold": 20,
+  "batteryCriticalThreshold": 30,
   "notificationDedupeEnabled": false,
   "dashTabs": [
     {
@@ -686,5 +683,18 @@
   "dankLauncherV2Size": "compact",
   "connectedFrameBarStyleBackups": {},
   "frameEnabled": false,
-  "scrollTitleEnabled": true
+  "scrollTitleEnabled": true,
+  "batteryProfileName": "0",
+  "acProfileName": "2",
+  "lowerDisplayRefreshRateOnBattery": true,
+  "batteryAutoPowerSaver": true,
+  "batteryLowThreshold": 40,
+  "batteryNotifyLow": true,
+  "batteryCriticalNotificationType": 1,
+  "batteryNotifyChargeLimit": true,
+  "lockBeforeSuspend": true,
+  "audioVisualizerEnabled": true,
+  "dashTabPosition": "auto",
+  "notificationTimeoutLow": 5000,
+  "notificationShowTimeoutBar": true
 }

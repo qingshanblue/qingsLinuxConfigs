@@ -6,7 +6,6 @@ text/plain=userapp-stm32cubemx-96JYX3.desktop;code.desktop;userapp-stm32cubemx-5
 x-scheme-handler/tg=org.telegram.desktop.desktop;
 x-scheme-handler/tonsite=org.telegram.desktop.desktop;
 text/markdown=code.desktop;
-x-scheme-handler/podman-desktop=podman-desktop.desktop;
 x-scheme-handler/lxmusic=lx-music-desktop.desktop;
 application/pdf=okularApplication_pdf.desktop;
 image/jpeg=swayimg.desktop;
