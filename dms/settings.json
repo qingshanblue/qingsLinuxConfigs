@@ -696,5 +696,6 @@
   "audioVisualizerEnabled": true,
   "dashTabPosition": "auto",
   "notificationTimeoutLow": 5000,
-  "notificationShowTimeoutBar": true
+  "notificationShowTimeoutBar": true,
+  "displayPreviousRefreshModes": {}
 }

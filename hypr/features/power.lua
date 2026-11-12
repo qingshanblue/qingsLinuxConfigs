@@ -10,7 +10,7 @@
 
 local lastPerf = nil
 
--- 需要在省电模式下关闭的「按窗口透明度」规则列表 (由 apps/rules.lua 注册进来)
+-- 省电模式下需要禁用的「按窗口透明度」规则列表(可选钩子; 当前为空, 需要时用 table.insert 注册)
 -- 省电时禁用它们, 窗口透明度回落至 decoration 的 1.0 (全不透明)
 local dimRules = {}
 

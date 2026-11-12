@@ -2,8 +2,7 @@
 -- 参考: https://wiki.hypr.land/Configuring/Basics/Window-Rules/
 --       https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 
-local apps     = require("apps.defs")
-local dimRules = require("features.power").dimRules
+local apps = require("apps.defs")
 
 -- ═══════════════════════════════════════════════════════════════════════════
 -- 1. 系统底层与合成器修复
@@ -42,6 +41,7 @@ hl.window_rule({
 -- ═══════════════════════════════════════════════════════════════════════════
 
 -- 特殊工作区辨识边框色 (Catppuccin 主题色: magic/Z=红, maho/X=绿, mofa/C=蓝)
+-- 注意: 此处刻意不设 opacity, 透明度完全由 core/look.lua 的全局 decoration 决定
 hl.window_rule({
     name         = "special-magic-border",
     match        = { workspace = "special:magic" },
@@ -57,23 +57,6 @@ hl.window_rule({
     match        = { workspace = "special:mofa" },
     border_color = "rgba(89b4fadd)",
 })
-
--- 特殊工作区微透明 (注册至 dimRules: 性能模式下 0.96，省电模式下自动禁用变为 1.0 全不透明)
-table.insert(dimRules, hl.window_rule({
-    name    = "special-magic-dim",
-    match   = { workspace = "special:magic" },
-    opacity = 0.96,
-}))
-table.insert(dimRules, hl.window_rule({
-    name    = "special-maho-dim",
-    match   = { workspace = "special:maho" },
-    opacity = 0.96,
-}))
-table.insert(dimRules, hl.window_rule({
-    name    = "special-mofa-dim",
-    match   = { workspace = "special:mofa" },
-    opacity = 0.96,
-}))
 
 -- ═══════════════════════════════════════════════════════════════════════════
 -- 3. 系统工具与配置面板 (默认居中悬浮)
