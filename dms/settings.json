@@ -183,16 +183,16 @@
           "enabled": true
         },
         {
+          "id": "weather",
+          "enabled": true
+        },
+        {
           "id": "media",
           "enabled": true
         },
         {
           "id": "privacy",
-          "enabled": false
-        },
-        {
-          "id": "weather",
-          "enabled": false
+          "enabled": true
         },
         {
           "id": "workspaces",
@@ -227,7 +227,8 @@
       "islandRouteControlCenter": "follow",
       "islandRouteClipboard": "follow",
       "islandRouteNotificationCenter": "follow",
-      "islandSystemOsd": false
+      "islandSystemOsd": false,
+      "islandRouteLauncher": "follow"
     },
     {
       "id": "dot1793089207308",
